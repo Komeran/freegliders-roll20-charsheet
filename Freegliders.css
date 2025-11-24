@@ -1,0 +1,1149 @@
+/* configure the tab buttons */
+.charsheet .sheet-character,
+.charsheet .sheet-combat,
+.charsheet .sheet-qualities,
+.charsheet .sheet-inventory,
+.charsheet .sheet-prayer,
+.charsheet .sheet-witchcraft,
+.charsheet .sheet-alchemy,
+.charsheet .sheet-witchcraft-runes,
+.charsheet .sheet-witchcraft-rituals,
+.charsheet .sheet-witchcraft-spells,
+.charsheet .sheet-witchcraft-curses,
+.charsheet .sheet-alchemy-elixirs,
+.charsheet .sheet-alchemy-potions,
+.charsheet .sheet-alchemy-infusions,
+.charsheet .sheet-clockwork-mechanics,
+.charsheet .sheet-clockwork-mechanics-blueprints,
+.charsheet .sheet-clockwork-mechanics-automatons,
+.charsheet .sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-inventory-items,
+.charsheet .sheet-inventory-money,
+.charsheet .sheet-augmentations,
+.charsheet .sheet-pc,
+.charsheet .sheet-npc,
+.charsheet .sheet-character-basics > .sheet-npc-subtype,
+.charsheet .sheet-npc-attack-atk,
+.charsheet .sheet-npc-attack-save {
+    display: none;
+}
+
+/* style the active button */
+.charsheet .sheet-tabstoggle[value="character"] ~ div .sheet-button0,
+.charsheet .sheet-tabstoggle[value="combat"] ~ div .sheet-button1,
+.charsheet .sheet-tabstoggle[value="qualities"] ~ div .sheet-button2,
+.charsheet .sheet-tabstoggle[value="inventory"] ~ div .sheet-button3,
+.charsheet .sheet-tabstoggle[value="prayer"] ~ div .sheet-button4,
+.charsheet .sheet-tabstoggle[value="witchcraft"] ~ div .sheet-button5,
+.charsheet .sheet-tabstoggle[value="alchemy"] ~ div .sheet-button6,
+.charsheet .sheet-tabstoggle[value="clockworkMechanics"] ~ div .sheet-button7,
+.charsheet .sheet-tabstoggle[value="augmentations"] ~ div .sheet-button8,
+.charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div .sheet-witchcraft-button0,
+.charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div .sheet-witchcraft-button1,
+.charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div .sheet-witchcraft-button2,
+.charsheet .sheet-witchcraft-tabstoggle[value="curses"] ~ div .sheet-witchcraft-button3,
+.charsheet .sheet-alchemy-tabstoggle[value="elixirs"] ~ div .sheet-alchemy-button0,
+.charsheet .sheet-alchemy-tabstoggle[value="potions"] ~ div .sheet-alchemy-button1,
+.charsheet .sheet-alchemy-tabstoggle[value="infusions"] ~ div .sheet-alchemy-button2,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="blueprints"] ~ div .sheet-clockwork-mechanics-button0,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="automatons"] ~ div .sheet-clockwork-mechanics-button1,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="artificing"] ~ div .sheet-clockwork-mechanics-button2,
+.charsheet .sheet-inventory-tabstoggle[value="equipment"] ~ div .sheet-inventory-button0,
+.charsheet .sheet-inventory-tabstoggle[value="money"] ~ div .sheet-inventory-button1,
+.charsheet .sheet-pc-tabstoggle[value="pc"] ~ div .sheet-pc-button0,
+.charsheet .sheet-pc-tabstoggle[value="npc"] ~ div .sheet-pc-button1 {
+    outline: 2px solid red;
+}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.charsheet .sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+.charsheet .sheet-tabstoggle[value="qualities"] ~ div.sheet-qualities,
+.charsheet .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
+.charsheet .sheet-tabstoggle[value="prayer"] ~ div.sheet-prayer,
+.charsheet .sheet-tabstoggle[value="witchcraft"] ~ div.sheet-witchcraft,
+.charsheet .sheet-tabstoggle[value="alchemy"] ~ div.sheet-alchemy,
+.charsheet .sheet-tabstoggle[value="clockworkMechanics"] ~ div.sheet-clockwork-mechanics,
+.charsheet .sheet-tabstoggle[value="augmentations"] ~ div.sheet-augmentations,
+.charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div.sheet-witchcraft-runes,
+.charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div.sheet-witchcraft-rituals,
+.charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div.sheet-witchcraft-spells,
+.charsheet .sheet-witchcraft-tabstoggle[value="curses"] ~ div.sheet-witchcraft-curses,
+.charsheet .sheet-alchemy-tabstoggle[value="elixirs"] ~ div.sheet-alchemy-elixirs,
+.charsheet .sheet-alchemy-tabstoggle[value="potions"] ~ div.sheet-alchemy-potions,
+.charsheet .sheet-alchemy-tabstoggle[value="infusions"] ~ div.sheet-alchemy-infusions,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="blueprints"] ~ div.sheet-clockwork-mechanics-blueprints,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="automatons"] ~ div.sheet-clockwork-mechanics-automatons,
+.charsheet .sheet-clockwork-mechanics-tabstoggle[value="artificing"] ~ div.sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-inventory-tabstoggle[value="equipment"] ~ div.sheet-inventory-items,
+.charsheet .sheet-inventory-tabstoggle[value="money"] ~ div.sheet-inventory-money,
+.charsheet div.sheet-npc-type:has(> select > option[value="mythological"]:checked) ~ .sheet-npc-subtype {
+    display: flex;
+}
+
+.charsheet .sheet-pc-tabstoggle[value="pc"] ~ div.sheet-pc,
+.charsheet .sheet-pc-tabstoggle[value="npc"] ~ div.sheet-npc {
+    display: block;
+}
+
+.charsheet {
+    font-family: "Times New Roman";
+}
+
+.charsheet .sheet-attribute {
+    display: inline-block;
+}
+
+.charsheet .sheet-attribute-mod {
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    width: 80px;
+    height: 82px;
+    border: none;
+    background-color: transparent;
+    float: left;
+}
+
+.charsheet .sheet-attribute-mod > span {
+    font-size: 200%;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.charsheet .sheet-attribute-mod:before {
+    content: "" !important;
+}
+
+.charsheet .sheet-attribute-mod:hover {
+    background-position: center !important;
+    background-size: cover;
+}
+
+.charsheet .sheet-attribute-score {
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+    margin-top: 55px;
+    float: left;
+}
+
+.charsheet .sheet-attribute-score > input {
+    border: none;
+    background-color: transparent;
+    width: 80% !important;
+    height: 80% !important;
+    margin: 10%;
+    -moz-appearance: textfield;
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.charsheet .sheet-attribute-score > input::-webkit-outer-spin-button,
+.charsheet .sheet-attribute-score > input::-webkit-inner-spin-button,
+.charsheet .sheet-skill-ranks::-webkit-outer-spin-button,
+.charsheet .sheet-skill-ranks::-webkit-inner-spin-button,
+.charsheet .sheet-resource > input::-webkit-outer-spin-button,
+.charsheet .sheet-resource > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.charsheet .sheet-attribute-label {
+    text-align: center;
+    width: 90px;
+    color: #666 !important;
+}
+
+.charsheet .sheet-skill-group {
+    font-weight: bold;
+    text-align: center;
+}
+
+.charsheet .sheet-skill-line > td {
+    border: solid 3px black;
+}
+
+
+.charsheet .sheet-skill-group-head {
+    font-size: .8em;
+    height: 30px !important;
+}
+
+.charsheet .sheet-skill-group-head > th {
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.charsheet .sheet-skill-name {
+    padding-left: 5px;
+    text-align: left;
+    width: 200px !important;
+}
+
+.charsheet .sheet-skill-ranks {
+    -moz-appearance: textfield;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    border-radius: 0;
+}
+
+.charsheet .sheet-skill-mod::before {
+    content: "" !important;
+}
+
+.charsheet .sheet-skill-mod > span {
+    font-weight: bold;
+}
+
+.charsheet .sheet-character-skills-left {
+    float: left;
+}
+
+.charsheet .sheet-character-skills-right {
+    float: left;
+    margin-left: 45px;
+}
+
+.charsheet .sheet-resource {
+    display: flex;
+    flex-flow: column;
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    width: 100px !important;
+    height: 100px !important;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .sheet-resource > input {
+    -moz-appearance: textfield;
+    background-color: transparent;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+}
+
+.charsheet .sheet-resource > input:first-child:not(:last-child) {
+    height: fit-content;
+    width: 40% !important;
+    font-size: 1.7em;
+}
+
+.charsheet .sheet-resource > input:last-child:not(:first-child) {
+    height: fit-content;
+    width: 40% !important;
+    font-size: 1.7em;
+    margin-top: -5%;
+}
+
+.charsheet .sheet-resource > span {
+    font-weight: bold;
+    height: 40%;
+    margin-top: -5%;
+    float: top;
+    font-size: 1.7em;
+}
+
+.charsheet .sheet-item {
+    float: left;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.charsheet .sheet-resource-calculation {
+    display: block;
+    font-weight: bold;
+    font-size: .7em;
+    width: 105px !important;
+    text-align: center;
+}
+
+.charsheet .sheet-resource-label {
+    padding: 0;
+    margin-top: 5px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #666 !important;
+}
+
+.charsheet .sheet-resource-hitdie {
+    display: flex;
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.charsheet .sheet-resource-hitdie > span {
+    font-size: 150%;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.charsheet .sheet-resource-hitdie ~ label {
+    font-size: 1em;
+    width: 50px;
+    text-align: center;
+}
+
+.charsheet .sheet-item:not(:first-child, [name="hitdie"]) {
+    margin-left: 80px;
+}
+
+.charsheet .sheet-item[name="hitdie"] {
+    margin-left: -5px;
+    margin-top: 50px;
+}
+
+.charsheet .sheet-npc-topline > .sheet-item[name="hitdie"] {
+    /* margin-left: */
+}
+
+.charsheet .sheet-character-basics {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.charsheet .sheet-character-basics > div {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.charsheet .sheet-character-basics > div:not(:first-child) {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-character-basics > div > label {
+    text-align: center;
+    font-size: 1em;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.charsheet .sheet-character-basics > div > input {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    font-size: 1.5em;
+}
+
+.charsheet .sheet-character-basics > div > select {
+    text-align: center;
+    font-size: 1.5em;
+    width: fit-content;
+    height: 1.7em;
+    margin: 0;
+}
+
+.charsheet .sheet-separator {
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.charsheet .sheet-section-separator {
+    border-bottom: 3px solid black;
+    width: 100%;
+    margin-top: 0;
+}
+
+.charsheet .sheet-rollable-mod {
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    width: 95px;
+    height: 97px;
+    border: none;
+    background-color: transparent;
+    float: left;
+}
+
+.charsheet .sheet-rollable-mod > span {
+    font-size: 250%;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.charsheet .sheet-rollable-mod:before {
+    content: "" !important;
+}
+
+.charsheet .sheet-rollable-mod:hover {
+    background-position: center !important;
+    background-size: cover;
+}
+
+.charsheet .sheet-resource > span:first-child:last-child {
+    vertical-align: middle !important;
+    font-size: 300%;
+    margin-top: 0;
+    height: auto;
+}
+
+.charsheet .sheet-page {
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .sheet-skills,
+.charsheet .sheet-combat-bottom {
+    display: flex;
+    flex-flow: row;
+    flex-grow: 1;
+}
+
+.charsheet .sheet-combat-bottom-left,
+.charsheet .sheet-combat-bottom-right {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.charsheet .sheet-combat-bottom-right {
+    margin-left: 100px;
+}
+
+.charsheet .sheet-movementspeed > label,
+.charsheet .sheet-combat-bottom-left > label {
+    text-align: center;
+}
+
+.charsheet .sheet-movementspeed > input {
+    border: 0;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    font-size: 1.5em;
+    text-align: center;
+    width: 100%;
+}
+
+.charsheet .sheet-deathtests {
+    display: flex;
+    flex-flow: row;
+}
+
+.charsheet .sheet-deathtest-success {
+    width: 60px !important;
+    height: 60px !important;
+    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-size: cover;
+    border: 0;
+}
+
+.charsheet .sheet-deathtest-success > input {
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    border: 0;
+    margin: 25%;
+}
+
+.charsheet .sheet-combat-bottom-right * textarea {
+    border-top: 3px solid black;
+    border-radius: 0;
+    font-size: 1.5em;
+    height: 100px;
+    width: 100%;
+}
+
+.charsheet .sheet-combat-bottom-right > div {
+    width: 100%;
+}
+
+.charsheet .sheet-combat-bottom-left * h2,
+.charsheet .sheet-combat-bottom-left > h2,
+.charsheet .sheet-combat-bottom-right * h2,
+.charsheet .sheet-combat-bottom-right > h2,
+.charsheet .sheet-qualities-positive > h2,
+.charsheet .sheet-qualities-negative > h2 {
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.charsheet .sheet-armor-table * td {
+    border: 3px solid black;
+    font-weight: bold;
+}
+
+.charsheet .sheet-armor-table * th,
+.charsheet .sheet-armor-table * input[type="number"],
+.charsheet .sheet-shield-header * th {
+    text-align: center;
+}
+
+.charsheet .sheet-combat-bottom-left * .repitem,
+.charsheet .sheet-quality-columns,
+.charsheet .sheet-shield {
+    display: flex;
+    flex-flow: row;
+}
+
+.charsheet .sheet-shield {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet input[name="attr_ammunition_name"],
+.charsheet .sheet-ammunition-header * th:first-child,
+.charsheet span[name="unarmedStrike_name"],
+.charsheet .sheet-melee-header * th:first-child,
+.charsheet .sheet-ranged-header * th:first-child,
+.charsheet .sheet-shield > select:nth-child(2),
+.charsheet .sheet-shield-header * th:nth-child(2),
+.charsheet input[name="attr_rangedWeapon_range"] {
+    width: 100px;
+}
+
+.charsheet .sheet-shield > select:nth-child(2) {
+    margin: 0 0;
+}
+
+.charsheet .sheet-combat-bottom-left * .repitem > input[type="number"] {
+    text-align: center;
+    font-weight: bold;
+}
+
+.charsheet .sheet-ammunition-header,
+.charsheet .sheet-melee-header,
+.charsheet .sheet-ranged-header {
+    width: 100%;
+    margin-top: -15px;
+}
+
+.charsheet .sheet-ammunition-header * th,
+.charsheet .sheet-melee-header * th,
+.charsheet .sheet-ranged-header * th,
+.charsheet input[name="attr_meleeWeapon_atk"],
+.charsheet input[name="attr_rangedWeapon_atk"],
+.charsheet input[name="attr_rangedWeapon_range"],
+.charsheet .sheet-shield > input:nth-child(3) {
+    text-align: center;
+}
+
+.charsheet .sheet-ammunition-header * th:last-child,
+.charsheet .sheet-ranged-header * th:nth-child(2),
+.charsheet input[name="attr_meleeWeapon_atk"],
+.charsheet span[name="attr_unarmedStrike_atk"],
+.charsheet .sheet-melee-header * th:nth-child(2),
+.charsheet .sheet-shield > input:nth-child(3),
+.charsheet .sheet-shield-header * th:nth-child(3) {
+    width: 50px;
+}
+
+.charsheet input[name="attr_meleeWeapon_damage"],
+.charsheet .sheet-shield > input:nth-child(1),
+.charsheet .sheet-shield-header * th:nth-child(1),
+.charsheet input[name="attr_meleeWeapon_name"],
+.charsheet input[name="attr_rangedWeapon_name"],
+.charsheet input[name="attr_rangedWeapon_damage"] {
+    width: 150px;
+}
+
+.charsheet .sheet-unarmedStrike {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
+.charsheet .sheet-unarmedStrike > span {
+    text-align: center;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.charsheet span[name="attr_unarmedStrike_atk"] {
+    margin: 5px 5px;
+}
+
+.charsheet .sheet-ranged-header * th:nth-child(4) {
+    width: 100px;
+}
+
+.charsheet input[name="attr_rangedWeapon_atk"],
+.charsheet .sheet-ranged-header * th:nth-child(3),
+.charsheet input[name="attr_rangedWeapon_ammo"],
+.charsheet .sheet-ranged-header * th:nth-child(5) {
+    width: 40px;
+}
+
+.repitem > textarea[name="attr_positiveQuality_description"],
+.repitem > textarea[name="attr_negativeQuality_description"] {
+    width: 100%;
+}
+
+.charsheet .sheet-qualities-positive {
+    width: 300px;
+    margin-right: 100px;
+}
+
+.charsheet .sheet-qualities-negative {
+    width: 300px;
+}
+
+.charsheet .sheet-inventory-topline {
+    display: flex;
+    flex-flow: row;
+}
+
+.charsheet .sheet-npc-topline {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.charsheet .sheet-inventory-topline-item > span {
+    font-size: 16px;
+}
+
+.charsheet .sheet-inventory-topline-item {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100px;
+}
+
+.charsheet .sheet-inventory-topline-item:not(:first-child) {
+    margin-left: 20px;
+}
+
+.charsheet .sheet-inventory-topline-item > label {
+    text-align: center;
+    margin-top: -15px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.charsheet .sheet-inventory-equipment,
+.charsheet .sheet-prayer-bottom,
+.charsheet .sheet-witchcraft-bottom,
+.charsheet .sheet-alchemy-bottom,
+.charsheet .sheet-clockwork-mechanics-bottom {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.charsheet .sheet-inventory * h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.charsheet .sheet-equipment-header * th {
+    text-align: center;
+}
+
+.repcontainer[data-groupname="repeating_equipment"] > .repitem,
+.repcontainer[data-groupname="repeating_backitem"] > .repitem {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.repcontainer[data-groupname="repeating_equipment"] > .repitem > span,
+.repcontainer[data-groupname="repeating_backitem"] > .repitem > span,
+.charsheet .sheet-equipment-header * th:last-child,
+.repitem > input[name="attr_equipment_size"],
+.charsheet .sheet-equipment-header * th:nth-child(2),
+.repitem > input[name="attr_equipment_count"],
+.charsheet .sheet-equipment-header * th:nth-child(3),
+.charsheet .sheet-back-header * th:nth-child(2),
+.charsheet .sheet-back-container > input:nth-child(4),
+.charsheet .sheet-back-header * th:nth-child(3),
+.charsheet .sheet-back-container > input:nth-child(5),
+.charsheet .sheet-back-header * th:nth-child(4),
+.charsheet .sheet-back-container > span,
+.repitem > input[name="attr_backItem_size"],
+.repitem > input[name="attr_backItem_count"] {
+    width: 50px;
+    text-align: center;
+}
+
+.repitem > input[name="attr_equipment_name"],
+.repitem > input[name="attr_backItem_name"],
+.charsheet .sheet-equipment-header * th:first-child,
+.charsheet .sheet-back-container > input:nth-child(3),
+.charsheet .sheet-back-header * th:nth-child(1) {
+    width: 300px;
+}
+
+.charsheet .sheet-equipment-header * th:first-child,
+.charsheet .sheet-back-header * th:nth-child(1) {
+    text-align: center;
+}
+
+.charsheet .sheet-back-container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.charsheet button[name="roll_healing"] > span {
+    font-size: 1.2em;
+}
+
+.repcontainer[data-groupname="repeating_blessing"] > .repitem:not(:first-child),
+.repcontainer[data-groupname="repeating_rune"] > .repitem:not(:first-child),
+.repcontainer[data-groupname="repeating_ritual"] > .repitem:not(:first-child),
+.repcontainer[data-groupname="repeating_spell"] > .repitem:not(:first-child),
+.charsheet .sheet-elixir:not(:first-of-type),
+.repcontainer[data-groupname="repeating_potion"] > .repitem:not(:first-child),
+.repcontainer[data-groupname="repeating_debt"] > .repitem:not(:first-child),
+.repcontainer[data-groupname="repeating_automaton"] > .repitem:not(:first-child) {
+    padding-top: 10px;
+    border-top: 1px solid black;
+}
+
+.charsheet .sheet-witchcraft-topline > .sheet-item:not(:first-child),
+.charsheet .sheet-alchemy-topline > .sheet-item:not(:first-child) {
+    margin-left: 20px;
+}
+
+.charsheet .sheet-npc-topline > .sheet-item:not(:first-child, [name="hitdie"]) {
+    margin-left: 50px;
+}
+
+.charsheet .sheet-clockwork-mechanics-topline > .sheet-item:not(:first-child) {
+    margin-left: 8px;
+}
+
+.charsheet .sheet-resource > input[type="number"]:first-child:last-child {
+    width: 70% !important;
+    height: 50%;
+    font-size: 3em;
+    vertical-align: center;
+}
+
+.charsheet .sheet-witchcraft-runes,
+.charsheet .sheet-witchcraft-rituals,
+.charsheet .sheet-witchcraft-spells,
+.charsheet .sheet-witchcraft-curses,
+.charsheet .sheet-alchemy-elixirs,
+.charsheet .sheet-alchemy-potions,
+.charsheet .sheet-alchemy-infusions,
+.charsheet .sheet-clockwork-mechanics-blueprints,
+.charsheet .sheet-clockwork-mechanics-automatons,
+.charsheet .sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-inventory-items,
+.charsheet .sheet-inventory-money,
+.charsheet .sheet-npc {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.charsheet .sheet-alchemy-elixir {
+    flex-wrap: wrap;
+    height: 300px;
+}
+
+.charsheet .sheet-elixir {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.charsheet .sheet-elixir > div,
+.repcontainer[data-groupname="repeating_spell"] > .repitem > div,
+.charsheet .sheet-spells-memorised {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.charsheet .sheet-elixir * label,
+.charsheet .sheet-elixir * span,
+.charsheet .sheet-spell-label {
+    max-width: fit-content;
+    margin-bottom: 0;
+}
+
+.charsheet .sheet-spell-label {
+    margin-left: 20px;
+}
+
+.charsheet .sheet-spells-memorised > span:not(:first-child) {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-spells-memorised > span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Hide all type dependent blueprint inputs */
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-clockwork,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-prosthetic,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-autolimb,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automaton,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automaton-module,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-clockwork-module,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automech {
+    display: none;
+}
+
+/* Show different blueprint inputs based on type */
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="clockwork"]:checked) ~ div.sheet-blueprint-clockwork,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="prosthetic"]:checked) ~ div.sheet-blueprint-prosthetic,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="autolimb"]:checked) ~ div.sheet-blueprint-autolimb,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automaton"]:checked) ~ div.sheet-blueprint-automaton,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automaton module"]:checked) ~ div.sheet-blueprint-automaton-module,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="clockwork module"]:checked) ~ div.sheet-blueprint-clockwork-module,
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automech"]:checked) ~ div.sheet-blueprint-automech {
+    display: flex;
+}
+
+.sheet-blueprint-automaton-medium,
+.sheet-blueprint-automaton-large {
+    display: none;
+}
+
+.charsheet .sheet-blueprint-automaton-chassis:has(> option[value="medium"]:checked) ~ .sheet-blueprint-automaton-medium,
+.charsheet .sheet-blueprint-automaton-chassis:has(> option[value="large"]:checked) ~ .sheet-blueprint-automaton-large {
+    display: block;
+}
+
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > div {
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: center;
+}
+
+.charsheet label {
+    max-width: fit-content;
+    margin: 0;
+}
+
+.repcontainer[data-groupname="repeating_blueprint"] > .repitem > div > span {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.charsheet .sheet-blueprint-automaton-chassis,
+.charsheet .sheet-blueprint-automaton-headers * th:first-child {
+    width: 80px;
+}
+
+.charsheet .sheet-blueprint-automaton-headers * th:nth-child(2) {
+    padding-left: 10px;
+}
+
+.charsheet .sheet-blueprint-automaton > select:not(:first-of-type) {
+    width: 160px;
+}
+
+.charsheet .sheet-blueprint-automaton-headers * th {
+    text-align: center;
+}
+
+.charsheet .sheet-currency-symbol {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0 5px;
+    margin-right: 10px;
+}
+
+.charsheet .sheet-money-row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .sheet-money-row > input {
+    width: 70px !important;
+    text-align: right;
+}
+
+.repcontainer[data-groupname="repeating_debt"] > .repitem:not(:first-child) {
+    margin-top: 10px;
+}
+
+.charsheet .sheet-checkbox-label {
+    font-size: 1em;
+    display: inline-block;
+}
+
+.charsheet .sheet-equip-checkbox {
+    margin-right: 10px;
+}
+
+.charsheet .sheet-equipment-header,
+.charsheet .sheet-back-header:first-of-type {
+    margin-left: 65px;
+}
+
+.charsheet .sheet-back-header:not(:first-of-type) {
+    margin-left: 33px;
+}
+
+.charsheet .sheet-inventory-material {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.charsheet .sheet-inventory-material > .sheet-resource {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.charsheet .sheet-inventory-material > .sheet-resource > input {
+    font-size: 1.5em !important;
+}
+
+.charsheet .sheet-inventory-material > .sheet-resource-label {
+    font-size: .8em;
+    margin-top: 0;
+}
+
+.charsheet .sheet-inventory-right {
+    margin-left: 20px;
+    display: flex;
+    flex-flow: row;
+}
+
+.charsheet .sheet-inventory-left {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 210px;
+}
+
+.charsheet .repcontainer[data-groupname="repeating_automaton"] > .repitem {
+    display: flex;
+    flex-flow: column;
+}
+
+.charsheet .repcontainer[data-groupname="repeating_automaton"] > .repitem > div {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .repcontainer[data-groupname="repeating_automaton"] > .repitem > div:has(> .sheet-blueprint-automaton-headers) {
+    justify-content: start;
+}
+
+.charsheet .sheet-rep-label {
+    color: black;
+    text-align: center;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.charsheet .sheet-rep-item {
+    width: fit-content;
+    margin: 0;
+}
+
+.charsheet .sheet-rep-item:not(.sheet-blueprint-automaton-medium):not(.sheet-blueprint-automaton-large) {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.charsheet div:has(.sheet-blueprint-automaton-chassis > option[value="medium"]:checked) ~ .sheet-blueprint-automaton-medium,
+.charsheet div:has(.sheet-blueprint-automaton-chassis > option[value="large"]:checked) ~ .sheet-blueprint-automaton-large {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.charsheet .sheet-rep-item:not(:first-child) {
+    margin-left: 10px;
+}
+
+.charsheet .sheet-rep-data {
+    border: 0;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.charsheet .sheet-rep-item > .sheet-rep-data {
+    min-width: 100%;
+}
+
+.charsheet .sheet-rep-data .sheet-rep-data-left {
+    text-align: left;
+}
+
+.charsheet select.sheet-rep-data,
+.charsheet .repcontainer[data-groupname="repeating_meleeweapon"] * select {
+    width: fit-content;
+}
+
+.charsheet .sheet-rep-currentMax span.sheet-rep-data,
+.charsheet .repcontainer[data-groupname="repeating_meleeweapon"] * select {
+    min-width: fit-content;
+}
+
+.charsheet .sheet-rep-currentMax {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .sheet-rep-currentMax :not(first-child) {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-rep-item span {
+    font-weight: bold;
+    min-height: 100%;
+}
+
+.charsheet .sheet-item * select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    padding: 0;
+    text-align: center;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    min-height: 100%;
+    margin: 0;
+}
+
+.charsheet input[name="attr_npc_attack_isAttackTest"]:checked ~ .sheet-npc-attack-atk {
+    display: flex;
+}
+
+.charsheet input[name="attr_npc_attack_requiresSave"]:checked ~ .sheet-npc-attack-save {
+    display: flex;
+}
+
+.charsheet .sheet-npc-attacks div {
+    align-items: center;
+}
+
+.charsheet .sheet-npc-attacks * select {
+    width: fit-content;
+    text-align: center;
+    margin: 0;
+}
+
+.charsheet .sheet-npc-attacks * input[type="text"] {
+    height: fit-content;
+}
+
+.charsheet .sheet-npc-attacks * input[name="attr_npc_attack_difficultyMod"],
+.charsheet .sheet-npc-attacks * input[name="attr_npc_attack_atkMod"] {
+    width: 50px;
+    text-align: center;
+}
+
+.charsheet details summary {
+    list-style: none;
+    margin-bottom: 5px;
+
+    &::before {
+        content: "⮞";
+        color: black;
+        font-weight: bold;
+        padding: 0 5px;
+        margin-inline-start: 5px;
+    }
+
+    [open] > &::before {
+        content: "⮟";
+    }
+}
+
+.charsheet details {
+    border: 1px solid black;
+    border-radius: .5em;
+    padding: 10px;
+    min-width: 100%;
+}
+
+.charsheet details > details {
+    box-sizing: border-box;
+}
+
+.charsheet details:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.charsheet details summary::-webkit-details-marker {
+    display: none;
+}
+
+.charsheet .sheet-spoiler-list {
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid black;
+}
+
+.charsheet .sheet-spoiler0 {
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.charsheet .sheet-spoiler1 {
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.charsheet .sheet-augmentations-bottom details input,
+.charsheet .sheet-augmentations-bottom details label,
+.charsheet .sheet-augmentations-bottom details span,
+.charsheet .sheet-augmentations-bottom details details:not(:has(> .sheet-spoiler1)) {
+    display: none;
+}
+
+.charsheet select:has(> option[value="prosthetic"]:checked) ~ input,
+.charsheet select:has(> option[value="prosthetic"]:checked) ~ label,
+.charsheet select:has(> option[value="prosthetic"]:checked) ~ span {
+    display: inline-block;
+}
+
+.charsheet select:has(> option[value="autolimb"]:checked) ~ * {
+    display: inline-block;
+}
+
+.charsheet .sheet-armor-table th {
+    padding: 0 3px;
+}
+
+.charsheet .sheet-armor-table td:not(:first-of-type) {
+    text-align: center;
+}
