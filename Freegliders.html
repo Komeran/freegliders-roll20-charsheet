@@ -1475,6 +1475,7 @@
                 <input type="text" name="attr_blessing_range" placeholder="Range" />
                 <input type="text" name="attr_blessing_area" placeholder="Area" />
                 <input type="text" name="attr_blessing_duration" placeholder="Duration" />
+                <button type="action" name="act_blessinginvoke">Invoke</button>
                 <textarea name="attr_blessing_description" placeholder="Description" />
             </fieldset>
         </div>
@@ -1492,6 +1493,14 @@
                     <span name="attr_spellwork">0</span>
                 </div>
                 <label class="sheet-resource-label">Spellwork</label>
+            </div>
+
+            <!-- SRD -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_srd">0</span>
+                </div>
+                <label class="sheet-resource-label">SRD</label>
             </div>
 
             <!-- Runecraft -->
@@ -2138,7 +2147,6 @@
         </div>
     </div>
     
-
     <!-- Augmentations -->
     <div class="sheet-augmentations sheet-page">
         <h2>Augmentations</h2>
@@ -3092,6 +3100,8 @@ on("change:augmentations_rightLeg_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_leftFoot_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_rightFoot_quality", UpdateAugmentModuleCapacity);
 
+on("clicked:repeating_blessing:blessinginvoke", InvokeBlessing);
+
 function UpdateAttributes() {
     UpdateAgi();
     UpdateBod();
@@ -3241,6 +3251,7 @@ function UpdateWil() {
         UpdateSummoning();
         UpdateNpcAttackAtks();
         UpdateNpcAttackSaveDifficulties();
+        UpdateSRD();
       });
 }
 
@@ -3633,6 +3644,7 @@ function UpdateSpellwork() {
         UpdateMaxMemorisedSpells();
         UpdateCursePowers();
         UpdateSpellPowers();
+        UpdateSRD();
     });
 }
 
@@ -6668,6 +6680,69 @@ function UpdateAugmentModuleCapacity(eventInfo) {
             else if(bodyPart == "torso") {
                 attributes["augmentations_" + bodyPart + "_moduleCapacity"] += 4;
             }
+
+            setAttrs(attributes);
+        }
+    );
+}
+
+function InvokeBlessing(eventInfo) {
+    console.log("InvokeBlessing() called");
+
+    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    let prefix = "repeating_blessing_" + rowId + "_blessing_";
+
+    getAttrs(
+        [
+            prefix + "name",
+            prefix + "action",
+            prefix + "components",
+            prefix + "faith",
+            prefix + "range",
+            prefix + "area",
+            prefix + "duration",
+            prefix + "description",
+            "faith"
+        ],
+        function(values) {
+            let name = values[prefix + "name"] || "";
+            let action = values[prefix + "action"] || "";
+            let components = values[prefix + "components"] || "";
+            let blessingFaith = parseInt(values[prefix + "faith"]) || 0;
+            let range = values[prefix + "range"] || "";
+            let area = values[prefix + "area"] || "";
+            let duration = values[prefix + "duration"] || "";
+            let description = values[prefix + "description"] || "";
+            let faithPool = parseInt(values["faith"]) || 0;
+
+            if(faithPool >= blessingFaith) {
+                // Invoke Blessing
+                console.log(faithPool + " >= " + blessingFaith);
+            }
+            else {
+                // Can't invoke blessing!
+                console.log("alert should pop up!");
+                alert("Can't invoke " + name + "! Not enough Faith available.");
+            }
+
+        }
+    );
+}
+
+
+function UpdateSRD() {
+    getAttrs(
+        [
+            "wil",
+            "spellwork"
+        ],
+        function(values) {
+            let wil = parseInt(values["wil"]) || 0;
+            let spellworkRanks = parseInt(values["spellwork"]) || 0;
+
+            let attributes = {};
+
+            attributes["srd"] = 10 + wil + spellworkRanks;
 
             setAttrs(attributes);
         }
