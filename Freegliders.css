@@ -86,6 +86,11 @@
     display: block;
 }
 
+.charsheet select {
+    width: fit-content;
+    margin: 0 0;
+}
+
 .charsheet {
     font-family: "Times New Roman";
 }
@@ -347,7 +352,6 @@
 .charsheet .sheet-character-basics > div > select {
     text-align: center;
     font-size: 1.5em;
-    width: fit-content;
     height: 1.7em;
     margin: 0;
 }
@@ -511,10 +515,6 @@
 .charsheet .sheet-shield-header * th:nth-child(2),
 .charsheet input[name="attr_rangedWeapon_range"] {
     width: 100px;
-}
-
-.charsheet .sheet-shield > select:nth-child(2) {
-    margin: 0 0;
 }
 
 .charsheet .sheet-combat-bottom-left * .repitem > input[type="number"] {
@@ -708,7 +708,6 @@
 .repcontainer[data-groupname="repeating_blessing"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_rune"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_ritual"] > .repitem:not(:first-child),
-.repcontainer[data-groupname="repeating_spell"] > .repitem:not(:first-child),
 .charsheet .sheet-elixir:not(:first-of-type),
 .repcontainer[data-groupname="repeating_potion"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_debt"] > .repitem:not(:first-child),
@@ -769,7 +768,7 @@
 }
 
 .charsheet .sheet-elixir > div,
-.repcontainer[data-groupname="repeating_spell"] > .repitem > div,
+.repcontainer[data-groupname="repeating_spell"] > .repitem * div,
 .charsheet .sheet-spells-memorised {
     display: flex;
     flex-flow: row;
@@ -786,6 +785,7 @@
 
 .charsheet .sheet-spell-label {
     margin-left: 20px;
+    font-size: 0.8em;
 }
 
 .charsheet .sheet-spells-memorised > span:not(:first-child) {
@@ -997,13 +997,7 @@
     text-align: left;
 }
 
-.charsheet select.sheet-rep-data,
-.charsheet .repcontainer[data-groupname="repeating_meleeweapon"] * select {
-    width: fit-content;
-}
-
-.charsheet .sheet-rep-currentMax span.sheet-rep-data,
-.charsheet .repcontainer[data-groupname="repeating_meleeweapon"] * select {
+.charsheet .sheet-rep-currentMax span.sheet-rep-data {
     min-width: fit-content;
 }
 
@@ -1053,7 +1047,6 @@
 }
 
 .charsheet .sheet-npc-attacks * select {
-    width: fit-content;
     text-align: center;
     margin: 0;
 }
@@ -1071,6 +1064,7 @@
 .charsheet details summary {
     list-style: none;
     margin-bottom: 5px;
+    width: fit-content;
 
     &::before {
         content: "⮞";
@@ -1090,6 +1084,19 @@
     border-radius: .5em;
     padding: 10px;
     min-width: 100%;
+}
+
+.repcontainer[data-groupname="repeating_spell"] > .repitem details {
+    min-width: fit-content !important;
+    width: fit-content !important;
+}
+
+.repcontainer[data-groupname="repeating_spell"] > .repitem summary ~ div {
+    justify-content: space-between;
+}
+
+.repcontainer[data-groupname="repeating_spell"] > .repitem select {
+    width: 210px;
 }
 
 .charsheet details > details {

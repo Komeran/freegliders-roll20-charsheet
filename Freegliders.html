@@ -1673,23 +1673,59 @@
                 </datalist>
                 
                 <fieldset class="repeating_spell">
-                    <div>
-                        <input type="text" name="attr_spell_name" placeholder="Spell" list="spells" />
-                        <label class="sheet-spell-label">Memorised</label>
-                        <input type="checkbox" name="attr_spell_memorised" />
-                    </div>
-                    <select name="attr_spell_action">
-                        <option selected>Major Action</option>
-                        <option>Minor Action</option>
-                        <option>Major Reaction</option>
-                        <option>Minor Reaction</option>
-                    </select>
-                    <input type="text" name="attr_spell_components" placeholder="Components" />
-                    <input type="text" name="attr_spell_natura" placeholder="Natura" />
-                    <input type="text" name="attr_spell_range" placeholder="Range" />
-                    <input type="text" name="attr_spell_area" placeholder="Area" />
-                    <input type="text" name="attr_spell_duration" placeholder="Duration" />
-                    <textarea name="attr_spell_description" placeholder="Description" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_spell_name">New Spell</span>
+                            <button type="action" name="act_spellroll" disabled>Roll</button>
+                            <div>
+                                <label class="sheet-spell-label">Memorised</label>
+                                <input type="checkbox" name="attr_spell_memorised" />
+                            </div>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_spell_name" placeholder="Spell" list="spells" />
+                        </div>
+                        <!-- Action -->
+                        <div>
+                            <label class="sheet-spell-label">Action:</label>
+                            <select name="attr_spell_action">
+                                <option selected>Major Action</option>
+                                <option>Minor Action</option>
+                                <option>Major Reaction</option>
+                                <option>Minor Reaction</option>
+                            </select>
+                        </div>
+                        <!-- Components -->
+                        <div>
+                            <label class="sheet-spell-label">Components:</label>
+                            <input type="text" name="attr_spell_components" placeholder="Components" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_spell_natura" placeholder="Natura" />
+                        </div>
+                        <!-- Range -->
+                        <div>
+                            <label class="sheet-spell-label">Range:</label>
+                            <input type="text" name="attr_spell_range" placeholder="Range" />
+                        </div>
+                        <!-- Area -->
+                        <div>
+                            <label class="sheet-spell-label">Area:</label>
+                            <input type="text" name="attr_spell_area" placeholder="Area" />
+                        </div>
+                        <!-- Duration -->
+                        <div>
+                            <label class="sheet-spell-label">Duration:</label>
+                            <input type="text" name="attr_spell_duration" placeholder="Duration" />
+                        </div>
+                        
+                        <textarea name="attr_spell_description" placeholder="Description" />
+                    </details>
                 </fieldset>
             </div>
 
