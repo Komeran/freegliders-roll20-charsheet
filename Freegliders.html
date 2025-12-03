@@ -1133,7 +1133,10 @@
                     <option>Analytical Mind</option>
                     <option>Educated</option>
                     <option>Eidetic Memory</option>
-                    <option>Elemental Attunement</option>
+                    <option>Elemental Attunement (Air)</option>
+                    <option>Elemental Attunement (Earth)</option>
+                    <option>Elemental Attunement (Fire)</option>
+                    <option>Elemental Attunement (Water)</option>
                     <option>Empathetic</option>
                     <option>Essence Sensitivity</option>
                     <option>Fast</option>
@@ -1148,6 +1151,8 @@
                     <option>Strong</option>
                     <option>Silver Tongue</option>
                 </datalist>
+
+                <input type="hidden" name="attr_elementalAttunement" />
         
                 <fieldset class="repeating_positiveQuality">
                     <input type="text" name="attr_positiveQuality_name" placeholder="Quality" list="positiveQualities" />
@@ -1757,6 +1762,96 @@
                         <div>
                             <label class="sheet-spell-label">Duration:</label>
                             <input type="text" name="attr_spell_duration" placeholder="Duration" />
+                        </div>
+                        <!-- Attack -->
+                        <div>
+                            <label class="sheet-spell-label">Attack:</label>
+                            <select class="feature-attack-type" name="attr_spell_attackType">
+                                <option value="none" selected>-</option>
+                                <option>Melee</option>
+                                <option>Ranged</option>
+                            </select>
+                        </div>
+                        <!-- Save -->
+                        <div>
+                            <label class="sheet-spell-label">Save:</label>
+                            <select class="feature-save-type" name="attr_spell_saveType">
+                                <option value="none" selected>-</option>
+                                <option>Evasion</option>
+                                <option>Body</option>
+                                <option>Willpower</option>
+                            </select>
+                        </div>
+                        <!-- Save DT Type -->
+                        <div class="feature-save-details">
+                            <label class="sheet-spell-label"></label>
+                            <select class="feature-save-dttype" name="attr_spell_saveDTType">
+                                <option value="srd" selected>SRD</option>
+                                <option value="dt">DT</option>
+                                <option value="contest">Contest</option>
+                            </select>
+                        </div>
+                        <!-- Save DT -->
+                        <div class="feature-save-details feature-save-dt">
+                            <label class="sheet-spell-label"></label>
+                            <div>
+                                <select name="attr_spell_saveDTSkill">
+                                    <option selected>-</option>
+                                    <option>Athletics</option>
+                                    <option>Perception</option>
+                                    <option>Piloting</option>
+                                    <option>Stealth</option>
+                                    <option>Artisanship</option>
+                                    <option>Deception</option>
+                                    <option>Intimidation</option>
+                                    <option>Performance</option>
+                                    <option>Persuasion</option>
+                                    <option>Astronomy</option>
+                                    <option>Economy</option>
+                                    <option>History</option>
+                                    <option>Literature</option>
+                                    <option>Medicine</option>
+                                    <option>Mythology</option>
+                                    <option>Nature</option>
+                                    <option>Survival</option>
+                                    <option>Clockwork Mechanics</option>
+                                    <option>Automachinery</option>
+                                    <option>Augmentation</option>
+                                    <option>Gunsmithing</option>
+                                    <option>Tinkering</option>
+                                    <option>Vehicle Mechanics</option>
+                                    <option>Alchemy</option>
+                                    <option>Prayer</option>
+                                    <option>Spellwork</option>
+                                    <option>Runecraft</option>
+                                    <option>Summoning</option>
+                                    <option>Artillery</option>
+                                    <option>Brawling</option>
+                                    <option>Bow</option>
+                                    <option>Pistol</option>
+                                    <option>Rifle</option>
+                                    <option>Shield</option>
+                                    <option>One-Handed Melee</option>
+                                    <option>Two-Handed Melee</option>
+                                </select>
+                                <select name="attr_spell_saveDTAttribute">
+                                    <option selected>-</option>
+                                    <option>Agility</option>
+                                    <option>Body</option>
+                                    <option>Charisma</option>
+                                    <option>Intuition</option>
+                                    <option>Logic</option>
+                                    <option>Willpower</option>
+                                </select>
+                                <input type="number" name="attr_spell_saveDTBonus" placeholder="+0" />
+                                &nbsp;=&nbsp;
+                                <span name="attr_spell_saveDT">0</span>
+                            </div>
+                        </div>
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_spell_damage" placeholder="Damage" />
                         </div>
                         
                         <textarea name="attr_spell_description" placeholder="Description" />
@@ -2924,6 +3019,64 @@
 </div>
 
 <script type="text/worker">
+// Constants
+const SKILLS = [
+    "athletics",
+    "perception",
+    "piloting",
+    "stealth",
+    "artisanship",
+    "deception",
+    "intimidation",
+    "performance",
+    "persuasion",
+    "astronomy",
+    "economy",
+    "history",
+    "literature",
+    "medicine",
+    "mythology",
+    "nature",
+    "survival",
+    "clockworkmechanics",
+    "automachinery",
+    "augmentation",
+    "gunsmithing",
+    "tinkering",
+    "vehiclemechanics",
+    "alchemy",
+    "prayer",
+    "spellwork",
+    "runecraft",
+    "summoning",
+    "artillery",
+    "brawling",
+    "bow",
+    "pistol",
+    "rifle",
+    "shield",
+    "onehandedmelee",
+    "twohandedmelee"
+];
+
+const ATTRIBUTES = [
+    "agility",
+    "body",
+    "charisma",
+    "intuition",
+    "logic",
+    "willpower"
+];
+
+const ATTRIBUTE_MODS = [
+    "agi",
+    "bod",
+    "cha",
+    "int",
+    "log",
+    "wil"
+];
+
 // Tabs management
 const sheetButtonlist = ["pc", "npc"];
 sheetButtonlist.forEach(button => {
@@ -3176,6 +3329,10 @@ on("change:augmentations_rightFoot_quality", UpdateAugmentModuleCapacity);
 on("clicked:repeating_blessing:blessinginvoke", InvokeBlessing);
 on("clicked:repeating_spell:spellcast", CastSpell);
 
+on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
+on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
+on("change:repeating_spell:spell_saveDTBonus", UpdateSpellSaveDT);
+
 function UpdateAttributes() {
     UpdateAgi();
     UpdateBod();
@@ -3348,6 +3505,7 @@ function UpdateAthletics() {
         UpdateCarryCapacity();
         UpdateMeleeWeapons(); // for Powerful Strike
         UpdateRangedWeapons(); // for Powerful Strike
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3362,6 +3520,8 @@ function UpdatePerception() {
             "perceptionMod": Signed(mod),
             "perceptionPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3376,6 +3536,8 @@ function UpdatePiloting() {
             "pilotingMod": Signed(mod),
             "pilotingPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3394,6 +3556,7 @@ function UpdateStealth() {
 
         UpdateMeleeWeapons(); // for sneak attack
         UpdateRangedWeapons(); // for sneak attack
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3408,6 +3571,8 @@ function UpdateArtisanship() {
             "artisanshipMod": Signed(mod),
             "artisanshipPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3422,6 +3587,8 @@ function UpdateDeception() {
             "deceptionMod": Signed(mod),
             "deceptionPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3436,6 +3603,8 @@ function UpdateIntimidation() {
             "intimidationMod": Signed(mod),
             "intimidationPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3464,6 +3633,8 @@ function UpdatePersuasion() {
             "persuasionMod": Signed(mod),
             "persuasionPassive": 10+mod
         });
+        
+        UpdateSpellSaveDTs();
       });
 }
 
@@ -3479,6 +3650,8 @@ function UpdateAstronomy() {
             "astronomyMod": Signed(mod),
             "astronomyPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3494,6 +3667,8 @@ function UpdateEconomy() {
             "economyMod": Signed(mod),
             "economyPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3509,6 +3684,8 @@ function UpdateHistory() {
             "historyMod": Signed(mod),
             "historyPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3524,6 +3701,8 @@ function UpdateLiterature() {
             "literatureMod": Signed(mod),
             "literaturePassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3539,6 +3718,8 @@ function UpdateMedicine() {
             "medicineMod": Signed(mod),
             "medicinePassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3554,6 +3735,8 @@ function UpdateMythology() {
             "mythologyMod": Signed(mod),
             "mythologyPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3569,6 +3752,8 @@ function UpdateNature() {
             "natureMod": Signed(mod),
             "naturePassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3584,6 +3769,8 @@ function UpdateSurvival() {
             "survivalMod": Signed(mod),
             "survivalPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3598,6 +3785,8 @@ function UpdateClockworkMechanics() {
             "clockworkmechanicsMod": Signed(mod),
             "clockworkmechanicsPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3612,6 +3801,8 @@ function UpdateAutomachinery() {
             "automachineryMod": Signed(mod),
             "automachineryPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3626,6 +3817,8 @@ function UpdateAugmentation() {
             "augmentationMod": Signed(mod),
             "augmentationPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3642,6 +3835,7 @@ function UpdateGunsmithing() {
         });
 
         UpdateRangedWeapons(); // For Gun Training
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3656,6 +3850,8 @@ function UpdateTinkering() {
             "tinkeringMod": Signed(mod),
             "tinkeringPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3670,6 +3866,8 @@ function UpdateVehicleMechanics() {
             "vehiclemechanicsMod": Signed(mod),
             "vehiclemechanicsPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3684,6 +3882,8 @@ function UpdateAlchemy() {
             "alchemyMod": Signed(mod),
             "alchemyPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3702,6 +3902,7 @@ function UpdatePrayer() {
         UpdateFaith();
         UpdateHealing();
         UpdateMaxMemorisedBlessings();
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3719,8 +3920,8 @@ function UpdateSpellwork() {
 
         UpdateMaxMemorisedSpells();
         UpdateCursePowers();
-        UpdateSpellPowers();
         UpdateSRD();
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3737,6 +3938,7 @@ function UpdateRunecraft() {
         });
 
         UpdateMaxMemorisedSpells();
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3780,6 +3982,8 @@ function UpdateSummoning() {
             "summoningMod": Signed(mod),
             "summoningPassive": 10 + mod
         });
+        
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3796,6 +4000,7 @@ function UpdateArtillery() {
         });
 
         UpdateRangedWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3813,6 +4018,7 @@ function UpdateBrawling() {
 
         UpdateUnarmedStrike();
         UpdateMeleeWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3829,6 +4035,7 @@ function UpdateBow() {
         });
         
         UpdateRangedWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3845,6 +4052,7 @@ function UpdatePistol() {
         });
         
         UpdateRangedWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3861,6 +4069,7 @@ function UpdateRifle() {
         });
         
         UpdateRangedWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3878,6 +4087,7 @@ function UpdateShield() {
 
         UpdateDAV();
         UpdateMeleeWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3894,6 +4104,7 @@ function UpdateOneHandedMelee() {
         });
 
         UpdateMeleeWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -3910,6 +4121,7 @@ function UpdateTwoHandedMelee() {
         });
         
         UpdateMeleeWeapons(); // for atk
+        UpdateSpellSaveDTs();
     });
 }
 
@@ -4063,7 +4275,10 @@ function AddPositiveQuality(eventInfo) {
         "analytical mind": "You gain a +2 bonus on all Logic tests.\nThis quality is incompatible with Dull.",
         "educated": "At Level 1, you gain a +1 bonus on all Knowledge skill tests. This bonus increases by +1 for each Level of Educated after 1.\nAt Level 2, whenever you fail a knowledge skill test made to recall information, you at least know where to find the information you’re missing, provided you have at least 1 Rank in the skill.\nAt Level 3, you have advantage on knowledge skill tests made to recall information if you have at least 1 Rank in the skill.",
         "eidetic memory": "At Level 1, you can accurately recall anything you have experienced within the last 24 hours.\nAt Level 2, you can accurately recall anything you have experienced within the last month.\nAt Level 3, you can accurately recall anything you have experienced within the last year.",
-        "elemental attunement": "You can choose this quality only once and have to select one of the 4 elements: Water, Earth, Fire, Air.\nWhen you expend essence of the chosen element, you need one less essence of that element and the complexity of any formula using this essence is also one less for you.",
+        "elemental attunement (water)": "You can choose this quality only once and have to select one of the 4 elements: Water, Earth, Fire, Air.\nWhen you expend essence of the chosen element, you need one less essence of that element and the complexity of any formula using this essence is also one less for you.",
+        "elemental attunement (earth)": "You can choose this quality only once and have to select one of the 4 elements: Water, Earth, Fire, Air.\nWhen you expend essence of the chosen element, you need one less essence of that element and the complexity of any formula using this essence is also one less for you.",
+        "elemental attunement (fire)": "You can choose this quality only once and have to select one of the 4 elements: Water, Earth, Fire, Air.\nWhen you expend essence of the chosen element, you need one less essence of that element and the complexity of any formula using this essence is also one less for you.",
+        "elemental attunement (air)": "You can choose this quality only once and have to select one of the 4 elements: Water, Earth, Fire, Air.\nWhen you expend essence of the chosen element, you need one less essence of that element and the complexity of any formula using this essence is also one less for you.",
         "empathetic": "You gain a +2 bonus on all Intuition tests made to judge the intentions or emotional state of another creature, for example when trying to tell if they’re telling the truth.\nThis quality is incompatible with Callous.",
         "essence sensitivity": "At Level 1, you can spend 10 minutes examining an unprocessed object (like a plant, a piece of rock or crystal, or an animal part) to find out what Essence could be extracted from it, if any.\nAt Level 2, you have Advantage on Evasion and Willpower tests against spells, curses and magical effects.\nAt Level 3, you have advantage on Spellwork, Runecraft, and Alchemy tests made to experiment for formulae and recipes.",
         "fast": "Your movement speed increases by 2m for each level of Fast.\nThis quality is incompatible with Slow.",
@@ -4081,58 +4296,58 @@ function AddPositiveQuality(eventInfo) {
 
     let newQuality = eventInfo.newValue;
     let description = descriptions[newQuality.toLowerCase()];
+    
+    let attributes = {};
 
     if(description !== undefined) {
-        let attributes = {};
         attributes[prefix + "positiveQuality_description"] = description;
-        setAttrs(attributes);
     }
+
+    attributes.elementalAttunement = "";
 
     switch(newQuality.toLowerCase()) {
         case "agile":
-            setAttrs({
-                agileBonus: +2
-            });
+            attributes.agileBonus = "+2";
             break;
         case "analytical mind":
-            setAttrs({
-                analyticalMindBonus: +2
-            });
+            attributes.analyticalMindBonus = "+2";
             break;
         case "educated":
             UpdatePositiveQualityLevel(eventInfo);
             break;
         case "quick reflexes":
-            setAttrs({
-                quickReflexesBonus: +2
-            });
+            attributes.quickReflexesBonus = "+2";
             break;
         case "tough":
             UpdatePositiveQualityLevel(eventInfo);
             break;
         case "sneaky":
-            setAttrs({
-                sneakyBonus: +2
-            });
+            attributes.sneakyBonus = "+2";
             break;
         case "inspiring presence":
-            setAttrs({
-                inspiringPresenceBonus: +2
-            });
+            attributes.inspiringPresenceBonus = "+2";
             break;
         case "strong":
-            setAttrs({
-                strongBonus: +2
-            });
+            attributes.strongBonus = "+2";
             break;
         case "silver tongue":
-            setAttrs({
-                silverTongueBonus: +2
-            });
+            attributes.silverTongueBonus = "+2";
+            break;
+        case "elemental attunement (air)":
+            attributes.elementalAttunement = "air";
+            break;
+        case "elemental attunement (earth)":
+            attributes.elementalAttunement = "earth";
+            break;
+        case "elemental attunement (fire)":
+            attributes.elementalAttunement = "fire";
+            break;
+        case "elemental attunement (water)":
+            attributes.elementalAttunement = "water";
             break;
     }
-
-    console.log("Added " + newQuality + " Quality");
+    
+    setAttrs(attributes);
 }
 
 function RemovePositiveQuality(eventInfo) {
@@ -4141,7 +4356,6 @@ function RemovePositiveQuality(eventInfo) {
 
     let oldQuality = eventInfo.previousValue;
     if(eventInfo.triggerName.startsWith("remove:")) {
-        console.log(eventInfo.removedInfo);
         oldQuality = eventInfo.removedInfo[prefix + "positiveQuality_name"];
     }
 
@@ -4149,55 +4363,51 @@ function RemovePositiveQuality(eventInfo) {
         return;
     }
 
+    let attributes = {};
+
     switch(oldQuality.toLowerCase()) {
         case "agile":
-            setAttrs({
-                agileBonus: 0
-            });
+            attributes.agileBonus = "";
             break;
         case "analytical mind":
-            setAttrs({
-                analyticalMindBonus: 0
-            });
+            attributes.analyticalMindBonus = "";
             break;
         case "educated":
-            setAttrs({
-                educatedBonus: 0
-            });
+            attributes.educatedBonus = "";
             break;
         case "quick reflexes":
-            setAttrs({
-                quickReflexesBonus: 0
-            });
+            attributes.quickReflexesBonus = "";
             break;
         case "tough":
-            setAttrs({
-                toughBonus: 0
-            });
+            attributes.toughBonus = "";
             break;
         case "sneaky":
-            setAttrs({
-                sneakyBonus: 0
-            });
+            attributes.sneakyBonus = "";
             break;
         case "inspiring presence":
-            setAttrs({
-                inspiringPresenceBonus: 0
-            });
+            attributes.inspiringPresenceBonus = "";
             break;
         case "strong":
-            setAttrs({
-                strongBonus: 0
-            });
+            attributes.strongBonus = "";
             break;
         case "silver tongue":
-            setAttrs({
-                silverTongueBonus: 0
-            });
+            attributes.silverTongueBonus = "";
+            break;
+        case "elemental attunement (air)":
+            attributes.elementalAttunement = "";
+            break;
+        case "elemental attunement (earth)":
+            attributes.elementalAttunement = "";
+            break;
+        case "elemental attunement (fire)":
+            attributes.elementalAttunement = "";
+            break;
+        case "elemental attunement (water)":
+            attributes.elementalAttunement = "";
             break;
     }
-
-    console.log("Removed " + oldQuality + " Quality");
+    
+    setAttrs(attributes);
 }
 
 function UpdatePositiveQualityLevel(eventInfo) {
@@ -4946,6 +5156,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "3 Fire",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6 Fire",
         description: "You hurl a flame at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 fire damage to them and they gain 1 stack of burning."
     },
     "fireball": {
@@ -4954,6 +5166,9 @@ let spells = {
         natura: "5 Fire",
         range: "20m",
         area: "10m Sphere",
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d6 Fire",
         description: "You hurl a ball of fire that explodes. All creatures and objects in the target area must make an Evasion test. A target takes [P]d6 fire damage and gains 1 stack of burning on a failed test. On a successful test it takes half damage and no stack of burning."
     },
     "water bolt": {
@@ -4961,6 +5176,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "3 Water",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6 Blunt",
         description: "You hurl a mote of water at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 blunt damage to them and they become wet."
     },
     "waterball": {
@@ -4969,6 +5186,9 @@ let spells = {
         natura: "5 Water",
         range: "20m",
         area: "10m Sphere",
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d6 Blunt",
         description: "You hurl a ball of water that explodes. All creatures and objects in the target area must make an Evasion test. A target takes [P]d6 blunt damage and becomes wet on a failed test. On a successful test it takes half damage and doesn’t become wet."
     },
     "tremor": {
@@ -4976,6 +5196,9 @@ let spells = {
         components: "Motus, Vox",
         natura: "3 Earth",
         range: "20m",
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d6 Blunt",
         description: "The ground beneath a target within range shakes. The target must make an Evasion test. It takes [P]d6 blunt damage on a fail and falls prone. On a successful test it takes half damage and doesn’t fall prone."
     },
     "earthquake": {
@@ -4984,6 +5207,9 @@ let spells = {
         natura: "5 Earth",
         range: "20m",
         area: "10m Circle",
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d6 Blunt",
         description: "The ground in the target area within range shakes. All creatures must make an Evasion test. A target takes [P]d6 blunt damage on a fail and falls prone. On a successful test it takes half damage and doesn’t fall prone."
     },
     "air bolt": {
@@ -4991,6 +5217,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "3 Air",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6 Slashing",
         description: "You send a mote of condensed air at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 slashing damage to them and push them 2m away from you."
     },
     "air bomb": {
@@ -4999,6 +5227,9 @@ let spells = {
         natura: "5 Air",
         range: "20m",
         area: "10m Sphere",
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d6 Blunt",
         description: "You hurl a mote of condensed air that explodes. All creatures and objects in the target area must make an Evasion test. A target takes [P]d6 blunt damage and is pushed 2m away from the center of the explosion. On a successful test it takes half damage and is not pushed away."
     },
     "icicle": {
@@ -5006,6 +5237,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "2 Water, 2 Air",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6+[P] Cold",
         description: "You hurl a pointy icicle at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 + [P] cold damage to them and they gain 1 stack of bleeding."
     },
     "lava mote": {
@@ -5013,6 +5246,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "2 Fire, 2 Earth",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6 Blunt + [P] Fire",
         description: "You hurl a mote of molten rock at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 blunt + [P] fire damage to them and they gain 1 stack of burning."
     },
     "spark": {
@@ -5020,6 +5255,8 @@ let spells = {
         components: "Motus, Vox",
         natura: "2 Fire, 2 Air",
         range: "20m",
+        attackType: "Ranged",
+        damage: "[P]d6+[P] Electrical",
         description: "You send an electrical spark to a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d6 + [P] electrical damage to them and they become nauseous until the end of their next turn."
     },
     "steam cloud": {
@@ -5028,6 +5265,9 @@ let spells = {
         natura: "3 Fire, 3 Water",
         range: "20m",
         area: "10m Sphere",
+        saveType: "Body",
+        saveDTType: "srd",
+        damage: "[P]d6+[P] Fire",
         description: "You create a cloud of hot water vapour in the target area that disperses quickly. All creatures in the area must make a Body test. They take [P]d6 + [P] fire damage and become wet on a failed test. On a successful test, they take half damage and don’t become wet."
     },
     "acid splash": {
@@ -5036,6 +5276,8 @@ let spells = {
         natura: "3 Water, 3 Earth",
         range: "20m",
         area: "10m Circle",
+        attackType: "Ranged",
+        damage: "[P]d8+[P] Acid",
         description: "You hurl a mote of acid at a target within range. Make a ranged spell attack against the target. If it hits, you deal [P]d8 + [P] acid damage to them."
     },
     "acid rain": {
@@ -5044,7 +5286,10 @@ let spells = {
         natura: "5 Water, 5 Earth",
         range: "20m",
         area: "10m/20m Cylinder",
-        description: "You make it rain acid in the target area. Make a ranged spell attack against the target. All creatures in the area must make an Evasion test. They take [P]d8 + [P] acid damage on a failed test. On a successful test, they take half damage."
+        saveType: "Evasion",
+        saveDTType: "srd",
+        damage: "[P]d8+[P] Acid",
+        description: "You make it rain acid in the target area. All creatures in the area must make an Evasion test. They take [P]d8 + [P] acid damage on a failed test. On a successful test, they take half damage."
     },
     "dust cloud": {
         action: "Major Action",
@@ -5068,6 +5313,8 @@ let spells = {
         natura: "4 Air",
         range: "20m",
         duration: "[P] minutes (C)",
+        saveType: "Willpower",
+        saveDTType: "srd",
         description: "You attempt to lift a target creature or object no heavier than [P] x 50 kg within range up to 10m up into the air for the duration. If the target is an unwilling creature, it can make a Willpower test to resist the spell on a success. While affected, the target has its speed reduced to 0 and can’t benefit from effects that increase its speed. The target can use a Major Action on its turn to repeat the Willpower test, ending the spell on a success.\nOn each of your turns while this spell is active, you can use a Minor Action to move the target up to 10m in any direction, but not through solid objects."
     },
     "unlock": {
@@ -5089,6 +5336,7 @@ let spells = {
         components: "Motus, Vox",
         natura: "1 Air, 2 Earth, 1 Water",
         range: "Self",
+        attackType: "Ranged",
         description: "When you’re attacked by a creature you can see, you can use this spell to attempt to deflect the attack and possibly make it reflect back to the attacker. You gain a +5 + [P] bonus to your Evasion test against the triggering attack. You can declare using this spell after rolling your Evasion test but before you know whether you would be hit or not. If the attack misses you, make a melee spell attack (if the triggering attack was a melee attack) or a ranged spell attack (if the triggering attack was a ranged attack) against the attacker. On a hit, the attacker takes the damage of his own attack."
     },
     "control fire": {
@@ -5181,6 +5429,7 @@ let spells = {
         components: "Motus",
         natura: "1 Air, 1 Earth",
         range: "[P] x 10m",
+        attackType: "Ranged",
         description: "Make a ranged spell attack against a target creature within range. On a hit, the target gets pulled up to [P] x 4m towards you by a magical chain, vine, or similar."
     },
 };
@@ -5197,43 +5446,19 @@ function UpdateSpell(eventInfo) {
         if(listSpell !== undefined) {
             let attributes = {};
 
-            attributes[prefix+"spell_action"] = (listSpell.action||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_components"] = (listSpell.components||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_natura"] = (listSpell.natura||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_range"] = (listSpell.range||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_area"] = (listSpell.area||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_duration"] = (listSpell.duration||"").replaceAll("[P]", spellworkRanks);
-            attributes[prefix+"spell_description"] = (listSpell.description||"").replaceAll("[P]", spellworkRanks);
+            attributes[prefix+"spell_action"] = (listSpell.action||"");
+            attributes[prefix+"spell_components"] = (listSpell.components||"");
+            attributes[prefix+"spell_natura"] = (listSpell.natura||"");
+            attributes[prefix+"spell_range"] = (listSpell.range||"");
+            attributes[prefix+"spell_area"] = (listSpell.area||"");
+            attributes[prefix+"spell_duration"] = (listSpell.duration||"");
+            attributes[prefix+"spell_description"] = (listSpell.description||"");
+            attributes[prefix+"spell_attackType"] = (listSpell.attackType||"none");
+            attributes[prefix+"spell_saveType"] = (listSpell.saveType||"none");
+            attributes[prefix+"spell_saveDTType"] = (listSpell.saveDTType||"");
+            attributes[prefix+"spell_damage"] = (listSpell.damage||"");
 
             setAttrs(attributes);
-        }
-    });
-}
-
-function UpdateSpellPowers() {
-    getSectionIDs("spell", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
-            let prefix = "repeating_spell_" + ids[i] + "_";
-
-            getAttrs([prefix + "spell_name", "spellwork"], function(values) {
-                let spellName = values[prefix+"spell_name"] || "";
-                let spellworkRanks = parseInt(values["spellwork"]) || 0;
-                
-                let listSpell = spells[spellName.toLowerCase()];
-                if(listSpell !== undefined) {
-                    let attributes = {};
-
-                    attributes[prefix+"spell_action"] = (listSpell.action||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_components"] = (listSpell.components||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_natura"] = (listSpell.natura||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_range"] = (listSpell.range||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_area"] = (listSpell.area||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_duration"] = (listSpell.duration||"").replaceAll("[P]", spellworkRanks);
-                    attributes[prefix+"spell_description"] = (listSpell.description||"").replaceAll("[P]", spellworkRanks);
-
-                    setAttrs(attributes);
-                }
-            });
         }
     });
 }
@@ -5997,8 +6222,8 @@ function UpdateRangedWeaponRoll(eventInfo) {
         }
 
         // Sneak Attack
-        let sneakAttackDamage = "";
         if(stealthRanks >= 3) {
+            let sneakAttackDamage = "";
             let sneakAttackDice = Math.floor(stealthRanks / 3);
             if(stealthRanks < 10) {
                 sneakAttackDamage = sneakAttackDice + "d6";
@@ -6576,43 +6801,7 @@ function RollNpcAttack(eventInfo) {
 
             // Damage Roll
             if(damage != "") {
-                roll += "{{damage=";
-                let damageParts = damage.split(" ");
-                let critDice = [];
-                let diceRegex = /[+-]?\d*[dD]\d*/g;
-
-                for(i = 0; i < damageParts.length; i += 2) {
-                    roll += "[[" + damageParts[i] + "]] ";
-                    roll += damageParts[i+1] + " ";
-
-                    let damageDice = damageParts[i].match(diceRegex);
-                    if(damageDice) {
-                        let critDiceEntry = {
-                            roll : "",
-                            type : damageParts[i+1]
-                        };
-
-                        for(let j = 0; j < damageDice.length; j++) {
-                            critDiceEntry.roll += damageDice[j];
-                        }
-
-                        critDice.push(critDiceEntry);
-                    }
-                }
-
-                roll += "}}";
-
-                // Crit
-                if(critDice.length > 0) {
-                    roll += "{{crit=";
-
-                    for(let cd of critDice) {
-                        roll += "[[" + cd.roll + "]] ";
-                        roll += " " + cd.type;
-                    }
-
-                    roll += "}}";
-                }
+                roll += DamageStringToTemplateRollString(damage);
             }
 
             // Description
@@ -6895,11 +7084,19 @@ function CastSpell(eventInfo) {
             prefix + "area",
             prefix + "duration",
             prefix + "description",
+            prefix + "attackType",
+            prefix + "saveType",
+            prefix + "saveDT",
+            prefix + "saveDTType",
+            prefix + "damage",
             "essence_fire",
             "essence_water",
             "essence_earth",
             "essence_air",
-            "spellwork"
+            "spellwork",
+            "srd",
+            "elementalAttunement",
+            "stealth"
         ],
         function(values) {
             let name = values[prefix + "name"] || "";
@@ -6911,11 +7108,21 @@ function CastSpell(eventInfo) {
             let duration = values[prefix + "duration"] || "";
             let description = values[prefix + "description"] || "";
             let spellworkRanks = parseInt(values["spellwork"]) || 0;
+            let stealthRanks = parseInt(values["stealth"]) || 0;
+
+            let attackType = values[prefix + "attackType"] || "";
+            let saveType = values[prefix + "saveType"] || "";
+            let srd = parseInt(values["srd"]) || 0;
+            let saveDT = values[prefix + "saveDT"] || "";
+            let saveDTType = values[prefix + "saveDTType"] || "";
+            let damage = values[prefix + "damage"] || "";
             
             let fireEssence = parseInt(values["essence_fire"]) || 0;
             let waterEssence = parseInt(values["essence_water"]) || 0;
             let earthEssence = parseInt(values["essence_earth"]) || 0;
             let airEssence = parseInt(values["essence_air"]) || 0;
+
+            let elementalAttunement = values["elementalAttunement"] || "";
             
             let fireCost = 0;
             let waterCost = 0;
@@ -6935,15 +7142,27 @@ function CastSpell(eventInfo) {
                     switch(element.toLowerCase()) {
                         case "fire":
                             fireCost += amount;
+                            if(elementalAttunement.toLowerCase() == "fire") {
+                                fireCost -= 1;
+                            }
                             break;
                         case "water":
                             waterCost += amount;
+                            if(elementalAttunement.toLowerCase() == "water") {
+                                waterCost -= 1;
+                            }
                             break;
                         case "earth":
                             earthCost += amount;
+                            if(elementalAttunement.toLowerCase() == "earth") {
+                                earthCost -= 1;
+                            }
                             break;
                         case "air":
                             airCost += amount;
+                            if(elementalAttunement.toLowerCase() == "air") {
+                                airCost -= 1;
+                            }
                             break;
                     }
                 }
@@ -6964,7 +7183,8 @@ function CastSpell(eventInfo) {
                 // Components
                 rollString += `{{components=${components}}}`;
                 // Power
-                rollString += `{{power [P]=[[${spellworkRanks}[Spellwork Ranks]]]}}`;
+                let power = spellworkRanks;
+                rollString += `{{power [P]=[[${power}[Spellwork Ranks]]]}}`;
                 // Range
                 if(range != "") {
                     rollString += `{{range=${range}}}`;
@@ -6977,6 +7197,27 @@ function CastSpell(eventInfo) {
                 if(duration != "") {
                     rollString += `{{duration=${duration}}}`;
                 }
+                // Attack
+                if(attackType != "none") {
+                    rollString += `{{To Hit=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}`;
+                }
+                // Save
+                if(saveType != "none") {
+                    if(saveDTType.toLowerCase() == "srd") {
+                        rollString += `{{Save=DT @{srd} ${saveType} Test}}`;
+                    }
+                    else {
+                        rollString += `{{Save=DT ${saveDT} ${saveType} Test}}`;
+                    }
+                }
+
+                // Damage
+                if(damage != "") {
+                    let isAttack = attackType != "none";
+                    let powerAdjustedDamage = damage.replaceAll("[P]", power);
+                    rollString += DamageStringToTemplateRollString(powerAdjustedDamage, isAttack, stealthRanks);
+                }
+
                 // Description
                 if(description != "") {
                     rollString += `{{description=${description}}}`;
@@ -7020,6 +7261,57 @@ function UpdateSRD() {
     );
 }
 
+function UpdateSpellSaveDTs() {
+    getSectionIDs("spell", function(ids) {
+        for(let rowId of ids) {
+            DoUpdateSpellSaveDT(rowId);
+        }
+    });
+}
+
+function UpdateSpellSaveDT(eventInfo) {
+    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    DoUpdateSpellSaveDT(rowId);
+}
+
+function DoUpdateSpellSaveDT(rowId) {
+    let prefix = "repeating_spell_" + rowId + "_spell_";
+
+    let attributes = [
+        prefix + "saveDTSkill",
+        prefix + "saveDTAttribute",
+        prefix + "saveDTBonus"
+    ].concat(SKILLS, ATTRIBUTES, ATTRIBUTE_MODS);
+
+    getAttrs(attributes,
+        function(values) {
+            let skill = values[prefix + "saveDTSkill"] || "";
+            let attribute = values[prefix + "saveDTAttribute"] || "";
+            let bonus = parseInt(values[prefix + "saveDTBonus"]) || 0;
+            let skills = ParseSkills(values);
+            let attributeScores = ParseAttributes(values);
+            let attributeMods = ParseAttributeMods(values);
+
+            let saveDT = bonus;
+            
+            if(skill != "-") {
+                saveDT += skills[skill.toLowerCase()] || 0;
+
+                if(attribute != "-") {
+                    saveDT += attributeMods[attribute.substring(0, 3).toLowerCase()] || 0;
+                }
+            }
+            else if(attribute != "-") {
+                saveDT += attributeScores[attribute.toLowerCase()] || 0;
+            }
+
+            let attributes = {};
+            attributes[prefix + "saveDT"] = saveDT;
+            setAttrs(attributes);
+        }
+    );
+}
+
 // Helper Functions
 function Signed(n) {
     return (n<0?"":"+") + n;
@@ -7036,6 +7328,114 @@ function CalculateSlots(size, count) {
     }
 
     return (parseInt(sizeParts[0]) || 0) * count;
+}
+
+function ParseSkills(values) {
+    let skills = {};
+
+    for(let skill of SKILLS) {
+        skills[skill] = parseInt(values[skill]) || 0;
+    }
+
+    return skills;
+}
+
+function ParseAttributes(values) {
+    let attributes = {};
+
+    for(let attribute of ATTRIBUTES) {
+        attributes[attribute] = parseInt(values[attribute]) || 0;
+    }
+
+    return attributes;
+}
+
+function ParseAttributeMods(values) {
+    let attributeMods = {};
+
+    for(let mod of ATTRIBUTE_MODS) {
+        attributeMods[mod] = parseInt(values[mod]) || 0;
+    }
+
+    return attributeMods;
+}
+
+function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
+    let rollString = "";
+    let damagePartRegex = /(?:[+-]?\d+d\d+)*(?:[+-]?\d+)*(?:[+-]?\d+d\d+)* [a-z]+/gi;
+    let damageParts = damage.match(damagePartRegex);
+
+    let damageRolls = {};
+    let critDamageRolls = {};
+    let baseDamageType = "";
+
+    for(let i = 0; i < damageParts.length; i++) {
+        let split = damageParts[i].split(" ");
+        let damageAmount = split[0];
+        let damageType = split[1];
+
+        if(i === 0) {
+            baseDamageType = damageType;
+        }
+        
+        if(damageRolls[damageType] === undefined) {
+            damageRolls[damageType] = `${damageAmount}`;
+        }
+        else {
+            let plusSign = !damageAmount.startsWith("-") ? "+" : "";
+            damageRolls[damageType] += `${plusSign}${damageAmount}`;
+        }
+        
+        // Crit
+        let diceRegex = /[+-]?\d+d\d+/gi;
+        let damageDice = damageAmount.match(diceRegex);
+        console.log(`damageDice: ${damageDice}`);
+
+        if(critDamageRolls[damageType] === undefined) {
+            critDamageRolls[damageType] = "";
+            
+            for(let j = 0; j < damageDice.length; j++) {
+                let plusSign = !damageDice[j].startsWith("-") && j>0 ? "+" : "";
+                critDamageRolls[damageType] += `${plusSign}${damageDice[j]}`;
+            }
+        }
+        else {
+            for(let j = 0; j <= damageDice.length; j++) {
+                let plusSign = !damageDice[j].startsWith("-") ? "+" : "";
+                critDamageRolls[damageType] += `${plusSign}${damageDice[j]}`;
+            }
+        }
+    }
+
+    rollString += `{{damage=`;
+    for(let damageType in damageRolls) {
+        rollString += ` [[${damageRolls[damageType]}]] ${damageType}`;
+    }
+    rollString += `}}`;
+
+    rollString += `{{crit=`;
+    for(let damageType in critDamageRolls) {
+        rollString += ` +[[${critDamageRolls[damageType]}]] ${damageType}`;
+    }
+    rollString += `}}`;
+
+    if(isAttack) {
+        // Sneak Attack
+        if(stealthRanks >= 3) {
+            let sneakAttackDamage = "";
+            let sneakAttackDice = Math.floor(stealthRanks / 3);
+            if(stealthRanks < 10) {
+                sneakAttackDamage = sneakAttackDice + "d6";
+            }
+            else {
+                sneakAttackDamage = sneakAttackDice + "d8";
+            }
+            rollString += `{{Sneak Attack=+[[${sneakAttackDamage}]] ${baseDamageType}}}`;
+            rollString += `{{Sneak Attack Crit=+[[${sneakAttackDamage}]] ${baseDamageType}}}`;
+        }
+    }
+
+    return rollString;
 }
 </script>
 

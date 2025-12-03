@@ -1153,3 +1153,24 @@
 .charsheet .sheet-armor-table td:not(:first-of-type) {
     text-align: center;
 }
+
+.charsheet div.feature-attack-details,
+.charsheet div.feature-save-details,
+.charsheet div.feature-save-dt,
+.charsheet div.feature-save-contest {
+    display: none;
+}
+
+.charsheet div:has(> select.feature-attack-type > option[value="none"]:not(:checked)) ~ .feature-attack-details,
+.charsheet div:has(> select.feature-save-type > option[value="none"]:not(:checked)) ~ .feature-save-details {
+    display: flex;
+}
+
+.charsheet div:has(> select.feature-save-dttype > option[value="dt"]:not(:checked)) ~ .feature-save-dt,
+.charsheet div:has(> select.feature-save-dttype > option[value="contest"]:not(:checked)) ~ .feature-save-contest {
+    display: none;
+}
+
+.charsheet .feature-save-dt select {
+    width: fit-content;
+}
