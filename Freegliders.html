@@ -1443,6 +1443,12 @@
 
         <div class="sheet-prayer-bottom">
             <h2>Blessings</h2>
+            <div class="sheet-spells-memorised">
+                <span>Memorised:</span>
+                <span name="attr_memorisedBlessings">0</span>
+                <span>/</span>
+                <span name="attr_memorisedBlessings_max">0</span>
+            </div>
             <hr class="sheet-section-separator"/>
 
             <datalist id="blessings">
@@ -1463,20 +1469,49 @@
             </datalist>
             
             <fieldset class="repeating_blessing">
-                <input type="text" name="attr_blessing_name" placeholder="Blessing" list="blessings" />
-                <select name="attr_blessing_action">
-                    <option selected>Major Action</option>
-                    <option>Minor Action</option>
-                    <option>Major Reaction</option>
-                    <option>Minor Reaction</option>
-                </select>
-                <input type="text" name="attr_blessing_components" placeholder="Components" />
-                <input type="number" name="attr_blessing_faith" placeholder="Faith" min="0" />
-                <input type="text" name="attr_blessing_range" placeholder="Range" />
-                <input type="text" name="attr_blessing_area" placeholder="Area" />
-                <input type="text" name="attr_blessing_duration" placeholder="Duration" />
-                <button type="action" name="act_blessinginvoke">Invoke</button>
-                <textarea name="attr_blessing_description" placeholder="Description" />
+                <details>
+                    <summary class="sheet-spoiler0">
+                        <span name="attr_blessing_name">New Blessing</span>
+                        <button type="action" name="attr_blessing_action" disabled>Roll</button>
+                        <div>
+                            <label class="sheet-spell-label">Memorised</label>
+                            <input type="checkbox" name="attr_blessing_memorised" />
+                        </div>
+                    </summary>
+
+                    <!-- Name -->
+                    <div>
+                        <label class="sheet-spell-label">Name:</label>
+                        <input type="text" name="attr_blessing_name" placeholder="Blessing" list="blessings" />
+                    </div>
+                    <!-- Components -->
+                    <div>
+                        <label class="sheet-spell-label">Components:</label>
+                        <input type="text" name="attr_blessing_components" placeholder="Components" />
+                    </div>
+                    <!-- Faith -->
+                    <div>
+                        <label class="sheet-spell-label">Faith:</label>
+                        <input type="number" name="attr_blessing_faith" placeholder="Faith" min="0" />
+                    </div>
+                    <!-- Range -->
+                    <div>
+                        <label class="sheet-spell-label">Range:</label>
+                        <input type="text" name="attr_blessing_range" placeholder="Range" />
+                    </div>
+                    <!-- Area -->
+                    <div>
+                        <label class="sheet-spell-label">Area:</label>
+                        <input type="text" name="attr_blessing_area" placeholder="Area" />
+                    </div>
+                    <!-- Duration -->
+                    <div>
+                        <label class="sheet-spell-label">Duration:</label>
+                        <input type="text" name="attr_blessing_duration" placeholder="Duration" />
+                    </div>
+                    
+                    <textarea name="attr_blessing_description" placeholder="Description" />
+                </details>
             </fieldset>
         </div>
     </div>
@@ -3045,6 +3080,8 @@ on("change:repeating_ritual:ritual_name", UpdateRitual);
 on("change:repeating_spell:spell_name", UpdateSpell);
 on("change:repeating_spell:spell_memorised", UpdateMemorisedSpells);
 on("remove:repeating_spell", UpdateMemorisedSpells);
+on("change:repeating_blessing:blessing_memorised", UpdateMemorisedBlessings);
+on("remove:repeating_blessing", UpdateMemorisedBlessings);
 on("change:repeating_curse:curse_name", UpdateCurse);
 on("change:repeating_potion:potion_name", UpdatePotion);
 on("change:repeating_blueprint:blueprint_automatonChassis", UpdateBlueprintAutomatonChassis);
@@ -3270,6 +3307,7 @@ function UpdateLog() {
         UpdateRunecraft();
         UpdateNpcAttackAtks();
         UpdateNpcAttackSaveDifficulties();
+        UpdateMaxMemorisedBlessings();
       });
 }
 
@@ -3662,6 +3700,7 @@ function UpdatePrayer() {
 
         UpdateFaith();
         UpdateHealing();
+        UpdateMaxMemorisedBlessings();
     });
 }
 
@@ -3714,6 +3753,17 @@ function UpdateMaxMemorisedSpells() {
 
         setAttrs({
             "memorisedSpells_max": Math.max(1, log + skillRankBonus)
+        });
+    });
+}
+
+function UpdateMaxMemorisedBlessings() {
+    getAttrs(["prayer", "log"], function(values) {
+        let prayer = parseInt(values.prayer)||0;
+        let log = parseInt(values.log)||0;
+
+        setAttrs({
+            "memorisedBlessings_max": Math.max(1, log + prayer)
         });
     });
 }
@@ -6191,14 +6241,37 @@ function UpdateMemorisedSpells() {
         });
 
         for(var i = 0; i < ids.length; i++) {
-            let prefix = "repeating_spell_" + ids[i] + "_";
+            let prefix = "repeating_spell_" + ids[i] + "_spell_";
 
-            getAttrs([prefix + "spell_memorised"], function(values) {
-                if(values[prefix + "spell_memorised"] == 'on') {
+            getAttrs([prefix + "memorised"], function(values) {
+                if(values[prefix + "memorised"] == 'on') {
                     memorised++;
 
                     setAttrs({
                         memorisedSpells: memorised
+                    });
+                }
+            });
+        }
+    });
+}
+
+function UpdateMemorisedBlessings() {
+    getSectionIDs("blessing", function(ids) {
+        let memorised = 0;
+        setAttrs({
+            memorisedBlessings: memorised
+        });
+
+        for(var i = 0; i < ids.length; i++) {
+            let prefix = "repeating_blessing_" + ids[i] + "_blessing_";
+
+            getAttrs([prefix + "memorised"], function(values) {
+                if(values[prefix + "memorised"] == 'on') {
+                    memorised++;
+
+                    setAttrs({
+                        memorisedBlessings: memorised
                     });
                 }
             });

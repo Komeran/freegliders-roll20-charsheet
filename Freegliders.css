@@ -768,7 +768,7 @@
 }
 
 .charsheet .sheet-elixir > div,
-.repcontainer[data-groupname="repeating_spell"] > .repitem * div,
+.repcontainer > .repitem * div,
 .charsheet .sheet-spells-memorised {
     display: flex;
     flex-flow: row;
@@ -1086,16 +1086,16 @@
     min-width: 100%;
 }
 
-.repcontainer[data-groupname="repeating_spell"] > .repitem details {
+.repcontainer > .repitem details {
     min-width: fit-content !important;
     width: fit-content !important;
 }
 
-.repcontainer[data-groupname="repeating_spell"] > .repitem summary ~ div {
+.repcontainer > .repitem summary ~ div {
     justify-content: space-between;
 }
 
-.repcontainer[data-groupname="repeating_spell"] > .repitem select {
+.repcontainer > .repitem select {
     width: 210px;
 }
 
