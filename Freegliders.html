@@ -1472,7 +1472,7 @@
                 <details>
                     <summary class="sheet-spoiler0">
                         <span name="attr_blessing_name">New Blessing</span>
-                        <button type="action" name="attr_blessing_action" disabled>Roll</button>
+                        <button type="action" name="act_blessinginvoke">Invoke</button>
                         <div>
                             <label class="sheet-spell-label">Memorised</label>
                             <input type="checkbox" name="attr_blessing_memorised" />
@@ -6796,8 +6796,6 @@ function UpdateAugmentModuleCapacity(eventInfo) {
 }
 
 function InvokeBlessing(eventInfo) {
-    console.log("InvokeBlessing() called");
-
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_blessing_" + rowId + "_blessing_";
 
@@ -6811,7 +6809,8 @@ function InvokeBlessing(eventInfo) {
             prefix + "area",
             prefix + "duration",
             prefix + "description",
-            "faith"
+            "faith",
+            "prayer"
         ],
         function(values) {
             let name = values[prefix + "name"] || "";
@@ -6823,17 +6822,62 @@ function InvokeBlessing(eventInfo) {
             let duration = values[prefix + "duration"] || "";
             let description = values[prefix + "description"] || "";
             let faithPool = parseInt(values["faith"]) || 0;
+            let prayerRanks = parseInt(values["prayer"]) || 0;
 
             if(faithPool >= blessingFaith) {
                 // Invoke Blessing
-                console.log(faithPool + " >= " + blessingFaith);
+                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:default}`;
+
+                // Name
+                rollString += `{{name=${name}}}`;
+                // Action
+                rollString += `{{action=${action}}}`;
+                // Components
+                rollString += `{{components=${components}}}`;
+                // Power
+                rollString += `{{power [P]=[[${prayerRanks}[Prayer Ranks]`;
+                // Additional Faith for extra Power
+                if(faithPool > blessingFaith) {
+                    rollString += `?{Spend more Faith?|+0 Faith, `;
+                    for(let i = 1; i <= prayerRanks && (i + blessingFaith) <= faithPool; i++) {
+                        rollString += `|+${i} Faith,+${i}[+${i} Faith]`;
+                    }
+                    rollString += `}]]}}`;
+                }
+                // Range
+                if(range != "") {
+                    rollString += `{{range=${range}}}`;
+                }
+                // Area
+                if(area != "") {
+                    rollString += `{{area=${area}}}`;
+                }
+                // Duration
+                if(duration != "") {
+                    rollString += `{{duration=${duration}}}`;
+                }
+                // Description
+                if(description != "") {
+                    rollString += `{{description=${description}}}`;
+                }
+                
+                startRoll(rollString, (r) => {
+                    console.log(r);
+
+                    let blessingPower = r.results["power [P]"].result;
+                    let expendedFaith = blessingFaith + (blessingPower - prayerRanks);
+
+                    setAttrs({
+                        faith: faithPool - expendedFaith
+                    });
+
+                    finishRoll(r.rollId);
+                });
             }
             else {
                 // Can't invoke blessing!
-                console.log("alert should pop up!");
-                alert("Can't invoke " + name + "! Not enough Faith available.");
+                console.error(`Can't invoke ${name}! Not enough Faith available.`);
             }
-
         }
     );
 }
