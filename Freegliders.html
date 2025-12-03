@@ -1721,6 +1721,7 @@
                                 <label class="sheet-spell-label">Memorised</label>
                                 <input type="checkbox" name="attr_spell_memorised" />
                             </div>
+                            <span class="error" name="attr_spell_error"></span>
                         </summary>
 
                         <!-- Name -->
@@ -3332,6 +3333,11 @@ on("clicked:repeating_spell:spellcast", CastSpell);
 on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTBonus", UpdateSpellSaveDT);
+
+on("change:essence_air", UpdateSpells);
+on("change:essence_fire", UpdateSpells);
+on("change:essence_earth", UpdateSpells);
+on("change:essence_water", UpdateSpells);
 
 function UpdateAttributes() {
     UpdateAgi();
@@ -5436,31 +5442,116 @@ let spells = {
 
 function UpdateSpell(eventInfo) {
     let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_spell_" + rowId + "_";
 
-    getAttrs([prefix+"spell_name", "spellwork"], function(values) {
-        let spellName = values[prefix+"spell_name"] || "";
-        let spellworkRanks = parseInt(values["spellwork"]) || 0;
+    DoUpdateSpell(rowId);
+}
 
-        let listSpell = spells[spellName.toLowerCase()];
-        if(listSpell !== undefined) {
-            let attributes = {};
-
-            attributes[prefix+"spell_action"] = (listSpell.action||"");
-            attributes[prefix+"spell_components"] = (listSpell.components||"");
-            attributes[prefix+"spell_natura"] = (listSpell.natura||"");
-            attributes[prefix+"spell_range"] = (listSpell.range||"");
-            attributes[prefix+"spell_area"] = (listSpell.area||"");
-            attributes[prefix+"spell_duration"] = (listSpell.duration||"");
-            attributes[prefix+"spell_description"] = (listSpell.description||"");
-            attributes[prefix+"spell_attackType"] = (listSpell.attackType||"none");
-            attributes[prefix+"spell_saveType"] = (listSpell.saveType||"none");
-            attributes[prefix+"spell_saveDTType"] = (listSpell.saveDTType||"");
-            attributes[prefix+"spell_damage"] = (listSpell.damage||"");
-
-            setAttrs(attributes);
+function UpdateSpells() {
+    getSectionIDs("spell", function(ids) {
+        for(var i = 0; i < ids.length; i++) {
+            DoUpdateSpell(ids[i]);
         }
     });
+}
+
+function DoUpdateSpell(rowId) {
+    let prefix = "repeating_spell_" + rowId + "_spell_";
+
+    getAttrs(
+        [
+            prefix+"name",
+            "spellwork",
+            "essence_air",
+            "essence_earth",
+            "essence_fire",
+            "essence_water",
+            "elementalAttunement"
+        ],
+        function(values) {
+            let spellName = values[prefix+"name"] || "";
+            let spellworkRanks = parseInt(values["spellwork"]) || 0;
+            let airEssence = parseInt(values["essence_air"]) || 0;
+            let earthEssence = parseInt(values["essence_earth"]) || 0;
+            let fireEssence = parseInt(values["essence_fire"]) || 0;
+            let waterEssence = parseInt(values["essence_water"]) || 0;
+            let elementalAttunement = values["elementalAttunement"] || "";
+
+            let listSpell = spells[spellName.toLowerCase()];
+            let attributes = {};
+
+            if(listSpell !== undefined) {
+
+                attributes[prefix+"action"] = (listSpell.action||"");
+                attributes[prefix+"components"] = (listSpell.components||"");
+                attributes[prefix+"natura"] = (listSpell.natura||"");
+                attributes[prefix+"range"] = (listSpell.range||"");
+                attributes[prefix+"area"] = (listSpell.area||"");
+                attributes[prefix+"duration"] = (listSpell.duration||"");
+                attributes[prefix+"description"] = (listSpell.description||"");
+                attributes[prefix+"attackType"] = (listSpell.attackType||"none");
+                attributes[prefix+"saveType"] = (listSpell.saveType||"none");
+                attributes[prefix+"saveDTType"] = (listSpell.saveDTType||"");
+                attributes[prefix+"damage"] = (listSpell.damage||"");
+            }
+
+            // Parse Natura field
+            if(listSpell.natura != undefined) {
+                let naturaRegex = /[+-]?\d* (?:Fire|Air|Earth|Water)/gi;
+                let matches = listSpell.natura.match(naturaRegex);
+                let fireCost = 0;
+                let waterCost = 0;
+                let earthCost = 0;
+                let airCost = 0;
+
+                for(let match of matches) {
+                    let splitMatch = match.split(" ");
+                    let amount = parseInt(splitMatch[0]);
+                    let element = splitMatch[1];
+
+                    switch(element.toLowerCase()) {
+                        case "fire":
+                            fireCost += amount;
+                            break;
+                        case "water":
+                            waterCost += amount;
+                            break;
+                        case "earth":
+                            earthCost += amount;
+                            break;
+                        case "air":
+                            airCost += amount;
+                            break;
+                    }
+                }
+                
+                // Elemental Attunement
+                if(elementalAttunement.toLowerCase() == "fire") {
+                    fireCost = Math.max(fireCost, fireCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "water") {
+                    waterCost = Math.max(waterCost, waterCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "earth") {
+                    earthCost = Math.max(earthCost, earthCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "air") {
+                    airCost = Math.max(airCost, airCost-1);
+                }
+
+                if(fireCost > fireEssence
+                    || waterCost > waterEssence
+                    || earthCost > earthEssence
+                    || airCost > airEssence) {
+                    attributes[prefix + "error"] = "Not enough Essence!";
+                }
+                else {
+                    attributes[prefix + "error"] = " ";
+                }
+            }
+            
+            setAttrs(attributes);
+        }
+    );
 }
 
 let meleeWeapons = {
@@ -7142,31 +7233,33 @@ function CastSpell(eventInfo) {
                     switch(element.toLowerCase()) {
                         case "fire":
                             fireCost += amount;
-                            if(elementalAttunement.toLowerCase() == "fire") {
-                                fireCost -= 1;
-                            }
                             break;
                         case "water":
                             waterCost += amount;
-                            if(elementalAttunement.toLowerCase() == "water") {
-                                waterCost -= 1;
-                            }
                             break;
                         case "earth":
                             earthCost += amount;
-                            if(elementalAttunement.toLowerCase() == "earth") {
-                                earthCost -= 1;
-                            }
                             break;
                         case "air":
                             airCost += amount;
-                            if(elementalAttunement.toLowerCase() == "air") {
-                                airCost -= 1;
-                            }
                             break;
                     }
                 }
-            }
+                
+                // Elemental Attunement
+                if(elementalAttunement.toLowerCase() == "fire") {
+                    fireCost = Math.max(fireCost, fireCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "water") {
+                    waterCost = Math.max(waterCost, waterCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "earth") {
+                    earthCost = Math.max(earthCost, earthCost-1);
+                }
+                if(elementalAttunement.toLowerCase() == "air") {
+                    airCost = Math.max(airCost, airCost-1);
+                }
+}
 
             // Cast Spell
             if(fireEssence >= fireCost

@@ -1174,3 +1174,9 @@
 .charsheet .feature-save-dt select {
     width: fit-content;
 }
+
+.charsheet span.error {
+    font-weight: bold;
+    font-size: 0.6em;
+    color: red;
+}
