@@ -1711,7 +1711,7 @@
                     <details>
                         <summary class="sheet-spoiler0">
                             <span name="attr_spell_name">New Spell</span>
-                            <button type="action" name="act_spellroll" disabled>Roll</button>
+                            <button type="action" name="act_spellcast">Cast</button>
                             <div>
                                 <label class="sheet-spell-label">Memorised</label>
                                 <input type="checkbox" name="attr_spell_memorised" />
@@ -3174,6 +3174,7 @@ on("change:augmentations_leftFoot_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_rightFoot_quality", UpdateAugmentModuleCapacity);
 
 on("clicked:repeating_blessing:blessinginvoke", InvokeBlessing);
+on("clicked:repeating_spell:spellcast", CastSpell);
 
 function UpdateAttributes() {
     UpdateAgi();
@@ -6862,8 +6863,6 @@ function InvokeBlessing(eventInfo) {
                 }
                 
                 startRoll(rollString, (r) => {
-                    console.log(r);
-
                     let blessingPower = r.results["power [P]"].result;
                     let expendedFaith = blessingFaith + (blessingPower - prayerRanks);
 
@@ -6877,6 +6876,125 @@ function InvokeBlessing(eventInfo) {
             else {
                 // Can't invoke blessing!
                 console.error(`Can't invoke ${name}! Not enough Faith available.`);
+            }
+        }
+    );
+}
+
+function CastSpell(eventInfo) {
+    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    let prefix = "repeating_spell_" + rowId + "_spell_";
+
+    getAttrs(
+        [
+            prefix + "name",
+            prefix + "action",
+            prefix + "components",
+            prefix + "natura",
+            prefix + "range",
+            prefix + "area",
+            prefix + "duration",
+            prefix + "description",
+            "essence_fire",
+            "essence_water",
+            "essence_earth",
+            "essence_air",
+            "spellwork"
+        ],
+        function(values) {
+            let name = values[prefix + "name"] || "";
+            let action = values[prefix + "action"] || "";
+            let components = values[prefix + "components"] || "";
+            let natura = values[prefix + "natura"] || "";
+            let range = values[prefix + "range"] || "";
+            let area = values[prefix + "area"] || "";
+            let duration = values[prefix + "duration"] || "";
+            let description = values[prefix + "description"] || "";
+            let spellworkRanks = parseInt(values["spellwork"]) || 0;
+            
+            let fireEssence = parseInt(values["essence_fire"]) || 0;
+            let waterEssence = parseInt(values["essence_water"]) || 0;
+            let earthEssence = parseInt(values["essence_earth"]) || 0;
+            let airEssence = parseInt(values["essence_air"]) || 0;
+            
+            let fireCost = 0;
+            let waterCost = 0;
+            let airCost = 0;
+            let earthCost = 0;
+
+            // Parse Natura field
+            if(natura != "") {
+                let naturaRegex = /[+-]?\d* (?:Fire|Air|Earth|Water)/gi;
+                let matches = natura.match(naturaRegex);
+
+                for(let match of matches) {
+                    let splitMatch = match.split(" ");
+                    let amount = parseInt(splitMatch[0]);
+                    let element = splitMatch[1];
+
+                    switch(element.toLowerCase()) {
+                        case "fire":
+                            fireCost += amount;
+                            break;
+                        case "water":
+                            waterCost += amount;
+                            break;
+                        case "earth":
+                            earthCost += amount;
+                            break;
+                        case "air":
+                            airCost += amount;
+                            break;
+                    }
+                }
+            }
+
+            // Cast Spell
+            if(fireEssence >= fireCost
+                && waterEssence >= waterCost
+                && earthEssence >= earthCost
+                && airEssence >= airCost)
+            {
+                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:default}`;
+
+                // Name
+                rollString += `{{name=${name}}}`;
+                // Action
+                rollString += `{{action=${action}}}`;
+                // Components
+                rollString += `{{components=${components}}}`;
+                // Power
+                rollString += `{{power [P]=[[${spellworkRanks}[Spellwork Ranks]]]}}`;
+                // Range
+                if(range != "") {
+                    rollString += `{{range=${range}}}`;
+                }
+                // Area
+                if(area != "") {
+                    rollString += `{{area=${area}}}`;
+                }
+                // Duration
+                if(duration != "") {
+                    rollString += `{{duration=${duration}}}`;
+                }
+                // Description
+                if(description != "") {
+                    rollString += `{{description=${description}}}`;
+                }
+                
+                startRoll(rollString, (r) => {
+                    setAttrs({
+                        essence_fire: fireEssence - fireCost,
+                        essence_water: waterEssence - waterCost,
+                        essence_earth: earthEssence - earthCost,
+                        essence_air: airEssence - airCost
+                    });
+                    finishRoll(r.rollId);
+                });
+            }
+            else {
+                // Can't cast spell!
+                console.error(`Can't cast ${name}! Not enough Essence available.`);
             }
         }
     );
