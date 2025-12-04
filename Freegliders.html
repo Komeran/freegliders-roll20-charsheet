@@ -1624,10 +1624,29 @@
                 </datalist>
                 
                 <fieldset class="repeating_rune">
-                    <input type="text" name="attr_rune_name" placeholder="Rune" list="runes" />
-                    <input type="text" name="attr_rune_target" placeholder="Target" />
-                    <input type="text" name="attr_rune_natura" placeholder="Natura" />
-                    <textarea name="attr_rune_description" placeholder="Description" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_rune_name">New Rune</span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_rune_name" placeholder="Rune" list="runes" />
+                        </div>
+                        <!-- Target -->
+                        <div>
+                            <label class="sheet-spell-label">Target:</label>
+                            <input type="text" name="attr_rune_target" placeholder="Target" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_rune_natura" placeholder="Natura" />
+                        </div>
+
+                        <textarea name="attr_rune_description" placeholder="Description" />
+                    </details>
                 </fieldset>
             </div>
 
@@ -1659,9 +1678,24 @@
                 </datalist>
                 
                 <fieldset class="repeating_ritual">
-                    <input type="text" name="attr_ritual_name" placeholder="Ritual" list="rituals" />
-                    <input type="text" name="attr_ritual_essence" placeholder="Essence" />
-                    <textarea name="attr_ritual_description" placeholder="Description" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_ritual_name">New Ritual</span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_ritual_name" placeholder="Ritual" list="rituals" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_ritual_essence" placeholder="Essence" />
+                        </div>
+
+                        <textarea name="attr_ritual_description" placeholder="Description" />
+                    </details>
                 </fieldset>
             </div>
 
@@ -1879,12 +1913,48 @@
                 </datalist>
                 
                 <fieldset class="repeating_curse">
-                    <input type="text" name="attr_curse_name" placeholder="Curse" list="curses" />
-                    <input type="text" name="attr_curse_natura" placeholder="Natura" />
-                    <input type="text" name="attr_curse_target" placeholder="Target" />
-                    <textarea name="attr_curse_sacrifice" placeholder="Sacrifice" />
-                    <textarea name="attr_curse_description" placeholder="Description" />
-                    <textarea name="attr_curse_breakingCondition" placeholder="Breaking Condition" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_curse_name">New Curse</span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_curse_name" placeholder="Curse" list="curses" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_curse_natura" placeholder="Natura" />
+                        </div>
+                        <!-- Target -->
+                        <div>
+                            <label class="sheet-spell-label">Target:</label>
+                            <input type="text" name="attr_curse_target" placeholder="Target" />
+                        </div>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Sacrifice</span>
+                            </summary>
+                            <textarea name="attr_curse_sacrifice" placeholder="Sacrifice" />
+                        </details>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Description</span>
+                            </summary>
+                            <textarea name="attr_curse_description" placeholder="Description" />
+                        </details>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Breaking Condition</span>
+                            </summary>
+                            <textarea name="attr_curse_breakingCondition" placeholder="Breaking Condition" />
+                        </details>
+                    </details>
                 </fieldset>
             </div>
         </div>

@@ -705,8 +705,6 @@
     font-size: 1.2em;
 }
 
-.repcontainer[data-groupname="repeating_rune"] > .repitem:not(:first-child),
-.repcontainer[data-groupname="repeating_ritual"] > .repitem:not(:first-child),
 .charsheet .sheet-elixir:not(:first-of-type),
 .repcontainer[data-groupname="repeating_potion"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_debt"] > .repitem:not(:first-child),
@@ -1179,4 +1177,8 @@
     font-weight: bold;
     font-size: 0.6em;
     color: red;
+}
+
+.charsheet details textarea {
+    width: calc(100% - 10px);
 }
