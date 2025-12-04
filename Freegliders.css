@@ -706,7 +706,6 @@
 }
 
 .charsheet .sheet-elixir:not(:first-of-type),
-.repcontainer[data-groupname="repeating_potion"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_debt"] > .repitem:not(:first-child),
 .repcontainer[data-groupname="repeating_automaton"] > .repitem:not(:first-child) {
     padding-top: 10px;

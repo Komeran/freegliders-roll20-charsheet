@@ -2090,9 +2090,24 @@
                 </datalist>
                 
                 <fieldset class="repeating_potion">
-                    <input type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
-                    <input type="text" name="attr_potion_essence" placeholder="Essence" />
-                    <textarea name="attr_potion_effect" placeholder="Effect" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_potion_name">New Potion</span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
+                        </div>
+                        <!-- Essence -->
+                        <div>
+                            <label class="sheet-spell-label">Essence:</label>
+                            <input type="text" name="attr_potion_essence" placeholder="Essence" />
+                        </div>
+
+                        <textarea name="attr_potion_effect" placeholder="Effect" />
+                    </details>
                 </fieldset>
             </div>
 
