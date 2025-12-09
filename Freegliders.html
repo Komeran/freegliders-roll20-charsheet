@@ -1016,13 +1016,6 @@
                 <!-- Melee Weapons -->
                 <h2>Melee Weapons</h2>
                 <hr class="sheet-section-separator"/>
-                <table class="sheet-melee-header">
-                    <tr>
-                        <th>Melee Weapon</th>
-                        <th>ATK</th>
-                        <th>Damage</th>
-                    </tr>
-                </table>
                 <div class="sheet-unarmedStrike">
                     <span name="unarmedStrike_name">Unarmed Strike</span>
                     <span name="attr_unarmedStrike_atk">+0</span>
@@ -1060,18 +1053,49 @@
                 </datalist>
 
                 <fieldset class="repeating_meleeWeapon">
-                    <input type="text" name="attr_meleeWeapon_name" placeholder="Melee Weapon" list="meleeWeapons" />
-                    <select name="attr_meleeWeapon_skill">
-                        <option selected>Brawling</option>
-                        <option>Shield</option>
-                        <option>One-Handed Melee</option>
-                        <option>Two-Handed Melee</option>
-                    </select>
-                    <input type="text" name="attr_meleeWeapon_atk" placeholder="ATK" />
-                    <input type="text" name="attr_meleeWeapon_damage" placeholder="Damage" />
-                    <label class="sheet-checkbox-label">Weapon Expert</label>
-                    <input type="checkbox" name="attr_meleeWeapon_weaponExpert" />
-                    <button type="roll" name="roll_meleeWeapon_rollButton" value="@{meleeWeapon_roll}" />
+                    <details class="sheet-attack">
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_meleeWeapon_name">New Weapon</span>
+                            <button type="roll" name="roll_meleeWeapon_rollButton" value="@{meleeWeapon_roll}" />
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_meleeWeapon_name" placeholder="Melee Weapon" list="meleeWeapons" />
+                        </div>
+
+                        <!-- Skill -->
+                        <div>
+                            <label class="sheet-spell-label">Skill:</label>
+                            <select name="attr_meleeWeapon_skill">
+                                <option selected>Brawling</option>
+                                <option>Shield</option>
+                                <option>One-Handed Melee</option>
+                                <option>Two-Handed Melee</option>
+                            </select>
+                        </div>
+
+                        <!-- To Hit -->
+                        <div>
+                            <label class="sheet-spell-label">To Hit:</label>
+                            <input type="text" name="attr_meleeWeapon_atk" placeholder="To Hit" />
+                        </div>
+
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_meleeWeapon_damage" placeholder="Damage" />
+                        </div>
+
+                        <!-- Weapon Expert -->
+                        <div>
+                            <label class="sheet-spell-label">Weapon Expert:</label>
+                            <input type="checkbox" name="attr_meleeWeapon_weaponExpert" />
+                        </div>
+
+                    </details>
+
                     <input type="hidden" name="attr_meleeWeapon_roll" />
                 </fieldset>
 
@@ -1109,21 +1133,67 @@
                     </tr>
                 </table>
                 <fieldset class="repeating_rangedWeapon">
-                    <input type="text" name="attr_rangedWeapon_name" placeholder="Ranged Weapon" list="rangedWeapons" />
-                    <select name="attr_rangedWeapon_skill">
-                        <option selected>Artillery</option>
-                        <option>Bow</option>
-                        <option>Pistol</option>
-                        <option>Rifle</option>
-                    </select>
-                    <input type="text" name="attr_rangedWeapon_range" placeholder="Range" />
-                    <input type="text" name="attr_rangedWeapon_atk" placeholder="ATK" />
-                    <input type="text" name="attr_rangedWeapon_damage" placeholder="Damage" />
-                    <input type="text" name="attr_rangedWeapon_ammo" placeholder="Ammo" />
-                    <input type="number" name="attr_rangedWeapon_quality" placeholder="Q" />
-                    <label class="sheet-checkbox-label">Weapon Expert</label>
-                    <input type="checkbox" name="attr_rangedWeapon_weaponExpert" />
-                    <button type="roll" name="roll_rangedWeapon_rollButton" value="@{rangedWeapon_roll}" />
+                    <details class="sheet-attack">
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_rangedWeapon_name">New Weapon</span>
+                            <button type="roll" name="roll_rangedWeapon_rollButton" value="@{rangedWeapon_roll}" />
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_rangedWeapon_name" placeholder="Ranged Weapon" list="rangedWeapons" />
+                        </div>
+
+                        <!-- Skill -->
+                        <div>
+                            <label class="sheet-spell-label">Skill:</label>
+                            <select name="attr_rangedWeapon_skill">
+                                <option selected>Artillery</option>
+                                <option>Bow</option>
+                                <option>Pistol</option>
+                                <option>Rifle</option>
+                            </select>
+                        </div>
+
+                        <!-- To Hit -->
+                        <div>
+                            <label class="sheet-spell-label">To Hit:</label>
+                            <input type="text" name="attr_rangedWeapon_atk" placeholder="To Hit" />
+                        </div>
+
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_rangedWeapon_damage" placeholder="Damage" />
+                        </div>
+
+                        <!-- Weapon Expert -->
+                        <div>
+                            <label class="sheet-spell-label">Weapon Expert:</label>
+                            <input type="checkbox" name="attr_rangedWeapon_weaponExpert" />
+                        </div>
+
+                        <!-- Range -->
+                        <div>
+                            <label class="sheet-spell-label">Range:</label>
+                            <input type="text" name="attr_rangedWeapon_range" placeholder="Range" />
+                        </div>
+
+                        <!-- Ammo -->
+                        <div>
+                            <label class="sheet-spell-label">Ammo:</label>
+                            <input type="text" name="attr_rangedWeapon_ammo" placeholder="Ammo" />
+                        </div>
+
+                        <!-- Quality -->
+                        <div>
+                            <label class="sheet-spell-label">Quality:</label>
+                            <input type="number" name="attr_rangedWeapon_quality" placeholder="Quality" />
+                        </div>
+
+                    </details>
+                    
                     <input type="hidden" name="attr_rangedWeapon_roll" />
                 </fieldset>
             </div>
@@ -1442,7 +1512,7 @@
 
             <!-- Healing -->
             <div class="sheet-item">
-                <button type="roll" name="roll_healing" class="sheet-rollable-mod" value="&{template:default} {{name=Healing}} {{result=[[@{healing}]]}}">
+                <button type="action" name="act_healing" class="sheet-rollable-mod">
                     <span name="attr_healing"></span>
                 </button>
                 <label class="sheet-resource-label">Healing</label>
@@ -3178,6 +3248,17 @@ const ATTRIBUTE_MODS = [
     "wil"
 ];
 
+const DAMAGE_TYPES = {
+    "blunt": "&#x1F528;",
+    "slashing": "&#x1F52A;",
+    "piercing": "&#x27B6;",
+    "fire": "&#x1F525;",
+    "cold": "&#x2744;",
+    "electrical": "&#x26A1;",
+    "acid": "&#x1F9EA;",
+    "poison": "&#x2620;"
+};
+
 // Tabs management
 const sheetButtonlist = ["pc", "npc"];
 sheetButtonlist.forEach(button => {
@@ -3438,6 +3519,8 @@ on("change:essence_air", UpdateSpells);
 on("change:essence_fire", UpdateSpells);
 on("change:essence_earth", UpdateSpells);
 on("change:essence_water", UpdateSpells);
+
+on("clicked:healing", UseHealing);
 
 function UpdateAttributes() {
     UpdateAgi();
@@ -4610,8 +4693,6 @@ function AddNegativeQuality(eventInfo) {
             });
             break;
     }
-
-    console.log("Added " + newQuality + " Quality");
 }
 
 function RemoveNegativeQuality(eventInfo) {
@@ -4620,7 +4701,6 @@ function RemoveNegativeQuality(eventInfo) {
 
     let oldQuality = eventInfo.previousValue;
     if(eventInfo.triggerName.startsWith("remove:")) {
-        console.log(eventInfo.removedInfo);
         oldQuality = eventInfo.removedInfo[prefix + "negativeQuality_name"];
     }
 
@@ -4660,8 +4740,6 @@ function RemoveNegativeQuality(eventInfo) {
             });
             break;
     }
-
-    console.log("Removed " + oldQuality + " Quality");
 }
 
 function UpdateNegativeQualityLevel(eventInfo) {
@@ -7505,6 +7583,19 @@ function DoUpdateSpellSaveDT(rowId) {
     );
 }
 
+function UseHealing() {
+    getAttrs(["prayer", "faith"], function(values) {
+        let faith = parseInt(values["faith"]) || 0;
+
+        startRoll("&{template:default} {{name=Healing}} {{result=[[@{healing}]]}}", (r) => {
+            setAttrs({
+                faith: faith - 1
+            });
+            finishRoll(r.rollId);
+        })
+    });
+}
+
 // Helper Functions
 function Signed(n) {
     return (n<0?"":"+") + n;
@@ -7553,6 +7644,11 @@ function ParseAttributeMods(values) {
     return attributeMods;
 }
 
+function CapitalizeFirstLetter(str) {
+  if (!str || str == "") return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
     let rollString = "";
     let damagePartRegex = /(?:[+-]?\d+d\d+)*(?:[+-]?\d+)*(?:[+-]?\d+d\d+)* [a-z]+/gi;
@@ -7565,7 +7661,7 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
     for(let i = 0; i < damageParts.length; i++) {
         let split = damageParts[i].split(" ");
         let damageAmount = split[0];
-        let damageType = split[1];
+        let damageType = split[1].toLowerCase();
 
         if(i === 0) {
             baseDamageType = damageType;
@@ -7582,7 +7678,6 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
         // Crit
         let diceRegex = /[+-]?\d+d\d+/gi;
         let damageDice = damageAmount.match(diceRegex);
-        console.log(`damageDice: ${damageDice}`);
 
         if(critDamageRolls[damageType] === undefined) {
             critDamageRolls[damageType] = "";
@@ -7602,13 +7697,13 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
 
     rollString += `{{damage=`;
     for(let damageType in damageRolls) {
-        rollString += ` [[${damageRolls[damageType]}]] ${damageType}`;
+        rollString += ` [[${damageRolls[damageType]}]] ${DamageTypeEmoji(damageType)}`;
     }
     rollString += `}}`;
 
     rollString += `{{crit=`;
     for(let damageType in critDamageRolls) {
-        rollString += ` +[[${critDamageRolls[damageType]}]] ${damageType}`;
+        rollString += ` +[[${critDamageRolls[damageType]}]] ${DamageTypeEmoji(damageType)}`;
     }
     rollString += `}}`;
 
@@ -7623,11 +7718,19 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
             else {
                 sneakAttackDamage = sneakAttackDice + "d8";
             }
-            rollString += `{{Sneak Attack=+[[${sneakAttackDamage}]] ${baseDamageType}}}`;
-            rollString += `{{Sneak Attack Crit=+[[${sneakAttackDamage}]] ${baseDamageType}}}`;
+            rollString += `{{Sneak Attack=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
+            rollString += `{{Sneak Attack Crit=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
         }
     }
 
     return rollString;
+}
+
+function DamageTypeEmoji(damageType) {
+    if(DAMAGE_TYPES[damageType]) {
+        return DAMAGE_TYPES[damageType];
+    }
+    
+    return CapitalizeFirstLetter(damageType);
 }
 </script>

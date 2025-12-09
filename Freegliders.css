@@ -100,7 +100,7 @@
 }
 
 .charsheet .sheet-attribute-mod {
-    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-image: url("https://iili.io/fAlJhqG.png");
     background-size: cover;
     width: 80px;
     height: 82px;
@@ -120,7 +120,7 @@
 }
 
 .charsheet .sheet-attribute-mod:hover {
-    background-position: center !important;
+    background-position: center;
     background-size: cover;
 }
 
@@ -368,13 +368,15 @@
 }
 
 .charsheet .sheet-rollable-mod {
-    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-image: url("https://iili.io/fAlJhqG.png");
     background-size: cover;
+    background-position: center;
     width: 95px;
     height: 97px;
     border: none;
     background-color: transparent;
     float: left;
+    padding: 2px 3px;
 }
 
 .charsheet .sheet-rollable-mod > span {
@@ -388,7 +390,7 @@
 }
 
 .charsheet .sheet-rollable-mod:hover {
-    background-position: center !important;
+    background-position: center;
     background-size: cover;
 }
 
@@ -512,8 +514,7 @@
 .charsheet .sheet-melee-header * th:first-child,
 .charsheet .sheet-ranged-header * th:first-child,
 .charsheet .sheet-shield > select:nth-child(2),
-.charsheet .sheet-shield-header * th:nth-child(2),
-.charsheet input[name="attr_rangedWeapon_range"] {
+.charsheet .sheet-shield-header * th:nth-child(2) {
     width: 100px;
 }
 
@@ -535,6 +536,7 @@
 .charsheet input[name="attr_meleeWeapon_atk"],
 .charsheet input[name="attr_rangedWeapon_atk"],
 .charsheet input[name="attr_rangedWeapon_range"],
+.charsheet input[name="attr_rangedWeapon_ammo"],
 .charsheet .sheet-shield > input:nth-child(3) {
     text-align: center;
 }
@@ -552,7 +554,6 @@
 .charsheet input[name="attr_meleeWeapon_damage"],
 .charsheet .sheet-shield > input:nth-child(1),
 .charsheet .sheet-shield-header * th:nth-child(1),
-.charsheet input[name="attr_meleeWeapon_name"],
 .charsheet input[name="attr_rangedWeapon_name"],
 .charsheet input[name="attr_rangedWeapon_damage"] {
     width: 150px;
@@ -701,7 +702,7 @@
     margin-bottom: 5px;
 }
 
-.charsheet button[name="roll_healing"] > span {
+.charsheet button[name="act_healing"] > span {
     font-size: 1.2em;
 }
 
@@ -1180,4 +1181,15 @@
 
 .charsheet details textarea {
     width: calc(100% - 10px);
+}
+
+.charsheet .sheet-attack input,
+.charsheet .sheet-attack input[type="number"],
+.charsheet .sheet-attack select {
+    width: 200px;
+}
+
+.charsheet .sheet-attack input[type="number"] {
+    text-align: center;
+    padding-left: 14px;
 }
