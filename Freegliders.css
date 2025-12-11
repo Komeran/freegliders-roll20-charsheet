@@ -312,10 +312,6 @@
     margin-top: 50px;
 }
 
-.charsheet .sheet-npc-topline > .sheet-item[name="hitdie"] {
-    /* margin-left: */
-}
-
 .charsheet .sheet-character-basics {
     display: flex;
     flex-flow: row wrap;
@@ -1192,4 +1188,81 @@
 .charsheet .sheet-attack input[type="number"] {
     text-align: center;
     padding-left: 14px;
+}
+
+.sheet-rolltemplate-custom .sheet-template-container {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    font-family: "Times";
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+    box-shadow: 0 0 3px 3px black inset;
+}
+
+.sheet-rolltemplate-custom .sheet-template-action {
+    font-style: italic;
+}
+
+.sheet-rolltemplate-custom .sheet-template-header {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-custom .sheet-template-components {
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-custom .sheet-template-divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.sheet-rolltemplate-custom .sheet-template-roll {
+    background-image: url("https://iili.io/fAlJhqG.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7em;
+}
+
+.sheet-rolltemplate-custom .inlinerollresult  {
+	background-color: transparent !important;
+    border: none !important;
+}
+
+.sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+    padding: 0;
+}
+
+.sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult.fullcrit {
+    background-color: rgba(0, 255, 0, 0.2) !important;
+    border: 3px solid lime !important;
+}
+
+.sheet-rolltemplate-custom .sheet-template-test {
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult.fullfail {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+    border: 3px solid red !important;
+}
+
+.sheet-rolltemplate-custom .sheet-template-damage {
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-custom .sheet-template-header .inlinerollresult  {
+	padding: 0;
+    margin: 0;
+    font-size: 1em;
 }

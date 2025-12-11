@@ -101,7 +101,7 @@
         <div class="sheet-character-attributes">
             <!-- Agility -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Agility Test [@{agi}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{agi}]]}}">
+                <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{agi}]]}}">
                     <span name="attr_agi"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -112,7 +112,7 @@
 
             <!-- Body -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Body Test [@{bod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{bod}]]}}">
+                <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{bod}]]}}">
                     <span name="attr_bod"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -123,7 +123,7 @@
 
             <!-- Charisma -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Charisma Test [@{cha}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{cha}]]}}">
+                <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{cha}]]}}">
                     <span name="attr_cha"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -134,7 +134,7 @@
 
             <!-- Intuition -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Intuition Test [@{int}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{int}]]}}">
+                <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{int}]]}}">
                     <span name="attr_int"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -145,7 +145,7 @@
 
             <!-- Logic -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Logic Test [@{log}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{log}]]}}">
+                <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{log}]]}}">
                     <span name="attr_log"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -156,7 +156,7 @@
 
             <!-- Willpower -->
             <div class="sheet-attribute">
-                <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Willpower Test [@{wil}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{wil}]]}}">
+                <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{wil}]]}}">
                     <span name="attr_wil"></span>
                 </button>
                 <div class="sheet-attribute-score">
@@ -186,7 +186,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_athletics" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_athletics" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Athletics [BOD] Test [@{athleticsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{athleticsMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Athletics [BOD] Test [@{athleticsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{athleticsMod}]]}}">
                                 <span name="attr_athleticsMod"></span>
                             </button>
                         </td>
@@ -198,7 +198,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_perception" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_perception" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Perception [INT] Test [@{perceptionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{perceptionMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Perception [INT] Test [@{perceptionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{perceptionMod}]]}}">
                                 <span name="attr_perceptionMod"></span>
                             </button>
                         </td>
@@ -210,7 +210,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_piloting" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_piloting" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Piloting [AGI] Test [@{pilotingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{pilotingMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Piloting [AGI] Test [@{pilotingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{pilotingMod}]]}}">
                                 <span name="attr_pilotingMod"></span>
                             </button>
                         </td>
@@ -222,7 +222,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_stealth" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_stealth" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Stealth [AGI] Test [@{stealthMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{stealthMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Stealth [AGI] Test [@{stealthMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{stealthMod}]]}}">
                                 <span name="attr_stealthMod"></span>
                             </button>
                         </td>
@@ -234,7 +234,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_artisanship" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_artisanship" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Artisanship [AGI] Test [@{artisanshipMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{artisanshipMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Artisanship [AGI] Test [@{artisanshipMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{artisanshipMod}]]}}">
                                 <span name="attr_artisanshipMod"></span>
                             </button>
                         </td>
@@ -255,7 +255,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_deception" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_deception" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Deception [CHA] Test [@{deceptionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{deceptionMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Deception [CHA] Test [@{deceptionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{deceptionMod}]]}}">
                                 <span name="attr_deceptionMod"></span>
                             </button>
                         </td>
@@ -267,7 +267,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_intimidation" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_intimidation" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Intimidation [CHA] Test [@{intimidationMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{intimidationMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intimidation [CHA] Test [@{intimidationMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{intimidationMod}]]}}">
                                 <span name="attr_intimidationMod"></span>
                             </button>
                         </td>
@@ -279,7 +279,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_performance" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_performance" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Performance [CHA] Test [@{performanceMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{performanceMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Performance [CHA] Test [@{performanceMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{performanceMod}]]}}">
                                 <span name="attr_performanceMod"></span>
                             </button>
                         </td>
@@ -291,7 +291,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_persuasion" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_persuasion" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Persuasion [CHA] Test [@{persuasionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{persuasionMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Persuasion [CHA] Test [@{persuasionMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{persuasionMod}]]}}">
                                 <span name="attr_persuasionMod"></span>
                             </button>
                         </td>
@@ -312,7 +312,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_astronomy" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_astronomy" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Astronomy [LOG] Test [@{astronomyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{astronomyMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Astronomy [LOG] Test [@{astronomyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{astronomyMod}]]}}">
                                 <span name="attr_astronomyMod"></span>
                             </button>
                         </td>
@@ -324,7 +324,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_economy" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_economy" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Economy [LOG] Test [@{economyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{economyMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Economy [LOG] Test [@{economyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{economyMod}]]}}">
                                 <span name="attr_economyMod"></span>
                             </button>
                         </td>
@@ -336,7 +336,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_history" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_history" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=History [LOG] Test [@{historyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{historyMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=History [LOG] Test [@{historyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{historyMod}]]}}">
                                 <span name="attr_historyMod"></span>
                             </button>
                         </td>
@@ -348,7 +348,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_literature" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_literature" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Literature [LOG] Test [@{literatureMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{literatureMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Literature [LOG] Test [@{literatureMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{literatureMod}]]}}">
                                 <span name="attr_literatureMod"></span>
                             </button>
                         </td>
@@ -360,7 +360,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_medicine" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_medicine" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Medicine [LOG] Test [@{medicineMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{medicineMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Medicine [LOG] Test [@{medicineMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{medicineMod}]]}}">
                                 <span name="attr_medicineMod"></span>
                             </button>
                         </td>
@@ -372,7 +372,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_mythology" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_mythology" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Mythology [LOG] Test [@{mythologyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{mythologyMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Mythology [LOG] Test [@{mythologyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{mythologyMod}]]}}">
                                 <span name="attr_mythologyMod"></span>
                             </button>
                         </td>
@@ -384,7 +384,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_nature" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_nature" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Nature [LOG] Test [@{natureMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{natureMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Nature [LOG] Test [@{natureMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{natureMod}]]}}">
                                 <span name="attr_natureMod"></span>
                             </button>
                         </td>
@@ -396,7 +396,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_survival" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_survival" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Survival [INT] Test [@{survivalMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{survivalMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Survival [INT] Test [@{survivalMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{survivalMod}]]}}">
                                 <span name="attr_survivalMod"></span>
                             </button>
                         </td>
@@ -420,7 +420,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_clockworkmechanics" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_clockworkmechanics" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Clockwork Mechanics [LOG] Test [@{clockworkmechanicsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{clockworkmechanicsMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Clockwork Mechanics [LOG] Test [@{clockworkmechanicsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{clockworkmechanicsMod}]]}}">
                                 <span name="attr_clockworkmechanicsMod"></span>
                             </button>
                         </td>
@@ -432,7 +432,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_automachinery" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_automachinery" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Automachinery [LOG] Test [@{automachineryMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{automachineryMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Automachinery [LOG] Test [@{automachineryMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{automachineryMod}]]}}">
                                 <span name="attr_automachineryMod"></span>
                             </button>
                         </td>
@@ -444,7 +444,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_augmentation" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_augmentation" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Augmentation [LOG] Test [@{augmentationMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{augmentationMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Augmentation [LOG] Test [@{augmentationMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{augmentationMod}]]}}">
                                 <span name="attr_augmentationMod"></span>
                             </button>
                         </td>
@@ -456,7 +456,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_gunsmithing" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_gunsmithing" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Gunsmithing [AGI] Test [@{gunsmithingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{gunsmithingMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Gunsmithing [AGI] Test [@{gunsmithingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{gunsmithingMod}]]}}">
                                 <span name="attr_gunsmithingMod"></span>
                             </button>
                         </td>
@@ -468,7 +468,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_tinkering" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_tinkering" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Tinkering [AGI] Test [@{tinkeringMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{tinkeringMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Tinkering [AGI] Test [@{tinkeringMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{tinkeringMod}]]}}">
                                 <span name="attr_tinkeringMod"></span>
                             </button>
                         </td>
@@ -480,7 +480,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_vehiclemechanics" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_vehiclemechanics" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Vehicle Mechanics [BOD] Test [@{vehiclemechanicsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{vehiclemechanicsMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Vehicle Mechanics [BOD] Test [@{vehiclemechanicsMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{vehiclemechanicsMod}]]}}">
                                 <span name="attr_vehiclemechanicsMod"></span>
                             </button>
                         </td>
@@ -502,7 +502,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_alchemy" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_alchemy" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Alchemy [LOG] Test [@{alchemyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{alchemyMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Alchemy [LOG] Test [@{alchemyMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{alchemyMod}]]}}">
                                 <span name="attr_alchemyMod"></span>
                             </button>
                         </td>
@@ -514,7 +514,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_prayer" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_prayer" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Prayer [WIL] Test [@{prayerMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{prayerMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Prayer [WIL] Test [@{prayerMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{prayerMod}]]}}">
                                 <span name="attr_prayerMod"></span>
                             </button>
                         </td>
@@ -526,7 +526,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_spellwork" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_spellwork" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Spellwork [WIL] Test [@{spellworkMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Spellwork [WIL] Test [@{spellworkMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}">
                                 <span name="attr_spellworkMod"></span>
                             </button>
                         </td>
@@ -538,7 +538,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_runecraft" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_runecraft" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Runecraft [LOG] Test [@{runecraftMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{runecraftMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Runecraft [LOG] Test [@{runecraftMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{runecraftMod}]]}}">
                                 <span name="attr_runecraftMod"></span>
                             </button>
                         </td>
@@ -550,7 +550,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_summoning" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_summoning" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Summoning [WIL] Test [@{summoningMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{summoningMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Summoning [WIL] Test [@{summoningMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{summoningMod}]]}}">
                                 <span name="attr_summoningMod"></span>
                             </button>
                         </td>
@@ -572,7 +572,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_artillery" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_artillery" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Artillery [AGI] Test [@{artilleryMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{artilleryMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Artillery [AGI] Test [@{artilleryMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{artilleryMod}]]}}">
                                 <span name="attr_artilleryMod"></span>
                             </button>
                         </td>
@@ -584,7 +584,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_brawling" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_brawling" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Brawling [AGI] Test [@{brawlingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{brawlingMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Brawling [AGI] Test [@{brawlingMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{brawlingMod}]]}}">
                                 <span name="attr_brawlingMod"></span>
                             </button>
                         </td>
@@ -596,7 +596,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_bow" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_bow" type="roll"
-                            value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Bow [AGI] Test [@{bowMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{bowMod}]]}}">
+                            value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Bow [AGI] Test [@{bowMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{bowMod}]]}}">
                                 <span name="attr_bowMod"></span>
                             </button>
                         </td>
@@ -608,7 +608,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_pistol" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_pistol" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Pistol [AGI] Test [@{pistolMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{pistolMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Pistol [AGI] Test [@{pistolMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{pistolMod}]]}}">
                                 <span name="attr_pistolMod"></span>
                             </button>
                         </td>
@@ -620,7 +620,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_rifle" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_rifle" type="roll"
-                            value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Rifle [AGI] Test [@{rifleMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{rifleMod}]]}}">
+                            value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Rifle [AGI] Test [@{rifleMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{rifleMod}]]}}">
                                 <span name="attr_rifleMod"></span>
                             </button>
                         </td>
@@ -632,7 +632,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_shield" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_shield" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Shield [BOD] Test [@{shieldMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{shieldMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Shield [BOD] Test [@{shieldMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{shieldMod}]]}}">
                                 <span name="attr_shieldMod"></span>
                             </button>
                         </td>
@@ -644,7 +644,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_onehandedmelee" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_onehandedmelee" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=One-Handed Melee [AGI] Test [@{onehandedmeleeMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{onehandedmeleeMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=One-Handed Melee [AGI] Test [@{onehandedmeleeMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{onehandedmeleeMod}]]}}">
                                 <span name="attr_onehandedmeleeMod"></span>
                             </button>
                         </td>
@@ -656,7 +656,7 @@
                         <td><input class="sheet-skill-ranks" min="0" name="attr_twohandedmelee" type="number" /></td>
                         <td>
                             <button class="sheet-skill-mod" name="roll_twohandedmelee" type="roll"
-                                value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Two-Handed Melee [BOD] Test [@{twohandedmeleeMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{twohandedmeleeMod}]]}}">
+                                value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Two-Handed Melee [BOD] Test [@{twohandedmeleeMod}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{twohandedmeleeMod}]]}}">
                                 <span name="attr_twohandedmeleeMod"></span>
                             </button>
                         </td>
@@ -693,7 +693,7 @@
 
             <!-- Initiative -->
             <div class="sheet-item">
-                <button type="roll" name="roll_initiative" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Initiative [@{initiative}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{initiative} &{tracker}]]}}">
+                <button type="roll" name="roll_initiative" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Initiative [@{initiative}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{initiative} &{tracker}]]}}">
                     <span name="attr_initiative"></span>
                 </button>
                 <label class="sheet-resource-label">Initiative</label>
@@ -702,7 +702,7 @@
 
             <!-- Evasion -->
             <div class="sheet-item">
-                <button type="roll" name="roll_evasion" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Evasion [@{evasion}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{evasion}]]}}">
+                <button type="roll" name="roll_evasion" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Evasion [@{evasion}]}} {{result=[[?{Roll Type|Normal,1d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{evasion}]]}}">
                     <span name="attr_evasion"></span>
                 </button>
                 <label class="sheet-resource-label">Evasion</label>
@@ -2986,7 +2986,7 @@
 
         <!-- Initiative -->
         <div class="sheet-item">
-            <button type="roll" name="roll_initiative" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Initiative [@{initiative}]}} {{result=[[1d20@{initiative} &{tracker}]]}}">
+            <button type="roll" name="roll_initiative" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Initiative [@{initiative}]}} {{result=[[1d20@{initiative} &{tracker}]]}}">
                 <span name="attr_initiative"></span>
             </button>
             <label class="sheet-resource-label">Initiative</label>
@@ -2995,7 +2995,7 @@
 
         <!-- Evasion -->
         <div class="sheet-item">
-            <button type="roll" name="roll_evasion" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Evasion [@{evasion}]}} {{result=[[1d20@{evasion}]]}}">
+            <button type="roll" name="roll_evasion" class="sheet-rollable-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Evasion [@{evasion}]}} {{result=[[1d20@{evasion}]]}}">
                 <span name="attr_evasion"></span>
             </button>
             <label class="sheet-resource-label">Evasion</label>
@@ -3016,7 +3016,7 @@
 
     <div class="sheet-character-attributes">
         <div class="sheet-attribute">
-            <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Agility Test [@{agi}]}} {{result=[[1d20@{agi}]]}}">
+            <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result=[[1d20@{agi}]]}}">
                 <span name="attr_agi"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3026,7 +3026,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Body Test [@{bod}]}} {{result=[[1d20@{bod}]]}}">
+            <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result=[[1d20@{bod}]]}}">
                 <span name="attr_bod"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3036,7 +3036,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Charisma Test [@{cha}]}} {{result=[[1d20@{cha}]]}}">
+            <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result=[[1d20@{cha}]]}}">
                 <span name="attr_cha"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3046,7 +3046,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Intuition Test [@{int}]}} {{result=[[1d20@{int}]]}}">
+            <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result=[[1d20@{int}]]}}">
                 <span name="attr_int"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3056,7 +3056,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Logic Test [@{log}]}} {{result=[[1d20@{log}]]}}">
+            <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result=[[1d20@{log}]]}}">
                 <span name="attr_log"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3066,7 +3066,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:default} {{name=Willpower Test [@{wil}]}} {{result=[[1d20@{wil}]]}}">
+            <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result=[[1d20@{wil}]]}}">
                 <span name="attr_wil"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -6029,16 +6029,16 @@ function UpdateMeleeWeaponRoll(eventInfo) {
         let stealthRanks = parseInt(values["stealth"]) || 0;
 
         let damageParts = weaponDamage.split(" ");
-        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:default} {{name=" + weaponName + " Attack}}";
+        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:custom} {{name=" + weaponName + " Attack}}";
 
         // To Hit
         if(weaponAtk != "") {
-            roll += "{{to hit=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + weaponAtk + "]]}}"
+            roll += "{{atk=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + weaponAtk + "]]}}"
         }
 
         // Damage
         roll += "{{damage="
-        let crit = "{{crit="
+        let crit = "{{critdamage="
         let diceRegex = /\+?\d*d\d*/g;
         for(let i = 0; i < damageParts.length; i += 2) {
             roll += " [[";
@@ -6061,7 +6061,7 @@ function UpdateMeleeWeaponRoll(eventInfo) {
 
         // Powerful Strikes
         if(athleticsRanks > 0) {
-            roll += "{{Powerful Strikes=+" + athleticsRanks + " " + damageParts[1] + "}}"
+            roll += "{{powerfulstrikes=+" + athleticsRanks + " " + damageParts[1] + "}}"
         }
 
         // Sneak Attack
@@ -6074,8 +6074,8 @@ function UpdateMeleeWeaponRoll(eventInfo) {
             else {
                 sneakAttackDamage = sneakAttackDice + "d8";
             }
-            roll += "{{Sneak Attack=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
-            roll += "{{Sneak Attack Crit=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
+            roll += "{{sneakattack=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
+            roll += "{{sneakattackcrit=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
         }
 
         attributes[prefix+"meleeWeapon_roll"] = roll + crit;
@@ -6455,16 +6455,16 @@ function UpdateRangedWeaponRoll(eventInfo) {
         let weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
 
         let damageParts = weaponDamage.split(" ");
-        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:default} {{name=" + weaponName + " Attack}}";
+        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:custom} {{name=" + weaponName + " Attack}}";
 
         // To Hit
         if(weaponAtk != "") {
-            roll += "{{to hit=[[?{Roll Type|Normal, d20|Advantage, 2d20kh1|Disadvantage, 2d20kl1}" + weaponAtk + "]]}}"
+            roll += "{{atk=[[?{Roll Type|Normal, d20|Advantage, 2d20kh1|Disadvantage, 2d20kl1}" + weaponAtk + "]]}}"
         }
 
         // Damage
         roll += "{{damage="
-        let crit = "{{crit="
+        let crit = "{{critdamage="
         let diceRegex = /\+?\d*d\d*/g;
         for(let i = 0; i < damageParts.length; i += 2) {
             roll += " [[";
@@ -6487,7 +6487,7 @@ function UpdateRangedWeaponRoll(eventInfo) {
 
         // Powerful Strikes
         if(athleticsRanks > 0 && weaponSkill == "Bow") {
-            roll += "{{Powerful Strikes=+" + athleticsRanks + " " + damageParts[1] + "}}"
+            roll += "{{powerfulstrikes=+" + athleticsRanks + " " + damageParts[1] + "}}"
         }
 
         // Sneak Attack
@@ -6500,14 +6500,14 @@ function UpdateRangedWeaponRoll(eventInfo) {
             else {
                 sneakAttackDamage = sneakAttackDice + "d8";
             }
-            roll += "{{Sneak Attack=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
-            crit += "{{Sneak Attack Crit=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
+            roll += "{{sneakattack=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
+            crit += "{{sneakattackcrit=+[[" + sneakAttackDamage + "]] " + damageParts[1] + "}}";
         }
 
         // Siege Weapons
         if(weaponSkill == "Artillery" && artilleryRanks >= 7) {
-            roll += "{{Siege Weapon=+[[" + artilleryRanks + "d6]] Piercing}}"
-            crit += "{{Siege Weapon Crit=+[[" + artilleryRanks + "d6]] Piercing}}"
+            roll += "{{siegeweapon=+[[" + artilleryRanks + "d6]] Piercing}}"
+            crit += "{{siegeweaponcrit=+[[" + artilleryRanks + "d6]] Piercing}}"
         }
 
         attributes[prefix+"rangedWeapon_roll"] = roll + crit;
@@ -7041,14 +7041,14 @@ function RollNpcAttack(eventInfo) {
             let damage = values[prefix + "damage"] || "";
             let description = values[prefix + "description"] || "";
 
-            let roll = "?{Secret|Open,|Secret,/w gm} &{template:default}";
+            let roll = "?{Secret|Open,|Secret,/w gm} &{template:custom}";
 
             roll += "{{name=" + name + "}}";
             roll += "{{type=" + type + " " + type2 + "}}";
 
             // Attack Test
             if(isAttackTest) {
-                roll += "{{to hit=[[?{Advantage|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + atk + "]]}}";
+                roll += "{{atk=[[?{Advantage|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + atk + "]]}}";
             }
 
             // Save Test
@@ -7285,7 +7285,7 @@ function InvokeBlessing(eventInfo) {
 
             if(faithPool >= blessingFaith) {
                 // Invoke Blessing
-                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:default}`;
+                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
 
                 // Name
                 rollString += `{{name=${name}}}`;
@@ -7294,7 +7294,7 @@ function InvokeBlessing(eventInfo) {
                 // Components
                 rollString += `{{components=${components}}}`;
                 // Power
-                rollString += `{{power [P]=[[${prayerRanks}[Prayer Ranks]`;
+                rollString += `{{power=[[${prayerRanks}[Prayer Ranks]`;
                 // Additional Faith for extra Power
                 if(faithPool > blessingFaith) {
                     rollString += `?{Spend more Faith?|+0 Faith, `;
@@ -7321,7 +7321,7 @@ function InvokeBlessing(eventInfo) {
                 }
                 
                 startRoll(rollString, (r) => {
-                    let blessingPower = r.results["power [P]"].result;
+                    let blessingPower = r.results["power"].result;
                     let expendedFaith = blessingFaith + (blessingPower - prayerRanks);
 
                     setAttrs({
@@ -7445,7 +7445,7 @@ function CastSpell(eventInfo) {
                 && earthEssence >= earthCost
                 && airEssence >= airCost)
             {
-                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:default}`;
+                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
 
                 // Name
                 rollString += `{{name=${name}}}`;
@@ -7455,7 +7455,7 @@ function CastSpell(eventInfo) {
                 rollString += `{{components=${components}}}`;
                 // Power
                 let power = spellworkRanks;
-                rollString += `{{power [P]=[[${power}[Spellwork Ranks]]]}}`;
+                rollString += `{{power=${power}}}`;
                 // Range
                 if(range != "") {
                     rollString += `{{range=${range}}}`;
@@ -7470,15 +7470,15 @@ function CastSpell(eventInfo) {
                 }
                 // Attack
                 if(attackType != "none") {
-                    rollString += `{{To Hit=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}`;
+                    rollString += `{{atk=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}`;
                 }
                 // Save
                 if(saveType != "none") {
                     if(saveDTType.toLowerCase() == "srd") {
-                        rollString += `{{Save=DT @{srd} ${saveType} Test}}`;
+                        rollString += `{{save=DT @{srd} ${saveType} Test}}`;
                     }
                     else {
-                        rollString += `{{Save=DT ${saveDT} ${saveType} Test}}`;
+                        rollString += `{{save=DT ${saveDT} ${saveType} Test}}`;
                     }
                 }
 
@@ -7501,7 +7501,8 @@ function CastSpell(eventInfo) {
                         essence_earth: earthEssence - earthCost,
                         essence_air: airEssence - airCost
                     });
-                    finishRoll(r.rollId);
+
+                    finishRoll(r.rollId, calculatedRolls);
                 });
             }
             else {
@@ -7587,7 +7588,7 @@ function UseHealing() {
     getAttrs(["prayer", "faith"], function(values) {
         let faith = parseInt(values["faith"]) || 0;
 
-        startRoll("&{template:default} {{name=Healing}} {{result=[[@{healing}]]}}", (r) => {
+        startRoll("&{template:custom} {{name=Healing}} {{result=[[@{healing}]]}}", (r) => {
             setAttrs({
                 faith: faith - 1
             });
@@ -7701,7 +7702,7 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
     }
     rollString += `}}`;
 
-    rollString += `{{crit=`;
+    rollString += `{{critdamage=`;
     for(let damageType in critDamageRolls) {
         rollString += ` +[[${critDamageRolls[damageType]}]] ${DamageTypeEmoji(damageType)}`;
     }
@@ -7718,8 +7719,8 @@ function DamageStringToTemplateRollString(damage, isAttack, stealthRanks) {
             else {
                 sneakAttackDamage = sneakAttackDice + "d8";
             }
-            rollString += `{{Sneak Attack=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
-            rollString += `{{Sneak Attack Crit=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
+            rollString += `{{sneakattack=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
+            rollString += `{{sneakattackcrit=+[[${sneakAttackDamage}]] ${DamageTypeEmoji(baseDamageType)}}}`;
         }
     }
 
@@ -7734,3 +7735,106 @@ function DamageTypeEmoji(damageType) {
     return CapitalizeFirstLetter(damageType);
 }
 </script>
+
+<!-- Custom Template -->
+<rolltemplate class="sheet-rolltemplate-custom">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">
+            {{name}}
+            {{#power}}[P{{power}}]{{/power}}
+            {{#quality}}[Q{{quality}}]{{/quality}}
+        </div>
+	    {{#action}}
+        <div class="sheet-template-action">
+            {{action}}
+        </div>
+        {{/action}}
+	    {{#components}}
+        <div class="sheet-template-components">
+            {{components}}
+        </div>
+        {{/components}}
+	    {{#range}}
+        <div class="sheet-template-detail">
+            Range: {{range}}
+        </div>
+        {{/range}}
+	    {{#area}}
+        <div class="sheet-template-detail">
+            Area: {{area}}
+        </div>
+        {{/area}}
+	    {{#duration}}
+        <div class="sheet-template-detail">
+            Duration: {{duration}}
+        </div>
+        {{/duration}}
+	    {{#result}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            <div class="sheet-template-roll">{{result}}</div>
+        </div>
+        {{/result}}
+	    {{#atk}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            <div class="sheet-template-roll">{{atk}}</div>
+            <br/>
+            <span>Attack</span>
+        </div>
+        {{/atk}}
+	    {{#save}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            {{save}}
+        </div>
+        {{/save}}
+        {{#damage}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{damage}} 
+            {{#rollWasCrit() atk}}
+            {{critdamage}}
+            {{/rollWasCrit() atk}}
+            <br/>
+            <span class="sheet-template-label">Damage</span>
+        </div>
+        {{/damage}}
+        {{#sneakattack}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{sneakattack}} 
+            {{#rollWasCrit() atk}}
+            {{sneakattackcrit}}
+            {{/rollWasCrit() atk}}
+            <br/>
+            <span class="sheet-template-label">Sneak Attack</span>
+        </div>
+        {{/sneakattack}}
+        {{#powerfulstrikes}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{powerfulstrikes}}
+            <br/>
+            <span class="sheet-template-label">Powerful Strikes</span>
+        </div>
+        {{/powerfulstrikes}}
+        {{#siegeweapon}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{siegeweapon}}
+            {{#rollWasCrit() atk}}
+            {{siegeweaponcrit}}
+            {{/rollWasCrit() atk}}
+            <br/>
+            <span class="sheet-template-label">Siege Weapon</span>
+        </div>
+        {{/siegeweapon}}
+        {{#description}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{description}}
+        </div>
+        {{/description}}
+    </div>
+</rolltemplate>
