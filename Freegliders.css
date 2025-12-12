@@ -1073,10 +1073,14 @@
 }
 
 .charsheet details {
-    border: 1px solid black;
     border-radius: .5em;
-    padding: 10px;
+    padding: 12px;
     min-width: 100%;
+    margin-top: 5px;
+    box-shadow: 0 0 2px 2px black inset;
+}
+.charsheet details:last-of-type {
+    margin-bottom: 5px;
 }
 
 .repcontainer > .repitem details {
@@ -1236,16 +1240,16 @@
 }
 
 .sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    line-height: 32px;
+    line-height: 38px;
     padding: 0;
+    box-shadow: 0 0 2px 2px grey inset;
 }
 
 .sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult.fullcrit {
-    background-color: rgba(0, 255, 0, 0.2) !important;
-    border: 3px solid lime !important;
+    box-shadow: 0 0 2px 2px lime inset;
 }
 
 .sheet-rolltemplate-custom .sheet-template-test {
@@ -1253,8 +1257,7 @@
 }
 
 .sheet-rolltemplate-custom .sheet-template-roll .inlinerollresult.fullfail {
-    background-color: rgba(255, 0, 0, 0.2) !important;
-    border: 3px solid red !important;
+    box-shadow: 0 0 2px 2px red inset;
 }
 
 .sheet-rolltemplate-custom .sheet-template-damage {
@@ -1265,4 +1268,9 @@
 	padding: 0;
     margin: 0;
     font-size: 1em;
+}
+
+.sheet-rolltemplate-custom .sheet-template-roll.sheet-template-roll-grey {
+    color: #333;
+    opacity: .8;
 }

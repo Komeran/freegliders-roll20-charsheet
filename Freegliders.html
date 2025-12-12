@@ -1828,6 +1828,11 @@
                     <option>Silence</option>
                     <option>Restrain</option>
                     <option>Chain Pull</option>
+                    <option>Air Bubble</option>
+                    <option>Command</option>
+                    <option>Enthrall</option>
+                    <option>Clean</option>
+                    <option>Ignite</option>
                 </datalist>
                 
                 <fieldset class="repeating_spell">
@@ -3191,6 +3196,8 @@
 
 <script type="text/worker">
 // Constants
+const TEST_TYPE_PROMPT = "?{Roll Type|Normal,[[1d20]]|Advantage,{[[1d20]]&#44;[[1d20]]&#125;kh1|Disadvantage,{[[1d20]]&#44;[[1d20]]&#125;kl1}";
+
 const SKILLS = [
     "athletics",
     "perception",
@@ -5616,6 +5623,46 @@ let spells = {
         attackType: "Ranged",
         description: "Make a ranged spell attack against a target creature within range. On a hit, the target gets pulled up to [P] x 4m towards you by a magical chain, vine, or similar."
     },
+    "air bubble": {
+        action: "Major Action",
+        components: "Motus",
+        natura: "3 Air",
+        range: "Touch",
+        duration: "[P] hours",
+        description: "The target creature’s head is surrounded by a bubble of breathable air for the duration. Gases, smoke, dust, and liquids are kept out of the bubble and the air inside the bubble is always fresh and breathable, no matter the surrounding environment."
+    },
+    "command": {
+        action: "Major Action",
+        components: "Vox",
+        natura: "5 Air, 1 Fire, 1 Water",
+        duration: "[P] minutes",
+        saveType: "Willpower",
+        saveDTType: "srd",
+        description: "You utter a simple command to a target creature that can hear and understand you. The target must succeed on a Willpower test or become charmed by you. While charmed in this way, the target must obey and fulfill the command you uttered when casting the spell to the best of its ability. If the command would result in the target getting hurt, it has advantage on the Willpower test. At the end of each of the target’s turns, it can repeat the Willpower test and end the spell on a success."
+    },
+    "enthrall": {
+        action: "Major Action",
+        components: "Vox",
+        natura: "10 Air, 3 Fire, 2 Water",
+        duration: "[P] hours",
+        saveType: "Willpower",
+        saveDTType: "srd",
+        description: "You utter a command to a target creature that can hear and understand you. The target must succeed on a Willpower test or become charmed by you. While charmed in this way, the target must obey and fulfill the command you uttered when casting the spell to the best of its ability. If the command would result in the target getting hurt, it has advantage on the Willpower test."
+    },
+    "clean": {
+        action: "Minor Action",
+        components: "Motus",
+        natura: "1 Air",
+        range: "10m",
+        description: "You magically clean up to [P] creatures of your choice that you can see within range. Their skin, hair, clothes, and equipment are dried and cleaned of any dirt or grime. Alternatively, you can target an area up to [P]m in any dimension and affect all surfaces and objects not worn or carried by creatures inside it in the same way."
+    },
+    "ignite": {
+        action: "Major Action",
+        components: "Motus, Vox",
+        natura: "3 Fire",
+        range: "20m",
+        description: "The target object or creature ignites and gains [P] stacks of the burning condition."
+    }
 };
 
 function UpdateSpell(eventInfo) {
@@ -6033,7 +6080,7 @@ function UpdateMeleeWeaponRoll(eventInfo) {
 
         // To Hit
         if(weaponAtk != "") {
-            roll += "{{atk=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + weaponAtk + "]]}}"
+            roll += GetCustomTemplateAtkString(weaponAtk);
         }
 
         // Damage
@@ -6459,7 +6506,7 @@ function UpdateRangedWeaponRoll(eventInfo) {
 
         // To Hit
         if(weaponAtk != "") {
-            roll += "{{atk=[[?{Roll Type|Normal, d20|Advantage, 2d20kh1|Disadvantage, 2d20kl1}" + weaponAtk + "]]}}"
+            roll += GetCustomTemplateAtkString(weaponAtk);
         }
 
         // Damage
@@ -7048,7 +7095,7 @@ function RollNpcAttack(eventInfo) {
 
             // Attack Test
             if(isAttackTest) {
-                roll += "{{atk=[[?{Advantage|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}" + atk + "]]}}";
+                roll += GetCustomTemplateAtkString(atk);
             }
 
             // Save Test
@@ -7365,7 +7412,8 @@ function CastSpell(eventInfo) {
             "spellwork",
             "srd",
             "elementalAttunement",
-            "stealth"
+            "stealth",
+            "spellworkMod"
         ],
         function(values) {
             let name = values[prefix + "name"] || "";
@@ -7378,6 +7426,7 @@ function CastSpell(eventInfo) {
             let description = values[prefix + "description"] || "";
             let spellworkRanks = parseInt(values["spellwork"]) || 0;
             let stealthRanks = parseInt(values["stealth"]) || 0;
+            let spellworkMod = values["spellworkMod"] || "";
 
             let attackType = values[prefix + "attackType"] || "";
             let saveType = values[prefix + "saveType"] || "";
@@ -7437,7 +7486,7 @@ function CastSpell(eventInfo) {
                 if(elementalAttunement.toLowerCase() == "air") {
                     airCost = Math.max(airCost, airCost-1);
                 }
-}
+            }
 
             // Cast Spell
             if(fireEssence >= fireCost
@@ -7470,7 +7519,7 @@ function CastSpell(eventInfo) {
                 }
                 // Attack
                 if(attackType != "none") {
-                    rollString += `{{atk=[[?{Roll Type|Normal,d20|Advantage,2d20kh1|Disadvantage,2d20kl1}@{spellworkMod}]]}}`;
+                    rollString += GetCustomTemplateAtkString(spellworkMod);
                 }
                 // Save
                 if(saveType != "none") {
@@ -7502,7 +7551,7 @@ function CastSpell(eventInfo) {
                         essence_air: airEssence - airCost
                     });
 
-                    finishRoll(r.rollId, calculatedRolls);
+                    finishRoll(r.rollId);
                 });
             }
             else {
@@ -7734,6 +7783,13 @@ function DamageTypeEmoji(damageType) {
     
     return CapitalizeFirstLetter(damageType);
 }
+
+function GetCustomTemplateAtkString(mod) {
+    return `?{Roll Type|` +
+        `Normal,[[1d20${mod}]] {{atk=$[[0]]&#125;&#125; {{atkresult=$[[0]]&#125;&#125;|` +
+        `Advantage,[[{[[1d20${mod}]]&#44;[[1d20${mod}]]&#125;kh1]] {{atk=$[[0]]&#125;&#125; {{atkadvantage=$[[1]]&#125;&#125; {{advflag=[[1]]&#125;&#125;|` +
+        `Disadvantage,[[{[[1d20${mod}]]&#44;[[1d20${mod}]]&#125;kl1]] {{atk=$[[0]]&#125;&#125; {{atkadvantage=$[[1]]&#125;&#125; {{disadvflag=[[1]]&#125;&#125;}`
+}
 </script>
 
 <!-- Custom Template -->
@@ -7778,7 +7834,34 @@ function DamageTypeEmoji(damageType) {
 	    {{#atk}}
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-test">
+            {{#advflag}}
+            {{#^rollLess() atk atkadvantage}}
             <div class="sheet-template-roll">{{atk}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atkadvantage}}</div>
+            {{/^rollLess() atk atkadvantage}}
+            {{#rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atk}}</div>
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/rollLess() atk atkadvantage}}
+            {{/advflag}}
+            {{^advflag}}
+            {{#disadvflag}}
+            {{#^rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atk}}</div>
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/^rollLess() atk atkadvantage}}
+            {{#rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll">{{atk}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atkadvantage}}</div>
+            {{/rollLess() atk atkadvantage}}
+            {{/disadvflag}}
+            {{^disadvflag}}
+            <div class="sheet-template-roll">{{atk}}</div>
+            {{#atkadvantage}}
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/atkadvantage}}
+            {{/disadvflag}}
+            {{/advflag}}
             <br/>
             <span>Attack</span>
         </div>
@@ -7792,10 +7875,15 @@ function DamageTypeEmoji(damageType) {
         {{#damage}}
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-damage">
-            {{damage}} 
+            {{damage}}
             {{#rollWasCrit() atk}}
             {{critdamage}}
             {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{critdamage}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
             <br/>
             <span class="sheet-template-label">Damage</span>
         </div>
@@ -7803,10 +7891,15 @@ function DamageTypeEmoji(damageType) {
         {{#sneakattack}}
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-damage">
-            {{sneakattack}} 
+            {{sneakattack}}
             {{#rollWasCrit() atk}}
             {{sneakattackcrit}}
             {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{sneakattackcrit}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
             <br/>
             <span class="sheet-template-label">Sneak Attack</span>
         </div>
@@ -7826,6 +7919,11 @@ function DamageTypeEmoji(damageType) {
             {{#rollWasCrit() atk}}
             {{siegeweaponcrit}}
             {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{siegeweaponcrit}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
             <br/>
             <span class="sheet-template-label">Siege Weapon</span>
         </div>
