@@ -649,9 +649,9 @@
 
             <!-- Hit Die -->
             <div class="sheet-item" name="hitdie">
-                <div class="sheet-resource-hitdie">
+                <button type="action" name="act_hitdie" class="sheet-resource-hitdie">
                     <span name="attr_hitdie"></span>
-                </div>
+                </button>
                 <label class="sheet-resource-label">Hit Die</label>
             </div>
 
@@ -3516,6 +3516,12 @@ on(`clicked:evasion`, function() {
     });
 });
 
+on("clicked:hitdie", function() {
+    let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Heal Dice}} {{result1=[[?{Number of Hit Dice|1}@{hitdie}]]}}`;
+    startRoll(rollString, r => {
+        finishRoll(r.rollId);
+    });
+});
 
 // Event Listeners for attribute changes
 on("change:agility", UpdateAgi);
