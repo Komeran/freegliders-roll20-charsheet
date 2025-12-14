@@ -1311,3 +1311,37 @@
     color: #333;
     opacity: .8;
 }
+
+.charsheet .sheet-prayer-input-hidden:not([value="0"]):not([value="1"]):not([value="2"]):not([value=""]) ~ .sheet-prayer-healing {
+    display: flex;
+}
+
+.charsheet .sheet-prayer-healing {
+    display: none;
+}
+
+.sheet-rolltemplate-custom .sheet-template-description .inlinerollresult,
+.sheet-rolltemplate-custom .sheet-template-detail .inlinerollresult {
+    padding: 0 2px;
+    border: 2px solid black !important;
+}
+
+.charsheet input.sheet-listitem-validation {
+    display: none;
+}
+
+.charsheet .repcontainer input.sheet-listitem-validation:checked ~ * input:not(.sheet-listitem-only):not(.sheet-listitem-keep),
+.charsheet .repcontainer input.sheet-listitem-validation:checked ~ * textarea:not(.sheet-listitem-only):not(.sheet-listitem-keep),
+.charsheet .repcontainer input.sheet-listitem-validation:checked ~ * select:not(.sheet-listitem-only):not(.sheet-listitem-keep) {
+    display: none;
+}
+
+.charsheet .repcontainer input.sheet-listitem-validation:not(:checked) ~ * .sheet-listitem-only {
+    display: none;
+}
+
+.charsheet .repcontainer input.sheet-listitem-only:read-only,
+.charsheet .repcontainer textarea.sheet-listitem-only:read-only {
+    background-color: transparent;
+    cursor: text;
+}
