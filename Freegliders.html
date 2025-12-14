@@ -1729,6 +1729,8 @@
                     <details>
                         <summary class="sheet-spoiler0">
                             <span name="attr_ritual_name">New Ritual</span>
+                            <button type="action" name="attr_performritual">Perform</button>
+                            <span class="error" name="attr_ritual_error"></span>
                         </summary>
 
                         <!-- Name -->
@@ -1739,7 +1741,7 @@
                         <!-- Natura -->
                         <div>
                             <label class="sheet-spell-label">Natura:</label>
-                            <input type="text" name="attr_ritual_essence" placeholder="Essence" />
+                            <input type="text" name="attr_ritual_essence" placeholder="Natura" />
                         </div>
 
                         <textarea name="attr_ritual_description" placeholder="Description" />
@@ -2998,7 +3000,7 @@
 
     <div class="sheet-character-attributes">
         <div class="sheet-attribute">
-            <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result=[[1d20@{agi}]]}}">
+            <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result1=[[1d20@{agi}]]}}">
                 <span name="attr_agi"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3008,7 +3010,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result=[[1d20@{bod}]]}}">
+            <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result1=[[1d20@{bod}]]}}">
                 <span name="attr_bod"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3018,7 +3020,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result=[[1d20@{cha}]]}}">
+            <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result1=[[1d20@{cha}]]}}">
                 <span name="attr_cha"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3028,7 +3030,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result=[[1d20@{int}]]}}">
+            <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result1=[[1d20@{int}]]}}">
                 <span name="attr_int"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3038,7 +3040,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result=[[1d20@{log}]]}}">
+            <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result1=[[1d20@{log}]]}}">
                 <span name="attr_log"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3048,7 +3050,7 @@
         </div>
 
         <div class="sheet-attribute">
-            <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result=[[1d20@{wil}]]}}">
+            <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result1=[[1d20@{wil}]]}}">
                 <span name="attr_wil"></span>
             </button>
             <div class="sheet-attribute-score">
@@ -3732,15 +3734,28 @@ on("change:augmentations_rightFoot_quality", UpdateAugmentModuleCapacity);
 
 on("clicked:repeating_blessing:blessinginvoke", InvokeBlessing);
 on("clicked:repeating_spell:spellcast", CastSpell);
+on("clicked:repeating_ritual:performritual", PerformRitual);
 
 on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTBonus", UpdateSpellSaveDT);
 
-on("change:essence_air", UpdateSpells);
-on("change:essence_fire", UpdateSpells);
-on("change:essence_earth", UpdateSpells);
-on("change:essence_water", UpdateSpells);
+on("change:essence_air", _ => {
+    UpdateSpells();
+    UpdateRituals();
+});
+on("change:essence_fire", _ => {
+    UpdateSpells();
+    UpdateRituals();
+});
+on("change:essence_earth", _ => {
+    UpdateSpells();
+    UpdateRituals();
+});
+on("change:essence_water", _ => {
+    UpdateSpells();
+    UpdateRituals();
+});
 
 on("clicked:healing", UseHealing);
 
@@ -5558,17 +5573,51 @@ let rituals = {
 
 function UpdateRitual(eventInfo) {
     let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_ritual_" + rowId + "_";
 
-    getAttrs([prefix+"ritual_name"], function(values) {
-        let ritualName = values[prefix+"ritual_name"] || "";
+    DoUpdateRitual(rowId);
+}
+
+function UpdateRituals() {
+    getSectionIDs("ritual", function(ids) {
+        for(var i = 0; i < ids.length; i++) {
+            DoUpdateRitual(ids[i]);
+        }
+    });
+}
+
+function DoUpdateRitual(rowId) {
+    let prefix = "repeating_ritual_" + rowId + "_ritual_";
+
+    getAttrs([prefix+"name", "essence_air", "essence_earth", "essence_fire", "essence_water", "elementalAttunement"], function(values) {
+        let ritualName = values[prefix+"name"] || "";
+        let airEssence = parseInt(values["essence_air"]) || 0;
+        let earthEssence = parseInt(values["essence_earth"]) || 0;
+        let fireEssence = parseInt(values["essence_fire"]) || 0;
+        let waterEssence = parseInt(values["essence_water"]) || 0;
+        let elementalAttunement = values["elementalAttunement"] || "";
 
         let listRitual = rituals[ritualName.toLowerCase()];
         if(listRitual !== undefined) {
             let attributes = {};
 
-            attributes[prefix+"ritual_essence"] = listRitual.essence;
-            attributes[prefix+"ritual_description"] = listRitual.description;
+            attributes[prefix+"essence"] = listRitual.essence;
+            attributes[prefix+"description"] = listRitual.description;
+
+            // Parse Natura field
+            if(listRitual.essence != undefined) {
+
+                let naturaCosts = ParseNatura(listRitual.essence, elementalAttunement);
+
+                if(naturaCosts.fire > fireEssence
+                    || naturaCosts.water > waterEssence
+                    || naturaCosts.earth > earthEssence
+                    || naturaCosts.air > airEssence) {
+                    attributes[prefix + "error"] = "Not enough Essence!";
+                }
+                else {
+                    attributes[prefix + "error"] = " ";
+                }
+            }
 
             setAttrs(attributes);
         }
@@ -5955,52 +6004,12 @@ function DoUpdateSpell(rowId) {
 
             // Parse Natura field
             if(listSpell.natura != undefined) {
-                let naturaRegex = /[+-]?\d* (?:Fire|Air|Earth|Water)/gi;
-                let matches = listSpell.natura.match(naturaRegex);
-                let fireCost = 0;
-                let waterCost = 0;
-                let earthCost = 0;
-                let airCost = 0;
+                let naturaCosts = ParseNatura(listSpell.natura, elementalAttunement);
 
-                for(let match of matches) {
-                    let splitMatch = match.split(" ");
-                    let amount = parseInt(splitMatch[0]);
-                    let element = splitMatch[1];
-
-                    switch(element.toLowerCase()) {
-                        case "fire":
-                            fireCost += amount;
-                            break;
-                        case "water":
-                            waterCost += amount;
-                            break;
-                        case "earth":
-                            earthCost += amount;
-                            break;
-                        case "air":
-                            airCost += amount;
-                            break;
-                    }
-                }
-                
-                // Elemental Attunement
-                if(elementalAttunement.toLowerCase() == "fire") {
-                    fireCost = Math.max(fireCost, fireCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "water") {
-                    waterCost = Math.max(waterCost, waterCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "earth") {
-                    earthCost = Math.max(earthCost, earthCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "air") {
-                    airCost = Math.max(airCost, airCost-1);
-                }
-
-                if(fireCost > fireEssence
-                    || waterCost > waterEssence
-                    || earthCost > earthEssence
-                    || airCost > airEssence) {
+                if(naturaCosts.fire > fireEssence
+                    || naturaCosts.water > waterEssence
+                    || naturaCosts.earth > earthEssence
+                    || naturaCosts.air > airEssence) {
                     attributes[prefix + "error"] = "Not enough Essence!";
                 }
                 else {
@@ -7683,57 +7692,23 @@ function CastSpell(eventInfo) {
             let faith = parseInt(values["faith"]) || 0;
             let miracleworkingFaith = parseInt(values["miracleworkingFaith"]) || 0;
             
-            let fireCost = 0;
-            let waterCost = 0;
-            let airCost = 0;
-            let earthCost = 0;
+            let naturaCosts = {
+                air: 0,
+                earth: 0,
+                fire: 0,
+                water: 0
+            };
 
             // Parse Natura field
             if(natura != "") {
-                let naturaRegex = /[+-]?\d* (?:Fire|Air|Earth|Water)/gi;
-                let matches = natura.match(naturaRegex);
-
-                for(let match of matches) {
-                    let splitMatch = match.split(" ");
-                    let amount = parseInt(splitMatch[0]);
-                    let element = splitMatch[1];
-
-                    switch(element.toLowerCase()) {
-                        case "fire":
-                            fireCost += amount;
-                            break;
-                        case "water":
-                            waterCost += amount;
-                            break;
-                        case "earth":
-                            earthCost += amount;
-                            break;
-                        case "air":
-                            airCost += amount;
-                            break;
-                    }
-                }
-                
-                // Elemental Attunement
-                if(elementalAttunement.toLowerCase() == "fire") {
-                    fireCost = Math.max(fireCost, fireCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "water") {
-                    waterCost = Math.max(waterCost, waterCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "earth") {
-                    earthCost = Math.max(earthCost, earthCost-1);
-                }
-                if(elementalAttunement.toLowerCase() == "air") {
-                    airCost = Math.max(airCost, airCost-1);
-                }
+                naturaCosts = ParseNatura(natura, elementalAttunement);
             }
 
             // Cast Spell
-            if(fireEssence >= fireCost
-                && waterEssence >= waterCost
-                && earthEssence >= earthCost
-                && airEssence >= airCost)
+            if(fireEssence >= naturaCosts.fire
+                && waterEssence >= naturaCosts.water
+                && earthEssence >= naturaCosts.earth
+                && airEssence >= naturaCosts.air)
             {
                 let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
 
@@ -7796,10 +7771,10 @@ function CastSpell(eventInfo) {
                 
                 startRoll(rollString, (r) => {
                     setAttrs({
-                        essence_fire: fireEssence - fireCost,
-                        essence_water: waterEssence - waterCost,
-                        essence_earth: earthEssence - earthCost,
-                        essence_air: airEssence - airCost
+                        essence_fire: fireEssence - naturaCosts.fire,
+                        essence_water: waterEssence - naturaCosts.water,
+                        essence_earth: earthEssence - naturaCosts.earth,
+                        essence_air: airEssence - naturaCosts.air
                     });
 
                     // Miracle Working
@@ -7897,18 +7872,141 @@ function UseHealing() {
     getAttrs(["prayer", "faith"], function(values) {
         let faith = parseInt(values["faith"]) || 0;
 
-        startRoll("&{template:custom} {{name=Healing}} {{result=[[@{healing}]]}}", (r) => {
+        startRoll("&{template:custom} {{name=Healing}} {{result1=[[@{healing}]]}}", (r) => {
             setAttrs({
                 faith: faith - 1
             });
             finishRoll(r.rollId);
-        })
+        });
     });
+}
+
+function PerformRitual(eventInfo) {
+    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    let prefix = "repeating_ritual_" + rowId + "_ritual_";
+
+    getAttrs(
+        [
+            prefix + "name",
+            prefix + "essence",
+            prefix + "description",
+            "runecraft",
+            "essence_fire",
+            "essence_earth",
+            "essence_water",
+            "essence_air",
+            "elementalAttunement"
+        ],
+        function(values) {
+            let name = values[prefix + "name"] || "";
+            let natura = values[prefix + "essence"] || "";
+            let description = values[prefix + "description"] || "";
+            let runecraftRanks = parseInt(values["runecraft"]) || 0;
+            
+            let fireEssence = parseInt(values["essence_fire"]) || 0;
+            let waterEssence = parseInt(values["essence_water"]) || 0;
+            let earthEssence = parseInt(values["essence_earth"]) || 0;
+            let airEssence = parseInt(values["essence_air"]) || 0;
+            let elementalAttunement = values["elementalAttunement"] || "";
+            
+            let naturaCosts = {
+                air: 0,
+                earth: 0,
+                fire: 0,
+                water: 0
+            };
+
+            // Parse Natura field
+            if(natura != "") {
+                naturaCosts = ParseNatura(natura, elementalAttunement);
+            }
+
+            // Perform Ritual
+            if(fireEssence >= naturaCosts.fire
+                && waterEssence >= naturaCosts.water
+                && earthEssence >= naturaCosts.earth
+                && airEssence >= naturaCosts.air)
+            {
+                let rollString = `&{template:custom}`;
+
+                // Name & Power
+                let power = runecraftRanks;
+                rollString += `{{name=${name} [P${power}]}}`;
+                
+                // Description
+                if(description != "") {
+                    rollString += `{{description=${description}}}`;
+                }
+
+                startRoll(rollString, (r) => {
+                    setAttrs({
+                        essence_fire: fireEssence - naturaCosts.fire,
+                        essence_water: waterEssence - naturaCosts.water,
+                        essence_earth: earthEssence - naturaCosts.earth,
+                        essence_air: airEssence - naturaCosts.air
+                    });
+
+                    finishRoll(r.rollId);
+                });
+            }
+        }
+    );
 }
 
 // Helper Functions
 function Signed(n) {
     return (n<0?"":"+") + n;
+}
+
+function ParseNatura(natura, elementalAttunement) {
+    let naturaRegex = /[+-]?\d* (?:Fire|Air|Earth|Water)/gi;
+    let matches = natura.match(naturaRegex);
+    let fireCost = 0;
+    let waterCost = 0;
+    let earthCost = 0;
+    let airCost = 0;
+
+    for(let match of matches) {
+        let splitMatch = match.split(" ");
+        let amount = parseInt(splitMatch[0]);
+        let element = splitMatch[1];
+
+        switch(element.toLowerCase()) {
+            case "fire":
+                fireCost += amount;
+                break;
+            case "water":
+                waterCost += amount;
+                break;
+            case "earth":
+                earthCost += amount;
+                break;
+            case "air":
+                airCost += amount;
+                break;
+        }
+    }
+
+    // Elemental Attunement
+    if(elementalAttunement.toLowerCase() == "fire") {
+        fireCost = Math.max(fireCost, fireCost-1);
+    }
+    if(elementalAttunement.toLowerCase() == "water") {
+        waterCost = Math.max(waterCost, waterCost-1);
+    }
+    if(elementalAttunement.toLowerCase() == "earth") {
+        earthCost = Math.max(earthCost, earthCost-1);
+    }
+    if(elementalAttunement.toLowerCase() == "air") {
+        airCost = Math.max(airCost, airCost-1);
+    }
+
+    return {
+        air: airCost,
+        earth: earthCost,
+        fire: fireCost,
+        water: waterCost
+    };
 }
 
 function CalculateSlots(size, count) {
