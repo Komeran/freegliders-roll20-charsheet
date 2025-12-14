@@ -1756,6 +1756,19 @@
                     <span>/</span>
                     <span name="attr_memorisedSpells_max">0</span>
                 </div>
+                <input type="hidden" name="attr_prayer" />
+                <div class="sheet-spells-memorised sheet-spells-miracleworking">
+                    <span>Miracle Working:</span>
+                    <input type="number" name="attr_miracleworkingFaith" min="0" placeholder="0" value="0" />
+                    <span>/</span>
+                    <span name="attr_miracleworkingFaith_max">0</span>
+                </div>
+                <div class="sheet-spells-memorised sheet-spells-miracleworking">
+                    <span>Faith:</span>
+                    <input type="number" name="attr_faith" min="0" placeholder="0" value="0" />
+                    <span>/</span>
+                    <span name="attr_faith_max">0</span>
+                </div>
                 <hr class="sheet-section-separator"/>
         
                 <datalist id="spells">
@@ -3731,6 +3744,8 @@ on("change:essence_water", UpdateSpells);
 
 on("clicked:healing", UseHealing);
 
+on("change:faith", UpdateMiracleworkingMaximum);
+
 function UpdateAttributes() {
     UpdateAgi();
     UpdateBod();
@@ -5166,6 +5181,23 @@ function UpdateFaith() {
 
         setAttrs({
             faith_max: willpower * prayer
+        });
+
+        UpdateMiracleworkingMaximum();
+    });
+}
+
+function UpdateMiracleworkingMaximum() {
+    getAttrs(["faith", "prayer", "miracleworkingFaith"], function(values) {
+        let faith = parseInt(values.faith) || 0;
+        let prayer = parseInt(values.prayer) || 0;
+        let miracleworkingFaith = parseInt(values.miracleworkingFaith) || 0;
+
+        let newMax = Math.min(prayer, faith);
+
+        setAttrs({
+            miracleworkingFaith_max: newMax,
+            miracleworkingFaith: Math.min(miracleworkingFaith, newMax)
         });
     });
 }
@@ -7615,7 +7647,10 @@ function CastSpell(eventInfo) {
             "srd",
             "elementalAttunement",
             "stealth",
-            "spellworkMod"
+            "spellworkMod",
+            "prayer",
+            "faith",
+            "miracleworkingFaith"
         ],
         function(values) {
             let name = values[prefix + "name"] || "";
@@ -7643,6 +7678,10 @@ function CastSpell(eventInfo) {
             let airEssence = parseInt(values["essence_air"]) || 0;
 
             let elementalAttunement = values["elementalAttunement"] || "";
+            
+            let prayer = parseInt(values["prayer"]) || 0;
+            let faith = parseInt(values["faith"]) || 0;
+            let miracleworkingFaith = parseInt(values["miracleworkingFaith"]) || 0;
             
             let fireCost = 0;
             let waterCost = 0;
@@ -7706,7 +7745,17 @@ function CastSpell(eventInfo) {
                 rollString += `{{components=${components}}}`;
                 // Power
                 let power = spellworkRanks;
-                rollString += `{{power=${power}}}`;
+
+                // Miracle Working
+                if(prayer >= 2 && miracleworkingFaith > 0) {
+                    power += miracleworkingFaith;
+                    rollString += `{{power=[[${spellworkRanks}[Spellwork]+${miracleworkingFaith}[Miracle Working]]]}}`;
+                }
+                else {
+                    miracleworkingFaith = 0;
+                    rollString += `{{power=[[${spellworkRanks}[Spellwork]]]}}`;
+                }
+
                 // Range
                 if(range != "") {
                     rollString += `{{range=${range}}}`;
@@ -7751,6 +7800,15 @@ function CastSpell(eventInfo) {
                         essence_water: waterEssence - waterCost,
                         essence_earth: earthEssence - earthCost,
                         essence_air: airEssence - airCost
+                    });
+
+                    // Miracle Working
+                    if(prayer >= 2) {
+                        faith -= miracleworkingFaith;
+                    }
+
+                    setAttrs({
+                        "faith": faith
                     });
 
                     finishRoll(r.rollId);
@@ -8119,6 +8177,8 @@ function GetCustomTemplateResultString(mod, isInitiative) {
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-damage">
             {{damage}}
+            
+            {{#advflag}}
             {{#rollWasCrit() atk}}
             {{critdamage}}
             {{/rollWasCrit() atk}}
@@ -8127,6 +8187,15 @@ function GetCustomTemplateResultString(mod, isInitiative) {
             {{critdamage}}
             {{/^rollWasCrit() atk}}
             {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{critdamage}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
             <br/>
             <span class="sheet-template-label">Damage</span>
         </div>
@@ -8135,6 +8204,8 @@ function GetCustomTemplateResultString(mod, isInitiative) {
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-damage">
             {{sneakattack}}
+            
+            {{#advflag}}
             {{#rollWasCrit() atk}}
             {{sneakattackcrit}}
             {{/rollWasCrit() atk}}
@@ -8143,6 +8214,15 @@ function GetCustomTemplateResultString(mod, isInitiative) {
             {{sneakattackcrit}}
             {{/^rollWasCrit() atk}}
             {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{sneakattackcrit}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
             <br/>
             <span class="sheet-template-label">Sneak Attack</span>
         </div>
@@ -8159,6 +8239,8 @@ function GetCustomTemplateResultString(mod, isInitiative) {
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-damage">
             {{siegeweapon}}
+            
+            {{#advflag}}
             {{#rollWasCrit() atk}}
             {{siegeweaponcrit}}
             {{/rollWasCrit() atk}}
@@ -8167,6 +8249,15 @@ function GetCustomTemplateResultString(mod, isInitiative) {
             {{siegeweaponcrit}}
             {{/^rollWasCrit() atk}}
             {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{siegeweaponcrit}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
             <br/>
             <span class="sheet-template-label">Siege Weapon</span>
         </div>

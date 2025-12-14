@@ -793,13 +793,30 @@
     font-size: 0.8em;
 }
 
-.charsheet .sheet-spells-memorised > span:not(:first-child) {
+.charsheet .sheet-spells-memorised > span:not(:first-child),
+.charsheet .sheet-spells-memorised > input:not(:first-child) {
     margin-left: 5px;
 }
 
-.charsheet .sheet-spells-memorised > span {
+.charsheet .sheet-spells-memorised > span,
+.charsheet .sheet-spells-memorised > input {
     font-size: 1.2em;
     font-weight: bold;
+}
+
+.charsheet .sheet-spells-memorised > input {
+    text-align: center;
+    padding: 0 0 0 13px;
+    width: 32px !important;
+    box-sizing: content-box;
+}
+
+.charsheet .sheet-spells-miracleworking {
+    display: none;
+}
+
+.charsheet input[name="attr_prayer"]:not([value="0"]):not([value="1"]) ~ .sheet-spells-miracleworking {
+    display: flex;
 }
 
 /* Hide all type dependent blueprint inputs */
@@ -1207,13 +1224,21 @@
 }
 
 .sheet-rolltemplate-custom .sheet-template-container {
-    background-color: white;
+    background-color: #f5f5d9;
     border-radius: 10px;
     color: black;
     font-family: "Times";
     text-align: center;
     padding: 14px 10px 14px 10px;
     box-shadow: 0 0 3px 3px black inset;
+}
+
+.sheet-rolltemplate-custom .sheet-template-container:has(.sheet-template-test :not(.sheet-template-roll-grey) span.fullcrit) {
+    box-shadow: 0 0 3px 3px black inset, 0 0 10px 10px lime inset;
+}
+
+.sheet-rolltemplate-custom .sheet-template-container:has(.sheet-template-test :not(.sheet-template-roll-grey) span.fullfail) {
+    box-shadow: 0 0 3px 3px black inset, 0 0 10px 10px red inset;
 }
 
 .sheet-rolltemplate-custom .sheet-template-action {
