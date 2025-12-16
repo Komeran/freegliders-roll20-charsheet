@@ -1344,3 +1344,42 @@
     background-color: transparent;
     cursor: text;
 }
+
+.charsheet .sheet-actions {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.charsheet .sheet-actions .sheet-action:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+.charsheet .sheet-actions .sheet-action {
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 2px 2px black;
+    padding: 6px;
+}
+
+.charsheet .sheet-actions .sheet-action:hover {
+    background-color: white;
+}
+
+.charsheet .sheet-actions .sheet-action:active {
+    border-radius: 7px;
+    box-shadow: 0 0 2px 2px black inset;
+    padding: 8px;
+    margin: -2px;
+    background-color: white;
+}
+
+.charsheet .sheet-actions .sheet-action:not(:first-of-type):active {
+    margin-left: 8px;
+}
+
+.charsheet .sheet-action-condition,
+.charsheet .sheet-action-condition:not(:checked) + .sheet-action {
+    display: none;
+}

@@ -1495,6 +1495,47 @@
         </div>
 
         <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <div class="sheet-actions">
+            <!-- Prayer of Faith -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_prayeroffaith" />
+            <button class="sheet-action" type="action" name="act_prayeroffaith">
+                <b>1 hour</b>
+                <br>
+                Prayer of Faith
+            </button>
+            <!-- Work Miracle -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_workmiracle" />
+            <button class="sheet-action" type="action" name="act_workmiracle">
+                <b>Minor Reaction</b>
+                <br>
+                Work Miracle
+            </button>
+            <!-- Repel the Unholy -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_repelunholy" />
+            <button class="sheet-action" type="action" name="act_repelunholy">
+                <b>Major Action</b>
+                <br>
+                Repel the Unholy
+            </button>
+            <!-- Identify Curse -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_identifycurse" />
+            <button class="sheet-action" type="action" name="act_identifycurse">
+                <b>Major Action</b>
+                <br>
+                Identify Curse
+            </button>
+            <!-- Lift Curse -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_liftcurse" />
+            <button class="sheet-action" type="action" name="act_liftcurse">
+                <b>Major Action</b>
+                <br>
+                Lift Curse
+            </button>
+        </div>
+
+        <hr class="sheet-separator"/>
 
         <div class="sheet-prayer-bottom">
             <h2>Blessings</h2>
@@ -3236,6 +3277,8 @@
 // Constants
 const TEST_TYPE_PROMPT = "?{Roll Type|Normal,[[1d20]]|Advantage,{[[1d20]]&#44;[[1d20]]&#125;kh1|Disadvantage,{[[1d20]]&#44;[[1d20]]&#125;kl1}";
 
+const CUSTOM_TEMPLATE_BEGINNING = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
+
 const SKILLS = [
     "athletics",
     "perception",
@@ -3371,7 +3414,7 @@ const ATTRIBUTE_MOD_NAMES = {
 // Custom Sheet Roll Buttons
 for(let mod of Object.keys(ATTRIBUTE_MOD_NAMES)) {
     on(`clicked:${mod}`, function() {
-        let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=${ATTRIBUTE_MOD_NAMES[mod]} Test [@{${mod}}]}} `;
+        let rollString = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${ATTRIBUTE_MOD_NAMES[mod]} Test [@{${mod}}]}} `;
         rollString += GetCustomTemplateResultString(`@{${mod}}`);
         startRoll(rollString, r => {
             finishRoll(r.rollId);
@@ -3565,7 +3608,7 @@ const SKILL_MOD_NAMES_ATTRIBUTES = {
 for(let skill of Object.keys(SKILL_MOD_NAMES_ATTRIBUTES)) {
     let mna = SKILL_MOD_NAMES_ATTRIBUTES[skill];
     on(`clicked:${skill}`, function() {
-        let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=${mna.name} [${mna.attribute}] Test [@{${mna.mod}}]}} `;
+        let rollString = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${mna.name} [${mna.attribute}] Test [@{${mna.mod}}]}} `;
         rollString += GetCustomTemplateResultString(`@{${mna.mod}}`);
         startRoll(rollString, r => {
             finishRoll(r.rollId);
@@ -3574,7 +3617,7 @@ for(let skill of Object.keys(SKILL_MOD_NAMES_ATTRIBUTES)) {
 }
 
 on(`clicked:initiative`, function() {
-    let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Initiative Test [@{initiative}]}} `;
+    let rollString = `${CUSTOM_TEMPLATE_BEGINNING}{{name=Initiative Test [@{initiative}]}} `;
     rollString += GetCustomTemplateResultString(`@{initiative}`, true);
     rollString += "&{tracker}";
     startRoll(rollString, r => {
@@ -3583,7 +3626,7 @@ on(`clicked:initiative`, function() {
 });
 
 on(`clicked:evasion`, function() {
-    let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Evasion Test [@{evasion}]}} `;
+    let rollString = `${CUSTOM_TEMPLATE_BEGINNING}{{name=Evasion Test [@{evasion}]}} `;
     rollString += GetCustomTemplateResultString(`@{evasion}`);
     startRoll(rollString, r => {
         finishRoll(r.rollId);
@@ -3591,7 +3634,7 @@ on(`clicked:evasion`, function() {
 });
 
 on("clicked:hitdie", function() {
-    let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Hit Dice}} {{result1=[[?{Number of Hit Dice|1}@{hitdie}]]}}`;
+    let rollString = `${CUSTOM_TEMPLATE_BEGINNING}{{name=Hit Dice}} {{result1=[[?{Number of Hit Dice|1}@{hitdie}]]}}`;
     startRoll(rollString, r => {
         finishRoll(r.rollId);
     });
@@ -3805,6 +3848,15 @@ on("clicked:repeating_potion:brewpotion", BrewPotion);
 on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTBonus", UpdateSpellSaveDT);
+
+/********** Action Buttons **********/
+
+/********** Prayer **********/
+on("clicked:prayeroffaith", PrayerOfFaith);
+on("clicked:repelunholy", RepelUnholy);
+on("clicked:identifycurse", IdentifyCurse);
+on("clicked:liftcurse", LiftCurse);
+on("clicked:workmiracle", WorkMiracle);
 
 on("change:essence_air", _ => {
     UpdateSpells();
@@ -4411,7 +4463,12 @@ function UpdatePrayer() {
 
         setAttrs({
             "prayerMod": Signed(mod),
-            "prayerPassive": 10 + mod
+            "prayerPassive": 10 + mod,
+            "show_prayeroffaith": skill >= 1 ? "on" : "off",
+            "show_workmiracle": skill >= 2 ? "on" : "off",
+            "show_repelunholy": skill >= 4 ? "on" : "off",
+            "show_identifycurse": skill >= 5 ? "on" : "off",
+            "show_liftcurse": skill >= 5 ? "on" : "off"
         });
 
         UpdateFaith();
@@ -6515,7 +6572,7 @@ function UpdateMeleeWeaponRoll(eventInfo) {
         let athleticsRanks = parseInt(values["athletics"]) || 0;
         let stealthRanks = parseInt(values["stealth"]) || 0;
 
-        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:custom} {{name=" + weaponName + " Attack}}";
+        let roll = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${weaponName} Attack}}`;
 
         // To Hit
         if(weaponAtk != "") {
@@ -6909,7 +6966,7 @@ function UpdateRangedWeaponRoll(eventInfo) {
         let artilleryRanks = parseInt(values["artillery"]) || 0;
         let weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
 
-        let roll = "?{Secret?|Open Roll,|Secret Roll,/w gm} &{template:custom} {{name=" + weaponName + " Attack}}";
+        let roll = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${weaponName} Attack}}`;
 
         // To Hit
         if(weaponAtk != "") {
@@ -7538,7 +7595,7 @@ function RollNpcAttack(eventInfo) {
             let damage = values[prefix + "damage"] || "";
             let description = values[prefix + "description"] || "";
 
-            let roll = "?{Secret|Open,|Secret,/w gm} &{template:custom}";
+            let roll = CUSTOM_TEMPLATE_BEGINNING;
 
             roll += "{{name=" + name + "}}";
             roll += "{{type=" + type + " " + type2 + "}}";
@@ -7789,7 +7846,7 @@ function InvokeBlessing(eventInfo) {
 
             if(faithPool >= blessingFaith) {
                 // Invoke Blessing
-                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
+                let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
                 // Name
                 rollString += `{{name=${name}}}`;
@@ -7932,7 +7989,7 @@ function CastSpell(eventInfo) {
                 && earthEssence >= naturaCosts.earth
                 && airEssence >= naturaCosts.air)
             {
-                let rollString = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
+                let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
                 // Name
                 rollString += `{{name=${name}}}`;
@@ -8098,7 +8155,7 @@ function UseHealing() {
     getAttrs(["prayer", "faith"], function(values) {
         let faith = parseInt(values["faith"]) || 0;
 
-        startRoll("&{template:custom} {{name=Healing}} {{result1=[[@{healing}]]}}", (r) => {
+        startRoll(CUSTOM_TEMPLATE_BEGINNING + "{{name=Healing}} {{result1=[[@{healing}]]}}", (r) => {
             setAttrs({
                 faith: faith - 1
             });
@@ -8153,7 +8210,7 @@ function PerformRitual(eventInfo) {
                 && earthEssence >= naturaCosts.earth
                 && airEssence >= naturaCosts.air)
             {
-                let rollString = `&{template:custom}`;
+                let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
                 // Name & Power
                 let power = runecraftRanks;
@@ -8228,7 +8285,7 @@ function CarveRune(eventInfo) {
                 && earthEssence >= naturaCosts.earth
                 && airEssence >= naturaCosts.air)
             {
-                let rollString = `&{template:custom}`;
+                let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
                 // Name & Power
                 let power = runecraftRanks;
@@ -8311,7 +8368,7 @@ function BrewPotion(eventInfo) {
                 && earthEssence >= naturaCosts.earth
                 && airEssence >= naturaCosts.air)
             {
-                let rollString = `&{template:custom}`;
+                let rollString = CUSTOM_TEMPLATE_BEGINNING;
                 let complexity = (naturaCosts.fire + naturaCosts.water + naturaCosts.air + naturaCosts.earth) / batchSize;
 
                 // Name & Potency
@@ -8346,6 +8403,139 @@ function BrewPotion(eventInfo) {
             }
         }
     );
+}
+
+function PrayerOfFaith() {
+    getAttrs(["prayer", "faith", "faith_max"], function(values) {
+        let prayerRanks = parseInt(values["prayer"]) || 0;
+        let faith = parseInt(values["faith"]) || 0;
+        let maxFaith = parseInt(values["faith_max"]) || 0;
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{name=Prayer of Faith}}";
+
+        rollString += "{{duration=1 hour}}";
+
+        rollString += `{{description=You can spend 1 hour praying to restore your Faith. During that time, you need to stand, kneel or sit still and if you’re interrupted, you have to start over. Once you’re done, you regain [[${prayerRanks}]] Faith points.\n\nIf you’re on consecrated grounds, like in a church, chapel, monastery, or similar space, you gain double the amount of Faith through this process.}}`;
+
+        startRoll(rollString, (r) => {
+            setAttrs({
+                "faith": Math.min(maxFaith, faith + prayerRanks)
+            });
+
+            finishRoll(r.rollId);
+        });
+    });
+}
+
+function RepelUnholy() {
+    getAttrs(["prayer", "faith"], function(values) {
+        let prayerRanks = parseInt(values["prayer"]) || 0;
+        let faith = parseInt(values["faith"]) || 0;
+
+        if(faith < 1) {
+            return;
+        }
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{name=Repel the Unholy}}";
+
+        rollString += "{{action=Major Action}}";
+
+        rollString += "{{area=10m around you}}";
+
+        rollString += "{{duration=1 minute}}";
+
+        rollString += `{{save=DT [[10+${prayerRanks}[Prayer Skill Ranks]]] Willpower test}}`;
+
+        rollString += `{{description=You can use a Major Action spending 1 Faith to repel unholy creatures within 10m of you for 1 minute. Every unholy creature in the area when you use this feature, or when they first enter the area or start their turn in it must make a Willpower test against [[10+${prayerRanks}[Prayer Skill Ranks]]]. If they fail, they become frightened by you until the end of the duration. The effect ends prematurely if you become incapacitated or if you end it at any moment, no action required.}}`;
+
+        startRoll(rollString, (r) => {
+            setAttrs({
+                "faith": faith - 1
+            });
+
+            finishRoll(r.rollId);
+        });
+    });
+}
+
+function IdentifyCurse() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Identify Curse}}";
+
+    rollString += "{{action=Major Action}}";
+
+    rollString += "{{target=1 creature or object}}";
+
+    let mod = "@{prayerMod}";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to identify any curses that afflict a creature or object. Any curse with a power equal to or lower than your result is revealed to you and you learn what it does.}}`;
+
+    startRoll(rollString, (r) => {
+
+        finishRoll(r.rollId);
+    });
+}
+
+function LiftCurse() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Lift Curse}}";
+
+    rollString += "{{action=Major Action}}";
+
+    rollString += "{{target=1 creature or object}}";
+
+    let mod = "@{prayerMod}";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power.\n\nYou can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function WorkMiracle() {
+    getAttrs(["prayer", "faith"], function(values) {
+        let prayerRanks = parseInt(values["prayer"]) || 0;
+        let faith = parseInt(values["faith"]) || 0;
+
+        if(faith < 1) {
+            return;
+        }
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{name=Work Miracle}}";
+
+        rollString += "{{action=Minor Reaction}}";
+
+        rollString += "{{target=1 creature}}";
+
+        rollString += "{{range=20m}}";
+
+        rollString += "{{result=+[[?{How much Faith?";
+        for(let i = 1; i <= prayerRanks; i++) {
+            rollString += `|${i} Faith,${i}`;
+        }
+        rollString += "}]] Power}}";
+
+        rollString += `{{description=You can use a Minor Reaction when a creature you can see or hear within 20m of you casts a spell using Spellwork to expend Faith up to your Prayer skill ranks to increase the spell’s power by an amount equal to the Faith expended.}}`;
+        
+        startRoll(rollString, (r) => {
+            setAttrs({
+                "faith": faith - r.results["result"].result
+            });
+
+            finishRoll(r.rollId);
+        });
+    });
 }
 
 // Helper Functions
@@ -8630,12 +8820,6 @@ function EnoughEssenceForQuantity(naturaString, airEssence, earthEssence, fireEs
             Duration: {{duration}}
         </div>
         {{/duration}}
-	    {{#result}}
-        <hr class="sheet-template-divider"/>
-        <div class="sheet-template-test">
-            <div class="sheet-template-roll">{{result}}</div>
-        </div>
-        {{/result}}
         {{#result1}}
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-test">
@@ -8799,6 +8983,12 @@ function EnoughEssenceForQuantity(naturaString, airEssence, earthEssence, fireEs
             <span class="sheet-template-label">Siege Weapon</span>
         </div>
         {{/siegeweapon}}
+        {{#result}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{result}}
+        </div>
+        {{/result}}
         {{#description}}
         <hr class="sheet-template-divider"/>
 	    <div class="sheet-template-description">
