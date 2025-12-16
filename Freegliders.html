@@ -37,6 +37,7 @@
         <button type="action" name="act_alchemyTab" class="sheet-button6">Alchemy</button>
         <button type="action" name="act_clockworkMechanicsTab" class="sheet-button7">Clockwork Mechanics</button>
         <button type="action" name="act_augmentationsTab" class="sheet-button8">Augmentations</button>
+        <button type="action" name="act_notesTab" class="sheet-button9">Notes</button>
     </div>
 
     <!-- Character -->
@@ -2069,12 +2070,12 @@
         <hr class="sheet-separator"/>
 
         <div class="sheet-alchemy-topline">
-            <!-- Potency -->
+            <!-- Alchemy Ranks -->
             <div class="sheet-item">
                 <div class="sheet-resource">
                     <span name="attr_alchemy">0</span>
                 </div>
-                <label class="sheet-resource-label">Potency</label>
+                <label class="sheet-resource-label">Alchemy Ranks</label>
             </div>
 
             <!-- Fire Essence -->
@@ -2170,6 +2171,10 @@
             <!-- Potions -->
             <div class="sheet-alchemy-potions">
                 <h2>Potions</h2>
+                <div class="sheet-spells-memorised">
+                    <span>Maximum Potions per Batch:</span>
+                    <span name="attr_alchemy">0</span>
+                </div>
                 <hr class="sheet-section-separator"/>
         
                 <datalist id="potions">
@@ -2193,23 +2198,34 @@
                 </datalist>
                 
                 <fieldset class="repeating_potion">
+                    <input class="sheet-listitem-validation" type="checkbox" name="attr_potion_isListItem" />
+                    <input class="sheet-potion-canbrew" type="checkbox" name="attr_potion_canBrew" />
                     <details>
                         <summary class="sheet-spoiler0">
                             <span name="attr_potion_name">New Potion</span>
+                            <button class="sheet-potion-brewable" type="action" name="act_brewpotion">Brew</button>
+                            <div class="sheet-potion-brewable">
+                                <input class="sheet-listitem-keep" type="number" name="attr_potion_batch" min="0" placeholder="0" value="0" />
+                                /
+                                <span name="attr_potion_batch_max">0</span>
+                            </div>
+                            <span class="error" name="attr_potion_error"></span>
                         </summary>
 
                         <!-- Name -->
                         <div>
                             <label class="sheet-spell-label">Name:</label>
-                            <input type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
+                            <input class="sheet-listitem-keep" type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
                         </div>
                         <!-- Essence -->
                         <div>
                             <label class="sheet-spell-label">Essence:</label>
                             <input type="text" name="attr_potion_essence" placeholder="Essence" />
+                            <input class="sheet-listitem-only" type="text" name="attr_potion_essence" placeholder="Essence" readonly />
                         </div>
 
                         <textarea name="attr_potion_effect" placeholder="Effect" />
+                        <textarea class="sheet-listitem-only" name="attr_potion_effect" placeholder="Effect" readonly />
                     </details>
                 </fieldset>
             </div>
@@ -2905,6 +2921,14 @@
             </details>
         </div>
     </div>
+
+    <!-- Notes -->
+    <div class="sheet-notes sheet-page">
+        <h2>Notes</h2>
+        <hr class="sheet-separator"/>
+
+        <textarea name="attr_notes"></textarea>
+    </div>
 </div>
 
 <!-- NPC -->
@@ -3290,7 +3314,7 @@ sheetButtonlist.forEach(button => {
     });
 });
 
-const buttonlist = ["characterTab", "combatTab", "qualitiesTab", "inventoryTab", "prayerTab", "witchcraftTab", "alchemyTab", "clockworkMechanicsTab", "augmentationsTab"];
+const buttonlist = ["characterTab", "combatTab", "qualitiesTab", "inventoryTab", "prayerTab", "witchcraftTab", "alchemyTab", "clockworkMechanicsTab", "augmentationsTab", "notesTab"];
 buttonlist.forEach(button => {
     on(`clicked:${button}`, function() {
         setAttrs({
@@ -3580,7 +3604,7 @@ on("change:charisma", UpdateCha);
 on("change:intuition", UpdateInt);
 on("change:logic", UpdateLog);
 on("change:willpower", UpdateWil);
-on("sheet:opened", UpdateAttributes);
+on("sheet:opened", SheetOpened);
 
 // Event Listeners for Skill Rank changes
 on("change:athletics", UpdateAthletics);
@@ -3759,6 +3783,7 @@ on("change:augmentations_leftFoot_quality", UpdateAugmentAV);
 on("change:augmentations_rightFoot_quality", UpdateAugmentAV);
 
 on("change:augmentations_head_quality", UpdateAugmentModuleCapacity);
+on("change:augmentations_jaw_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_leftEye_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_rightEye_quality", UpdateAugmentModuleCapacity);
 on("change:augmentations_torso_quality", UpdateAugmentModuleCapacity);
@@ -3775,6 +3800,7 @@ on("clicked:repeating_blessing:blessinginvoke", InvokeBlessing);
 on("clicked:repeating_spell:spellcast", CastSpell);
 on("clicked:repeating_ritual:performritual", PerformRitual);
 on("clicked:repeating_rune:carverune", CarveRune);
+on("clicked:repeating_potion:brewpotion", BrewPotion);
 
 on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
@@ -3784,21 +3810,25 @@ on("change:essence_air", _ => {
     UpdateSpells();
     UpdateRituals();
     UpdateRunes();
+    UpdatePotions();
 });
 on("change:essence_fire", _ => {
     UpdateSpells();
     UpdateRituals();
     UpdateRunes();
+    UpdatePotions();
 });
 on("change:essence_earth", _ => {
     UpdateSpells();
     UpdateRituals();
     UpdateRunes();
+    UpdatePotions();
 });
 on("change:essence_water", _ => {
     UpdateSpells();
     UpdateRituals();
     UpdateRunes();
+    UpdatePotions();
 });
 
 on("clicked:healing", UseHealing);
@@ -3807,6 +3837,15 @@ on("change:faith", _ => {
     UpdateMiracleworkingMaximum();
     UpdateBlessings();
 });
+
+function SheetOpened() {
+    UpdateAttributes();
+    UpdateBlessings();
+    UpdateSpells();
+    UpdateRituals();
+    UpdateRunes();
+    UpdatePotions();
+}
 
 function UpdateAttributes() {
     UpdateAgi();
@@ -4359,6 +4398,7 @@ function UpdateAlchemy() {
         });
         
         UpdateSpellSaveDTs();
+        UpdatePotions();
     });
 }
 
@@ -4933,7 +4973,7 @@ function AddNegativeQuality(eventInfo) {
         "dull": "You have a -2 penalty to Logic tests.\nThis quality is incompatible with Analytical Mind.",
         "essence vulnerability": "You have disadvantage on Willpower tests made to resist spells, rituals, or curses.",
         "farsighted": "At Level 1, you have a -1 penalty to all Perception tests relying on sight. This penalty increases by -1 for each Level after 1.\nAt Level 2, you apply the same penalty to attack tests against targets within 6m of you.\nAt Level 3, you have disadvantage on Perception tests relying on sight.\nWearing prescription lenses can offset the level of this quality, or suppress it altogether.\nThis quality is incompatible with Nearsighted.",
-        "fragile": "Your maximum hit points decrease by 3 times your character level for each level of Fragile.\nThis quality is incompatible with Tough.",
+        "fragile": "Your maximum hit points decrease by your character level for each level of Fragile.\nThis quality is incompatible with Tough.",
         "hard of hearing": "At Level 1, you have a -1 penalty to all Perception tests relying on hearing. This penalty increases by -1 for each Level after 1.\nAt Level 2, you apply the same penalty to Initiative and Evasion tests.\nAt Level 3, you have disadvantage on Perception tests relying on hearing.\nUsing hearing aids can offset the level of this quality, or suppress it altogether.",
         "nearsighted": "At Level 1, you have a -1 penalty to all Perception tests relying on sight. This penalty increases by -1 for each Level after 1.\nAt Level 2, you apply the same penalty to attack tests against targets that are 6m or more away from you.\nAt Level 3, you have disadvantage on Perception tests relying on sight.\nWearing prescription lenses can offset the level of this quality, or suppress it altogether.\nThis quality is incompatible with Farsighted.",
         "slow": "Your movement speed decreases by 2m for each level of Slow.\nThis quality is incompatible with Fast.",
@@ -5044,7 +5084,7 @@ function UpdateNegativeQualityLevel(eventInfo) {
                 break;
             case "fragile":
                 setAttrs({
-                    fragilePenalty: level * -2
+                    fragilePenalty: level * -1
                 });
                 break;
         }
@@ -5393,6 +5433,10 @@ let blessings = {
 }
 
 function UpdateBlessing(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateBlessing(rowId);
@@ -5564,6 +5608,10 @@ let runes = {
 }
 
 function UpdateRune(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateRune(rowId);
@@ -5706,6 +5754,10 @@ let rituals = {
 };
 
 function UpdateRitual(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateRitual(rowId);
@@ -6082,6 +6134,10 @@ let spells = {
 };
 
 function UpdateSpell(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateSpell(rowId);
@@ -6337,6 +6393,10 @@ let meleeWeapons = {
 };
 
 function UpdateMeleeWeapon(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateMeleeWeapon(rowId);
@@ -6439,6 +6499,10 @@ function DoUpdateMeleeWeapon(id) {
 }
 
 function UpdateMeleeWeaponRoll(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_meleeWeapon_" + rowId + "_";
     
@@ -6676,6 +6740,10 @@ let rangedWeapons = {
 }
 
 function UpdateRangedWeapon(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateRangedWeapon(rowId);
@@ -6823,6 +6891,10 @@ function DoUpdateRangedWeapon(id) {
 }
 
 function UpdateRangedWeaponRoll(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_rangedWeapon_" + rowId + "_";
     
@@ -6928,6 +7000,10 @@ let curses = {
 };
 
 function UpdateCurse(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_curse_" + rowId + "_";
 
@@ -7048,22 +7124,85 @@ let potions = {
 };
 
 function UpdatePotion(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_potion_" + rowId + "_";
 
-    getAttrs([prefix+"potion_name"], function(values) {
-        let potionName = values[prefix+"potion_name"] || "";
+    DoUpdatePotion(rowId);
+}
 
-        let listPotion = potions[potionName.toLowerCase()];
-        if(listPotion !== undefined) {
+function UpdatePotions() {
+    getSectionIDs("potion", function(ids) {
+        for(var i = 0; i < ids.length; i++) {
+            DoUpdatePotion(ids[i]);
+        }
+    });
+}
+
+function DoUpdatePotion(rowId) {
+    let prefix = "repeating_potion_" + rowId + "_potion_";
+
+    getAttrs(
+        [
+            prefix + "name",
+            prefix + "essence",
+            prefix + "batch",
+            "essence_fire",
+            "essence_water",
+            "essence_earth",
+            "essence_air",
+            "elementalAttunement",
+            "alchemy"
+        ],
+        function(values) {
+            let potionName = values[prefix + "name"] || "";
+            let naturaString = values[prefix + "essence"] || "";
+            let alchemyRanks = parseInt(values["alchemy"]) || 0;
+            let batchSize = parseInt(values[prefix + "batch"]) || 0;
+            
+            let fireEssence = parseInt(values["essence_fire"]) || 0;
+            let waterEssence = parseInt(values["essence_water"]) || 0;
+            let earthEssence = parseInt(values["essence_earth"]) || 0;
+            let airEssence = parseInt(values["essence_air"]) || 0;
+
+            let elementalAttunement = values["elementalAttunement"] || "";
+            
             let attributes = {};
 
-            attributes[prefix+"potion_essence"] = listPotion.essence;
-            attributes[prefix+"potion_effect"] = listPotion.effect;
+            let listPotion = potions[potionName.toLowerCase()];
+            if(listPotion !== undefined) {
+                attributes[prefix + "essence"] = listPotion.essence;
+                attributes[prefix + "effect"] = listPotion.effect;
+                
+                naturaString = listPotion.essence;
+                
+                attributes[prefix + "isListItem"] = "on";
+            }
+            else {
+                attributes[prefix + "isListItem"] = "off";
+            }
+
+            let essenceForQuantity = EnoughEssenceForQuantity(naturaString, airEssence, earthEssence, fireEssence, waterEssence, elementalAttunement);
+            attributes[prefix + "batch_max"] = essenceForQuantity;
+            attributes[prefix + "batch"] = Math.min(batchSize, essenceForQuantity);
+            
+            attributes[prefix + "canBrew"] = "on";
+
+            if(alchemyRanks < 3) {
+                attributes[prefix + "error"] = " ";
+                attributes[prefix + "canBrew"] = "off";
+            }else if(essenceForQuantity < 1) {
+                attributes[prefix + "error"] = "Not enough Essence!";
+            }
+            else {
+                attributes[prefix + "error"] = " ";
+            }
 
             setAttrs(attributes);
         }
-    });
+    );
 }
 
 function UpdateMemorisedSpells() {
@@ -7113,6 +7252,10 @@ function UpdateMemorisedBlessings() {
 }
 
 function UpdateBlueprintAutomatonChassis(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_blueprint_" + rowId + "_";
 
@@ -7136,6 +7279,10 @@ function UpdateBlueprintAutomatonChassis(eventInfo) {
 }
 
 function UpdateBlueprintType(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_blueprint_" + rowId + "_";
 
@@ -7207,6 +7354,10 @@ function UpdateBlueprintType(eventInfo) {
 }
 
 function UpdateBlueprintLimb(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_blueprint_" + rowId + "_";
 
@@ -7281,6 +7432,10 @@ let platings = {
 };
 
 function UpdateAutomatonPlating(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_automaton_" + rowId + "_";
 
@@ -7320,6 +7475,10 @@ let automatonChassisSizes = {
 }
 
 function UpdateAutomatonStats(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     let prefix = "repeating_automaton_" + rowId + "_";
 
@@ -7432,6 +7591,10 @@ function UpdateNpcAttackAtks() {
 }
 
 function UpdateNpcAttackAtk(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     DoUpdateNpcAttackAtk(rowId);
 }
@@ -7473,6 +7636,10 @@ function UpdateNpcAttackSaveDifficulties() {
 }
 
 function UpdateNpcAttackSaveDifficulty(eventInfo) {
+    if(eventInfo.previousValue === eventInfo.newValue) {
+        return;
+    }
+    
     let rowId = eventInfo.sourceAttribute.split("_")[2];
     DoUpdateNpcAttackSaveDifficulty(rowId);
 }
@@ -7512,7 +7679,6 @@ function UpdateTotalAV(eventInfo) {
         bodyPart = eventInfo.sourceAttribute.substring(0, eventInfo.sourceAttribute.length-9);
     }
     else {
-        
         bodyPart = eventInfo.sourceAttribute.substring(0, eventInfo.sourceAttribute.length-2);
     }
 
@@ -8095,18 +8261,106 @@ function CarveRune(eventInfo) {
     );
 }
 
+function BrewPotion(eventInfo) {
+    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    let prefix = "repeating_potion_" + rowId + "_potion_";
+
+    getAttrs(
+        [
+            prefix + "name",
+            prefix + "essence",
+            prefix + "effect",
+            prefix + "batch",
+            "alchemy",
+            "essence_fire",
+            "essence_earth",
+            "essence_water",
+            "essence_air",
+            "elementalAttunement"
+        ],
+        function(values) {
+            let name = values[prefix + "name"] || "";
+            let natura = values[prefix + "essence"] || "";
+            let effect = values[prefix + "effect"] || "";
+            let alchemyRanks = parseInt(values["alchemy"]) || 0;
+            let batchSize = parseInt(values[prefix + "batch"]) || 0;
+
+            let batchCount = Math.ceil(batchSize / alchemyRanks);
+            
+            let fireEssence = parseInt(values["essence_fire"]) || 0;
+            let waterEssence = parseInt(values["essence_water"]) || 0;
+            let earthEssence = parseInt(values["essence_earth"]) || 0;
+            let airEssence = parseInt(values["essence_air"]) || 0;
+            let elementalAttunement = values["elementalAttunement"] || "";
+            
+            let naturaCosts = {
+                air: 0,
+                earth: 0,
+                fire: 0,
+                water: 0
+            };
+
+            // Parse Natura field
+            if(natura != "") {
+                naturaCosts = ParseNatura(natura, elementalAttunement, batchSize);
+            }
+
+            // Brew Potion
+            if(fireEssence >= naturaCosts.fire
+                && waterEssence >= naturaCosts.water
+                && earthEssence >= naturaCosts.earth
+                && airEssence >= naturaCosts.air)
+            {
+                let rollString = `&{template:custom}`;
+                let complexity = (naturaCosts.fire + naturaCosts.water + naturaCosts.air + naturaCosts.earth) / batchSize;
+
+                // Name & Potency
+                let potency = complexity;
+                if(batchSize > 1) {
+                    rollString += `{{name=Brewing ${batchSize} ${name} Potions [P${potency}]}}`;
+                }
+                else {
+                    rollString += `{{name=Brewing ${name} Potion [P${potency}]}}`;
+                }
+
+                // Duration (How long it takes to brew)
+                let brewHours = Math.max(1, (complexity - alchemyRanks) * batchCount);
+                rollString += `{{duration=${brewHours} hours}}`;
+
+                // Effect
+                if(effect != "") {
+                    effect = effect.replaceAll("[P]", `[[${potency}[Potency]]]`);
+                    rollString += `{{description=${effect}}}`;
+                }
+
+                startRoll(rollString, (r) => {
+                    setAttrs({
+                        essence_fire: fireEssence - naturaCosts.fire,
+                        essence_water: waterEssence - naturaCosts.water,
+                        essence_earth: earthEssence - naturaCosts.earth,
+                        essence_air: airEssence - naturaCosts.air
+                    });
+
+                    finishRoll(r.rollId);
+                });
+            }
+        }
+    );
+}
+
 // Helper Functions
 function Signed(n) {
     return (n<0?"":"+") + n;
 }
 
-function ParseNatura(natura, elementalAttunement) {
+function ParseNatura(natura, elementalAttunement, quantity) {
     let naturaRegex = /[+-]?\d*\s(?:Fire|Air|Earth|Water)/gi;
     let matches = natura.match(naturaRegex);
     let fireCost = 0;
     let waterCost = 0;
     let earthCost = 0;
     let airCost = 0;
+    quantity = quantity || 1;
 
     if(matches != undefined) {
         for(let match of matches) {
@@ -8146,10 +8400,10 @@ function ParseNatura(natura, elementalAttunement) {
     }
 
     return {
-        air: airCost,
-        earth: earthCost,
-        fire: fireCost,
-        water: waterCost
+        air: airCost * quantity,
+        earth: earthCost * quantity,
+        fire: fireCost * quantity,
+        water: waterCost * quantity
     };
 }
 
@@ -8313,12 +8567,28 @@ function GetCustomTemplateResultString(mod, isInitiative) {
 }
 
 function HasEnoughEssence(naturaString, airEssence, earthEssence, fireEssence, waterEssence, elementalAttunement) {
+    return EnoughEssenceForQuantity(naturaString, airEssence, earthEssence, fireEssence, waterEssence, elementalAttunement) > 0;
+}
+
+function EnoughEssenceForQuantity(naturaString, airEssence, earthEssence, fireEssence, waterEssence, elementalAttunement) {
     let naturaCosts = ParseNatura(naturaString, elementalAttunement);
-    
-    return naturaCosts.fire <= fireEssence
-        && naturaCosts.water <= waterEssence
-        && naturaCosts.earth <= earthEssence
-        && naturaCosts.air <= airEssence;
+
+    let quantity = Number.POSITIVE_INFINITY;
+
+    if(naturaCosts.fire > 0) {
+        quantity = Math.min(quantity, Math.floor(fireEssence / naturaCosts.fire));
+    }
+    if(naturaCosts.water > 0) {
+        quantity = Math.min(quantity, Math.floor(waterEssence / naturaCosts.water));
+    }
+    if(naturaCosts.earth > 0) {
+        quantity = Math.min(quantity, Math.floor(earthEssence / naturaCosts.earth));
+    }
+    if(naturaCosts.air > 0) {
+        quantity = Math.min(quantity, Math.floor(airEssence / naturaCosts.air));
+    }
+
+    return quantity;
 }
 </script>
 

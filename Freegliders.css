@@ -20,6 +20,7 @@
 .charsheet .sheet-inventory-items,
 .charsheet .sheet-inventory-money,
 .charsheet .sheet-augmentations,
+.charsheet .sheet-notes,
 .charsheet .sheet-pc,
 .charsheet .sheet-npc,
 .charsheet .sheet-character-basics > .sheet-npc-subtype,
@@ -38,6 +39,7 @@
 .charsheet .sheet-tabstoggle[value="alchemyTab"] ~ div .sheet-button6,
 .charsheet .sheet-tabstoggle[value="clockworkMechanicsTab"] ~ div .sheet-button7,
 .charsheet .sheet-tabstoggle[value="augmentationsTab"] ~ div .sheet-button8,
+.charsheet .sheet-tabstoggle[value="notesTab"] ~ div .sheet-button9,
 .charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div .sheet-witchcraft-button0,
 .charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div .sheet-witchcraft-button1,
 .charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div .sheet-witchcraft-button2,
@@ -65,6 +67,7 @@
 .charsheet .sheet-tabstoggle[value="alchemyTab"] ~ div.sheet-alchemy,
 .charsheet .sheet-tabstoggle[value="clockworkMechanicsTab"] ~ div.sheet-clockwork-mechanics,
 .charsheet .sheet-tabstoggle[value="augmentationsTab"] ~ div.sheet-augmentations,
+.charsheet .sheet-tabstoggle[value="notesTab"] ~ div.sheet-notes,
 .charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div.sheet-witchcraft-runes,
 .charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div.sheet-witchcraft-rituals,
 .charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div.sheet-witchcraft-spells,
@@ -1326,17 +1329,13 @@
     border: 2px solid black !important;
 }
 
-.charsheet input.sheet-listitem-validation {
-    display: none;
-}
-
+.charsheet input.sheet-listitem-validation,
+.charsheet .repcontainer input.sheet-potion-canbrew,
 .charsheet .repcontainer input.sheet-listitem-validation:checked ~ * input:not(.sheet-listitem-only):not(.sheet-listitem-keep),
 .charsheet .repcontainer input.sheet-listitem-validation:checked ~ * textarea:not(.sheet-listitem-only):not(.sheet-listitem-keep),
-.charsheet .repcontainer input.sheet-listitem-validation:checked ~ * select:not(.sheet-listitem-only):not(.sheet-listitem-keep) {
-    display: none;
-}
-
-.charsheet .repcontainer input.sheet-listitem-validation:not(:checked) ~ * .sheet-listitem-only {
+.charsheet .repcontainer input.sheet-listitem-validation:checked ~ * select:not(.sheet-listitem-only):not(.sheet-listitem-keep),
+.charsheet .repcontainer input.sheet-listitem-validation:not(:checked) ~ * .sheet-listitem-only,
+.charsheet .repcontainer input.sheet-potion-canbrew:not(:checked) ~ * .sheet-potion-brewable {
     display: none;
 }
 
