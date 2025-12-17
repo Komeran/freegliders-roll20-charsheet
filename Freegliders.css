@@ -84,6 +84,10 @@
     display: flex;
 }
 
+.charsheet h1 {
+    margin-top: 10px;
+}
+
 .charsheet .sheet-pc-tabstoggle[value="pc"] ~ div.sheet-pc,
 .charsheet .sheet-pc-tabstoggle[value="npc"] ~ div.sheet-npc {
     display: block;
@@ -1367,12 +1371,18 @@
     background-color: white;
 }
 
-.charsheet .sheet-actions .sheet-action:active {
+.charsheet .sheet-actions .sheet-action:active:not(:disabled) {
     border-radius: 7px;
     box-shadow: 0 0 2px 2px black inset;
     padding: 8px;
     margin: -2px;
     background-color: white;
+}
+
+.charsheet .sheet-actions .sheet-action:disabled {
+    color: #666;
+    background-color: #ddd;
+    box-shadow: 0 0 2px 2px grey;
 }
 
 .charsheet .sheet-actions .sheet-action:not(:first-of-type):active {
@@ -1382,4 +1392,16 @@
 .charsheet .sheet-action-condition,
 .charsheet .sheet-action-condition:not(:checked) + .sheet-action {
     display: none;
+}
+
+.charsheet .sheet-actions:not(:has(input:checked)),
+.charsheet h2:not(:has(~ .sheet-actions input:checked)):has(~ .sheet-actions),
+.charsheet h3:not(:has(+ .sheet-actions input:checked)):has(+ .sheet-actions),
+.charsheet .sheet-separator:not(:has(+ h3 + .sheet-actions input:checked, + h2 + .sheet-actions input:checked)):has(+ h2 + .sheet-actions, + h3 + .sheet-actions) {
+    display: none;
+}
+
+.charsheet h3:has(+ .sheet-actions) {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }

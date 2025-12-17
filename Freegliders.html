@@ -42,7 +42,7 @@
 
     <!-- Character -->
     <div class="sheet-character sheet-page">
-        <h2>Character</h2>
+        <h1>Character</h1>
 
         <hr class="sheet-separator"/>
 
@@ -633,7 +633,7 @@
 
     <!-- Combat -->
     <div class="sheet-combat sheet-page">
-        <h2>Combat</h2>
+        <h1>Combat</h1>
 
         <hr class="sheet-separator"/>
 
@@ -1167,7 +1167,7 @@
 
     <!-- Qualities -->
     <div class="sheet-qualities sheet-page">
-        <h2>Qualities</h2>
+        <h1>Qualities</h1>
 
         <hr class="sheet-separator"/>
 
@@ -1242,7 +1242,7 @@
 
     <!-- Inventory -->
     <div class="sheet-inventory sheet-page">
-        <h2>Inventory</h2>
+        <h1>Inventory</h1>
 
         <hr class="sheet-separator"/>
 
@@ -1460,7 +1460,7 @@
 
     <!-- Prayer -->
     <div class="sheet-prayer sheet-page">
-        <h2>Prayer</h2>
+        <h1>Prayer</h1>
 
         <hr class="sheet-separator"/>
 
@@ -1622,7 +1622,7 @@
 
     <!-- Witchcraft -->
     <div class="sheet-witchcraft sheet-page">
-        <h2>Witchcraft</h2>
+        <h1>Witchcraft</h1>
         <hr class="sheet-separator"/>
 
         <div class="sheet-witchcraft-topline">
@@ -1681,6 +1681,105 @@
                 </div>
                 <label class="sheet-resource-label">Air</label>
             </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <h3>Spellwork</h3>
+        <div class="sheet-actions">
+            <!-- 6th Sense -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_sixthsense" />
+            <button class="sheet-action" type="action" name="act_sixthsense">
+                <b>Major Action</b>
+                <br>
+                6th Sense
+            </button>
+            <!-- Counterspell -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_counterspell" />
+            <button class="sheet-action" type="action" name="act_counterspell">
+                <b>Minor Reaction</b>
+                <br>
+                Counterspell
+            </button>
+            <!-- 7th Sense Action -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
+            <button class="sheet-action" type="action" name="act_seventhsenseaction">
+                <b>Minor Action</b>
+                <br>
+                7th Sense
+            </button>
+            <!-- 7th Sense Reaction -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
+            <button class="sheet-action" type="action" name="act_seventhsensereaction">
+                <b>Minor Reaction</b>
+                <br>
+                7th Sense
+            </button>
+        </div>
+
+        <h3>Runecraft</h3>
+        <div class="sheet-actions">
+            <!-- Rune Reading -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_runereading" />
+            <button class="sheet-action" type="action" name="act_runereading">
+                <b>10 minutes</b>
+                <br>
+                Rune Reading
+            </button>
+        </div>
+
+        <h3>Summoning</h3>
+        <div class="sheet-actions">
+            <!-- Subjugate Spirit -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespirit" />
+            <button class="sheet-action" type="action" name="act_subjugatespirit">
+                <b>Major Action</b>
+                <br>
+                Subjugate Spirit
+            </button>
+            <!-- Subjugate Spirit Minor Action -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespiritminor" />
+            <button class="sheet-action" type="action" name="act_subjugatespirit">
+                <b>Minor Action</b>
+                <br>
+                Subjugate Spirit
+            </button>
+            <!-- Tap into Familiar's Senses -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_tapintofamiliarsenses" />
+            <button class="sheet-action" type="action" name="act_tapintofamiliarsenses">
+                <b>Major Action</b>
+                <br>
+                Tap into Familiar's Senses
+            </button>
+            <!-- Summon Spirit -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_summonspirit" />
+            <button class="sheet-action" type="action" name="act_summonspirit">
+                <b>1 hour</b>
+                <br>
+                Summon Spirit
+            </button>
+            <!-- Banish -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_banish" />
+            <button class="sheet-action" type="action" name="act_banish">
+                <b>Major Action</b>
+                <br>
+                Banish
+            </button>
+            <!-- Summon Demon -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
+            <button class="sheet-action" type="action" name="act_summondemon">
+                <b>1 hour</b>
+                <br>
+                Summon Demon
+            </button>
+            <!-- Summon Angel -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
+            <button class="sheet-action" type="action" name="act_summonangel">
+                <b>1 hour</b>
+                <br>
+                Summon Angel
+            </button>
         </div>
 
         <hr class="sheet-separator"/>
@@ -2107,7 +2206,7 @@
 
     <!-- Alchemy -->
     <div class="sheet-alchemy sheet-page">
-        <h2>Alchemy</h2>
+        <h1>Alchemy</h1>
         <hr class="sheet-separator"/>
 
         <div class="sheet-alchemy-topline">
@@ -2150,6 +2249,17 @@
                 </div>
                 <label class="sheet-resource-label">Air</label>
             </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <div class="sheet-actions">
+            <!-- Extract Essence -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_extractessence" />
+            <button class="sheet-action" type="action" name="act_extractessence" disabled>
+                Extract Essence
+            </button>
         </div>
         
         <hr class="sheet-separator"/>
@@ -2282,7 +2392,7 @@
 
     <!-- Clockwork Mechanics -->
     <div class="sheet-clockwork-mechanics sheet-page">
-        <h2>Clockwork Mechanics</h2>
+        <h1>Clockwork Mechanics</h1>
         <hr class="sheet-separator"/>
 
         <div class="sheet-clockwork-mechanics-topline">
@@ -2561,7 +2671,7 @@
     
     <!-- Augmentations -->
     <div class="sheet-augmentations sheet-page">
-        <h2>Augmentations</h2>
+        <h1>Augmentations</h1>
         <hr class="sheet-separator"/>
 
         <div class="sheet-clockwork-mechanics-topline">
@@ -2965,7 +3075,7 @@
 
     <!-- Notes -->
     <div class="sheet-notes sheet-page">
-        <h2>Notes</h2>
+        <h1>Notes</h1>
         <hr class="sheet-separator"/>
 
         <textarea name="attr_notes"></textarea>
@@ -3849,6 +3959,18 @@ on("change:repeating_spell:spell_saveDTSkill", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTAttribute", UpdateSpellSaveDT);
 on("change:repeating_spell:spell_saveDTBonus", UpdateSpellSaveDT);
 
+on("change:essence_air", UpdateEssence);
+on("change:essence_fire", UpdateEssence);
+on("change:essence_earth", UpdateEssence);
+on("change:essence_water", UpdateEssence);
+
+on("clicked:healing", UseHealing);
+
+on("change:faith", _ => {
+    UpdateMiracleworkingMaximum();
+    UpdateBlessings();
+});
+
 /********** Action Buttons **********/
 
 /********** Prayer **********/
@@ -3858,37 +3980,27 @@ on("clicked:identifycurse", IdentifyCurse);
 on("clicked:liftcurse", LiftCurse);
 on("clicked:workmiracle", WorkMiracle);
 
-on("change:essence_air", _ => {
-    UpdateSpells();
-    UpdateRituals();
-    UpdateRunes();
-    UpdatePotions();
-});
-on("change:essence_fire", _ => {
-    UpdateSpells();
-    UpdateRituals();
-    UpdateRunes();
-    UpdatePotions();
-});
-on("change:essence_earth", _ => {
-    UpdateSpells();
-    UpdateRituals();
-    UpdateRunes();
-    UpdatePotions();
-});
-on("change:essence_water", _ => {
-    UpdateSpells();
-    UpdateRituals();
-    UpdateRunes();
-    UpdatePotions();
-});
+/********** Witchcraft **********/
 
-on("clicked:healing", UseHealing);
+/********** Spellwork **********/
+on("clicked:sixthsense", SixthSense);
+on("clicked:seventhsenseaction", SeventhSenseAction);
+on("clicked:counterspell", Counterspell);
+on("clicked:seventhsensereaction", SeventhSenseReaction);
 
-on("change:faith", _ => {
-    UpdateMiracleworkingMaximum();
-    UpdateBlessings();
-});
+/********** Runecraft **********/
+on("clicked:runereading", RuneReading);
+
+/********** Summoning **********/
+on("clicked:subjugatespirit", SubjugateSpirit);
+on("clicked:tapintofamiliarsenses", TapIntoFamiliarSenses);
+on("clicked:summonspirit", _ => { SummonSpirit("Spirit"); });
+on("clicked:banish", Banish);
+on("clicked:summondemon", _ => { SummonSpirit("Demon"); });
+on("clicked:summonangel", _ => { SummonSpirit("Angel"); });
+
+/********** Alchemy **********/
+// on("clicked:extractessence", ExtractEssence);
 
 function SheetOpened() {
     UpdateAttributes();
@@ -3921,6 +4033,13 @@ function UpdateKnowledgeSkills() {
 
 function UpdateLevelStats() {
     UpdateHP();
+}
+
+function UpdateEssence() {
+    UpdateSpells();
+    UpdateRituals();
+    UpdateRunes();
+    UpdatePotions();
 }
 
 function UpdateAgi() {
@@ -4446,7 +4565,8 @@ function UpdateAlchemy() {
 
         setAttrs({
             "alchemyMod": Signed(mod),
-            "alchemyPassive": 10 + mod
+            "alchemyPassive": 10 + mod,
+            "show_extractessence": "off" // skill >= 1 ? "on" : "off"
         });
         
         UpdateSpellSaveDTs();
@@ -4487,7 +4607,10 @@ function UpdateSpellwork() {
 
         setAttrs({
             "spellworkMod": Signed(mod),
-            "spellworkPassive": 10 + mod
+            "spellworkPassive": 10 + mod,
+            "show_sixthsense": skill >= 4 ? "on" : "off",
+            "show_counterspell": skill >= 5 ? "on" : "off",
+            "show_seventhsense": skill >= 8 ? "on" : "off"
         });
 
         UpdateMaxMemorisedSpells();
@@ -4506,7 +4629,8 @@ function UpdateRunecraft() {
 
         setAttrs({
             "runecraftMod": Signed(mod),
-            "runecraftPassive": 10 + mod
+            "runecraftPassive": 10 + mod,
+            "show_runereading": skill >= 5 ? "on" : "off"
         });
 
         UpdateMaxMemorisedSpells();
@@ -4552,7 +4676,13 @@ function UpdateSummoning() {
 
         setAttrs({
             "summoningMod": Signed(mod),
-            "summoningPassive": 10 + mod
+            "summoningPassive": 10 + mod,
+            "show_subjugatespirit": skill >= 2 && skill < 6 ? "on" : "off",
+            "show_subjugatespiritminor": skill >= 6 ? "on" : "off",
+            "show_tapintofamiliarsenses": skill >= 3 ? "on" : "off",
+            "show_summonspirit": skill >= 4 ? "on" : "off",
+            "show_banish": skill >= 7 ? "on" : "off",
+            "show_breachtheveil": skill >= 8 ? "on" : "off"
         });
         
         UpdateSpellSaveDTs();
@@ -7109,7 +7239,7 @@ function UpdateCursePowers() {
     });
 }
 
-let potions = {
+const POTIONS = {
     "healing": {
         essence: "2 Water, 2 Fire, 2 Earth, 2 Air",
         effect: "Restores [P]d4 hit points."
@@ -7228,7 +7358,7 @@ function DoUpdatePotion(rowId) {
             
             let attributes = {};
 
-            let listPotion = potions[potionName.toLowerCase()];
+            let listPotion = POTIONS[potionName.toLowerCase()];
             if(listPotion !== undefined) {
                 attributes[prefix + "essence"] = listPotion.essence;
                 attributes[prefix + "effect"] = listPotion.effect;
@@ -8471,7 +8601,7 @@ function IdentifyCurse() {
 
     rollString += "{{target=1 creature or object}}";
 
-    let mod = "@{prayerMod}";
+    let mod = "+@{prayer}[Prayer]@{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to identify any curses that afflict a creature or object. Any curse with a power equal to or lower than your result is revealed to you and you learn what it does.}}`;
@@ -8491,7 +8621,7 @@ function LiftCurse() {
 
     rollString += "{{target=1 creature or object}}";
 
-    let mod = "@{prayerMod}";
+    let mod = "+@{prayer}[Prayer]@{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power.\n\nYou can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not.}}`;
@@ -8535,6 +8665,246 @@ function WorkMiracle() {
 
             finishRoll(r.rollId);
         });
+    });
+}
+
+function SixthSense() {
+    getAttrs(["spellwork"], function(values) {
+        let spellworkRanks = parseInt(values["spellwork"]) || 0;
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{name=6th Sense}}";
+
+        rollString += "{{action=Major Action}}";
+
+        let range = spellworkRanks >= 8 ? "20m" : "10m";
+        rollString += `{{range=${range}}}`;
+
+        rollString += `{{description=You can use a Major Action to sense magic around you. When you do, you sense ongoing spells, blessings, curses, runes, infusions and other magical effects within 10m of you. You can tell how many different magical effects you sense and even where you sense them, but not what they are or do.`;
+        
+        if(spellworkRanks >= 8) {
+            rollString += "\n\n**7th Sense**\nWhen you use your 6th Sense feature, the area is doubled and you can now tell whether the magical effect is a rune or spell effect, a blessing, a curse, an infusion, or something else. You also learn the power or potency of it."    
+        }
+
+        rollString += "}}";
+        
+        startRoll(rollString, (r) => {
+            finishRoll(r.rollId);
+        });
+    });
+}
+
+function SeventhSenseAction() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=7th Sense}}";
+
+    rollString += "{{action=Minor Action}}";
+
+    let mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += `{{description=As a Minor Action, you can make a Spellwork [LOG] test to identify specific spells or curses. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function SeventhSenseReaction() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=7th Sense}}";
+
+    rollString += "{{action=Minor Reaction}}";
+
+    let mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += `{{description=As a Minor Reaction when a creature you can see or hear casts a spell or inflicts a curse, you can make a Spellwork [LOG] test to identify what spell or curse it is. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function Counterspell() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Counterspell}}";
+
+    rollString += "{{action=Minor Reaction}}";
+
+    let mod = "+@{spellwork}[Spellwork]@{wil}[WIL]";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += "{{save=Prayer [WIL] or Spellwork [WIL]}}";
+
+    rollString += `{{description=You can use a Minor Reaction to attempt to interrupt a spell or blessing that another creature is casting or bestowing. Make a Spellwork [WIL] contest against the target's Prayer [WIL] or Spellwork [WIL]. If you succeed, the creature's casting or bestowing is interrupted, and their spell or blessing fails.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function Counterspell() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Counterspell}}";
+
+    rollString += "{{action=Minor Reaction}}";
+
+    let mod = "+@{spellwork}[Spellwork]@{wil}[WIL]";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += "{{save=Prayer [WIL] or Spellwork [WIL]}}";
+
+    rollString += `{{description=You can use a Minor Reaction to attempt to interrupt a spell or blessing that another creature is casting or bestowing. Make a Spellwork [WIL] contest against the target's Prayer [WIL] or Spellwork [WIL]. If you succeed, the creature's casting or bestowing is interrupted, and their spell or blessing fails.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function RuneReading() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Rune Reading}}";
+
+    rollString += "{{duration=10 minutes}}";
+
+    rollString += `{{description=You can attribute a rune’s handwriting to a creature whose handwriting you have seen before by inspecting it for 10 minutes.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function SubjugateSpirit() {
+    getAttrs(["summoning", "wil"], function(values) {
+        let summoningRanks = parseInt(values["summoning"]) || 0;
+        let wil = parseInt(values["wil"]) || 0;
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{name=Subjugate Spirit}}";
+
+        rollString += "{{range=10m}}";
+        
+        let action = summoningRanks < 6 ? "Major" : "Minor";
+        rollString += `{{action=${action} Action}}`;
+
+        let mod = "+@{summoning}[Summoning]@{wil}[WIL]";
+        rollString += GetCustomTemplateResultString(mod);
+
+        if(summoningRanks < 6) {
+            rollString += `{{duration=[[@{summoning}[Summoning]]] minutes}}`;
+        }
+        else if(summoningRanks < 8) {
+            rollString += `{{duration=[[@{summoning}[Summoning] * 10]] minutes}}`;
+        }
+        else {
+            rollString += `{{duration=[[@{summoning}[Summoning]]] hours}}`;
+        }
+
+        rollString += "{{save=Willpower test}}";
+
+        if(summoningRanks < 6) {
+            rollString += "{{description=As a Major Action, you can attempt to subdue a spirit within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until [[@{summoning}[Summoning]]] minutes have passed. You can only subdue up to [[@{summoning}[Summoning]]] spirits at once. You can end your subjugation on a spirit at any point, requiring no action.}}";
+        }
+        else if(summoningRanks < 8) {
+            rollString += `{{description=As a Minor Action, you can attempt to subdue up to [[${Math.max(1, wil)}]] spirits within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until [[@{summoning}[Summoning] * 10]] minutes have passed. You can only subdue up to [[@{summoning}[Summoning]]] spirits at once. You can end your subjugation on a spirit at any point, requiring no action.}}`;
+        }
+        else {
+            rollString += `{{description=As a Minor Action, you can attempt to subdue up to [[${Math.max(1, wil)}]] spirits within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until [[@{summoning}[Summoning]]] hours have passed. You can only subdue up to [[@{summoning}[Summoning]]] spirits at once. You can end your subjugation on a spirit at any point, requiring no action.}}`;
+        }
+        
+        startRoll(rollString, (r) => {
+            finishRoll(r.rollId);
+        });
+    });
+}
+
+function TapIntoFamiliarSenses() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Tap into Familiar's Senses}}";
+
+    rollString += "{{action=Major Action}}";
+
+    rollString += `{{description=You can use a Major Action to tap into your familiar’s senses while it is within 100m of you. When you do so, you become blind and deaf to your own surroundings and see and hear through the familiar’s eyes and ears, gaining any benefits to tests made related to those senses that the familiar has. You can end this state at any point, requiring no action. This state also ends if the familiar ends up somewhere further than 100m away from you.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
+    });
+}
+
+function SummonSpirit(spiritType) {
+    getAttrs(["summoning", "wil", "essence_air", "essence_earth", "essence_fire", "essence_water"], function(values) {
+        let summoningRanks = parseInt(values["summoning"]) || 0;
+        let wil = parseInt(values["wil"]) || 0;
+        
+        let airEssence = parseInt(values["essence_air"]) || 0;
+        let earthEssence = parseInt(values["essence_earth"]) || 0;
+        let fireEssence = parseInt(values["essence_fire"]) || 0;
+        let waterEssence = parseInt(values["essence_water"]) || 0;
+
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+        rollString += "{{duration=1 hour}}";
+
+        rollString += "{{range=10m}}";
+
+        // Power Level
+        rollString += "{{powerlevel=[[?{Power Level";
+        
+        let maxPL = Math.min(summoningRanks + wil, airEssence, earthEssence, fireEssence, waterEssence);
+        if(maxPL < 1) {
+            return;
+        }
+
+        for(let i = 0; i <= maxPL; i++) {
+            rollString += `|PL ${i},${i}`;
+        }
+
+        rollString += "}]]}}";
+        
+        rollString += `{{name=Summon ${spiritType} [PL ?{Power Level}]}}`;
+
+        rollString += `{{description=You can spend 1 hour performing a summoning ritual to summon a ${spiritType} with a Power Level up to [[@{summoning}[Summoning] @{wil}[WIL]]]. You have to expend essence of each element equal to the Power Level of the ${spiritType} (minimum of 1 each). If your ritual is interrupted, you don't lose the essence, but you have to start over. At the end of the ritual, the essence is consumed and the ${spiritType} appears in an unoccupied space within 10m of you. A summoned ${spiritType} is not automatically compelled to follow your commands and returns to where it came from instantly after a number of hours equal to the ${spiritType}'s power level (minimum of 1 hour) has passed.}}`;
+        
+        startRoll(rollString, (r) => {
+            let powerlevel = r.results.powerlevel.result;
+
+            setAttrs({
+                essence_air: airEssence - Math.max(1, powerlevel),
+                essence_earth: earthEssence - Math.max(1, powerlevel),
+                essence_fire: fireEssence - Math.max(1, powerlevel),
+                essence_water: waterEssence - Math.max(1, powerlevel)
+            });
+
+            finishRoll(r.rollId);
+        });
+    });
+}
+
+function Banish() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Banish}}";
+
+    rollString += "{{action=Major Reaction}}";
+
+    let mod = "+@{summoning}[Summoning] @{wil}[WIL]";
+    rollString += GetCustomTemplateResultString(mod);
+
+    rollString += "{{save=Willpower test}}";
+
+    rollString += `{{description=You can use a Major Action to make a Summoning [WIL] contest against the target's Willpower test. The target must be within 20m of you and you must be able to speak clearly. If you succeed, the target disappears and is sent back to its native plane. You can also use this feature on such a creature that is possessing another creature. If you do so and you're successful, the target creature is not banished, but instead forced to leave the host and appear in the nearest unoccupied space next to the host.}}`;
+    
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
     });
 }
 
