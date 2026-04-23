@@ -1,26 +1,31 @@
+:root {
+    --sheet-cog: url('https://raw.githubusercontent.com/Komeran/freegliders-roll20-charsheet/refs/heads/main/images/Character%20Sheet%20Cog.png');
+    --sheet-d20-cog: url('https://raw.githubusercontent.com/Komeran/freegliders-roll20-charsheet/refs/heads/main/images/Character%20Sheet%20Cog%20D20.png');
+    --toke-cog: url('https://raw.githubusercontent.com/Komeran/freegliders-roll20-charsheet/refs/heads/main/images/Token%20Cog.png');
+}
+
 /* configure the tab buttons */
-.charsheet .sheet-character,
-.charsheet .sheet-combat,
-.charsheet .sheet-qualities,
-.charsheet .sheet-inventory,
-.charsheet .sheet-prayer,
-.charsheet .sheet-witchcraft,
-.charsheet .sheet-alchemy,
-.charsheet .sheet-witchcraft-runes,
-.charsheet .sheet-witchcraft-rituals,
-.charsheet .sheet-witchcraft-spells,
-.charsheet .sheet-witchcraft-curses,
-.charsheet .sheet-alchemy-elixirs,
-.charsheet .sheet-alchemy-potions,
-.charsheet .sheet-alchemy-infusions,
-.charsheet .sheet-clockwork-mechanics,
-.charsheet .sheet-clockwork-mechanics-blueprints,
-.charsheet .sheet-clockwork-mechanics-automatons,
-.charsheet .sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-tab0,
+.charsheet .sheet-tab1,
+.charsheet .sheet-tab2,
+.charsheet .sheet-tab3,
+.charsheet .sheet-tab4,
+.charsheet .sheet-tab5,
+.charsheet .sheet-tab6,
+.charsheet .sheet-tab7,
+.charsheet .sheet-tab8,
+.charsheet .sheet-tab9,
+.charsheet .sheet-cwm,
+.charsheet .sheet-automachinery,
+.charsheet .sheet-augmentation,
+.charsheet .sheet-gunsmithing,
+.charsheet .sheet-tinkering,
+.charsheet .sheet-vehiclemechanics,
+.charsheet .sheet-cwm-blueprints,
+.charsheet .sheet-cwm-automatons,
+.charsheet .sheet-cwm-artificing,
 .charsheet .sheet-inventory-items,
 .charsheet .sheet-inventory-money,
-.charsheet .sheet-augmentations,
-.charsheet .sheet-notes,
 .charsheet .sheet-pc,
 .charsheet .sheet-npc,
 .charsheet .sheet-character-basics > .sheet-npc-subtype,
@@ -30,26 +35,20 @@
 }
 
 /* style the active button */
-.charsheet .sheet-tabstoggle[value="characterTab"] ~ div .sheet-button0,
-.charsheet .sheet-tabstoggle[value="combatTab"] ~ div .sheet-button1,
-.charsheet .sheet-tabstoggle[value="qualitiesTab"] ~ div .sheet-button2,
-.charsheet .sheet-tabstoggle[value="inventoryTab"] ~ div .sheet-button3,
-.charsheet .sheet-tabstoggle[value="prayerTab"] ~ div .sheet-button4,
-.charsheet .sheet-tabstoggle[value="witchcraftTab"] ~ div .sheet-button5,
-.charsheet .sheet-tabstoggle[value="alchemyTab"] ~ div .sheet-button6,
-.charsheet .sheet-tabstoggle[value="clockworkMechanicsTab"] ~ div .sheet-button7,
-.charsheet .sheet-tabstoggle[value="augmentationsTab"] ~ div .sheet-button8,
-.charsheet .sheet-tabstoggle[value="notesTab"] ~ div .sheet-button9,
-.charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div .sheet-witchcraft-button0,
-.charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div .sheet-witchcraft-button1,
-.charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div .sheet-witchcraft-button2,
-.charsheet .sheet-witchcraft-tabstoggle[value="curses"] ~ div .sheet-witchcraft-button3,
-.charsheet .sheet-alchemy-tabstoggle[value="elixirs"] ~ div .sheet-alchemy-button0,
-.charsheet .sheet-alchemy-tabstoggle[value="potions"] ~ div .sheet-alchemy-button1,
-.charsheet .sheet-alchemy-tabstoggle[value="infusions"] ~ div .sheet-alchemy-button2,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="blueprints"] ~ div .sheet-clockwork-mechanics-button0,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="automatons"] ~ div .sheet-clockwork-mechanics-button1,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="artificing"] ~ div .sheet-clockwork-mechanics-button2,
+.charsheet .sheet-tabstoggle[value="0"] ~ div > .sheet-button0,
+.charsheet .sheet-tabstoggle[value="1"] ~ div > .sheet-button1,
+.charsheet .sheet-tabstoggle[value="2"] ~ div > .sheet-button2,
+.charsheet .sheet-tabstoggle[value="3"] ~ div > .sheet-button3,
+.charsheet .sheet-tabstoggle[value="4"] ~ div > .sheet-button4,
+.charsheet .sheet-tabstoggle[value="5"] ~ div > .sheet-button5,
+.charsheet .sheet-tabstoggle[value="6"] ~ div > .sheet-button6,
+.charsheet .sheet-tabstoggle[value="7"] ~ div > .sheet-button7,
+.charsheet .sheet-tabstoggle[value="8"] ~ div > .sheet-button8,
+.charsheet .sheet-tabstoggle[value="9"] ~ div > .sheet-button9,
+.charsheet .sheet-cwm-tabstoggle[value="blueprints"] ~ div .sheet-cwm-button0,
+.charsheet .sheet-cwm-tabstoggle[value="artificing"] ~ div .sheet-cwm-button1,
+.charsheet .sheet-cwm-tabstoggle[value="blueprints"] ~ div .sheet-cwm-button0,
+.charsheet .sheet-cwm-tabstoggle[value="artificing"] ~ div .sheet-cwm-button1,
 .charsheet .sheet-inventory-tabstoggle[value="equipment"] ~ div .sheet-inventory-button0,
 .charsheet .sheet-inventory-tabstoggle[value="money"] ~ div .sheet-inventory-button1,
 .charsheet .sheet-pc-tabstoggle[value="pc"] ~ div .sheet-pc-button0,
@@ -58,26 +57,19 @@
 }
 
 /* show the selected tab */
-.charsheet .sheet-tabstoggle[value="characterTab"] ~ div.sheet-character,
-.charsheet .sheet-tabstoggle[value="combatTab"] ~ div.sheet-combat,
-.charsheet .sheet-tabstoggle[value="qualitiesTab"] ~ div.sheet-qualities,
-.charsheet .sheet-tabstoggle[value="inventoryTab"] ~ div.sheet-inventory,
-.charsheet .sheet-tabstoggle[value="prayerTab"] ~ div.sheet-prayer,
-.charsheet .sheet-tabstoggle[value="witchcraftTab"] ~ div.sheet-witchcraft,
-.charsheet .sheet-tabstoggle[value="alchemyTab"] ~ div.sheet-alchemy,
-.charsheet .sheet-tabstoggle[value="clockworkMechanicsTab"] ~ div.sheet-clockwork-mechanics,
-.charsheet .sheet-tabstoggle[value="augmentationsTab"] ~ div.sheet-augmentations,
-.charsheet .sheet-tabstoggle[value="notesTab"] ~ div.sheet-notes,
-.charsheet .sheet-witchcraft-tabstoggle[value="runes"] ~ div.sheet-witchcraft-runes,
-.charsheet .sheet-witchcraft-tabstoggle[value="rituals"] ~ div.sheet-witchcraft-rituals,
-.charsheet .sheet-witchcraft-tabstoggle[value="spells"] ~ div.sheet-witchcraft-spells,
-.charsheet .sheet-witchcraft-tabstoggle[value="curses"] ~ div.sheet-witchcraft-curses,
-.charsheet .sheet-alchemy-tabstoggle[value="elixirs"] ~ div.sheet-alchemy-elixirs,
-.charsheet .sheet-alchemy-tabstoggle[value="potions"] ~ div.sheet-alchemy-potions,
-.charsheet .sheet-alchemy-tabstoggle[value="infusions"] ~ div.sheet-alchemy-infusions,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="blueprints"] ~ div.sheet-clockwork-mechanics-blueprints,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="automatons"] ~ div.sheet-clockwork-mechanics-automatons,
-.charsheet .sheet-clockwork-mechanics-tabstoggle[value="artificing"] ~ div.sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-tabstoggle[value="0"] ~ .sheet-tab0,
+.charsheet .sheet-tabstoggle[value="1"] ~ .sheet-tab1,
+.charsheet .sheet-tabstoggle[value="2"] ~ .sheet-tab2,
+.charsheet .sheet-tabstoggle[value="3"] ~ .sheet-tab3,
+.charsheet .sheet-tabstoggle[value="4"] ~ .sheet-tab4,
+.charsheet .sheet-tabstoggle[value="5"] ~ .sheet-tab5,
+.charsheet .sheet-tabstoggle[value="6"] ~ .sheet-tab6,
+.charsheet .sheet-tabstoggle[value="7"] ~ .sheet-tab7,
+.charsheet .sheet-tabstoggle[value="8"] ~ .sheet-tab8,
+.charsheet .sheet-tabstoggle[value="9"] ~ .sheet-tab9,
+.charsheet .sheet-cwm-tabstoggle[value="blueprints"] ~ div.sheet-cwm-blueprints,
+.charsheet .sheet-cwm-tabstoggle[value="automatons"] ~ div.sheet-cwm-automatons,
+.charsheet .sheet-cwm-tabstoggle[value="artificing"] ~ div.sheet-cwm-artificing,
 .charsheet .sheet-inventory-tabstoggle[value="equipment"] ~ div.sheet-inventory-items,
 .charsheet .sheet-inventory-tabstoggle[value="money"] ~ div.sheet-inventory-money,
 .charsheet div.sheet-npc-type:has(> select > option[value="mythological"]:checked) ~ .sheet-npc-subtype {
@@ -107,7 +99,7 @@
 }
 
 .charsheet .sheet-attribute-mod {
-    background-image: url("https://iili.io/fAlJhqG.png");
+    background-image: var(--sheet-d20-cog);
     background-size: cover;
     background-position: center;
     width: 80px;
@@ -137,7 +129,7 @@
 }
 
 .charsheet .sheet-attribute-score {
-    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-image: var(--sheet-cog);
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -235,7 +227,7 @@
 .charsheet .sheet-resource {
     display: flex;
     flex-flow: column;
-    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-image: var(--sheet-cog);
     background-size: cover;
     width: 100px !important;
     height: 100px !important;
@@ -299,7 +291,7 @@
 
 .charsheet .sheet-resource-hitdie {
     display: flex;
-    background-image: url("https://iili.io/fAlJhqG.png");
+    background-image: var(--sheet-d20-cog);
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -383,7 +375,7 @@
 }
 
 .charsheet .sheet-rollable-mod {
-    background-image: url("https://iili.io/fAlJhqG.png");
+    background-image: var(--sheet-d20-cog);
     background-size: cover;
     background-position: center;
     width: 95px;
@@ -463,7 +455,7 @@
 .charsheet .sheet-deathtest-success {
     width: 60px !important;
     height: 60px !important;
-    background-image: url("https://iili.io/3Xe6Jcv.png");
+    background-image: var(--sheet-cog);
     background-size: cover;
     border: 0;
 }
@@ -652,7 +644,7 @@
 .charsheet .sheet-prayer-bottom,
 .charsheet .sheet-witchcraft-bottom,
 .charsheet .sheet-alchemy-bottom,
-.charsheet .sheet-clockwork-mechanics-bottom {
+.charsheet .sheet-engineering-bottom {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -737,7 +729,7 @@
     margin-left: 50px;
 }
 
-.charsheet .sheet-clockwork-mechanics-topline > .sheet-item:not(:first-child) {
+.charsheet .sheet-engineering-topline > .sheet-item:not(:first-child) {
     margin-left: 8px;
 }
 
@@ -755,9 +747,15 @@
 .charsheet .sheet-alchemy-elixirs,
 .charsheet .sheet-alchemy-potions,
 .charsheet .sheet-alchemy-infusions,
-.charsheet .sheet-clockwork-mechanics-blueprints,
-.charsheet .sheet-clockwork-mechanics-automatons,
-.charsheet .sheet-clockwork-mechanics-artificing,
+.charsheet .sheet-cwm,
+.charsheet .sheet-automachinery,
+.charsheet .sheet-augmentation,
+.charsheet .sheet-gunsmithing,
+.charsheet .sheet-tinkering,
+.charsheet .sheet-vehiclemechanics,
+.charsheet .sheet-cwm-gadgets,
+.charsheet .sheet-cwm-artificing,
+.charsheet .sheet-automachinery-automatons,
 .charsheet .sheet-inventory-items,
 .charsheet .sheet-inventory-money,
 .charsheet .sheet-npc {
@@ -826,28 +824,6 @@
     display: flex;
 }
 
-/* Hide all type dependent blueprint inputs */
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-clockwork,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-prosthetic,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-autolimb,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automaton,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automaton-module,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-clockwork-module,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-automech {
-    display: none;
-}
-
-/* Show different blueprint inputs based on type */
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="clockwork"]:checked) ~ div.sheet-blueprint-clockwork,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="prosthetic"]:checked) ~ div.sheet-blueprint-prosthetic,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="autolimb"]:checked) ~ div.sheet-blueprint-autolimb,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automaton"]:checked) ~ div.sheet-blueprint-automaton,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automaton module"]:checked) ~ div.sheet-blueprint-automaton-module,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="clockwork module"]:checked) ~ div.sheet-blueprint-clockwork-module,
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > .sheet-blueprint-type:has(> option[value="automech"]:checked) ~ div.sheet-blueprint-automech {
-    display: flex;
-}
-
 .sheet-blueprint-automaton-medium,
 .sheet-blueprint-automaton-large {
     display: none;
@@ -856,12 +832,6 @@
 .charsheet .sheet-blueprint-automaton-chassis:has(> option[value="medium"]:checked) ~ .sheet-blueprint-automaton-medium,
 .charsheet .sheet-blueprint-automaton-chassis:has(> option[value="large"]:checked) ~ .sheet-blueprint-automaton-large {
     display: block;
-}
-
-.repcontainer[data-groupname="repeating_blueprint"] > .repitem > div {
-    flex-flow: row wrap;
-    justify-content: start;
-    align-items: center;
 }
 
 .charsheet label {
@@ -1163,9 +1133,9 @@
     cursor: pointer;
 }
 
-.charsheet .sheet-augmentations-bottom details input,
+.charsheet .sheet-augmentations-bottom > details > input,
 .charsheet .sheet-augmentations-bottom details label,
-.charsheet .sheet-augmentations-bottom details span,
+.charsheet .sheet-augmentations-bottom > details span,
 .charsheet .sheet-augmentations-bottom details details:not(:has(> .sheet-spoiler1)) {
     display: none;
 }
@@ -1268,7 +1238,7 @@
 }
 
 .sheet-rolltemplate-custom .sheet-template-roll {
-    background-image: url("https://iili.io/fAlJhqG.png");
+    background-image: url('https://raw.githubusercontent.com/Komeran/freegliders-roll20-charsheet/refs/heads/main/images/Character%20Sheet%20Cog%20D20.png');
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -1405,3 +1375,5 @@
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+{{styles}}

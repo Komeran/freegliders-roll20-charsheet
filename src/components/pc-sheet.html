@@ -1,0 +1,3174 @@
+<div class="sheet-pc">
+    <!-- Tabs -->
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="0" />
+    <div>
+        <button type="action" name="act_characterTab" class="sheet-button0">Character</button>
+        <button type="action" name="act_combatTab" class="sheet-button1">Combat</button>
+        <button type="action" name="act_qualitiesTab" class="sheet-button2">Qualities</button>
+        <button type="action" name="act_inventoryTab" class="sheet-button3">Inventory</button>
+        <button type="action" name="act_prayerTab" class="sheet-button4">Prayer</button>
+        <button type="action" name="act_witchcraftTab" class="sheet-button5">Witchcraft</button>
+        <button type="action" name="act_alchemyTab" class="sheet-button6">Alchemy</button>
+        <button type="action" name="act_engineeringTab" class="sheet-button7">Engineering</button>
+        <button type="action" name="act_augmentationsTab" class="sheet-button8">Augmentations</button>
+        <button type="action" name="act_notesTab" class="sheet-button9">Notes</button>
+    </div>
+
+    <!-- Character -->
+    <div class="sheet-tab0 sheet-page">
+        <h1>Character</h1>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-character-basics">
+            <!-- Character Name -->
+            <div>
+                <input type="text" name="attr_character_name" />
+                <label>Character Name</label>
+            </div>
+
+            <!-- Background -->
+            <div>
+                <input type="text" name="attr_background" />
+                <label>Background</label>
+            </div>
+
+            <!-- Religion -->
+            <div>
+                <input type="text" name="attr_religion" />
+                <label>Religion</label>
+            </div>
+
+            <!-- Player -->
+            <div>
+                <input type="text" name="attr_player" />
+                <label>Player</label>
+            </div>
+
+            <!-- Level -->
+            <div>
+                <input type="number" name="attr_level" min="1" value="1" />
+                <label>Level</label>
+            </div>
+
+            <!-- GP -->
+            <div>
+                <input type="number" name="attr_gp" min="0" />
+                <label>GP</label>
+            </div>
+
+            <!-- Age -->
+            <div>
+                <input type="number" name="attr_age" min="0" />
+                <label>Age</label>
+            </div>
+
+            <!-- Gender -->
+            <div>
+                <input type="text" name="attr_gender" />
+                <label>Gender</label>
+            </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+
+        <!-- Attributes -->
+        <div class="sheet-character-attributes">
+            <!-- Agility -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_agi" class="sheet-attribute-mod">
+                    <span name="attr_agi"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_agility" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Agility</label>
+            </div>
+
+            <!-- Body -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_bod" class="sheet-attribute-mod">
+                    <span name="attr_bod"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_body" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Body</label>
+            </div>
+
+            <!-- Charisma -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_cha" class="sheet-attribute-mod">
+                    <span name="attr_cha"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_charisma" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Charisma</label>
+            </div>
+
+            <!-- Intuition -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_int" class="sheet-attribute-mod">
+                    <span name="attr_int"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_intuition" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Intuition</label>
+            </div>
+
+            <!-- Logic -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_log" class="sheet-attribute-mod">
+                    <span name="attr_log"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_logic" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Logic</label>
+            </div>
+
+            <!-- Willpower -->
+            <div class="sheet-attribute">
+                <button type="action" name="act_wil" class="sheet-attribute-mod">
+                    <span name="attr_wil"></span>
+                </button>
+                <div class="sheet-attribute-score">
+                    <input type="number" name="attr_willpower" value="1" min="0"/>
+                </div>
+                <label class="sheet-attribute-label">Willpower</label>
+            </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+
+        <!-- Skills -->
+        <div class="sheet-skills">
+            <div class="sheet-character-skills-left">
+                <!-- Physical Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Physical Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Athletics -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Athletics [BOD]</td>
+                        <td><span name="attr_athleticsPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_athletics" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_athletics" type="action">
+                                <span name="attr_athleticsMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Perception -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Perception [INT]</td>
+                        <td><span name="attr_perceptionPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_perception" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_perception" type="action">
+                                <span name="attr_perceptionMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Piloting -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Piloting [AGI]</td>
+                        <td><span name="attr_pilotingPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_piloting" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_piloting" type="action">
+                                <span name="attr_pilotingMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Stealth -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Stealth [AGI]</td>
+                        <td><span name="attr_stealthPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_stealth" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_stealth" type="action">
+                                <span name="attr_stealthMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Artisanship -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Artisanship [AGI]</td>
+                        <td><span name="attr_artisanshipPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_artisanship" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_artisanship" type="action">
+                                <span name="attr_artisanshipMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Social Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Social Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Deception -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Deception [CHA]</td>
+                        <td><span name="attr_deceptionPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_deception" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_deception" type="action">
+                                <span name="attr_deceptionMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Intimidation -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Intimidation [CHA]</td>
+                        <td><span name="attr_intimidationPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_intimidation" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_intimidation" type="action">
+                                <span name="attr_intimidationMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Performance -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Performance [CHA]</td>
+                        <td><span name="attr_performancePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_performance" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_performance" type="action">
+                                <span name="attr_performanceMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Persuasion -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Persuasion [CHA]</td>
+                        <td><span name="attr_persuasionPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_persuasion" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_persuasion" type="action">
+                                <span name="attr_persuasionMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Knowledge Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Knowledge Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Astronomy -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Astronomy [LOG]</td>
+                        <td><span name="attr_astronomyPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_astronomy" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_astronomy" type="action">
+                                <span name="attr_astronomyMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Economy -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Economy [LOG]</td>
+                        <td><span name="attr_economyPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_economy" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_economy" type="action">
+                                <span name="attr_economyMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- History -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">History [LOG]</td>
+                        <td><span name="attr_historyPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_history" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_history" type="action">
+                                <span name="attr_historyMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Literature -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Literature [LOG]</td>
+                        <td><span name="attr_literaturePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_literature" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_literature" type="action">
+                                <span name="attr_literatureMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Medicine -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Medicine [LOG]</td>
+                        <td><span name="attr_medicinePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_medicine" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_medicine" type="action">
+                                <span name="attr_medicineMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Mythology -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Mythology [LOG]</td>
+                        <td><span name="attr_mythologyPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_mythology" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_mythology" type="action">
+                                <span name="attr_mythologyMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Nature -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Nature [LOG]</td>
+                        <td><span name="attr_naturePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_nature" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_nature" type="action">
+                                <span name="attr_natureMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Survival -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Survival [INT]</td>
+                        <td><span name="attr_survivalPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_survival" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_survival" type="action">
+                                <span name="attr_survivalMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="sheet-character-skills-right">
+                <!-- Engineering Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Engineering Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Clockwork Mechanics -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Clockwork Mechanics [LOG]</td>
+                        <td><span name="attr_clockworkmechanicsPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_clockworkmechanics" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_clockworkmechanics" type="action">
+                                <span name="attr_clockworkmechanicsMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Automachinery -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Automachinery [LOG]</td>
+                        <td><span name="attr_automachineryPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_automachinery" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_automachinery" type="action">
+                                <span name="attr_automachineryMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Augmentation -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Augmentation [LOG]</td>
+                        <td><span name="attr_augmentationPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_augmentation" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_augmentation" type="action">
+                                <span name="attr_augmentationMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Gunsmithing -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Gunsmithing [AGI]</td>
+                        <td><span name="attr_gunsmithingPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_gunsmithing" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_gunsmithing" type="action">
+                                <span name="attr_gunsmithingMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Tinkering -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Tinkering [AGI]</td>
+                        <td><span name="attr_tinkeringPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_tinkering" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_tinkering" type="action">
+                                <span name="attr_tinkeringMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Vehicle Mechanics -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Vehicle Mechanics [BOD]</td>
+                        <td><span name="attr_vehiclemechanicsPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_vehiclemechanics" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_vehiclemechanics" type="action">
+                                <span name="attr_vehiclemechanicsMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Magic Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Magic Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Alchemy -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Alchemy [LOG]</td>
+                        <td><span name="attr_alchemyPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_alchemy" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_alchemy" type="action">
+                                <span name="attr_alchemyMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Prayer -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Prayer [WIL]</td>
+                        <td><span name="attr_prayerPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_prayer" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_prayer" type="action">
+                                <span name="attr_prayerMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Spellwork -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Spellwork [WIL]</td>
+                        <td><span name="attr_spellworkPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_spellwork" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_spellwork" type="action">
+                                <span name="attr_spellworkMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Runecraft -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Runecraft [LOG]</td>
+                        <td><span name="attr_runecraftPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_runecraft" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_runecraft" type="action">
+                                <span name="attr_runecraftMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Summoning -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Summoning [WIL]</td>
+                        <td><span name="attr_summoningPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_summoning" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_summoning" type="action">
+                                <span name="attr_summoningMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Combat Skills -->
+                <table class="sheet-skill-group">
+                    <tr class="sheet-skill-group-head">
+                        <th>Combat Skills</th>
+                        <th>Passive</th>
+                        <th>Ranks</th>
+                        <th>Mod</th>
+                    </tr>
+                    <!-- Artillery -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Artillery [AGI]</td>
+                        <td><span name="attr_artilleryPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_artillery" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_artillery" type="action">
+                                <span name="attr_artilleryMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Brawling -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Brawling [AGI]</td>
+                        <td><span name="attr_brawlingPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_brawling" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_brawling" type="action">
+                                <span name="attr_brawlingMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Bow -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Bow [AGI]</td>
+                        <td><span name="attr_bowPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_bow" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_bow" type="action">
+                                <span name="attr_bowMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Pistol -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Pistol [AGI]</td>
+                        <td><span name="attr_pistolPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_pistol" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_pistol" type="action">
+                                <span name="attr_pistolMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Rifle -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Rifle [AGI]</td>
+                        <td><span name="attr_riflePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_rifle" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_rifle" type="action">
+                                <span name="attr_rifleMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Shield -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Shield [BOD]</td>
+                        <td><span name="attr_shieldPassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_shield" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_shield" type="action">
+                                <span name="attr_shieldMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- One-Handed Melee -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">One-Handed Melee [AGI]</td>
+                        <td><span name="attr_onehandedmeleePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_onehandedmelee" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_onehandedmelee" type="action">
+                                <span name="attr_onehandedmeleeMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Two-Handed Melee -->
+                    <tr class="sheet-skill-line">
+                        <td class="sheet-skill-name">Two-Handed Melee [BOD]</td>
+                        <td><span name="attr_twohandedmeleePassive"></span></td>
+                        <td><input class="sheet-skill-ranks" min="0" name="attr_twohandedmelee" type="number" /></td>
+                        <td>
+                            <button class="sheet-skill-mod" name="act_twohandedmelee" type="action">
+                                <span name="attr_twohandedmeleeMod"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Combat -->
+    <div class="sheet-tab1 sheet-page">
+        <h1>Combat</h1>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-combat-topline">
+            <!-- HP -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" max="attr_hp_max" min="0" name="attr_hp" value="0"/>
+                    <span name="attr_hp_max">0</span>
+                </div>
+                <label class="sheet-resource-label">HP</label>
+                <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Level</span>
+            </div>
+
+            <!-- Hit Die -->
+            <div class="sheet-item" name="hitdie">
+                <button type="action" name="act_hitdie" class="sheet-resource-hitdie">
+                    <span name="attr_hitdie"></span>
+                </button>
+                <label class="sheet-resource-label">Hit Die</label>
+            </div>
+
+            <!-- Initiative -->
+            <div class="sheet-item">
+                <button type="action" name="act_initiative" class="sheet-rollable-mod">
+                    <span name="attr_initiative"></span>
+                </button>
+                <label class="sheet-resource-label">Initiative</label>
+                <span class="sheet-resource-calculation">AGI + INT</span>
+            </div>
+
+            <!-- Evasion -->
+            <div class="sheet-item">
+                <button type="action" name="act_evasion" class="sheet-rollable-mod">
+                    <span name="attr_evasion"></span>
+                </button>
+                <label class="sheet-resource-label">Evasion</label>
+                <span class="sheet-resource-calculation">AGI + INT</span>
+            </div>
+
+            <!-- DAV -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_dav">0</span>
+                </div>
+                <label class="sheet-resource-label">DAV</label>
+                <span class="sheet-resource-calculation">Torso AV</span>
+            </div>
+        </div>
+        
+        <div class="sheet-combat-bottom">
+            <div class="sheet-combat-bottom-left">
+                <!-- Death Tests -->
+                <h2>Death Tests</h2>
+                <hr class="sheet-section-separator"/>
+                <div class="sheet-deathtests">
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathsuccess1"/>
+                    </div>
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathsuccess2"/>
+                    </div>
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathsuccess3"/>
+                    </div>
+                </div>
+                <label>Successes</label>
+                <div class="sheet-deathtests">
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathfailure1"/>
+                    </div>
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathfailure2"/>
+                    </div>
+                    <div class="sheet-deathtest-success">
+                        <input type="checkbox" name="attr_deathfailure3"/>
+                    </div>
+                </div>
+                <label>Failures</label>
+
+                <!-- Armor -->
+                <table class="sheet-armor-table">
+                    <tr>
+                        <th>Body Part</th>
+                        <th>Equipment/Armor</th>
+                        <th>Base<br>AV</th>
+                        <th>Augm. AV</th>
+                        <th>Total AV</th>
+                    </tr>
+                    <!-- Head -->
+                    <tr>
+                        <td>Head</td>
+                        <td>
+                            <input type="text" name="attr_headArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_headAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_headAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_headTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Left Eye -->
+                    <tr>
+                        <td>Left Eye</td>
+                        <td>
+                            <input type="text" name="attr_leftEyeArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_leftEyeAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_leftEyeAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_leftEyeTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Right Eye -->
+                    <tr>
+                        <td>Right Eye</td>
+                        <td>
+                            <input type="text" name="attr_rightEyeArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_rightEyeAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_rightEyeAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_rightEyeTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Torso -->
+                    <tr>
+                        <td>Torso</td>
+                        <td>
+                            <input type="text" name="attr_torsoArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_torsoAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_torsoAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_torsoTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Left Arm -->
+                    <tr>
+                        <td>Left Arm</td>
+                        <td>
+                            <input type="text" name="attr_leftArmArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_leftArmAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_leftArmAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_leftArmTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Right Arm -->
+                    <tr>
+                        <td>Right Arm</td>
+                        <td>
+                            <input type="text" name="attr_rightArmArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_rightArmAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_rightArmAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_rightArmTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Left Hand -->
+                    <tr>
+                        <td>Left Hand</td>
+                        <td>
+                            <input type="text" name="attr_leftHandArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_leftHandAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_leftHandAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_leftHandTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Right Hand -->
+                    <tr>
+                        <td>Right Hand</td>
+                        <td>
+                            <input type="text" name="attr_rightHandArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_rightHandAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_rightHandAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_rightHandTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Left Leg -->
+                    <tr>
+                        <td>Left Leg</td>
+                        <td>
+                            <input type="text" name="attr_leftLegArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_leftLegAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_leftLegAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_leftLegTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Right Leg -->
+                    <tr>
+                        <td>Right Leg</td>
+                        <td>
+                            <input type="text" name="attr_rightLegArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_rightLegAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_rightLegAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_rightLegTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Left Foot -->
+                    <tr>
+                        <td>Left Foot</td>
+                        <td>
+                            <input type="text" name="attr_leftFootArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_leftFootAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_leftFootAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_leftFootTotalAV">0</span>
+                        </td>
+                    </tr>
+                    <!-- Right Foot -->
+                    <tr>
+                        <td>Right Foot</td>
+                        <td>
+                            <input type="text" name="attr_rightFootArmor" />
+                        </td>
+                        <td>
+                            <input type="number" name="attr_rightFootAV" min="0" value="0" />
+                        </td>
+                        <td>
+                            <span name="attr_rightFootAugmentAV">+0</span>
+                        </td>
+                        <td>
+                            <span name="attr_rightFootTotalAV">0</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Ammunition -->
+                <h2>Ammunition</h2>
+                <hr class="sheet-section-separator"/>
+                <table class="sheet-ammunition-header">
+                    <tr>
+                        <th>Ammunition</th>
+                        <th>Effect</th>
+                        <th>Count</th>
+                    </tr>
+                </table>
+                <fieldset class="repeating_ammunition">
+                    <input type="text" name="attr_ammunition_name" placeholder="Ammunition" />
+                    <input type="text" name="attr_ammunition_effect" placeholder="Effect" />
+                    <input type="number" name="attr_ammunition_count" min="0" value="0" />
+                </fieldset>
+            </div>
+
+            <div class="sheet-combat-bottom-right">
+                <!-- Movement Speed -->
+                <div class="sheet-movementspeed">
+                    <input type="text" name="attr_movementspeed" />
+                    <label>Movement Speed</label>
+                </div>
+
+                <!-- Vulnerabilities, Resistances, Immunities -->
+                <div>
+                    <h2>Vulnerabilities, Resistances, Immunities</h2>
+                    <textarea name="attr_vulnerabilitesResistancesImmunities" />
+                </div>
+
+                <!-- Conditions -->
+                <div>
+                    <h2>Conditions</h2>
+                    <textarea name="attr_conditions" />
+                </div>
+
+                <!-- Shield -->
+                <h2>Shield</h2>
+                <hr class="sheet-section-separator"/>
+                <table class="sheet-shield-header">
+                    <tr>
+                        <th>Shield</th>
+                        <th>Type</th>
+                        <th>AV</th>
+                    </tr>
+                </table>
+                <datalist id="shields">
+                    <option>Buckler</option>
+                    <option>Round Shield</option>
+                    <option>Kite Shield</option>
+                    <option>Tower Shield</option>
+                </datalist>
+                <div class="sheet-shield">
+                    <input type="text" name="attr_shieldName" list="shields" placeholder="Shield" />
+                    <select name="attr_shieldType">
+                        <option selected>Light</option>
+                        <option>Heavy</option>
+                    </select>
+                    <input type="text" name="attr_shieldAV" placeholder="AV" />
+                </div>
+
+                <!-- Melee Weapons -->
+                <h2>Melee Weapons</h2>
+                <hr class="sheet-section-separator"/>
+                <div class="sheet-unarmedStrike">
+                    <span name="unarmedStrike_name">Unarmed Strike</span>
+                    <span name="attr_unarmedStrike_atk">+0</span>
+                    <span name="attr_unarmedStrike_damage">0 Blunt</span>
+                </div>
+
+                <datalist id="meleeWeapons">
+                    <option>Brass Knuckle</option>
+                    <option>Cestus</option>
+                    <option>Knife</option>
+                    <option>Dagger</option>
+                    <option>Throwing Knife</option>
+                    <option>Broadsword</option>
+                    <option>Longsword</option>
+                    <option>Cutlass</option>
+                    <option>Rapier</option>
+                    <option>Smallsword</option>
+                    <option>Cane Sword</option>
+                    <option>Hardened Cane</option>
+                    <option>Baton</option>
+                    <option>Spiked Club</option>
+                    <option>Mace</option>
+                    <option>Warhammer</option>
+                    <option>War Pick</option>
+                    <option>Battle Axe</option>
+                    <option>Throwing Axe</option>
+                    <option>Hatchet</option>
+                    <option>Staff</option>
+                    <option>Greatsword</option>
+                    <option>Maul</option>
+                    <option>Pike</option>
+                    <option>Halberd</option>
+                    <option>Glaive</option>
+                    <option>Whip</option>
+                </datalist>
+
+                <fieldset class="repeating_meleeWeapon">
+                    <details class="sheet-attack">
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_meleeWeapon_name">New Weapon</span>
+                            <button type="roll" name="roll_meleeWeapon_rollButton" value="@{meleeWeapon_roll}" />
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_meleeWeapon_name" placeholder="Melee Weapon" list="meleeWeapons" />
+                        </div>
+
+                        <!-- Skill -->
+                        <div>
+                            <label class="sheet-spell-label">Skill:</label>
+                            <select name="attr_meleeWeapon_skill">
+                                <option selected>Brawling</option>
+                                <option>Shield</option>
+                                <option>One-Handed Melee</option>
+                                <option>Two-Handed Melee</option>
+                            </select>
+                        </div>
+
+                        <!-- To Hit -->
+                        <div>
+                            <label class="sheet-spell-label">To Hit:</label>
+                            <input type="text" name="attr_meleeWeapon_atk" placeholder="To Hit" />
+                        </div>
+
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_meleeWeapon_damage" placeholder="Damage" />
+                        </div>
+
+                        <!-- Weapon Expert -->
+                        <div>
+                            <label class="sheet-spell-label">Weapon Expert:</label>
+                            <input type="checkbox" name="attr_meleeWeapon_weaponExpert" />
+                        </div>
+
+                    </details>
+
+                    <input type="hidden" name="attr_meleeWeapon_roll" />
+                </fieldset>
+
+                <datalist id="rangedWeapons">
+                    <option>Derringer</option>
+                    <option>Flintlock Pistol</option>
+                    <option>Revolver</option>
+                    <option>Pepperbox</option>
+                    <option>Flintlock Rifle</option>
+                    <option>Blunderbuss</option>
+                    <option>Lever-Action Rifle</option>
+                    <option>Bolt-Action Rifle</option>
+                    <option>Shotgun</option>
+                    <option>Hand-Crossbow</option>
+                    <option>Crossbow</option>
+                    <option>Shortbow</option>
+                    <option>Longbow</option>
+                    <option>Rocket Launcher</option>
+                    <option>Machine Gun (Normal)</option>
+                    <option>Machine Gun (Spray)</option>
+                    <option>Flamethrower</option>
+                    <option>Railgun </option>
+                </datalist>
+
+                <!-- Ranged Weapons -->
+                <h2>Ranged Weapons</h2>
+                <hr class="sheet-section-separator"/>
+                <table class="sheet-ranged-header">
+                    <tr>
+                        <th>Ranged Weapon</th>
+                        <th>Range</th>
+                        <th>ATK</th>
+                        <th>Damage</th>
+                        <th>Ammo</th>
+                    </tr>
+                </table>
+                <fieldset class="repeating_rangedWeapon">
+                    <details class="sheet-attack">
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_rangedWeapon_name">New Weapon</span>
+                            <button type="roll" name="roll_rangedWeapon_rollButton" value="@{rangedWeapon_roll}" />
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_rangedWeapon_name" placeholder="Ranged Weapon" list="rangedWeapons" />
+                        </div>
+
+                        <!-- Skill -->
+                        <div>
+                            <label class="sheet-spell-label">Skill:</label>
+                            <select name="attr_rangedWeapon_skill">
+                                <option selected>Artillery</option>
+                                <option>Bow</option>
+                                <option>Pistol</option>
+                                <option>Rifle</option>
+                            </select>
+                        </div>
+
+                        <!-- To Hit -->
+                        <div>
+                            <label class="sheet-spell-label">To Hit:</label>
+                            <input type="text" name="attr_rangedWeapon_atk" placeholder="To Hit" />
+                        </div>
+
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_rangedWeapon_damage" placeholder="Damage" />
+                        </div>
+
+                        <!-- Weapon Expert -->
+                        <div>
+                            <label class="sheet-spell-label">Weapon Expert:</label>
+                            <input type="checkbox" name="attr_rangedWeapon_weaponExpert" />
+                        </div>
+
+                        <!-- Range -->
+                        <div>
+                            <label class="sheet-spell-label">Range:</label>
+                            <input type="text" name="attr_rangedWeapon_range" placeholder="Range" />
+                        </div>
+
+                        <!-- Ammo -->
+                        <div>
+                            <label class="sheet-spell-label">Ammo:</label>
+                            <input type="text" name="attr_rangedWeapon_ammo" placeholder="Ammo" />
+                        </div>
+
+                        <!-- Quality -->
+                        <div>
+                            <label class="sheet-spell-label">Quality:</label>
+                            <input type="number" name="attr_rangedWeapon_quality" placeholder="Quality" />
+                        </div>
+
+                    </details>
+                    
+                    <input type="hidden" name="attr_rangedWeapon_roll" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- Qualities -->
+    <div class="sheet-tab2 sheet-page">
+        <h1>Qualities</h1>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-quality-columns">
+            <div class="sheet-qualities-positive">
+                <h2>Positive</h2>
+                <hr class="sheet-section-separator"/>
+                
+                <datalist id="positiveQualities">
+                    <option>Agile</option>
+                    <option>Ambidextrous</option>
+                    <option>Analytical Mind</option>
+                    <option>Educated</option>
+                    <option>Eidetic Memory</option>
+                    <option>Elemental Attunement (Air)</option>
+                    <option>Elemental Attunement (Earth)</option>
+                    <option>Elemental Attunement (Fire)</option>
+                    <option>Elemental Attunement (Water)</option>
+                    <option>Empathetic</option>
+                    <option>Essence Sensitivity</option>
+                    <option>Fast</option>
+                    <option>Pious</option>
+                    <option>Quick Reflexes</option>
+                    <option>Sniper</option>
+                    <option>Sharpshooter</option>
+                    <option>Tough</option>
+                    <option>Weapon Expert</option>
+                    <option>Sneaky</option>
+                    <option>Inspiring Presence</option>
+                    <option>Strong</option>
+                    <option>Silver Tongue</option>
+                </datalist>
+
+                <input type="hidden" name="attr_elementalAttunement" />
+        
+                <fieldset class="repeating_positiveQuality">
+                    <input type="text" name="attr_positiveQuality_name" placeholder="Quality" list="positiveQualities" />
+                    <input type="number" name="attr_positiveQuality_level" placeholder="Level" min="0" />
+                    <textarea name="attr_positiveQuality_description" placeholder="Description" />
+                </fieldset>
+            </div>
+        
+            <div class="sheet-qualities-negative">
+                <h2>Negative</h2>
+                <hr class="sheet-section-separator"/>
+                
+                <datalist id="negativeQualities">
+                    <option>Addict</option>
+                    <option>Callous</option>
+                    <option>Clumsy</option>
+                    <option>Disgraced</option>
+                    <option>Dull</option>
+                    <option>Essence Vulnerability</option>
+                    <option>Farsighted</option>
+                    <option>Fragile</option>
+                    <option>Hard of Hearing</option>
+                    <option>Nearsighted</option>
+                    <option>Slow</option>
+                    <option>Weak</option>
+                    <option>Phobia</option>
+                    <option>Socially Inept</option>
+                </datalist>
+        
+                <fieldset class="repeating_negativeQuality">
+                    <input type="text" name="attr_negativeQuality_name" placeholder="Quality" list="negativeQualities" />
+                    <input type="number" name="attr_negativeQuality_level" placeholder="Level" min="0" />
+                    <textarea name="attr_negativeQuality_description" placeholder="Description" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory -->
+    <div class="sheet-tab3 sheet-page">
+        <h1>Inventory</h1>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-inventory-topline">
+            <div class="sheet-inventory-left">
+                <!-- Bolts -->
+                <div class="sheet-inventory-material">
+                    <label class="sheet-resource-label">Bolts</label>
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_bolts" min="0" />
+                    </div>
+                </div>
+
+                <!-- Plates -->
+                <div class="sheet-inventory-material">
+                    <label class="sheet-resource-label">Plates</label>
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_plates" min="0" />
+                    </div>
+                </div>
+
+                <!-- Wires -->
+                <div class="sheet-inventory-material">
+                    <label class="sheet-resource-label">Wires</label>
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_wires" min="0" />
+                    </div>
+                </div>
+
+                <!-- Cogs -->
+                <div class="sheet-inventory-material">
+                    <label class="sheet-resource-label">Cogs</label>
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_cogs" min="0" />
+                    </div>
+                </div>
+
+                <!-- Rods -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_rods" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Rods</label>
+                </div>
+
+                <!-- Lenses -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_lenses" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Lenses</label>
+                </div>
+
+                <!-- Gunpowder -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_gunpowder" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Gunpowder</label>
+                </div>
+            </div>
+
+            <div class="sheet-inventory-topline-item">
+                <span name="attr_inventory_load">0 Slots</span>
+                <hr class="sheet-section-separator"/>
+                <label>Load</label>
+            </div>
+            <div class="sheet-inventory-topline-item">
+                <span name="attr_carryCapacity">0 Slots</span>
+                <hr class="sheet-section-separator"/>
+                <label>Carry<br>Capacity</label>
+            </div>
+
+            <!-- Essence -->
+            <div class="sheet-inventory-right">
+                <!-- Fire Essence -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_essence_fire" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Fire</label>
+                </div>
+
+                <!-- Water Essence -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_essence_water" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Water</label>
+                </div>
+
+                <!-- Earth Essence -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_essence_earth" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Earth</label>
+                </div>
+
+                <!-- Air Essence -->
+                <div class="sheet-inventory-material">
+                    <div class="sheet-resource">
+                        <input type="number" name="attr_essence_air" min="0" />
+                    </div>
+                    <label class="sheet-resource-label">Air</label>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" class="sheet-inventory-tabstoggle" name="attr_inventoryTab" value="equipment" />
+        <div>
+            <button type="action" name="act_equipment" class="sheet-inventory-button0">Equipment</button>
+            <button type="action" name="act_money" class="sheet-inventory-button1">Money</button>
+        </div>
+
+        <!-- Equipment -->
+        <div class="sheet-inventory-items">
+            <div class="sheet-inventory-equipment">
+                <h2>Equipment</h2>
+                <hr class="sheet-section-separator"/>
+                <table class="sheet-equipment-header">
+                    <tr>
+                        <th>Item</th>
+                        <th>Size</th>
+                        <th>Count</th>
+                        <th>Slots</th>
+                    </tr>
+                </table>
+                <fieldset class="repeating_equipment">
+                    <label class="sheet-checkbox-label">Equip</label><input type="checkbox" name="attr_equipment_equip" class="sheet-equip-checkbox" checked />
+                    <input type="text" name="attr_equipment_name" placeholder="Item" />
+                    <input type="text" name="attr_equipment_size" placeholder="Size" />
+                    <input type="number" name="attr_equipment_count" placeholder="Count" min="0" />
+                    <span name="attr_equipment_slots">0</span>
+                </fieldset>
+            </div>
+
+            <datalist id="containers">
+                <option>Backpack</option>
+                <option>Travel Pack</option>
+                <option>Shoulder Bag</option>
+            </datalist>
+            
+            <!-- Equipped Container -->
+            <div class="sheet-inventory-back">
+                <h2>Equipped Container</h2>
+                <hr class="sheet-section-separator"/>
+                <table class="sheet-back-header">
+                    <tr>
+                        <th>Container</th>
+                        <th>Size</th>
+                        <th>Cap</th>
+                        <th>Load</th>
+                    </tr>
+                </table>
+                <div class="sheet-back-container">
+                    <label class="sheet-checkbox-label">Equip</label><input type="checkbox" name="attr_containerBack_equip" class="sheet-equip-checkbox" checked />
+                    <input type="text" name="attr_containerBack_name" list="containers" />
+                    <input type="text" name="attr_containerBack_size" />
+                    <input type="number" name="attr_containerBack_capacity" />
+                    <span name="attr_containerBack_load">0</span>
+                </div>
+
+                <table class="sheet-back-header">
+                    <tr>
+                        <th>Item</th>
+                        <th>Size</th>
+                        <th>Count</th>
+                        <th>Slots</th>
+                    </tr>
+                </table>
+                <fieldset class="repeating_backItem">
+                    <input type="text" name="attr_backItem_name" placeholder="Item" />
+                    <input type="text" name="attr_backItem_size" placeholder="Size" />
+                    <input type="number" name="attr_backItem_count" placeholder="Count" min="0" />
+                    <span name="attr_backItem_slots">0</span>
+                </fieldset>
+            </div>
+        </div>
+
+        <!-- Money -->
+        <div class="sheet-inventory-money">
+            <h2>Money</h2>
+            <hr class="sheet-section-separator" />
+
+            <div class="sheet-money-row">
+                <input type="number" name="attr_imperialPounds" min="0" value="0" />
+                <span class="sheet-currency-symbol">£</span>
+                <input type="number" name="attr_imperialShillings" min="0" value="0" />
+                <span class="sheet-currency-symbol">s</span>
+                <input type="number" name="attr_imperialPence" min="0" value="0" />
+                <span class="sheet-currency-symbol">d</span>
+                <input type="number" name="attr_imperialFarthings" min="0" value="0" />
+                <span class="sheet-currency-symbol">f</span>
+            </div>
+
+            <h2>Debt</h2>
+            <hr class="sheet-section-separator" />
+            <fieldset class="repeating_debt">
+                <input type="text" name="attr_debt_creditor" placeholder="Creditor" />
+                <input type="text" name="attr_debt_dueBy" placeholder="due by" />
+                <div class="sheet-money-row">
+                    <input type="number" name="attr_debt_imperialPounds" min="0" value="0" />
+                    <span class="sheet-currency-symbol">£</span>
+                    <input type="number" name="attr_debt_imperialShillings" min="0" value="0" />
+                    <span class="sheet-currency-symbol">s</span>
+                    <input type="number" name="attr_debt_imperialPence" min="0" value="0" />
+                    <span class="sheet-currency-symbol">d</span>
+                    <input type="number" name="attr_debt_imperialFarthings" min="0" value="0" />
+                    <span class="sheet-currency-symbol">f</span>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Prayer -->
+    <div class="sheet-tab4 sheet-page">
+        <h1>Prayer</h1>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-prayer-topline">
+            <!-- Faith -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" min="0" name="attr_faith" value="0"/>
+                    <span name="attr_faith_max">0</span>
+                </div>
+                <label class="sheet-resource-label">Faith</label>
+                <span class="sheet-resource-calculation">Willpower × Prayer</span>
+            </div>
+
+            <!-- Healing -->
+            <input type="hidden" name="attr_prayer" class="sheet-prayer-input-hidden"/>
+            <div class="sheet-item sheet-prayer-healing">
+                <button type="action" name="act_healing" class="sheet-rollable-mod">
+                    <span name="attr_healing"></span>
+                </button>
+                <label class="sheet-resource-label">Healing</label>
+                <span class="sheet-resource-calculation">Xd6 + Prayer</span>
+            </div>
+
+            <!-- Power -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_prayer">0</span>
+                </div>
+                <label class="sheet-resource-label">Power</label>
+            </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <div class="sheet-actions">
+            <!-- Prayer of Faith -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_prayeroffaith" />
+            <button class="sheet-action" type="action" name="act_prayeroffaith">
+                <b>1 hour</b>
+                <br>
+                Prayer of Faith
+            </button>
+            <!-- Work Miracle -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_workmiracle" />
+            <button class="sheet-action" type="action" name="act_workmiracle">
+                <b>Minor Reaction</b>
+                <br>
+                Work Miracle
+            </button>
+            <!-- Repel the Unholy -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_repelunholy" />
+            <button class="sheet-action" type="action" name="act_repelunholy">
+                <b>Major Action</b>
+                <br>
+                Repel the Unholy
+            </button>
+            <!-- Identify Curse -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_identifycurse" />
+            <button class="sheet-action" type="action" name="act_identifycurse">
+                <b>Major Action</b>
+                <br>
+                Identify Curse
+            </button>
+            <!-- Lift Curse -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_liftcurse" />
+            <button class="sheet-action" type="action" name="act_liftcurse">
+                <b>Major Action</b>
+                <br>
+                Lift Curse
+            </button>
+        </div>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-prayer-bottom">
+            <h2>Blessings</h2>
+            <div class="sheet-spells-memorised">
+                <span>Memorised:</span>
+                <span name="attr_memorisedBlessings">0</span>
+                <span>/</span>
+                <span name="attr_memorisedBlessings_max">0</span>
+            </div>
+            <hr class="sheet-section-separator"/>
+
+            <datalist id="blessings">
+                <option>Blessing of Regeneration</option>
+                <option>Blessing of Protection</option>
+                <option>Blessing of Haste</option>
+                <option>Blessing of Attention</option>
+                <option>Blessing of Burden</option>
+                <option>Blessing of Warding off Evil</option>
+                <option>Blessing of Sanctity</option>
+                <option>Blessing of Purification</option>
+                <option>Blessing of Health</option>
+                <option>Blessing of Wound Closure</option>
+                <option>Blessing of Guidance</option>
+                <option>Blessing of Smiting</option>
+                <option>Blessing of Comprehension</option>
+                <option>Blessing of Comfort</option>
+            </datalist>
+            
+            <fieldset class="repeating_blessing">
+                <input class="sheet-listitem-validation" type="checkbox" name="attr_blessing_isListItem" />
+                <details>
+                    <summary class="sheet-spoiler0">
+                        <span name="attr_blessing_name">New Blessing</span>
+                        <button type="action" name="act_blessinginvoke">Invoke</button>
+                        <div>
+                            <label class="sheet-spell-label">Memorised</label>
+                            <input class="sheet-listitem-keep" type="checkbox" name="attr_blessing_memorised" />
+                        </div>
+                        <span class="error" name="attr_blessing_error"></span>
+                    </summary>
+
+                    <!-- Name -->
+                    <div>
+                        <label class="sheet-spell-label">Name:</label>
+                        <input class="sheet-listitem-keep" type="text" name="attr_blessing_name" placeholder="Blessing" list="blessings" />
+                    </div>
+                    <!-- Components -->
+                    <div>
+                        <label class="sheet-spell-label">Components:</label>
+                        <input type="text" name="attr_blessing_components" placeholder="Components" />
+                        <input class="sheet-listitem-only" type="text" name="attr_blessing_components" placeholder="Components" readonly />
+                    </div>
+                    <!-- Faith -->
+                    <div>
+                        <label class="sheet-spell-label">Faith:</label>
+                        <input type="number" name="attr_blessing_faith" placeholder="Faith" min="0" />
+                        <input class="sheet-listitem-only" type="number" name="attr_blessing_faith" placeholder="Faith" readonly />
+                    </div>
+                    <!-- Range -->
+                    <div>
+                        <label class="sheet-spell-label">Range:</label>
+                        <input type="text" name="attr_blessing_range" placeholder="Range" />
+                        <input class="sheet-listitem-only" type="text" name="attr_blessing_range" placeholder="Range" readonly />
+                    </div>
+                    <!-- Area -->
+                    <div>
+                        <label class="sheet-spell-label">Area:</label>
+                        <input type="text" name="attr_blessing_area" placeholder="Area" />
+                        <input class="sheet-listitem-only" type="text" name="attr_blessing_area" placeholder="Area" readonly />
+                    </div>
+                    <!-- Duration -->
+                    <div>
+                        <label class="sheet-spell-label">Duration:</label>
+                        <input type="text" name="attr_blessing_duration" placeholder="Duration" />
+                        <input class="sheet-listitem-only" type="text" name="attr_blessing_duration" placeholder="Duration" readonly />
+                    </div>
+                    
+                    <textarea name="attr_blessing_description" placeholder="Description" />
+                    <textarea class="sheet-listitem-only" name="attr_blessing_description" placeholder="Description" readonly />
+                </details>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Witchcraft -->
+    <div class="sheet-tab5 sheet-page">
+        <h1>Witchcraft</h1>
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-witchcraft-topline">
+            <!-- SRD -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_srd">0</span>
+                </div>
+                <label class="sheet-resource-label">SRD</label>
+            </div>
+
+            <!-- Runecraft -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_runecraft">0</span>
+                </div>
+                <label class="sheet-resource-label">Runecraft</label>
+            </div>
+
+            <!-- Fire Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_fire" min="0" />
+                </div>
+                <label class="sheet-resource-label">Fire</label>
+            </div>
+
+            <!-- Water Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_water" min="0" />
+                </div>
+                <label class="sheet-resource-label">Water</label>
+            </div>
+
+            <!-- Earth Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_earth" min="0" />
+                </div>
+                <label class="sheet-resource-label">Earth</label>
+            </div>
+
+            <!-- Air Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_air" min="0" />
+                </div>
+                <label class="sheet-resource-label">Air</label>
+            </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <h3>Spellwork R<span name="attr_spellwork">0</span></h3>
+        <div class="sheet-actions">
+            <!-- 6th Sense -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_sixthsense" />
+            <button class="sheet-action" type="action" name="act_sixthsense">
+                <b>Major Action</b>
+                <br>
+                6th Sense
+            </button>
+            <!-- Counterspell -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_counterspell" />
+            <button class="sheet-action" type="action" name="act_counterspell">
+                <b>Minor Reaction</b>
+                <br>
+                Counterspell
+            </button>
+            <!-- 7th Sense Action -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
+            <button class="sheet-action" type="action" name="act_seventhsenseaction">
+                <b>Minor Action</b>
+                <br>
+                7th Sense
+            </button>
+            <!-- 7th Sense Reaction -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
+            <button class="sheet-action" type="action" name="act_seventhsensereaction">
+                <b>Minor Reaction</b>
+                <br>
+                7th Sense
+            </button>
+        </div>
+
+        <h3>Runecraft R<span name="attr_runecraft">0</span></h3>
+        <div class="sheet-actions">
+            <!-- Rune Reading -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_runereading" />
+            <button class="sheet-action" type="action" name="act_runereading">
+                <b>10 minutes</b>
+                <br>
+                Rune Reading
+            </button>
+        </div>
+
+        <h3>Summoning R<span name="attr_summoning">0</span></h3>
+        <div class="sheet-actions">
+            <!-- Subjugate Spirit -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespirit" />
+            <button class="sheet-action" type="action" name="act_subjugatespirit">
+                <b>Major Action</b>
+                <br>
+                Subjugate Spirit
+            </button>
+            <!-- Subjugate Spirit Minor Action -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespiritminor" />
+            <button class="sheet-action" type="action" name="act_subjugatespirit">
+                <b>Minor Action</b>
+                <br>
+                Subjugate Spirit
+            </button>
+            <!-- Tap into Familiar's Senses -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_tapintofamiliarsenses" />
+            <button class="sheet-action" type="action" name="act_tapintofamiliarsenses">
+                <b>Major Action</b>
+                <br>
+                Tap into Familiar's Senses
+            </button>
+            <!-- Summon Spirit -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_summonspirit" />
+            <button class="sheet-action" type="action" name="act_summonspirit">
+                <b>1 hour</b>
+                <br>
+                Summon Spirit
+            </button>
+            <!-- Banish -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_banish" />
+            <button class="sheet-action" type="action" name="act_banish">
+                <b>Major Action</b>
+                <br>
+                Banish
+            </button>
+            <!-- Summon Demon -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
+            <button class="sheet-action" type="action" name="act_summondemon">
+                <b>1 hour</b>
+                <br>
+                Summon Demon
+            </button>
+            <!-- Summon Angel -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
+            <button class="sheet-action" type="action" name="act_summonangel">
+                <b>1 hour</b>
+                <br>
+                Summon Angel
+            </button>
+        </div>
+
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-witchcraft-bottom">
+            <input type="hidden" class="sheet-tabstoggle" name="attr_witchcraftTab" value="0" />
+            <div>
+                <button type="action" name="act_runes" class="sheet-button0">Runes</button>
+                <button type="action" name="act_rituals" class="sheet-button1">Rituals</button>
+                <button type="action" name="act_spells" class="sheet-button2">Spells</button>
+                <button type="action" name="act_curses" class="sheet-button3">Curses</button>
+            </div>
+
+            <!-- Runes -->
+            <div class="sheet-tab0 sheet-witchcraft-runes">
+                <h2>Runes</h2>
+                <hr class="sheet-section-separator"/>
+        
+                <datalist id="runes">
+                    <option>Calidum</option>
+                    <option>Frigus</option>
+                    <option>Reparo</option>
+                    <option>Sano</option>
+                    <option>Conservo</option>
+                    <option>Respiratio</option>
+                    <option>Purgo</option>
+                    <option>Levis</option>
+                    <option>Gravis</option>
+                    <option>Sera</option>
+                    <option>Mundo</option>
+                    <option>Protego</option>
+                    <option>Silentium</option>
+                    <option>Damnum (Air)</option>
+                    <option>Damnum (Earth)</option>
+                    <option>Damnum (Fire)</option>
+                    <option>Damnum (Water)</option>
+                    <option>Clypeus Cordis</option>
+                    <option>Radians</option>
+                    <option>Supprimo</option>
+                    <option>Visio Obscura</option>
+                    <option>Vita Surripuit</option>
+                    <option>Auge Salus</option>
+                </datalist>
+                
+                <fieldset class="repeating_rune">
+                    <input class="sheet-listitem-validation" type="checkbox" name="attr_rune_isListItem" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_rune_name">New Rune</span>
+                            <button type="action" name="attr_carverune">Carve</button>
+                            <span class="error" name="attr_rune_error"></span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input class="sheet-listitem-keep" type="text" name="attr_rune_name" placeholder="Rune" list="runes" />
+                        </div>
+                        <!-- Target -->
+                        <div>
+                            <label class="sheet-spell-label">Target:</label>
+                            <input type="text" name="attr_rune_target" placeholder="Target" />
+                            <input class="sheet-listitem-only" type="text" name="attr_rune_target" placeholder="Target" readonly />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_rune_natura" placeholder="Natura" />
+                            <input class="sheet-listitem-only" type="text" name="attr_rune_natura" placeholder="Natura" readonly />
+                        </div>
+
+                        <textarea name="attr_rune_description" placeholder="Description" />
+                        <textarea class="sheet-listitem-only" name="attr_rune_description" placeholder="Description" readonly />
+                    </details>
+                </fieldset>
+            </div>
+
+            <!-- Rituals -->
+            <div class="sheet-tab1 sheet-witchcraft-rituals">
+                <h2>Rituals</h2>
+                <hr class="sheet-section-separator"/>
+        
+                <datalist id="rituals">
+                    <option>Scrying</option>
+                    <option>Nightvision</option>
+                    <option>Water Breathing</option>
+                    <option>Warming</option>
+                    <option>Cooling</option>
+                    <option>Beauty</option>
+                    <option>Disguise</option>
+                    <option>Locate</option>
+                    <option>Astral Projection</option>
+                    <option>Dreamwalk</option>
+                    <option>Identify</option>
+                    <option>Divination Warding</option>
+                    <option>Spirit Warding</option>
+                    <option>Monster Warding</option>
+                    <option>Death Warding</option>
+                    <option>[Damage Type] Warding</option>
+                    <option>Open Portal</option>
+                    <option>Blade Bond</option>
+                    <option>Bought Time</option>
+                </datalist>
+                
+                <fieldset class="repeating_ritual">
+                    <input class="sheet-listitem-validation" type="checkbox" name="attr_ritual_isListItem" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_ritual_name">New Ritual</span>
+                            <button type="action" name="attr_performritual">Perform</button>
+                            <span class="error" name="attr_ritual_error"></span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input class="sheet-listitem-keep" type="text" name="attr_ritual_name" placeholder="Ritual" list="rituals" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_ritual_essence" placeholder="Natura" />
+                            <input class="sheet-listitem-only" type="text" name="attr_ritual_essence" placeholder="Natura" readonly />
+                        </div>
+
+                        <textarea name="attr_ritual_description" placeholder="Description" />
+                        <textarea class="sheet-listitem-only" name="attr_ritual_description" placeholder="Description" readonly />
+                    </details>
+                </fieldset>
+            </div>
+
+            <!-- Spells -->
+            <div class="sheet-tab2 sheet-witchcraft-spells">
+                <h2>Spells</h2>
+                <div class="sheet-spells-memorised">
+                    <span>Memorised:</span>
+                    <span name="attr_memorisedSpells">0</span>
+                    <span>/</span>
+                    <span name="attr_memorisedSpells_max">0</span>
+                </div>
+                <input type="hidden" name="attr_prayer" />
+                <div class="sheet-spells-memorised sheet-spells-miracleworking">
+                    <span>Miracle Working:</span>
+                    <input type="number" name="attr_miracleworkingFaith" min="0" placeholder="0" value="0" />
+                    <span>/</span>
+                    <span name="attr_miracleworkingFaith_max">0</span>
+                </div>
+                <div class="sheet-spells-memorised sheet-spells-miracleworking">
+                    <span>Faith:</span>
+                    <input type="number" name="attr_faith" min="0" placeholder="0" value="0" />
+                    <span>/</span>
+                    <span name="attr_faith_max">0</span>
+                </div>
+                <hr class="sheet-section-separator"/>
+        
+                <datalist id="spells">
+                    <option>Fire Bolt</option>
+                    <option>Fireball</option>
+                    <option>Water Bolt</option>
+                    <option>Waterball</option>
+                    <option>Tremor</option>
+                    <option>Earthquake</option>
+                    <option>Air Bolt</option>
+                    <option>Air Bomb</option>
+                    <option>Icicle</option>
+                    <option>Lava Mote</option>
+                    <option>Spark</option>
+                    <option>Steam Cloud</option>
+                    <option>Acid Splash</option>
+                    <option>Acid Rain</option>
+                    <option>Dust Cloud</option>
+                    <option>Break Warding</option>
+                    <option>Levitate</option>
+                    <option>Unlock</option>
+                    <option>Deflect</option>
+                    <option>Reflect</option>
+                    <option>Control Fire</option>
+                    <option>Control Water</option>
+                    <option>Blink</option>
+                    <option>Group Blink</option>
+                    <option>Teleport</option>
+                    <option>Group Teleport</option>
+                    <option>Glow</option>
+                    <option>Hex</option>
+                    <option>Stupor</option>
+                    <option>Mindlink</option>
+                    <option>Silence</option>
+                    <option>Restrain</option>
+                    <option>Chain Pull</option>
+                    <option>Air Bubble</option>
+                    <option>Command</option>
+                    <option>Enthrall</option>
+                    <option>Clean</option>
+                    <option>Ignite</option>
+                </datalist>
+                
+                <fieldset class="repeating_spell">
+                    <input class="sheet-listitem-validation" type="checkbox" name="attr_spell_isListItem" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_spell_name">New Spell</span>
+                            <button type="action" name="act_spellcast">Cast</button>
+                            <div>
+                                <label class="sheet-spell-label">Memorised</label>
+                                <input class="sheet-listitem-keep" type="checkbox" name="attr_spell_memorised" />
+                            </div>
+                            <span class="error" name="attr_spell_error"></span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input class="sheet-listitem-keep" type="text" name="attr_spell_name" placeholder="Spell" list="spells" />
+                        </div>
+                        <!-- Action -->
+                        <div>
+                            <label class="sheet-spell-label">Action:</label>
+                            <select name="attr_spell_action">
+                                <option selected>Major Action</option>
+                                <option>Minor Action</option>
+                                <option>Major Reaction</option>
+                                <option>Minor Reaction</option>
+                            </select>
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_action" placeholder="Action" readonly />
+                        </div>
+                        <!-- Components -->
+                        <div>
+                            <label class="sheet-spell-label">Components:</label>
+                            <input type="text" name="attr_spell_components" placeholder="Components" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_components" placeholder="Components" readonly />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_spell_natura" placeholder="Natura" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_natura" placeholder="Natura" readonly />
+                        </div>
+                        <!-- Range -->
+                        <div>
+                            <label class="sheet-spell-label">Range:</label>
+                            <input type="text" name="attr_spell_range" placeholder="Range" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_range" placeholder="Range" readonly />
+                        </div>
+                        <!-- Area -->
+                        <div>
+                            <label class="sheet-spell-label">Area:</label>
+                            <input type="text" name="attr_spell_area" placeholder="Area" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_area" placeholder="Area" readonly />
+                        </div>
+                        <!-- Duration -->
+                        <div>
+                            <label class="sheet-spell-label">Duration:</label>
+                            <input type="text" name="attr_spell_duration" placeholder="Duration" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_duration" placeholder="Duration" readonly />
+                        </div>
+                        <!-- Attack -->
+                        <div>
+                            <label class="sheet-spell-label">Attack:</label>
+                            <select class="feature-attack-type" name="attr_spell_attackType">
+                                <option value="none" selected>-</option>
+                                <option>Melee</option>
+                                <option>Ranged</option>
+                            </select>
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_attackType" placeholder="Attack" readonly />
+                        </div>
+                        <!-- Save -->
+                        <div>
+                            <label class="sheet-spell-label">Save:</label>
+                            <select class="feature-save-type" name="attr_spell_saveType">
+                                <option value="none" selected>-</option>
+                                <option>Evasion</option>
+                                <option>Body</option>
+                                <option>Willpower</option>
+                            </select>
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_saveType" placeholder="Save" readonly />
+                        </div>
+                        <!-- Save DT Type -->
+                        <div class="feature-save-details">
+                            <label class="sheet-spell-label"></label>
+                            <select class="feature-save-dttype" name="attr_spell_saveDTType">
+                                <option value="srd" selected>SRD</option>
+                                <option value="dt">DT</option>
+                                <option value="contest">Contest</option>
+                            </select>
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTType" placeholder="Save Roll" readonly />
+                        </div>
+                        <!-- Save DT -->
+                        <div class="feature-save-details feature-save-dt">
+                            <label class="sheet-spell-label"></label>
+                            <div>
+                                <select name="attr_spell_saveDTSkill">
+                                    <option selected>-</option>
+                                    <option>Athletics</option>
+                                    <option>Perception</option>
+                                    <option>Piloting</option>
+                                    <option>Stealth</option>
+                                    <option>Artisanship</option>
+                                    <option>Deception</option>
+                                    <option>Intimidation</option>
+                                    <option>Performance</option>
+                                    <option>Persuasion</option>
+                                    <option>Astronomy</option>
+                                    <option>Economy</option>
+                                    <option>History</option>
+                                    <option>Literature</option>
+                                    <option>Medicine</option>
+                                    <option>Mythology</option>
+                                    <option>Nature</option>
+                                    <option>Survival</option>
+                                    <option>Clockwork Mechanics</option>
+                                    <option>Automachinery</option>
+                                    <option>Augmentation</option>
+                                    <option>Gunsmithing</option>
+                                    <option>Tinkering</option>
+                                    <option>Vehicle Mechanics</option>
+                                    <option>Alchemy</option>
+                                    <option>Prayer</option>
+                                    <option>Spellwork</option>
+                                    <option>Runecraft</option>
+                                    <option>Summoning</option>
+                                    <option>Artillery</option>
+                                    <option>Brawling</option>
+                                    <option>Bow</option>
+                                    <option>Pistol</option>
+                                    <option>Rifle</option>
+                                    <option>Shield</option>
+                                    <option>One-Handed Melee</option>
+                                    <option>Two-Handed Melee</option>
+                                </select>
+                                <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTSkill" placeholder="Skill" readonly />
+                                <select name="attr_spell_saveDTAttribute">
+                                    <option selected>-</option>
+                                    <option>Agility</option>
+                                    <option>Body</option>
+                                    <option>Charisma</option>
+                                    <option>Intuition</option>
+                                    <option>Logic</option>
+                                    <option>Willpower</option>
+                                </select>
+                                <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTAttribute" placeholder="Attribute" readonly />
+                                <input class="sheet-listitem-keep" type="number" name="attr_spell_saveDTBonus" placeholder="+0" />
+                                &nbsp;=&nbsp;
+                                <span name="attr_spell_saveDT">0</span>
+                            </div>
+                        </div>
+                        <!-- Damage -->
+                        <div>
+                            <label class="sheet-spell-label">Damage:</label>
+                            <input type="text" name="attr_spell_damage" placeholder="Damage" />
+                            <input class="sheet-listitem-only" type="text" name="attr_spell_damage" placeholder="Damage" readonly />
+                        </div>
+                        
+                        <textarea name="attr_spell_description" placeholder="Description" />
+                        <textarea class="sheet-listitem-only" name="attr_spell_description" placeholder="Description" readonly />
+                    </details>
+                </fieldset>
+            </div>
+
+            <!-- Curses -->
+            <div class="sheet-tab3 sheet-witchcraft-curses">
+                <h2>Curses</h2>
+                <hr class="sheet-section-separator"/>
+        
+                <datalist id="curses">
+                    <option>Lycanthropy</option>
+                    <option>Bad Luck</option>
+                    <option>Eternal Nightmares</option>
+                    <option>Rusting Decay</option>
+                    <option>Forked Tongue</option>
+                    <option>Shattered Fate</option>
+                    <option>Gluttony</option>
+                    <option>Stolen Voice</option>
+                    <option>Grasping Roots</option>
+                    <option>Sanguine Seal</option>
+                </datalist>
+                
+                <fieldset class="repeating_curse">
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_curse_name">New Curse</span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input type="text" name="attr_curse_name" placeholder="Curse" list="curses" />
+                        </div>
+                        <!-- Natura -->
+                        <div>
+                            <label class="sheet-spell-label">Natura:</label>
+                            <input type="text" name="attr_curse_natura" placeholder="Natura" />
+                        </div>
+                        <!-- Target -->
+                        <div>
+                            <label class="sheet-spell-label">Target:</label>
+                            <input type="text" name="attr_curse_target" placeholder="Target" />
+                        </div>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Sacrifice</span>
+                            </summary>
+                            <textarea name="attr_curse_sacrifice" placeholder="Sacrifice" />
+                        </details>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Description</span>
+                            </summary>
+                            <textarea name="attr_curse_description" placeholder="Description" />
+                        </details>
+
+                        <details>
+                            <summary class="sheet-spoiler1">
+                                <span>Breaking Condition</span>
+                            </summary>
+                            <textarea name="attr_curse_breakingCondition" placeholder="Breaking Condition" />
+                        </details>
+                    </details>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alchemy -->
+    <div class="sheet-tab6 sheet-page">
+        <h1>Alchemy</h1>
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-alchemy-topline">
+            <!-- Alchemy Ranks -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_alchemy">0</span>
+                </div>
+                <label class="sheet-resource-label">Alchemy Ranks</label>
+            </div>
+
+            <!-- Fire Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_fire" min="0" />
+                </div>
+                <label class="sheet-resource-label">Fire</label>
+            </div>
+
+            <!-- Water Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_water" min="0" />
+                </div>
+                <label class="sheet-resource-label">Water</label>
+            </div>
+
+            <!-- Earth Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_earth" min="0" />
+                </div>
+                <label class="sheet-resource-label">Earth</label>
+            </div>
+
+            <!-- Air Essence -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_essence_air" min="0" />
+                </div>
+                <label class="sheet-resource-label">Air</label>
+            </div>
+        </div>
+
+        <hr class="sheet-separator"/>
+        <h2>Actions</h2>
+
+        <div class="sheet-actions">
+            <!-- Extract Essence -->
+            <input class="sheet-action-condition" type="checkbox" name="attr_show_extractessence" />
+            <button class="sheet-action" type="action" name="act_extractessence" disabled>
+                Extract Essence
+            </button>
+        </div>
+        
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-alchemy-bottom">
+            <input type="hidden" class="sheet-tabstoggle" name="attr_alchemyTab" value="0" />
+            <div>
+                <button type="action" name="act_elixirs" class="sheet-button0">Elixirs</button>
+                <button type="action" name="act_potions" class="sheet-button1">Potions</button>
+                <button type="action" name="act_infusions" class="sheet-button2">Infusions</button>
+            </div>
+
+            <!-- Elixirs -->
+            <div class="sheet-tab0 sheet-alchemy-elixirs">
+                <h2>Elixirs</h2>
+                <hr class="sheet-section-separator"/>
+                
+                <div class="sheet-elixir">
+                    <h3>Gunpowder</h3>
+                    <div><label>Essence:</label><span>1 Fire, 1 Earth</span></div>
+                    <span>For the crafting process, gunpowder is considered an elixir and 100g of Gunpowder (or 1G in every blueprint) costs 1 Fire essence and 1 Earth essence to make.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Vita</h3>
+                    <div><label>Essence:</label><span>1 Water, 1 Fire, 1 Earth, 1 Air</span></div>
+                    <span>Restores [P] health points to a creature with 0 health points that isn’t dead.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Cura</h3>
+                    <div><label>Essence:</label><span>2 Water, 2 Earth</span></div>
+                    <span>Cures [P] stacks of poison.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Velocitas</h3>
+                    <div><label>Essence:</label><span>2 Fire, 3 Air</span></div>
+                    <span>Grants +1 Minor Action until the start of your next turn.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Arma</h3>
+                    <div><label>Essence:</label><span>5 Earth</span></div>
+                    <span>Adds [P] to your Default Armor Value until the start of your next turn.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Lumos</h3>
+                    <div><label>Essence:</label><span>3 Fire</span></div>
+                    <span>When activated, it shines brightly in a 20m radius for [P] hours and is consumed at the end of that duration.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Acidum</h3>
+                    <div><label>Essence:</label><span>1 Water, 3 Fire, 2 Air</span></div>
+                    <span>When applied to an object or creature, it takes [P] acid damage, shredding the same amount of armor.</span>
+                </div>
+                <div class="sheet-elixir">
+                    <h3>Baculum</h3>
+                    <div><label>Essence:</label><span>2 Water, 2 Earth</span></div>
+                    <span>Can be used as a powerful glue that requires a successful Body test against 15 + [P] or 10 + [P] acid damage to break it.</span>
+                </div>
+            </div>
+
+            <!-- Potions -->
+            <div class="sheet-tab1 sheet-alchemy-potions">
+                <h2>Potions</h2>
+                <div class="sheet-spells-memorised">
+                    <span>Maximum Potions per Batch:</span>
+                    <span name="attr_alchemy">0</span>
+                </div>
+                <hr class="sheet-section-separator"/>
+        
+                <datalist id="potions">
+                    <option>Healing</option>
+                    <option>Cleansing</option>
+                    <option>Haste</option>
+                    <option>Restoration</option>
+                    <option>Water Breathing</option>
+                    <option>Flight</option>
+                    <option>Charm</option>
+                    <option>Muscle</option>
+                    <option>Fire Immunity</option>
+                    <option>Lightning Immunity</option>
+                    <option>Acid Immunity</option>
+                    <option>Poison Immunity</option>
+                    <option>Hardening</option>
+                    <option>Night Vision</option>
+                    <option>Explosion</option>
+                    <option>Last Stand</option>
+                    <option>Wound Closure</option>
+                </datalist>
+                
+                <fieldset class="repeating_potion">
+                    <input class="sheet-listitem-validation" type="checkbox" name="attr_potion_isListItem" />
+                    <input class="sheet-potion-canbrew" type="checkbox" name="attr_potion_canBrew" />
+                    <details>
+                        <summary class="sheet-spoiler0">
+                            <span name="attr_potion_name">New Potion</span>
+                            <button class="sheet-potion-brewable" type="action" name="act_brewpotion">Brew</button>
+                            <div class="sheet-potion-brewable">
+                                <input class="sheet-listitem-keep" type="number" name="attr_potion_batch" min="0" placeholder="0" value="0" />
+                                /
+                                <span name="attr_potion_batch_max">0</span>
+                            </div>
+                            <span class="error" name="attr_potion_error"></span>
+                        </summary>
+
+                        <!-- Name -->
+                        <div>
+                            <label class="sheet-spell-label">Name:</label>
+                            <input class="sheet-listitem-keep" type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
+                        </div>
+                        <!-- Essence -->
+                        <div>
+                            <label class="sheet-spell-label">Essence:</label>
+                            <input type="text" name="attr_potion_essence" placeholder="Essence" />
+                            <input class="sheet-listitem-only" type="text" name="attr_potion_essence" placeholder="Essence" readonly />
+                        </div>
+
+                        <textarea name="attr_potion_effect" placeholder="Effect" />
+                        <textarea class="sheet-listitem-only" name="attr_potion_effect" placeholder="Effect" readonly />
+                    </details>
+                </fieldset>
+            </div>
+
+            <!-- Infusions -->
+            <div class="sheet-tab2 sheet-alchemy-infusions">
+                <h2>Infusions</h2>
+                <hr class="sheet-section-separator"/>
+                <span>Infusions will be added soon.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Engineering -->
+    <div class="sheet-tab7 sheet-page">
+        <h1>Engineering</h1>
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-engineering-topline">
+
+            <!-- Bolts -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_bolts" min="0" />
+                </div>
+                <label class="sheet-resource-label">Bolts</label>
+            </div>
+
+            <!-- Plates -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_plates" min="0" />
+                </div>
+                <label class="sheet-resource-label">Plates</label>
+            </div>
+
+            <!-- Wires -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_wires" min="0" />
+                </div>
+                <label class="sheet-resource-label">Wires</label>
+            </div>
+
+            <!-- Cogs -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_cogs" min="0" />
+                </div>
+                <label class="sheet-resource-label">Cogs</label>
+            </div>
+
+            <!-- Rods -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_rods" min="0" />
+                </div>
+                <label class="sheet-resource-label">Rods</label>
+            </div>
+
+            <!-- Lenses -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_lenses" min="0" />
+                </div>
+                <label class="sheet-resource-label">Lenses</label>
+            </div>
+
+            <!-- Gunpowder -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_gunpowder" min="0" />
+                </div>
+                <label class="sheet-resource-label">Gunpowder</label>
+            </div>
+        </div>
+        
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-engineering-bottom">
+            <input type="hidden" class="sheet-tabstoggle" name="attr_engineeringTab" value="blueprints" />
+            <div>
+                <button type="action" name="act_cwmTab" class="sheet-button0">Clockwork Mechanics</button>
+                <button type="action" name="act_automachineryTab" class="sheet-button1">Automachinery</button>
+                <button type="action" name="act_augmentationTab" class="sheet-button2">Augmentation</button>
+                <button type="action" name="act_gunsmithingTab" class="sheet-button3">Gunsmithing</button>
+                <button type="action" name="act_tinkeringTab" class="sheet-button4">Tinkering</button>
+                <button type="action" name="act_vehiclemechanicsTab" class="sheet-button5">Vehicle Mechanics</button>
+            </div>
+
+            <!-- Clockwork Mechanics -->
+            <div class="sheet-tab0 sheet-cwm">
+                <h2>Clockwork Mechanics R<span name="attr_clockworkmechanics">0</span></h2>
+
+                <input type="hidden" class="sheet-tabstoggle" name="attr_cwmTab" value="blueprints" />
+                <div>
+                    <button type="action" name="act_gadgets" class="sheet-button0">Clockwork Gadgets</button>
+                    <button type="action" name="act_cwmodules" class="sheet-button1">Clockwork Modules</button>
+                </div>
+
+                <!-- Clockwork Gadgets -->
+                <div class="sheet-tab0 sheet-cwm-gadgets">
+                    <h3>Clockwork Gadgets</h3>
+                    <hr class="sheet-section-separator"/>
+                    
+                    <fieldset class="repeating_blueprint_gadget">
+                        <details>
+                            <summary class="sheet-spoiler0">
+                                <span name="attr_blueprint_gadget_name">New Gadget</span>
+                                <button type="action" name="act_assemble" disabled>Assemble</button>
+                                <span class="error" name="attr_gadget_error"></span>
+                            </summary>
+
+                            <!-- Name -->
+                            <div>
+                                <label class="sheet-spell-label">Name:</label>
+                                <input class="sheet-listitem-keep" type="text" name="attr_blueprint_gadget_name" placeholder="Blueprint" list="gadgets" />
+                            </div>
+
+                            <!-- Parts -->
+                            <div>
+                                <label class="sheet-spell-label">Parts:</label>
+                                <input type="text" name="attr_blueprint_gadget_parts" placeholder="Parts" />
+                            </div>
+
+                            <!-- Remote Controlled -->
+                            <div>
+                                <label class="sheet-spell-label">Remote Controlled:</label>
+                                <input type="checkbox" name="attr_blueprint_gadget_remoteControlled" />
+                            </div>
+
+                            <!-- Min. Power Rating -->
+                            <div>
+                                <label class="sheet-spell-label">Min. Power Rating (PR):</label>
+                                <input type="number" name="attr_blueprint_gadget_minCR" placeholder="PR" min="0" />
+                            </div>
+                            
+                            <textarea name="attr_blueprint_gadget_description" placeholder="Description" />
+                        </details>
+                    </fieldset>
+                </div>
+
+                <!-- Clockwork Modules -->
+                <div class="sheet-tab1 sheet-cwm-artificing">
+                    <h3>Clockwork Modules</h3>
+                    <hr class="sheet-section-separator"/>
+                    
+                    <fieldset class="repeating_blueprint_cwModule">
+                        <details>
+                            <summary class="sheet-spoiler0">
+                                <span name="attr_blueprint_cwModule_name">New Clockwork Module</span>
+                                <button type="action" name="act_assemble" disabled>Assemble</button>
+                                <span class="error" name="attr_cwModule_error"></span>
+                            </summary>
+
+                            <!-- Name -->
+                            <div>
+                                <label class="sheet-spell-label">Name:</label>
+                                <input class="sheet-listitem-keep" type="text" name="attr_blueprint_cwModule_name" placeholder="Blueprint" list="cwModules" />
+                            </div>
+
+                            <!-- Parts -->
+                            <div>
+                                <label class="sheet-spell-label">Parts:</label>
+                                <input type="text" name="attr_blueprint_cwModule_parts" placeholder="Parts" />
+                            </div>
+
+                            <!-- Min. Power Rating -->
+                            <div>
+                                <label class="sheet-spell-label">Min. Power Rating (PR):</label>
+                                <input type="number" name="attr_blueprint_cwModule_minCR" placeholder="PR" min="0" />
+                            </div>
+                            
+                            <textarea name="attr_blueprint_cwModule_description" placeholder="Description" />
+                        </details>
+                    </fieldset>
+                </div>
+            </div>
+
+            <!-- Automachinery -->
+            <div class="sheet-tab1 sheet-automachinery">
+                <h2>Automachinery R<span name="attr_automachinery">0</span></h2>
+                <input type="hidden" class="sheet-tabstoggle" name="attr_automachineryTab" value="blueprints" />
+                <div>
+                    <button type="action" name="act_blueprintsautomachinery" class="sheet-button0">Blueprints</button>
+                    <button type="action" name="act_automatons" class="sheet-button1">Automatons</button>
+                </div>
+
+                <!-- Blueprints -->
+                <div class="sheet-tab0 sheet-cwm-blueprints">
+                    <h3>Blueprints</h3>
+                    <hr class="sheet-section-separator"/>
+                    
+                    <fieldset class="repeating_blueprint_automachinery">
+                        <input type="text" name="attr_blueprint_automachinery_name" placeholder="Blueprint" />
+                        <select name="attr_blueprint_automachinery_type" class="sheet-blueprint-type">
+                            <option value="clockwork" selected>Clockwork</option>
+                            <option value="prosthetic">Prosthetic</option>
+                            <option value="autolimb">Autolimb</option>
+                            <option value="automaton">Automaton</option>
+                            <option value="automaton module">Automaton Module</option>
+                            <option value="clockwork module">Clockwork Module</option>
+                            <option value="automech">Automech</option>
+                        </select>
+                        <input type="text" name="attr_blueprint_automachinery_parts" placeholder="Parts" />
+                        <div class="sheet-blueprint-clockwork">
+                            <label>Remote Controlled</label>
+                            <input type="checkbox" name="attr_blueprint_automachinery_remoteControlled" />
+                        </div>
+                        <div class="sheet-blueprint-automaton">
+                            <table class="sheet-blueprint-automaton-headers">
+                                <tr>
+                                    <th>Chassis</th>
+                                    <th>Movement Parts</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sheet-blueprint-automaton">
+                            <select name="attr_blueprint_automachinery_automatonChassis" class="sheet-blueprint-automaton-chassis">
+                                <option value="small" selected>Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                            <select name="attr_blueprint_automachinery_movementPart1">
+                                <option>None</option>
+                                <option>Legs</option>
+                                <option>Wheels</option>
+                                <option>Wings</option>
+                                <option>Propellers (Swimming)</option>
+                                <option>Propellers (Flying)</option>
+                                <option>Fins</option>
+                            </select>
+                            <select name="attr_blueprint_automachinery_movementPart2" class="sheet-blueprint-automaton-medium sheet-blueprint-automaton-large">
+                                <option>None</option>
+                                <option>Legs</option>
+                                <option>Wheels</option>
+                                <option>Wings</option>
+                                <option>Propellers (Swimming)</option>
+                                <option>Propellers (Flying)</option>
+                                <option>Fins</option>
+                            </select>
+                            <select name="attr_blueprint_automachinery_movementPart3" class="sheet-blueprint-automaton-large">
+                                <option>None</option>
+                                <option>Legs</option>
+                                <option>Wheels</option>
+                                <option>Wings</option>
+                                <option>Propellers (Swimming)</option>
+                                <option>Propellers (Flying)</option>
+                                <option>Fins</option>
+                            </select>
+                        </div>
+                        <div class="sheet-blueprint-autolimb sheet-blueprint-prosthetic">
+                            <select name="attr_blueprint_automachinery_limb">
+                                <option value="arm" selected>Arm</option>
+                                <option value="leg">Leg</option>
+                                <option value="hand">Hand</option>
+                                <option value="foot">Foot</option>
+                                <option value="ear">Ear</option>
+                                <option value="eye">Eye</option>
+                                <option value="nose">Nose</option>
+                                <option value="jaw">Jaw</option>
+                            </select>
+                        </div>
+                        <div class="sheet-blueprint-automaton sheet-blueprint-prosthetic sheet-blueprint-autolimb">
+                            <label>Min. CR:</label>
+                            <span name="attr_blueprint_automachinery_minCR">0</span>
+                        </div>
+                        <div class="sheet-blueprint-clockwork sheet-blueprint-automech">
+                            <label>Min. CR:</label>
+                            <input type="number" name="attr_blueprint_automachinery_minCR" placeholder="min. CR" min="0" />
+                        </div>
+                        <textarea name="attr_blueprint_automachinery_description" placeholder="Description" />
+                    </fieldset>
+                </div>
+
+                <!-- Automatons -->
+                <div class="sheet-tab1 sheet-automachinery-automatons">
+                    <h3>Automatons</h3>
+                    <hr class="sheet-section-separator"/>
+                    <fieldset class="repeating_automaton">
+                        <!-- Name & Quality-->
+                        <div>
+                            <div class="sheet-rep-item">
+                                <input type="text" name="attr_automaton_name" placeholder="Name" class="sheet-rep-data" />
+                                <label class="sheet-rep-label">Name</label>
+                            </div>
+                            <div class="sheet-rep-item">
+                                <input type="number" name="attr_automaton_quality" min="0" value="0" class="sheet-rep-data" />
+                                <label class="sheet-rep-label">Quality</label>
+                            </div>
+                        </div>
+                        <!-- Size & Movement Parts -->
+                        <div>
+                            <div class="sheet-rep-item">
+                                <select name="attr_automaton_chassis" class="sheet-rep-data sheet-blueprint-automaton-chassis">
+                                    <option value="small" selected>Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                                <label class="sheet-rep-label">Size</label>
+                            </div>
+                            <div class="sheet-rep-item">
+                                <select name="attr_automaton_movementPart1" class="sheet-rep-data">
+                                    <option>None</option>
+                                    <option>Legs</option>
+                                    <option>Wheels</option>
+                                    <option>Wings</option>
+                                    <option>Propellers (Swimming)</option>
+                                    <option>Propellers (Flying)</option>
+                                    <option>Fins</option>
+                                </select>
+                                <label class="sheet-rep-label">Movement Part</label>
+                            </div>
+                            <div class="sheet-rep-item sheet-blueprint-automaton-medium sheet-blueprint-automaton-large">
+                                <select name="attr_automaton_movementPart2" class="sheet-rep-data">
+                                    <option>None</option>
+                                    <option>Legs</option>
+                                    <option>Wheels</option>
+                                    <option>Wings</option>
+                                    <option>Propellers (Swimming)</option>
+                                    <option>Propellers (Flying)</option>
+                                    <option>Fins</option>
+                                </select>
+                                <label class="sheet-rep-label">Movement Part</label>
+                            </div>
+                            <div class="sheet-rep-item sheet-blueprint-automaton-large">
+                                <select name="attr_automaton_movementPart3" class="sheet-rep-data">
+                                    <option>None</option>
+                                    <option>Legs</option>
+                                    <option>Wheels</option>
+                                    <option>Wings</option>
+                                    <option>Propellers (Swimming)</option>
+                                    <option>Propellers (Flying)</option>
+                                    <option>Fins</option>
+                                </select>
+                                <label class="sheet-rep-label">Movement Part</label>
+                            </div>
+                        </div>
+                        <!-- Plating -->
+                        <div>
+                            <div class="sheet-rep-item">
+                                <select name="attr_automaton_plating" class="sheet-rep-data">
+                                    <option value="none" selected>None</option>
+                                    <option value="aluminium">Aluminium</option>
+                                    <option value="copper">Copper</option>
+                                    <option value="steel">Steel</option>
+                                    <option value="ceramic">Ceramic</option>
+                                    <option value="titanium">Titanium</option>
+                                </select>
+                                <label class="sheet-rep-label">Plating</label>
+                            </div>
+                            <!-- DAV -->
+                            <div class="sheet-rep-item">
+                                <span name="attr_automaton_dav">0</span>
+                                <label class="sheet-rep-label">DAV</label>
+                            </div>
+                        </div>
+                        <!-- Stats -->
+                        <div>
+                            <!-- HP -->
+                            <div class="sheet-rep-item">
+                                <div class="sheet-rep-currentMax">
+                                    <input type="number" min="0" value="0" name="attr_automaton_hp" class="sheet-rep-data" />
+                                    <span>/</span>
+                                    <span name="attr_automaton_hp_max">0</span>
+                                </div>
+                                <label class="sheet-rep-label">HP</label>
+                            </div>
+                            <!-- CR -->
+                            <div class="sheet-rep-item">
+                                <span name="attr_automaton_coreRating">0</span>
+                                <label class="sheet-rep-label">CR</label>
+                            </div>
+                            <!-- Modules -->
+                            <div class="sheet-rep-item">
+                                <div class="sheet-rep-currentMax">
+                                    <span name="attr_automaton_modules">0</span>
+                                    <span>/</span>
+                                    <span name="attr_automaton_modules_max">0</span>
+                                </div>
+                                <label class="sheet-rep-label">Modules</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <!-- Augmentation -->
+            <div class="sheet-tab2 sheet-augmentation">
+                <h2>Augmentation R<span name="attr_augmentation">0</span></h2>
+            </div>
+
+            <!-- Gunsmithing -->
+            <div class="sheet-tab3 sheet-gunsmithing">
+                <h2>Gunsmithing R<span name="attr_gunsmithing">0</span></h2>
+            </div>
+
+            <!-- Tinkering -->
+            <div class="sheet-tab4 sheet-tinkering">
+                <h2>Tinkering R<span name="attr_tinkering">0</span></h2>
+            </div>
+
+            <!-- Vehicle Mechanics -->
+            <div class="sheet-tab5 sheet-vehiclemechanics">
+                <h2>Vehicle Mechanics R<span name="attr_vehiclemechanics">0</span></h2>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Augmentations -->
+    <div class="sheet-tab8 sheet-page">
+        <h1>Augmentations</h1>
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-engineering-topline">
+            <!-- Quality -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <span name="attr_augmentation">0</span>
+                </div>
+                <label class="sheet-resource-label">Quality</label>
+            </div>
+
+            <!-- Bolts -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_bolts" min="0" />
+                </div>
+                <label class="sheet-resource-label">Bolts</label>
+            </div>
+
+            <!-- Plates -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_plates" min="0" />
+                </div>
+                <label class="sheet-resource-label">Plates</label>
+            </div>
+
+            <!-- Wires -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_wires" min="0" />
+                </div>
+                <label class="sheet-resource-label">Wires</label>
+            </div>
+
+            <!-- Cogs -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_cogs" min="0" />
+                </div>
+                <label class="sheet-resource-label">Cogs</label>
+            </div>
+
+            <!-- Rods -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_rods" min="0" />
+                </div>
+                <label class="sheet-resource-label">Rods</label>
+            </div>
+
+            <!-- Lenses -->
+            <div class="sheet-item">
+                <div class="sheet-resource">
+                    <input type="number" name="attr_lenses" min="0" />
+                </div>
+                <label class="sheet-resource-label">Lenses</label>
+            </div>
+        </div>
+        
+        <hr class="sheet-separator"/>
+
+        <div class="sheet-engineering-bottom sheet-augmentations-bottom">
+            <!-- Head -->
+            <details>
+                <summary class="sheet-spoiler0">Head</summary>
+
+                <select name="attr_augmentations_head">
+                    <option selected>None</option>
+                    <option value="prosthetic">Prosthetic</option>
+                    <option value="autolimb">Autolimb</option>
+                </select>
+                <input type="number" name="attr_augmentations_head_quality" min="1" placeholder="Q" class=".sheet-augmentation-augmentationOnly" />
+                <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_head_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                <label class="sheet-checkbox-label">AV: </label><span name="attr_headAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                <details>
+                    <summary class="sheet-spoiler-list">Modules</summary>
+
+                    <fieldset class="repeating_headModule">
+                        <input type="text" name="attr_headModule_name" placeholder="Module" />
+                        <input type="number" name="attr_headModule_quality" min="1" placeholder="Q" />
+                        <input type="number" name="attr_headModule_capacityCost" placeholder="CC" />
+                        <textarea name="attr_headModule_description" placeholder="Description..." />
+                    </fieldset>
+                </details>
+            </details>
+            
+            <!-- Eyes -->
+            <details>
+                <summary class="sheet-spoiler0">Eyes</summary>
+
+                <!-- Left Eye -->
+                <details>
+                    <summary class="sheet-spoiler1">Left Eye</summary>
+
+                    <select name="attr_augmentations_leftEye">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_leftEye_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftEye_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_leftEyeAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_leftEyeModule">
+                            <input type="text" name="attr_leftEyeModule_name" placeholder="Module" />
+                            <input type="number" name="attr_leftEyeModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_leftEyeModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_leftEyeModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+
+                <!-- Right Eye -->
+                <details>
+                    <summary class="sheet-spoiler1">Right Eye</summary>
+
+                    <select name="attr_augmentations_rightEye">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_rightEye_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightEye_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_rightEyeAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_rightEyeModule">
+                            <input type="text" name="attr_rightEyeModule_name" placeholder="Module" />
+                            <input type="number" name="attr_rightEyeModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_rightEyeModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_rightEyeModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+            </details>
+
+            <!-- Jaw -->
+            <details>
+                <summary class="sheet-spoiler0">Jaw</summary>
+
+                <select name="attr_augmentations_jaw">
+                    <option selected>None</option>
+                    <option value="prosthetic">Prosthetic</option>
+                    <option value="autolimb">Autolimb</option>
+                </select>
+                <input type="number" name="attr_augmentations_jaw_quality" min="1" placeholder="Q" />
+                <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_jaw_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                <details>
+                    <summary class="sheet-spoiler-list">Modules</summary>
+
+                    <fieldset class="repeating_jawModule">
+                        <input type="text" name="attr_jawModule_name" placeholder="Module" />
+                        <input type="number" name="attr_jawModule_quality" min="1" placeholder="Q" />
+                        <input type="number" name="attr_jawModule_capacityCost" placeholder="CC" />
+                        <textarea name="attr_jawModule_description" placeholder="Description..." />
+                    </fieldset>
+                </details>
+            </details>
+
+            <!-- Torso -->
+            <details>
+                <summary class="sheet-spoiler0">Torso</summary>
+
+                <select name="attr_augmentations_torso">
+                    <option selected>None</option>
+                    <option value="prosthetic">Prosthetic</option>
+                    <option value="autolimb">Autolimb</option>
+                </select>
+                <input type="number" name="attr_augmentations_torso_quality" min="1" placeholder="Q" />
+                <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_torso_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                <label class="sheet-checkbox-label">AV: </label><span name="attr_torsoAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                <details>
+                    <summary class="sheet-spoiler-list">Modules</summary>
+
+                    <fieldset class="repeating_torsoModule">
+                        <!-- TODO: FIX THIS IN CSS-->
+                        <details>
+                            <summary>
+                                <span name="attr_torsoModule_name">New Module</span>
+                            </summary>
+                            
+                            <input type="text" name="attr_torsoModule_name" placeholder="Module" />
+                            <input type="number" name="attr_torsoModule_evasionBonus" placeholder="EVA" />
+                            <input type="number" name="attr_torsoModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_torsoModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_torsoModule_description" placeholder="Description..." />
+                        </details>
+                    </fieldset>
+                </details>
+            </details>
+            
+            <!-- Arms -->
+            <details>
+                <summary class="sheet-spoiler0">Arms</summary>
+
+                <!-- Left Arm -->
+                <details>
+                    <summary class="sheet-spoiler1">Left Arm</summary>
+
+                    <select name="attr_augmentations_leftArm">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_leftArm_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftArm_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_leftArmAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_leftArmModule">
+                            <input type="text" name="attr_leftArmModule_name" placeholder="Module" />
+                            <input type="number" name="attr_leftArmModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_leftArmModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_leftArmModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+
+                <!-- Right Arm -->
+                <details>
+                    <summary class="sheet-spoiler1">Right Arm</summary>
+
+                    <select name="attr_augmentations_rightArm">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_rightArm_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightArm_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_rightArmAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_rightArmModule">
+                            <input type="text" name="attr_rightArmModule_name" placeholder="Module" />
+                            <input type="number" name="attr_rightArmModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_rightArmModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_rightArmModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+            </details>
+            
+            <!-- Hands -->
+            <details>
+                <summary class="sheet-spoiler0">Hands</summary>
+
+                <!-- Left Hand -->
+                <details>
+                    <summary class="sheet-spoiler1">Left Hand</summary>
+
+                    <select name="attr_augmentations_leftHand">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_leftHand_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftHand_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_leftHandAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_leftHandModule">
+                            <input type="text" name="attr_leftHandModule_name" placeholder="Module" />
+                            <input type="number" name="attr_leftHandModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_leftHandModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_leftHandModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+
+                <!-- Right Hand -->
+                <details>
+                    <summary class="sheet-spoiler1">Right Hand</summary>
+
+                    <select name="attr_augmentations_rightHand">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_rightHand_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightHand_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_rightHandAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_rightHandModule">
+                            <input type="text" name="attr_rightHandModule_name" placeholder="Module" />
+                            <input type="number" name="attr_rightHandModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_rightHandModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_rightHandModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+            </details>
+            
+            <!-- Legs -->
+            <details>
+                <summary class="sheet-spoiler0">Legs</summary>
+
+                <!-- Left Leg -->
+                <details>
+                    <summary class="sheet-spoiler1">Left Leg</summary>
+
+                    <select name="attr_augmentations_leftLeg">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_leftLeg_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftLeg_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_leftLegAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_leftLegModule">
+                            <input type="text" name="attr_leftLegModule_name" placeholder="Module" />
+                            <input type="number" name="attr_leftLegModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_leftLegModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_leftLegModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+
+                <!-- Right Leg -->
+                <details>
+                    <summary class="sheet-spoiler1">Right Leg</summary>
+
+                    <select name="attr_augmentations_rightLeg">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_rightLeg_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightLeg_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_rightLegAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_rightArmModule">
+                            <input type="text" name="attr_rightLegModule_name" placeholder="Module" />
+                            <input type="number" name="attr_rightLegModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_rightLegModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_rightLegModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+            </details>
+            
+            <!-- Feet -->
+            <details>
+                <summary class="sheet-spoiler0">Feet</summary>
+
+                <!-- Left Foot -->
+                <details>
+                    <summary class="sheet-spoiler1">Left Foot</summary>
+
+                    <select name="attr_augmentations_leftFoot">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_leftFoot_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftFoot_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_leftFootAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_leftFootModule">
+                            <input type="text" name="attr_leftFootModule_name" placeholder="Module" />
+                            <input type="number" name="attr_leftFootModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_leftFootModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_leftFootModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+
+                <!-- Right Foot -->
+                <details>
+                    <summary class="sheet-spoiler1">Right Foot</summary>
+
+                    <select name="attr_augmentations_rightFoot">
+                        <option selected>None</option>
+                        <option value="prosthetic">Prosthetic</option>
+                        <option value="autolimb">Autolimb</option>
+                    </select>
+                    <input type="number" name="attr_augmentations_rightFoot_quality" min="1" placeholder="Q" />
+                    <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightFoot_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+                    <label class="sheet-checkbox-label">AV: </label><span name="attr_rightFootAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+                    <details>
+                        <summary class="sheet-spoiler-list">Modules</summary>
+
+                        <fieldset class="repeating_rightFootModule">
+                            <input type="text" name="attr_rightFootModule_name" placeholder="Module" />
+                            <input type="number" name="attr_rightFootModule_quality" min="1" placeholder="Q" />
+                            <input type="number" name="attr_rightFootModule_capacityCost" placeholder="CC" />
+                            <textarea name="attr_rightFootModule_description" placeholder="Description..." />
+                        </fieldset>
+                    </details>
+                </details>
+            </details>
+        </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="sheet-tab9 sheet-page">
+        <h1>Notes</h1>
+        <hr class="sheet-separator"/>
+
+        <textarea name="attr_notes"></textarea>
+    </div>
+</div>

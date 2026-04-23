@@ -1,0 +1,241 @@
+<rolltemplate class="sheet-rolltemplate-custom">
+    <div class="sheet-template-container">
+	    <div class="sheet-template-header">
+            {{name}}
+            {{#power}}[P{{power}}]{{/power}}
+            {{#quality}}[Q{{quality}}]{{/quality}}
+        </div>
+	    {{#action}}
+        <div class="sheet-template-action">
+            {{action}}
+        </div>
+        {{/action}}
+	    {{#components}}
+        <div class="sheet-template-components">
+            {{components}}
+        </div>
+        {{/components}}
+	    {{#target}}
+        <div class="sheet-template-detail">
+            Target: {{target}}
+        </div>
+        {{/target}}
+	    {{#range}}
+        <div class="sheet-template-detail">
+            Range: {{range}}
+        </div>
+        {{/range}}
+	    {{#area}}
+        <div class="sheet-template-detail">
+            Area: {{area}}
+        </div>
+        {{/area}}
+	    {{#duration}}
+        <div class="sheet-template-detail">
+            Duration: {{duration}}
+        </div>
+        {{/duration}}
+        {{#result1}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            {{#resadvflag}}
+            {{#^rollLess() result1 result2}}
+            <div class="sheet-template-roll">{{result1}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{result2}}</div>
+            {{/^rollLess() result1 result2}}
+            {{#rollLess() result1 result2}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{result1}}</div>
+            <div class="sheet-template-roll">{{result2}}</div>
+            {{/rollLess() result1 result2}}
+            {{/resadvflag}}
+            {{^resadvflag}}
+            {{#resdisadvflag}}
+            {{#^rollLess() result1 result2}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{result1}}</div>
+            <div class="sheet-template-roll">{{result2}}</div>
+            {{/^rollLess() result1 result2}}
+            {{#rollLess() result1 result2}}
+            <div class="sheet-template-roll">{{result1}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{result2}}</div>
+            {{/rollLess() result1 result2}}
+            {{/resdisadvflag}}
+            {{^resdisadvflag}}
+            <div class="sheet-template-roll">{{result1}}</div>
+            {{#result2}}
+            <div class="sheet-template-roll">{{result2}}</div>
+            {{/result2}}
+            {{/resdisadvflag}}
+            {{/resadvflag}}
+        </div>
+        {{/result1}}
+	    {{#atk}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            {{#advflag}}
+            {{#^rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll">{{atk}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atkadvantage}}</div>
+            {{/^rollLess() atk atkadvantage}}
+            {{#rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atk}}</div>
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/rollLess() atk atkadvantage}}
+            {{/advflag}}
+            {{^advflag}}
+            {{#disadvflag}}
+            {{#^rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atk}}</div>
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/^rollLess() atk atkadvantage}}
+            {{#rollLess() atk atkadvantage}}
+            <div class="sheet-template-roll">{{atk}}</div>
+            <div class="sheet-template-roll sheet-template-roll-grey">{{atkadvantage}}</div>
+            {{/rollLess() atk atkadvantage}}
+            {{/disadvflag}}
+            {{^disadvflag}}
+            <div class="sheet-template-roll">{{atk}}</div>
+            {{#atkadvantage}}
+            <div class="sheet-template-roll">{{atkadvantage}}</div>
+            {{/atkadvantage}}
+            {{/disadvflag}}
+            {{/advflag}}
+            <br/>
+            <span>Attack</span>
+        </div>
+        {{/atk}}
+	    {{#save}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-test">
+            {{save}}
+        </div>
+        {{/save}}
+        {{#damage}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{damage}}
+            
+            {{#advflag}}
+            {{#rollWasCrit() atk}}
+            {{critdamage}}
+            {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{critdamage}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{critdamage}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
+            <br/>
+            <span class="sheet-template-label">Damage</span>
+        </div>
+        {{/damage}}
+        {{#sneakattack}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{sneakattack}}
+            
+            {{#advflag}}
+            {{#rollWasCrit() atk}}
+            {{sneakattackcrit}}
+            {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{sneakattackcrit}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{sneakattackcrit}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
+            <br/>
+            <span class="sheet-template-label">Sneak Attack</span>
+        </div>
+        {{/sneakattack}}
+        {{#powerfulstrikes}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{powerfulstrikes}}
+            <br/>
+            <span class="sheet-template-label">Powerful Strikes</span>
+        </div>
+        {{/powerfulstrikes}}
+        {{#poweredstrikes}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{poweredstrikes}}
+
+            {{#advflag}}
+            {{#rollWasCrit() atk}}
+            {{poweredstrikescrit}}
+            {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{poweredstrikescrit}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{poweredstrikescrit}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
+            <br/>
+            <span class="sheet-template-label">Powered Strikes</span>
+        </div>
+        {{/poweredstrikes}}
+        {{#siegeweapon}}
+        <hr class="sheet-template-divider"/>
+        <div class="sheet-template-damage">
+            {{siegeweapon}}
+            
+            {{#advflag}}
+            {{#rollWasCrit() atk}}
+            {{siegeweaponcrit}}
+            {{/rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{#^rollWasCrit() atk}}
+            {{siegeweaponcrit}}
+            {{/^rollWasCrit() atk}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/advflag}}
+            
+            {{#disadvflag}}
+            {{#rollWasCrit() atk}}
+            {{#rollWasCrit() atkadvantage}}
+            {{siegeweaponcrit}}
+            {{/rollWasCrit() atkadvantage}}
+            {{/rollWasCrit() atk}}
+            {{/disadvflag}}
+            <br/>
+            <span class="sheet-template-label">Siege Weapon</span>
+        </div>
+        {{/siegeweapon}}
+        {{#result}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{result}}
+        </div>
+        {{/result}}
+        {{#description}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{description}}
+        </div>
+        {{/description}}
+    </div>
+</rolltemplate>

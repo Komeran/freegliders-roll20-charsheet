@@ -1,0 +1,299 @@
+<div class="sheet-npc">
+    <h2>NPC</h2>
+
+    <div class="sheet-character-basics">
+        <!-- Name -->
+        <div>
+            <input type="text" name="attr_character_name" />
+            <label>Name</label>
+        </div>
+
+        <!-- Power Level -->
+        <div>
+            <input type="number" name="attr_npc_powerLevel" value="0" />
+            <label>Power Level</label>
+        </div>
+
+        <!-- Size -->
+        <div>
+            <select name="attr_npc_size">
+                <option>Tiny</option>
+                <option>Small</option>
+                <option selected>Medium</option>
+                <option>Large</option>
+                <option>Huge</option>
+                <option>Gargantuan</option>
+                <option>Colossal</option>
+            </select>
+            <label>Size</label>
+        </div>
+
+        <!-- Sanctity -->
+        <div>
+            <select name="attr_npc_sanctity">
+                <option selected>-</option>
+                <option>Holy</option>
+                <option>Unholy</option>
+            </select>
+            <label>Sanctity</label>
+        </div>
+
+        <!-- Type -->
+        <div class="sheet-npc-type">
+            <select name="attr_npc_type">
+                <option selected value="human">Human</option>
+                <option value="animal">Animal</option>
+                <option value="mythological">Mythological</option>
+            </select>
+            <label>Type</label>
+        </div>
+
+        <!-- Subtype -->
+        <div class="sheet-npc-subtype">
+            <select name="attr_npc_subtype">
+                <option selected>-</option>
+                <option>Angel</option>
+                <option>Deity</option>
+                <option>Demon</option>
+                <option>Risen</option>
+                <option>Chimera</option>
+                <option>Cryptid</option>
+                <option>Monster</option>
+                <option>Spirit</option>
+            </select>
+            <label>Subtype</label>
+        </div>
+    </div>
+
+    <hr class="sheet-separator" />
+    
+    <div class="sheet-npc-topline">
+        <!-- HP -->
+        <div class="sheet-item">
+            <div class="sheet-resource">
+                <input type="number" min="0" name="attr_npc_hp" value="0"/>
+                <input type="number" min="0" name="attr_npc_hp_max" value="0"/>
+            </div>
+            <label class="sheet-resource-label">HP</label>
+            <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Power Level</span>
+        </div>
+
+        <!-- Hit Die -->
+        <div class="sheet-item" name="hitdie">
+            <div class="sheet-resource-hitdie">
+                <select name="attr_hitdie">
+                    <option>d4</option>
+                    <option selected>d6</option>
+                    <option>d8</option>
+                    <option>d10</option>
+                    <option>d12</option>
+                    <option>d20</option>
+                </select>
+            </div>
+            <label class="sheet-resource-label">Hit Die</label>
+        </div>
+
+        <!-- Initiative -->
+        <div class="sheet-item">
+            <button type="action" name="act_initiative" class="sheet-rollable-mod">
+                <span name="attr_initiative"></span>
+            </button>
+            <label class="sheet-resource-label">Initiative</label>
+            <span class="sheet-resource-calculation">AGI + INT</span>
+        </div>
+
+        <!-- Evasion -->
+        <div class="sheet-item">
+            <button type="action" name="act_evasion" class="sheet-rollable-mod">
+                <span name="attr_evasion"></span>
+            </button>
+            <label class="sheet-resource-label">Evasion</label>
+            <span class="sheet-resource-calculation">AGI + INT</span>
+        </div>
+
+        <!-- DAV -->
+        <div class="sheet-item">
+            <div class="sheet-resource">
+                <input type="number" name="attr_npc_dav" min="0">0</input>
+            </div>
+            <label class="sheet-resource-label">DAV</label>
+            <span class="sheet-resource-calculation">Torso AV</span>
+        </div>
+    </div>
+
+    <hr class="sheet-separator" />
+
+    <div class="sheet-character-attributes">
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result1=[[1d20@{agi}]]}}">
+                <span name="attr_agi"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_agility" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Agility</label>
+        </div>
+
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result1=[[1d20@{bod}]]}}">
+                <span name="attr_bod"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_body" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Body</label>
+        </div>
+
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result1=[[1d20@{cha}]]}}">
+                <span name="attr_cha"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_charisma" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Charisma</label>
+        </div>
+
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result1=[[1d20@{int}]]}}">
+                <span name="attr_int"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_intuition" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Intuition</label>
+        </div>
+
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result1=[[1d20@{log}]]}}">
+                <span name="attr_log"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_logic" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Logic</label>
+        </div>
+
+        <div class="sheet-attribute">
+            <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result1=[[1d20@{wil}]]}}">
+                <span name="attr_wil"></span>
+            </button>
+            <div class="sheet-attribute-score">
+                <input type="number" name="attr_willpower" value="1" min="0"/>
+            </div>
+            <label class="sheet-attribute-label">Willpower</label>
+        </div>
+    </div>
+
+    <div class="sheet-npc-attacks">
+        <fieldset class="repeating_npcAttack">
+            <input type="text" name="attr_npc_attack_name" placeholder="Name" />
+            <select name="attr_npc_attack_type">
+                <option selected>Melee</option>
+                <option>Ranged</option>
+                <option>Special</option>
+            </select>
+            <select name="attr_npc_attack_type2">
+                <option selected>Weapon</option>
+                <option>Unarmed</option>
+                <option>Spell</option>
+                <option>Innate</option>
+            </select>
+            <br/>
+            <label class="sheet-checkbox-label">Attack Test</label><input type="checkbox" name="attr_npc_attack_isAttackTest"/>
+            <label class="sheet-checkbox-label">Requires Save</label><input type="checkbox" name="attr_npc_attack_requiresSave"/>
+            <div class="sheet-npc-attack-atk">
+                <label>Attack:</label>
+                <input type="text" name="attr_npc_attack_atkMod" placeholder="ATK" />
+                +
+                <select name="attr_npc_attack_atkAttribute">
+                    <option value="none" selected>- Attribute -</option>
+                    <option>Agility</option>
+                    <option>Body</option>
+                    <option>Charisma</option>
+                    <option>Intuition</option>
+                    <option>Logic</option>
+                    <option>Willpower</option>
+                </select>
+                =
+                <span name="attr_npc_attack_atk">0</span>
+            </div>
+            <div class="sheet-npc-attack-save">
+                <label>Save DT:</label>
+                <input type="text" name="attr_npc_attack_difficultyMod" placeholder="DT"/>
+                +
+                <select name="attr_npc_attack_difficultyAttribute">
+                    <option value="none" selected>- DT Attribute -</option>
+                    <option>Agility</option>
+                    <option>Body</option>
+                    <option>Charisma</option>
+                    <option>Intuition</option>
+                    <option>Logic</option>
+                    <option>Willpower</option>
+                </select>
+                =
+                <span name="attr_npc_attack_difficulty">0</span>
+                <br>
+                <label>Save Test:</label>
+                <select name="attr_npc_attack_saveAttribute">
+                    <option value="none" selected>- Save Attribute -</option>
+                    <option>Agility</option>
+                    <option>Body</option>
+                    <option>Charisma</option>
+                    <option>Intuition</option>
+                    <option>Logic</option>
+                    <option>Willpower</option>
+                </select>
+                <select name="attr_npc_attack_saveSkill">
+                    <option value="none" selected>- Save Skill -</option>
+                    <option>Evasion</option>
+                    <option>Athletics</option>
+                    <option>Perception</option>
+                    <option>Piloting</option>
+                    <option>Stealth</option>
+                    <option>Artisanship</option>
+                    <option>Deception</option>
+                    <option>Intimidation</option>
+                    <option>Performance</option>
+                    <option>Persuasion</option>
+                    <option>Astronomy</option>
+                    <option>Economy</option>
+                    <option>History</option>
+                    <option>Literature</option>
+                    <option>Medicine</option>
+                    <option>Mythology</option>
+                    <option>Nature</option>
+                    <option>Survival</option>
+                    <option>Clockwork Mechanics</option>
+                    <option>Automachinery</option>
+                    <option>Augmentation</option>
+                    <option>Gunsmithing</option>
+                    <option>Tinkering</option>
+                    <option>Vehicle Mechanics</option>
+                    <option>Alchemy</option>
+                    <option>Prayer</option>
+                    <option>Spellwork</option>
+                    <option>Runecraft</option>
+                    <option>Summoning</option>
+                    <option>Artillery</option>
+                    <option>Brawling</option>
+                    <option>Bow</option>
+                    <option>Pistol</option>
+                    <option>Rifle</option>
+                    <option>Shield</option>
+                    <option>One-Handed Melee</option>
+                    <option>Two-Handed Melee</option>
+                </select>
+            </div>
+            <div class="sheet-npc-attack-damage">
+                <input type="text" name="attr_npc_attack_damage" placeholder="Damage" />
+            </div>
+            <div class="sheet-npc-attack-description">
+                <textarea name="attr_npc_attack_description" placeholder="Description..."/>
+            </div>
+            <button type="action" name="act_npcattackrollbutton">
+                Roll
+            </button>
+        </fieldset>
+    </div>
+</div>

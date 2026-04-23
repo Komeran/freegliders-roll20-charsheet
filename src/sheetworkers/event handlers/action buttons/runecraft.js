@@ -1,0 +1,1 @@
+on("clicked:runereading", RuneReading);
