@@ -33,7 +33,7 @@ function AddPositiveQuality(eventInfo) {
     const newQuality = eventInfo.newValue;
     const description = POSITIVE_QUALITY_DESCRIPTIONS[newQuality.toLowerCase()];
     
-    let attributes = {};
+    const attributes = {};
 
     if(description !== undefined) {
         attributes[prefix + "positiveQuality_description"] = description;
@@ -99,7 +99,7 @@ export function RemovePositiveQuality(eventInfo) {
         return;
     }
 
-    let attributes = {};
+    const attributes = {};
 
     switch(oldQuality.toLowerCase()) {
         case "agile":

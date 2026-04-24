@@ -6,7 +6,7 @@ export function UpdateBlueprintAutomatonChassis(eventInfo) {
     const rowId = eventInfo.sourceAttribute.split("_")[2];
     const prefix = "repeating_blueprint_" + rowId + "_";
 
-    let attributes = {};
+    const attributes = {};
 
     switch(eventInfo.newValue.toLowerCase()) {
         case "small":
@@ -33,7 +33,7 @@ export function UpdateBlueprintType(eventInfo) {
     const rowId = eventInfo.sourceAttribute.split("_")[2];
     const prefix = "repeating_blueprint_" + rowId + "_";
 
-    let attributes = {};
+    const attributes = {};
 
     switch(eventInfo.newValue.toLowerCase()) {
         case "prosthetic":
@@ -62,7 +62,7 @@ export function UpdateBlueprintType(eventInfo) {
         case "autolimb":
             getAttrs([prefix + "blueprint_limb"], function(values) {
                 const limb = values[prefix + "blueprint_limb"].toLowerCase();
-                let attributes = {};
+                const attributes = {};
 
                 switch(limb) {
                     case "arm":
@@ -112,7 +112,7 @@ export function UpdateBlueprintLimb(eventInfo) {
 
     getAttrs([prefix + "blueprint_type"], function(values) {
         const type = values[prefix + "blueprint_type"].toLowerCase();
-        let attributes = {};
+        const attributes = {};
 
         if(type === "autolimb") {
             switch(eventInfo.newValue.toLowerCase()) {

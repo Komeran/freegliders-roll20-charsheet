@@ -187,7 +187,7 @@ export function UpdateMeleeWeapon(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateMeleeWeapon(rowId);
     UpdateMeleeWeaponRoll(eventInfo);
@@ -196,7 +196,7 @@ export function UpdateMeleeWeapon(eventInfo) {
 export function UpdateMeleeWeapons() {
     getSectionIDs("meleeWeapon", function(ids) {
         for(var i = 0; i < ids.length; i++) {
-            let prefix = "repeating_meleeWeapon_" + ids[i] + "_";
+            const prefix = "repeating_meleeWeapon_" + ids[i] + "_";
 
             DoUpdateMeleeWeapon(ids[i]);
             UpdateMeleeWeaponRoll({sourceAttribute: prefix});
@@ -205,29 +205,29 @@ export function UpdateMeleeWeapons() {
 }
 
 function DoUpdateMeleeWeapon(id) {
-    let prefix = "repeating_meleeWeapon_" + id + "_";
+    const prefix = "repeating_meleeWeapon_" + id + "_";
     
     getAttrs([prefix+"meleeWeapon_name", prefix+"meleeWeapon_weaponExpert", prefix+"meleeWeapon_skill", prefix+"meleeWeapon_damage"], function(values) {
-        let weaponName = values[prefix+"meleeWeapon_name"] || "";
-        let isWeaponExpert = values[prefix + "meleeWeapon_weaponExpert"] == 'on';
-        let weaponSkill = values[prefix+"meleeWeapon_skill"] || "";
-        let weaponDamage = values[prefix+"meleeWeapon_damage"] || "";
+        const weaponName = values[prefix+"meleeWeapon_name"] || "";
+        const isWeaponExpert = values[prefix + "meleeWeapon_weaponExpert"] == 'on';
+        const weaponSkill = values[prefix+"meleeWeapon_skill"] || "";
+        const weaponDamage = values[prefix+"meleeWeapon_damage"] || "";
 
-        let listWeapon = MELEE_WEAPONS[weaponName.toLowerCase()];
-        let skill = listWeapon !== undefined? listWeapon.skill : weaponSkill;
+        const listWeapon = MELEE_WEAPONS[weaponName.toLowerCase()];
+        const skill = listWeapon !== undefined? listWeapon.skill : weaponSkill;
 
-        let sanitizedSkillName = skill.toLowerCase().replace(" ", "").replace("-", "");
+        const sanitizedSkillName = skill.toLowerCase().replace(" ", "").replace("-", "");
 
-        let attributes = {};
+        const attributes = {};
 
         if(listWeapon !== undefined) {
             attributes[prefix+"meleeWeapon_skill"] = listWeapon.skill;
         }
 
         getAttrs([sanitizedSkillName + "Mod", "bod", "brawling"], function(values) {
-            let skillMod = values[sanitizedSkillName + "Mod"] || "+0";
-            let bod = values["bod"] || "+0";
-            let brawlingRanks = parseInt(values["brawling"]) || 0;
+            const skillMod = values[sanitizedSkillName + "Mod"] || "+0";
+            const bod = values["bod"] || "+0";
+            const brawlingRanks = parseInt(values["brawling"]) || 0;
 
             // ATK
             attributes[prefix+"meleeWeapon_atk"] = skillMod;
@@ -241,7 +241,7 @@ function DoUpdateMeleeWeapon(id) {
             if(listWeapon !== undefined) {
                 damageParts = listWeapon.damage.split(" ");
             }
-            let bodIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[BOD\]/g);
+            const bodIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[BOD\]/g);
             if(bodIndex == -1) {
                 damageParts[0] += bod + "[BOD]";
             }
@@ -250,7 +250,7 @@ function DoUpdateMeleeWeapon(id) {
             }
             // Weapon Expert
             if(isWeaponExpert) {
-                let weaponExpertIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[WeaponExpert\]/g);
+                const weaponExpertIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[WeaponExpert\]/g);
                 if(weaponExpertIndex == -1) {
                     damageParts[0] += "+2[WeaponExpert]";
                 }
@@ -263,8 +263,8 @@ function DoUpdateMeleeWeapon(id) {
             }
             // Martial Arts
             if(skill == "Brawling" && brawlingRanks > 0) {
-                let martialArtsDice = Math.floor((brawlingRanks + 2) / 3)
-                let martialArtsIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[MartialArts\]/g);
+                const martialArtsDice = Math.floor((brawlingRanks + 2) / 3)
+                const martialArtsIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[MartialArts\]/g);
                 if(martialArtsIndex == -1) {
                     damageParts[0] += "+" + martialArtsDice + "d4[MartialArts]";
                 }
@@ -293,19 +293,19 @@ export function UpdateMeleeWeaponRoll(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_meleeWeapon_" + rowId + "_";
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
+    const prefix = "repeating_meleeWeapon_" + rowId + "_";
     
-    let attributes = {};
+    const attributes = {};
 
     getAttrs([prefix+"meleeWeapon_name", prefix+"meleeWeapon_damage", prefix+"meleeWeapon_atk", prefix+"meleeWeapon_skill", "athletics", "stealth", "augmentation"], function(values) {
-        let weaponName = values[prefix+"meleeWeapon_name"] || "";
-        let weaponDamage = values[prefix+"meleeWeapon_damage"] || "";
-        let weaponAtk = values[prefix+"meleeWeapon_atk"] || "";
-        let weaponSkill = values[prefix+"meleeWeapon_skill"] || "";
-        let athleticsRanks = parseInt(values["athletics"]) || 0;
-        let stealthRanks = parseInt(values["stealth"]) || 0;
-        let augmentationRanks = parseInt(values["augmentation"]) || 0;
+        const weaponName = values[prefix+"meleeWeapon_name"] || "";
+        const weaponDamage = values[prefix+"meleeWeapon_damage"] || "";
+        const weaponAtk = values[prefix+"meleeWeapon_atk"] || "";
+        const weaponSkill = values[prefix+"meleeWeapon_skill"] || "";
+        const athleticsRanks = parseInt(values["athletics"]) || 0;
+        const stealthRanks = parseInt(values["stealth"]) || 0;
+        const augmentationRanks = parseInt(values["augmentation"]) || 0;
 
         let roll = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${weaponName} Attack}}`;
 

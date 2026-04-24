@@ -366,7 +366,7 @@ function DoUpdateSpell(rowId) {
             let naturaString = values[prefix + "natura"] || "";
 
             const listSpell = SPELLS[spellName.toLowerCase()];
-            let attributes = {};
+            const attributes = {};
 
             if(listSpell !== undefined) {
                 attributes[prefix + "action"] = (listSpell.action);
@@ -470,7 +470,7 @@ export function UpdateSRD() {
             const wil = parseInt(values["wil"]) || 0;
             const spellworkRanks = parseInt(values["spellwork"]) || 0;
 
-            let attributes = {};
+            const attributes = {};
 
             attributes["srd"] = 10 + wil + spellworkRanks;
 
@@ -523,7 +523,7 @@ function DoUpdateSpellSaveDT(rowId) {
                 saveDT += attributeScores[attribute.toLowerCase()] || 0;
             }
 
-            let attributes = {};
+            const attributes = {};
             attributes[prefix + "saveDT"] = saveDT;
             setAttrs(attributes);
         }

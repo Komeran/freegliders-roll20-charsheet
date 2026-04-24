@@ -2,9 +2,9 @@ import { Signed } from "../helpers";
 
 export function UpdateEvasion() {
     getAttrs(["agi", "int", "quickReflexesBonus"], function(values) {
-        let agi = parseInt(values.agi)||0;
-        let int = parseInt(values.int)||0;
-        let quickReflexesBonus = parseInt(values.quickReflexesBonus)||0;
+        const agi = parseInt(values.agi)||0;
+        const int = parseInt(values.int)||0;
+        const quickReflexesBonus = parseInt(values.quickReflexesBonus)||0;
 
         setAttrs({
             "evasion": Signed(agi+int+quickReflexesBonus)
@@ -20,12 +20,12 @@ export function UpdateDAV() {
             "shield"
         ],
         function(values) {
-            let torsoAV = parseInt(values.torsoTotalAV)||0;
-            let shieldAV = values.shieldAV || "0";
-            let shield = parseInt(values.shield)||0;
+            const torsoAV = parseInt(values.torsoTotalAV)||0;
+            const shieldAV = values.shieldAV || "0";
+            const shield = parseInt(values.shield)||0;
 
             let effectiveAV;
-            let splitAV = shieldAV.split("(");
+            const splitAV = shieldAV.split("(");
             if(splitAV.length === 1) {
                 effectiveAV = parseInt(shieldAV) || 0;
             }
@@ -44,7 +44,7 @@ export function UpdateDAV() {
 }
 
 export function UpdateEquippedShield() {
-    let shields = {
+    const shields = {
         "buckler": {
             av: "1",
             type: "Light"
@@ -64,9 +64,9 @@ export function UpdateEquippedShield() {
     };
 
     getAttrs(["shieldName"], function(values) {
-        let shieldName = values.shieldName || "";
+        const shieldName = values.shieldName || "";
 
-        let listShield = shields[shieldName.toLowerCase()];
+        const listShield = shields[shieldName.toLowerCase()];
         
         if(listShield !== undefined) {
             setAttrs({
@@ -79,12 +79,12 @@ export function UpdateEquippedShield() {
 
 export function UpdateHP() {
     getAttrs(["body", "level", "hitdie", "toughBonus", "fragilePenalty"], function(values) {
-        let body = parseInt(values.body)||0;
-        let level = parseInt(values.level)||0;
-        let hitdie = values.hitdie||"d0";
-        let hitdieMax = parseInt(hitdie.substring(1))||0;
-        let toughBonus = parseInt(values.toughBonus)||0;
-        let fragilePenalty = parseInt(values.fragilePenalty)||0;
+        const body = parseInt(values.body)||0;
+        const level = parseInt(values.level)||0;
+        const hitdie = values.hitdie||"d0";
+        const hitdieMax = parseInt(hitdie.substring(1))||0;
+        const toughBonus = parseInt(values.toughBonus)||0;
+        const fragilePenalty = parseInt(values.fragilePenalty)||0;
 
         setAttrs({
             "hp_max": ((hitdieMax/2)+body+toughBonus+fragilePenalty)*level
@@ -94,8 +94,8 @@ export function UpdateHP() {
 
 export function UpdateHitDie() {
     getAttrs(["athletics"], function(values) {
-        let athletics = parseInt(values.athletics)||0;
-        let hitDice = ["d4", "d6", "d8", "d10", "d12", "d20"];
+        const athletics = parseInt(values.athletics)||0;
+        const hitDice = ["d4", "d6", "d8", "d10", "d12", "d20"];
 
         setAttrs({
             "hitdie": hitDice[Math.floor(athletics/3)+1]
@@ -107,8 +107,8 @@ export function UpdateHitDie() {
 
 export function UpdateInitiative() {
     getAttrs(["agi", "int"], function(values) {
-        let agi = parseInt(values.agi)||0;
-        let int = parseInt(values.int)||0;
+        const agi = parseInt(values.agi)||0;
+        const int = parseInt(values.int)||0;
 
         setAttrs({
             "initiative": Signed(agi+int)
@@ -118,11 +118,11 @@ export function UpdateInitiative() {
 
 export function UpdateUnarmedStrike() {
     getAttrs(["bod", "brawlingMod", "brawling"], function(values) {
-        let bod = parseInt(values.bod)||0;
-        let brawlingMod = parseInt(values.brawlingMod)||0;
-        let brawling = parseInt(values.brawling)||0;
+        const bod = parseInt(values.bod)||0;
+        const brawlingMod = parseInt(values.brawlingMod)||0;
+        const brawling = parseInt(values.brawling)||0;
 
-        let martialArtsDice = Math.floor((brawling+2)/3);
+        const martialArtsDice = Math.floor((brawling+2)/3);
         let martialArtsDamage = "";
         if(martialArtsDice > 0) {
             martialArtsDamage = "" + martialArtsDice + "d4 + ";
@@ -150,10 +150,10 @@ export function UpdateTotalAV(eventInfo) {
             bodyPart + "AugmentAV"
         ],
         function(values) {
-            let baseAV = parseInt(values[bodyPart + "AV"]) || 0;
-            let augmentAV = parseInt(values[bodyPart + "AugmentAV"]) || 0;
+            const baseAV = parseInt(values[bodyPart + "AV"]) || 0;
+            const augmentAV = parseInt(values[bodyPart + "AugmentAV"]) || 0;
 
-            let attributes = {};
+            const attributes = {};
 
             attributes[bodyPart + "TotalAV"] = baseAV + augmentAV;
 

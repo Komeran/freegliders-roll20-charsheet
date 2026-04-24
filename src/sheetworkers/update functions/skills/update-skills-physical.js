@@ -7,10 +7,10 @@ import { UpdateCarryCapacity } from "../update-inventory";
 
 export function UpdateArtisanship() {
     getAttrs(["artisanship", "agi"], function(values) {
-        let artisanship = parseInt(values.artisanship)||0;
-        let agi = parseInt(values.agi)||0;
+        const artisanship = parseInt(values.artisanship)||0;
+        const agi = parseInt(values.agi)||0;
 
-        let mod = artisanship+agi;
+        const mod = artisanship+agi;
 
         setAttrs({
             "artisanship": artisanship,
@@ -24,12 +24,12 @@ export function UpdateArtisanship() {
 
 export function UpdateAthletics() {
     getAttrs(["athletics", "bod", "strongBonus", "weakPenalty"], function(values) {
-        let athletics = parseInt(values.athletics)||0;
-        let bod = parseInt(values.bod)||0;
-        let strongBonus = parseInt(values.strongBonus)||0;
-        let weakPenalty = parseInt(values.weakPenalty)||0;
+        const athletics = parseInt(values.athletics)||0;
+        const bod = parseInt(values.bod)||0;
+        const strongBonus = parseInt(values.strongBonus)||0;
+        const weakPenalty = parseInt(values.weakPenalty)||0;
 
-        let mod = athletics + bod + strongBonus + weakPenalty;
+        const mod = athletics + bod + strongBonus + weakPenalty;
 
         setAttrs({
             "athletics": athletics,
@@ -47,10 +47,10 @@ export function UpdateAthletics() {
 
 export function UpdatePerception() {
     getAttrs(["perception", "int"], function(values) {
-        let perception = parseInt(values.perception)||0;
-        let int = parseInt(values.int)||0;
+        const perception = parseInt(values.perception)||0;
+        const int = parseInt(values.int)||0;
 
-        let mod = perception + int;
+        const mod = perception + int;
 
         setAttrs({
             "perception": perception,
@@ -64,10 +64,10 @@ export function UpdatePerception() {
 
 export function UpdatePiloting() {
     getAttrs(["piloting", "agi"], function(values) {
-        let piloting = parseInt(values.piloting)||0;
-        let agi = parseInt(values.agi)||0;
+        const piloting = parseInt(values.piloting)||0;
+        const agi = parseInt(values.agi)||0;
 
-        let mod = piloting+agi;
+        const mod = piloting+agi;
 
         setAttrs({
             "piloting": piloting,
@@ -81,11 +81,11 @@ export function UpdatePiloting() {
 
 export function UpdateStealth() {
     getAttrs(["stealth", "agi", "sneakyBonus"], function(values) {
-        let stealth = parseInt(values.stealth)||0;
-        let agi = parseInt(values.agi)||0;
-        let sneakyBonus = parseInt(values.sneakyBonus)||0;
+        const stealth = parseInt(values.stealth)||0;
+        const agi = parseInt(values.agi)||0;
+        const sneakyBonus = parseInt(values.sneakyBonus)||0;
 
-        let mod = stealth+agi+sneakyBonus;
+        const mod = stealth+agi+sneakyBonus;
 
         setAttrs({
             "stealth": stealth,

@@ -42,7 +42,7 @@ export function UpdateBackItem(eventInfo) {
         const size = values[prefix + "backitem_size"] || "0";
         const count = parseInt(values[prefix + "backitem_count"]) || 0;
 
-        let attributes = {};
+        const attributes = {};
         attributes[prefix + "backItem_slots"] = CalculateSlots(size, count);
         setAttrs(attributes);
     });
@@ -101,7 +101,7 @@ export function UpdateEquipment(eventInfo) {
         const size = values[prefix + "equipment_size"] || "0";
         const count = parseInt(values[prefix + "equipment_count"]) || 0;
 
-        let attributes = {};
+        const attributes = {};
         attributes[prefix + "equipment_slots"] = CalculateSlots(size, count);
         setAttrs(attributes);
     });

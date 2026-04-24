@@ -119,7 +119,7 @@ function DoUpdateRitual(rowId) {
         const elementalAttunement = values["elementalAttunement"] || "";
         let naturaString = values[prefix + "essence"] || "";
         
-        let attributes = {};
+        const attributes = {};
 
         const listRitual = RITUALS[ritualName.toLowerCase()];
         if(listRitual !== undefined) {

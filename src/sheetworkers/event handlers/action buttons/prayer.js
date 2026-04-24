@@ -9,9 +9,9 @@ on("clicked:workmiracle", WorkMiracle);
 
 function PrayerOfFaith() {
     getAttrs(["prayer", "faith", "faith_max"], function(values) {
-        let prayerRanks = parseInt(values["prayer"]) || 0;
-        let faith = parseInt(values["faith"]) || 0;
-        let maxFaith = parseInt(values["faith_max"]) || 0;
+        const prayerRanks = parseInt(values["prayer"]) || 0;
+        const faith = parseInt(values["faith"]) || 0;
+        const maxFaith = parseInt(values["faith_max"]) || 0;
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -33,8 +33,8 @@ function PrayerOfFaith() {
 
 function RepelUnholy() {
     getAttrs(["prayer", "faith"], function(values) {
-        let prayerRanks = parseInt(values["prayer"]) || 0;
-        let faith = parseInt(values["faith"]) || 0;
+        const prayerRanks = parseInt(values["prayer"]) || 0;
+        const faith = parseInt(values["faith"]) || 0;
 
         if(faith < 1) {
             return;
@@ -73,7 +73,7 @@ function IdentifyCurse() {
 
     rollString += "{{target=1 creature or object}}";
 
-    let mod = "+@{prayer}[Prayer]@{wil}[WIL]";
+    const mod = "+@{prayer}[Prayer]@{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to identify any curses that afflict a creature or object. Any curse with a power equal to or lower than your result is revealed to you and you learn what it does.}}`;
@@ -93,7 +93,7 @@ function LiftCurse() {
 
     rollString += "{{target=1 creature or object}}";
 
-    let mod = "+@{prayer}[Prayer]@{wil}[WIL]";
+    const mod = "+@{prayer}[Prayer]@{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power.\n\nYou can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not.}}`;
@@ -105,8 +105,8 @@ function LiftCurse() {
 
 function WorkMiracle() {
     getAttrs(["prayer", "faith"], function(values) {
-        let prayerRanks = parseInt(values["prayer"]) || 0;
-        let faith = parseInt(values["faith"]) || 0;
+        const prayerRanks = parseInt(values["prayer"]) || 0;
+        const faith = parseInt(values["faith"]) || 0;
 
         if(faith < 1) {
             return;

@@ -214,7 +214,7 @@ export function UpdateRangedWeapon(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
 
     DoUpdateRangedWeapon(rowId);
     UpdateRangedWeaponRoll(eventInfo);
@@ -223,7 +223,7 @@ export function UpdateRangedWeapon(eventInfo) {
 export function UpdateRangedWeapons() {
     getSectionIDs("rangedWeapon", function(ids) {
         for(var i = 0; i < ids.length; i++) {
-            let prefix = "repeating_rangedWeapon_" + ids[i] + "_";
+            const prefix = "repeating_rangedWeapon_" + ids[i] + "_";
 
             DoUpdateRangedWeapon(ids[i]);
             UpdateRangedWeaponRoll({sourceAttribute: prefix});
@@ -232,19 +232,19 @@ export function UpdateRangedWeapons() {
 }
 
 function DoUpdateRangedWeapon(id) {
-    let prefix = "repeating_rangedWeapon_" + id + "_";
+    const prefix = "repeating_rangedWeapon_" + id + "_";
     
     getAttrs([prefix+"rangedWeapon_name", prefix+"rangedWeapon_weaponExpert", prefix+"rangedWeapon_quality", prefix+"rangedWeapon_skill", prefix+"rangedWeapon_damage"], function(values) {
-        let weaponName = values[prefix+"rangedWeapon_name"] || "";
-        let isWeaponExpert = values[prefix + "rangedWeapon_weaponExpert"] == 'on';
-        let weaponQuality = parseInt(values[prefix + "rangedWeapon_quality"]) || 0;
-        let weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
-        let weaponDamage = values[prefix+"rangedWeapon_damage"] || "";
+        const weaponName = values[prefix+"rangedWeapon_name"] || "";
+        const isWeaponExpert = values[prefix + "rangedWeapon_weaponExpert"] == 'on';
+        const weaponQuality = parseInt(values[prefix + "rangedWeapon_quality"]) || 0;
+        const weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
+        const weaponDamage = values[prefix+"rangedWeapon_damage"] || "";
 
-        let listWeapon = RANGED_WEAPONS[weaponName.toLowerCase()];
-        let skill = listWeapon !== undefined ? listWeapon.skill : weaponSkill;
+        const listWeapon = RANGED_WEAPONS[weaponName.toLowerCase()];
+        const skill = listWeapon !== undefined ? listWeapon.skill : weaponSkill;
 
-        let attributes = {};
+        const attributes = {};
         
         if(listWeapon !== undefined) {
             attributes[prefix+"rangedWeapon_skill"] = listWeapon.skill;
@@ -252,14 +252,14 @@ function DoUpdateRangedWeapon(id) {
             attributes[prefix+"rangedWeapon_ammo"] = listWeapon.ammoMax;
         }
 
-        let sanitizedSkillName = skill.toLowerCase().replace(" ", "").replace("-", "");
+        const sanitizedSkillName = skill.toLowerCase().replace(" ", "").replace("-", "");
 
         getAttrs([sanitizedSkillName + "Mod", "bod", "agi", "gunsmithing", sanitizedSkillName], function(values) {
-            let skillMod = values[sanitizedSkillName + "Mod"] || "+0";
-            let bod = values["bod"] || "+0";
-            let agi = values["agi"] || "+0";
-            let gunsmithing = parseInt(values["gunsmithing"]) || 0;
-            let skillRanks = parseInt(values[sanitizedSkillName]) || 0;
+            const skillMod = values[sanitizedSkillName + "Mod"] || "+0";
+            const bod = values["bod"] || "+0";
+            const agi = values["agi"] || "+0";
+            const gunsmithing = parseInt(values["gunsmithing"]) || 0;
+            const skillRanks = parseInt(values[sanitizedSkillName]) || 0;
 
             // ATK with Gun Training
             if(gunsmithing > skillRanks) {
@@ -279,18 +279,18 @@ function DoUpdateRangedWeapon(id) {
             if(listWeapon !== undefined) {
                 damage = listWeapon.damage;
             }
-            let damageParts = damage.replaceAll("[Q]", weaponQuality).split(" ");
+            const damageParts = damage.replaceAll("[Q]", weaponQuality).split(" ");
             // Gunsmith Extra Damage
             if(weaponQuality >= 5) {
-                let diceRegex = /^(\d*)([dD]\d*)/;
+                const diceRegex = /^(\d*)([dD]\d*)/;
                 // We check if there even is a dice component at the start
                 // (has to be at start to be considered base damage dice)
-                let regexMatch = damageParts[0].match(diceRegex);
+                const regexMatch = damageParts[0].match(diceRegex);
                 if(regexMatch) {
-                    let dieSize = regexMatch[2]; // second capture group is die including the "d"
-                    let extraDamageDice = Math.floor(weaponQuality / 5) + dieSize;
+                    const dieSize = regexMatch[2]; // second capture group is die including the "d"
+                    const extraDamageDice = Math.floor(weaponQuality / 5) + dieSize;
                     
-                    let extraDamageIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[ExtraDamage\]/g);
+                    const extraDamageIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[ExtraDamage\]/g);
                     if(extraDamageIndex == -1) {
                         damageParts[0] += "+" + extraDamageDice + "[ExtraDamage]";
                     }
@@ -304,8 +304,8 @@ function DoUpdateRangedWeapon(id) {
             }
             // Attribute Mod
             if(skill == "Pistol" || skill == "Rifle") {
-                let agiIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[AGI\]/g);
-                let bodIndex = damageParts[0].search(/[+-]\d*d?\[dD]*\[BOD\]/g);
+                const agiIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[AGI\]/g);
+                const bodIndex = damageParts[0].search(/[+-]\d*d?\[dD]*\[BOD\]/g);
                 if(agiIndex > -1) {
                     damageParts[0] = damageParts[0].replaceAll(/[+-]\d*[dD]?\d*\[AGI\]/g, agi + "[AGI]");
                 }
@@ -317,8 +317,8 @@ function DoUpdateRangedWeapon(id) {
                 }
             }
             else if (skill == "Bow") {
-                let agiIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[AGI\]/g);
-                let bodIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[BOD\]/g);
+                const agiIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[AGI\]/g);
+                const bodIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[BOD\]/g);
                 if(agiIndex > -1) {
                     damageParts[0] = damageParts[0].replaceAll(/[+-]\d*[dD]?\d*\[AGI\]/g, bod + "[BOD]");
                 }
@@ -335,7 +335,7 @@ function DoUpdateRangedWeapon(id) {
             }
             // Weapon Expert
             if(isWeaponExpert) {
-                let weaponExpertIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[WeaponExpert\]/g);
+                const weaponExpertIndex = damageParts[0].search(/[+-]\d*[dD]?\d*\[WeaponExpert\]/g);
                 if(weaponExpertIndex == -1) {
                     damageParts[0] += "+2[WeaponExpert]";
                 }
@@ -364,19 +364,19 @@ export function UpdateRangedWeaponRoll(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_rangedWeapon_" + rowId + "_";
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
+    const prefix = "repeating_rangedWeapon_" + rowId + "_";
     
-    let attributes = {};
+    const attributes = {};
 
     getAttrs([prefix+"rangedWeapon_name", prefix+"rangedWeapon_damage", prefix+"rangedWeapon_atk", "athletics", "stealth", "artillery", prefix+"rangedWeapon_skill"], function(values) {
-        let weaponName = values[prefix+"rangedWeapon_name"] || "";
-        let weaponDamage = values[prefix+"rangedWeapon_damage"] || "";
-        let weaponAtk = values[prefix+"rangedWeapon_atk"] || "";
-        let athleticsRanks = parseInt(values["athletics"]) || 0;
-        let stealthRanks = parseInt(values["stealth"]) || 0;
-        let artilleryRanks = parseInt(values["artillery"]) || 0;
-        let weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
+        const weaponName = values[prefix+"rangedWeapon_name"] || "";
+        const weaponDamage = values[prefix+"rangedWeapon_damage"] || "";
+        const weaponAtk = values[prefix+"rangedWeapon_atk"] || "";
+        const athleticsRanks = parseInt(values["athletics"]) || 0;
+        const stealthRanks = parseInt(values["stealth"]) || 0;
+        const artilleryRanks = parseInt(values["artillery"]) || 0;
+        const weaponSkill = values[prefix+"rangedWeapon_skill"] || "";
 
         let roll = `${CUSTOM_TEMPLATE_BEGINNING}{{name=${weaponName} Attack}}`;
 
@@ -386,7 +386,7 @@ export function UpdateRangedWeaponRoll(eventInfo) {
         }
 
         // Damage
-        let damageAddsBOD = weaponSkill == "Bow";
+        const damageAddsBOD = weaponSkill == "Bow";
         roll += DamageStringToTemplateRollString(weaponDamage, true, stealthRanks, damageAddsBOD, athleticsRanks, weaponSkill, artilleryRanks);
 
         attributes[prefix+"rangedWeapon_roll"] = roll;

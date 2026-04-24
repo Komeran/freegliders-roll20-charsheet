@@ -134,7 +134,7 @@ function DoUpdateBlessing(rowId) {
         const faith = parseInt(values["faith"]) || 0;
         let faithCost = parseInt(values[prefix + "faith"]) || 0;
 
-        let attributes = {};
+        const attributes = {};
 
         const listBlessing = BLESSINGS[blessingName.toLowerCase()];
         if(listBlessing !== undefined) {

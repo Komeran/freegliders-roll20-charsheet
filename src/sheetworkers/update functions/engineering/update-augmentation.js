@@ -1,7 +1,7 @@
 import { Signed } from "../../helpers";
 
 export function UpdateAugmentAV(eventInfo) {
-    let bodyPart = eventInfo.sourceAttribute.split("_")[1];
+    const bodyPart = eventInfo.sourceAttribute.split("_")[1];
 
     getAttrs(
         [
@@ -9,10 +9,10 @@ export function UpdateAugmentAV(eventInfo) {
             "augmentations_" + bodyPart
         ],
         function(values) {
-            let quality = parseInt(values["augmentations_" + bodyPart + "_quality"]) || 0;
-            let augmentation = values["augmentations_" + bodyPart] || "";
+            const quality = parseInt(values["augmentations_" + bodyPart + "_quality"]) || 0;
+            const augmentation = values["augmentations_" + bodyPart] || "";
 
-            let attributes = {};
+            const attributes = {};
 
             if(augmentation == "prosthetic" || augmentation == "autolimb") {
                 attributes[bodyPart + "AugmentAV"] = Signed(quality);
@@ -27,16 +27,16 @@ export function UpdateAugmentAV(eventInfo) {
 }
 
 export function UpdateAugmentModuleCapacity(eventInfo) {
-    let bodyPart = eventInfo.sourceAttribute.split("_")[1];
+    const bodyPart = eventInfo.sourceAttribute.split("_")[1];
 
     getAttrs(
         [
             "augmentations_" + bodyPart + "_quality"
         ],
         function(values) {
-            let quality = parseInt(values["augmentations_" + bodyPart + "_quality"]) || 0;
+            const quality = parseInt(values["augmentations_" + bodyPart + "_quality"]) || 0;
 
-            let attributes = {};
+            const attributes = {};
 
             attributes["augmentations_" + bodyPart + "_moduleCapacity"] = Math.floor(quality / 2);
 

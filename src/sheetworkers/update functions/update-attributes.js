@@ -13,9 +13,9 @@ import { UpdateNpcAttackAtks, UpdateNpcAttackSaveDifficulties } from "../npc/npc
 
 export function UpdateAgi() {
     getAttrs(["agility", "agileBonus", "clumsyPenalty"], function(values) {
-        let agility = parseInt(values.agility)||0;
-        let agileBonus = parseInt(values.agileBonus)||0;
-        let clumsyPenalty = parseInt(values.clumsyPenalty)||0;
+        const agility = parseInt(values.agility)||0;
+        const agileBonus = parseInt(values.agileBonus)||0;
+        const clumsyPenalty = parseInt(values.clumsyPenalty)||0;
 
         setAttrs({
             "agi": Signed(agility-5+agileBonus+clumsyPenalty)
@@ -41,8 +41,8 @@ export function UpdateAgi() {
 
 export function UpdateBod() {
     getAttrs(["body", "addictPenalty"], function(values) {
-        let body = parseInt(values.body)||0;
-        let addictPenalty = parseInt(values.addictPenalty)||0;
+        const body = parseInt(values.body)||0;
+        const addictPenalty = parseInt(values.addictPenalty)||0;
 
         setAttrs({
             "bod": Signed(body - 5 + addictPenalty)
@@ -61,9 +61,9 @@ export function UpdateBod() {
 
 export function UpdateCha() {
     getAttrs(["charisma", "silverTongueBonus", "sociallyIneptPenalty"], function(values) {
-        let charisma = parseInt(values.charisma)||0;
-        let silverTongueBonus = parseInt(values.silverTongueBonus)||0;
-        let sociallyIneptPenalty = parseInt(values.sociallyIneptPenalty)||0;
+        const charisma = parseInt(values.charisma)||0;
+        const silverTongueBonus = parseInt(values.silverTongueBonus)||0;
+        const sociallyIneptPenalty = parseInt(values.sociallyIneptPenalty)||0;
 
         setAttrs({
             "cha": Signed(charisma - 5 + silverTongueBonus + sociallyIneptPenalty)
@@ -80,7 +80,7 @@ export function UpdateCha() {
 
 export function UpdateInt() {
     getAttrs(["intuition"], function(values) {
-        let intuition = parseInt(values.intuition)||0;
+        const intuition = parseInt(values.intuition)||0;
 
         setAttrs({
             "int": Signed(intuition-5)
@@ -97,9 +97,9 @@ export function UpdateInt() {
 
 export function UpdateLog() {
     getAttrs(["logic", "analyticalMindBonus", "dullPenalty"], function(values) {
-        let logic = parseInt(values.logic)||0;
-        let analyticalMindBonus = parseInt(values.analyticalMindBonus)||0;
-        let dullPenalty = parseInt(values.dullPenalty)||0;
+        const logic = parseInt(values.logic)||0;
+        const analyticalMindBonus = parseInt(values.analyticalMindBonus)||0;
+        const dullPenalty = parseInt(values.dullPenalty)||0;
 
         setAttrs({
             "log": Signed(logic - 5 + analyticalMindBonus + dullPenalty)
@@ -125,8 +125,8 @@ export function UpdateLog() {
 
 export function UpdateWil() {
     getAttrs(["willpower", "inspiringPresenceBonus"], function(values) {
-        let willpower = parseInt(values.willpower)||0;
-        let inspiringPresenceBonus = parseInt(values.inspiringPresenceBonus)||0;
+        const willpower = parseInt(values.willpower)||0;
+        const inspiringPresenceBonus = parseInt(values.inspiringPresenceBonus)||0;
 
         setAttrs({
             "wil": Signed(willpower - 5 + inspiringPresenceBonus)

@@ -14,7 +14,7 @@ on("change:faith", () => {
 
 function UseHealing() {
     getAttrs(["prayer", "faith"], function(values) {
-        let faith = parseInt(values["faith"]) || 0;
+        const faith = parseInt(values["faith"]) || 0;
 
         startRoll(CUSTOM_TEMPLATE_BEGINNING + "{{name=Healing}} {{result1=[[@{healing}]]}}", (r) => {
             setAttrs({

@@ -60,12 +60,12 @@ export function UpdateAutomatonPlating(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
-    let prefix = "repeating_automaton_" + rowId + "_";
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
+    const prefix = "repeating_automaton_" + rowId + "_";
 
     getAttrs([prefix + "automaton_plating"], function(values) {
-        let plating = values[prefix + "automaton_plating"].toLowerCase();
-        let attributes = {};
+        const plating = values[prefix + "automaton_plating"].toLowerCase();
+        const attributes = {};
 
         if(plating in PLATINGS) {
             attributes[prefix + "automaton_dav"] = PLATINGS[plating].dav;
@@ -84,7 +84,7 @@ export function UpdateAutomatonStats(eventInfo) {
 
     getAttrs([prefix + "automaton_chassis", prefix + "automaton_quality"], function(values) {
         const chassis = values[prefix + "automaton_chassis"].toLowerCase();
-        let attributes = {};
+        const attributes = {};
 
         if(chassis in AUTOMATON_CHASSIS_SIZES) {
             const quality = parseInt(values[prefix + "automaton_quality"]) || 0;

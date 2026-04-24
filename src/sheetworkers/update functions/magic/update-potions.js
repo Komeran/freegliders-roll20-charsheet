@@ -127,7 +127,7 @@ function DoUpdatePotion(rowId) {
 
             const elementalAttunement = values["elementalAttunement"] || "";
             
-            let attributes = {};
+            const attributes = {};
 
             const listPotion = POTIONS[potionName.toLowerCase()];
             if(listPotion !== undefined) {

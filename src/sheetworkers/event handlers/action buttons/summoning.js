@@ -10,8 +10,8 @@ on("clicked:summonangel", () => { SummonSpirit("Angel"); });
 
 function SubjugateSpirit() {
     getAttrs(["summoning", "wil"], function(values) {
-        let summoningRanks = parseInt(values["summoning"]) || 0;
-        let wil = parseInt(values["wil"]) || 0;
+        const summoningRanks = parseInt(values["summoning"]) || 0;
+        const wil = parseInt(values["wil"]) || 0;
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -19,10 +19,10 @@ function SubjugateSpirit() {
 
         rollString += "{{range=10m}}";
         
-        let action = summoningRanks < 6 ? "Major" : "Minor";
+        const action = summoningRanks < 6 ? "Major" : "Minor";
         rollString += `{{action=${action} Action}}`;
 
-        let mod = "+@{summoning}[Summoning]@{wil}[WIL]";
+        const mod = "+@{summoning}[Summoning]@{wil}[WIL]";
         rollString += GetCustomTemplateResultString(mod);
 
         if(summoningRanks < 6) {
@@ -69,13 +69,13 @@ function TapIntoFamiliarSenses() {
 
 function SummonSpirit(spiritType) {
     getAttrs(["summoning", "wil", "essence_air", "essence_earth", "essence_fire", "essence_water"], function(values) {
-        let summoningRanks = parseInt(values["summoning"]) || 0;
-        let wil = parseInt(values["wil"]) || 0;
+        const summoningRanks = parseInt(values["summoning"]) || 0;
+        const wil = parseInt(values["wil"]) || 0;
         
-        let airEssence = parseInt(values["essence_air"]) || 0;
-        let earthEssence = parseInt(values["essence_earth"]) || 0;
-        let fireEssence = parseInt(values["essence_fire"]) || 0;
-        let waterEssence = parseInt(values["essence_water"]) || 0;
+        const airEssence = parseInt(values["essence_air"]) || 0;
+        const earthEssence = parseInt(values["essence_earth"]) || 0;
+        const fireEssence = parseInt(values["essence_fire"]) || 0;
+        const waterEssence = parseInt(values["essence_water"]) || 0;
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -86,7 +86,7 @@ function SummonSpirit(spiritType) {
         // Power Level
         rollString += "{{powerlevel=[[?{Power Level";
         
-        let maxPL = Math.min(summoningRanks + wil, airEssence, earthEssence, fireEssence, waterEssence);
+        const maxPL = Math.min(summoningRanks + wil, airEssence, earthEssence, fireEssence, waterEssence);
         if(maxPL < 1) {
             return;
         }
@@ -102,7 +102,7 @@ function SummonSpirit(spiritType) {
         rollString += `{{description=You can spend 1 hour performing a summoning ritual to summon a ${spiritType} with a Power Level up to [[@{summoning}[Summoning] @{wil}[WIL]]]. You have to expend essence of each element equal to the Power Level of the ${spiritType} (minimum of 1 each). If your ritual is interrupted, you don't lose the essence, but you have to start over. At the end of the ritual, the essence is consumed and the ${spiritType} appears in an unoccupied space within 10m of you. A summoned ${spiritType} is not automatically compelled to follow your commands and returns to where it came from instantly after a number of hours equal to the ${spiritType}'s power level (minimum of 1 hour) has passed.}}`;
         
         startRoll(rollString, (r) => {
-            let powerlevel = r.results.powerlevel.result;
+            const powerlevel = r.results.powerlevel.result;
 
             setAttrs({
                 essence_air: airEssence - Math.max(1, powerlevel),
@@ -123,7 +123,7 @@ function Banish() {
 
     rollString += "{{action=Major Reaction}}";
 
-    let mod = "+@{summoning}[Summoning] @{wil}[WIL]";
+    const mod = "+@{summoning}[Summoning] @{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += "{{save=Willpower test}}";

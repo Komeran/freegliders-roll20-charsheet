@@ -13,7 +13,7 @@ export default defineConfig([
     }
   },
   {
-    files: ["**/*.js"],
+    files: ["src/**/*.js"],
     languageOptions: {
       sourceType: "module",
       globals: {
@@ -24,6 +24,9 @@ export default defineConfig([
         finishRoll: "readonly",
         on: "readonly"
       }
+    },
+    rules: {
+      "prefer-const": "error"
     }
   },
 ]);

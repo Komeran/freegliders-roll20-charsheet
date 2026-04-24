@@ -169,7 +169,7 @@ function DoUpdateRune(rowId) {
             const elementalAttunement = values["elementalAttunement"] || "";
             let naturaString = values[prefix + "natura"] || "";
             
-            let attributes = {};
+            const attributes = {};
 
             const listRune = RUNES[runeName.toLowerCase()];
             if(listRune !== undefined) {

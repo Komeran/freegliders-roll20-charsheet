@@ -97,7 +97,7 @@ export function UpdateCurse(eventInfo) {
 
         const listCurse = CURSES[curseName.toLowerCase()];
         if(listCurse !== undefined) {
-            let attributes = {};
+            const attributes = {};
 
             attributes[prefix+"curse_natura"] = (listCurse.natura).replaceAll("[P]", spellworkRanks);
             attributes[prefix+"curse_target"] = (listCurse.target).replaceAll("[P]", spellworkRanks);
@@ -121,7 +121,7 @@ export function UpdateCursePowers() {
                 
                 const listCurse = CURSES[curseName.toLowerCase()];
                 if(listCurse !== undefined) {
-                    let attributes = {};
+                    const attributes = {};
 
                     attributes[prefix+"curse_natura"] = (listCurse.natura).replaceAll("[P]", spellworkRanks);
                     attributes[prefix+"curse_target"] = (listCurse.target).replaceAll("[P]", spellworkRanks);

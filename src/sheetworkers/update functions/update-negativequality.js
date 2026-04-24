@@ -26,7 +26,7 @@ function AddNegativeQuality(eventInfo) {
     const description = NEGATIVE_QUALITY_DESCRIPTIONS[newQuality.toLowerCase()];
 
     if(description !== undefined) {
-        let attributes = {};
+        const attributes = {};
         attributes[prefix + "negativeQuality_description"] = description;
         setAttrs(attributes);
     }

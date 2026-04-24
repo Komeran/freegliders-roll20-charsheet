@@ -8,7 +8,7 @@ on("clicked:seventhsensereaction", SeventhSenseReaction);
 
 function SixthSense() {
     getAttrs(["spellwork"], function(values) {
-        let spellworkRanks = parseInt(values["spellwork"]) || 0;
+        const spellworkRanks = parseInt(values["spellwork"]) || 0;
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -16,7 +16,7 @@ function SixthSense() {
 
         rollString += "{{action=Major Action}}";
 
-        let range = spellworkRanks >= 8 ? "20m" : "10m";
+        const range = spellworkRanks >= 8 ? "20m" : "10m";
         rollString += `{{range=${range}}}`;
 
         rollString += `{{description=You can use a Major Action to sense magic around you. When you do, you sense ongoing spells, blessings, curses, runes, infusions and other magical effects within 10m of you. You can tell how many different magical effects you sense and even where you sense them, but not what they are or do.`;
@@ -40,7 +40,7 @@ function SeventhSenseAction() {
 
     rollString += "{{action=Minor Action}}";
 
-    let mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
+    const mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=As a Minor Action, you can make a Spellwork [LOG] test to identify specific spells or curses. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect.}}`;
@@ -57,7 +57,7 @@ function SeventhSenseReaction() {
 
     rollString += "{{action=Minor Reaction}}";
 
-    let mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
+    const mod = "+@{spellwork}[Spellwork]@{log}[LOG]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += `{{description=As a Minor Reaction when a creature you can see or hear casts a spell or inflicts a curse, you can make a Spellwork [LOG] test to identify what spell or curse it is. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect.}}`;
@@ -74,7 +74,7 @@ function Counterspell() {
 
     rollString += "{{action=Minor Reaction}}";
 
-    let mod = "+@{spellwork}[Spellwork]@{wil}[WIL]";
+    const mod = "+@{spellwork}[Spellwork]@{wil}[WIL]";
     rollString += GetCustomTemplateResultString(mod);
 
     rollString += "{{save=Prayer [WIL] or Spellwork [WIL]}}";

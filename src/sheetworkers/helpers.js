@@ -120,8 +120,8 @@ export function DamageStringToTemplateRollString(damage, isAttack, stealthRanks,
     const damagePartRegex = /((?:(?:[+-]?\d+d\d+(?:\[[a-z\s]*\])*)|(?:[+-]?\d+(?:\[[a-z\s]*\])*))+)\s((?:[a-z]+(?:\s[a-z])*)+)/gi;
     const damageParts = damage.match(damagePartRegex);
 
-    let damageRolls = {};
-    let critDamageRolls = {};
+    const damageRolls = {};
+    const critDamageRolls = {};
     let baseDamageType = "";
 
     if(!!damageParts && !!damageParts.length) {
@@ -138,7 +138,7 @@ export function DamageStringToTemplateRollString(damage, isAttack, stealthRanks,
                 damageRolls[damageType] = `${damageAmount}`;
             }
             else {
-                let plusSign = !damageAmount.startsWith("-") ? "+" : "";
+                const plusSign = !damageAmount.startsWith("-") ? "+" : "";
                 damageRolls[damageType] += `${plusSign}${damageAmount}`;
             }
             
@@ -151,13 +151,13 @@ export function DamageStringToTemplateRollString(damage, isAttack, stealthRanks,
                     critDamageRolls[damageType] = "";
                     
                     for(let j = 0; j < damageDice.length; j++) {
-                        let plusSign = !damageDice[j].startsWith("-") && !damageDice[j].startsWith("+") && j>0 ? "+" : "";
+                        const plusSign = !damageDice[j].startsWith("-") && !damageDice[j].startsWith("+") && j>0 ? "+" : "";
                         critDamageRolls[damageType] += `${plusSign}${damageDice[j]}`;
                     }
                 }
                 else {
                     for(let j = 0; j <= damageDice.length; j++) {
-                        let plusSign = !damageDice[j].startsWith("-") && !damageDice[j].startsWith("+") ? "+" : "";
+                        const plusSign = !damageDice[j].startsWith("-") && !damageDice[j].startsWith("+") ? "+" : "";
                         critDamageRolls[damageType] += `${plusSign}${damageDice[j]}`;
                     }
                 }
@@ -290,11 +290,11 @@ export function Signed(n) {
  * @returns {number}
  */
 export function CalculateSlots(size, count) {
-    let sizeParts = size.split("/");
+    const sizeParts = size.split("/");
 
     if(sizeParts.length > 1) {
-        let slotsPerStack = parseInt(sizeParts[0]) || 0;
-        let maxCountPerStack = parseInt(sizeParts[1]) || 1;
+        const slotsPerStack = parseInt(sizeParts[0]) || 0;
+        const maxCountPerStack = parseInt(sizeParts[1]) || 1;
 
         return Math.ceil(count / maxCountPerStack) * slotsPerStack;
     }
@@ -308,7 +308,7 @@ export function CalculateSlots(size, count) {
  * @returns {Object.<string, number>} Parsed number values of all skills extracted from the given values object into a new object.
  */
 export function ParseSkills(values) {
-    let skills = {};
+    const skills = {};
 
     for(const skill of SKILLS) {
         skills[skill] = parseInt(values[skill]) || 0;
@@ -323,7 +323,7 @@ export function ParseSkills(values) {
  * @returns {Object.<string, number>} Parsed number values of all attributes extracted from the given values object into a new object.
  */
 export function ParseAttributes(values) {
-    let attributes = {};
+    const attributes = {};
 
     for(const attribute of ATTRIBUTES) {
         attributes[attribute] = parseInt(values[attribute]) || 0;
@@ -338,7 +338,7 @@ export function ParseAttributes(values) {
  * @returns {Object.<string, number>} Parsed number values of all attribute mods extracted from the given values object into a new object.
  */
 export function ParseAttributeMods(values) {
-    let attributeMods = {};
+    const attributeMods = {};
 
     for(const mod of ATTRIBUTE_MODS) {
         attributeMods[mod] = parseInt(values[mod]) || 0;

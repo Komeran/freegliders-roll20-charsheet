@@ -29,17 +29,17 @@ export function RollNpcAttack(eventInfo) {
             prefix + "description"          // Description
         ],
         function(values) {
-            let name = values[prefix + "name"] || "";
-            let type = values[prefix + "type"] || "";
-            let type2 = values[prefix + "type2"] || "";
-            let isAttackTest = values[prefix + "isAttackTest"] == "on";
-            let requiresSave = values[prefix + "requiresSave"] == "on";
-            let atk = values[prefix + "atk"] || "";
-            let difficulty = values[prefix + "difficulty"] || "";
-            let saveAttribute = values[prefix + "saveAttribute"] || "";
-            let saveSkill = values[prefix + "saveSkill"] || "";
-            let damage = values[prefix + "damage"] || "";
-            let description = values[prefix + "description"] || "";
+            const name = values[prefix + "name"] || "";
+            const type = values[prefix + "type"] || "";
+            const type2 = values[prefix + "type2"] || "";
+            const isAttackTest = values[prefix + "isAttackTest"] == "on";
+            const requiresSave = values[prefix + "requiresSave"] == "on";
+            const atk = values[prefix + "atk"] || "";
+            const difficulty = values[prefix + "difficulty"] || "";
+            const saveAttribute = values[prefix + "saveAttribute"] || "";
+            const saveSkill = values[prefix + "saveSkill"] || "";
+            const damage = values[prefix + "damage"] || "";
+            const description = values[prefix + "description"] || "";
 
             let roll = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -87,7 +87,7 @@ export function RollNpcAttack(eventInfo) {
 
 export function UpdateNpcAttackAtks() {
     getSectionIDs("npcAttack", function(ids) {
-        for(let rowId of ids) {
+        for(const rowId of ids) {
             DoUpdateNpcAttackAtk(rowId);
         }
     });
@@ -98,17 +98,17 @@ export function UpdateNpcAttackAtk(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
     DoUpdateNpcAttackAtk(rowId);
 }
 
 function DoUpdateNpcAttackAtk(rowId) {
-    let prefix = "repeating_npcAttack_" + rowId + "_npc_attack_";
+    const prefix = "repeating_npcAttack_" + rowId + "_npc_attack_";
 
     getAttrs([prefix + "atkMod", prefix + "atkAttribute", "agi", "bod", "cha", "int", "log", "wil"], function (values){
-        let atkMod = parseInt(values[prefix + "atkMod"]) || 0;
-        let atkAttribute = values[prefix + "atkAttribute"] || "";
-        let attributeMods = {
+        const atkMod = parseInt(values[prefix + "atkMod"]) || 0;
+        const atkAttribute = values[prefix + "atkAttribute"] || "";
+        const attributeMods = {
             Agility      : parseInt(values["agi"]) || 0,
             Body         : parseInt(values["bod"]) || 0,
             Charisma     : parseInt(values["cha"]) || 0,
@@ -123,7 +123,7 @@ function DoUpdateNpcAttackAtk(rowId) {
             atk += attributeMods[atkAttribute];
         }
 
-        let attributes = {};
+        const attributes = {};
         attributes[prefix + "atk"] = Signed(atk);
 
         setAttrs(attributes);
@@ -132,7 +132,7 @@ function DoUpdateNpcAttackAtk(rowId) {
 
 export function UpdateNpcAttackSaveDifficulties() {
     getSectionIDs("npcAttack", function(ids) {
-        for(let rowId of ids) {
+        for(const rowId of ids) {
             DoUpdateNpcAttackSaveDifficulty(rowId);
         }
     });
@@ -143,17 +143,17 @@ export function UpdateNpcAttackSaveDifficulty(eventInfo) {
         return;
     }
     
-    let rowId = eventInfo.sourceAttribute.split("_")[2];
+    const rowId = eventInfo.sourceAttribute.split("_")[2];
     DoUpdateNpcAttackSaveDifficulty(rowId);
 }
 
 function DoUpdateNpcAttackSaveDifficulty(rowId) {
-    let prefix = "repeating_npcAttack_" + rowId + "_npc_attack_";
+    const prefix = "repeating_npcAttack_" + rowId + "_npc_attack_";
 
     getAttrs([prefix + "difficultyMod", prefix + "difficultyAttribute", "agi", "bod", "cha", "int", "log", "wil"], function (values){
-        let difficultyMod = parseInt(values[prefix + "difficultyMod"]) || 0;
-        let difficultyAttribute = values[prefix + "difficultyAttribute"] || "";
-        let attributeMods = {
+        const difficultyMod = parseInt(values[prefix + "difficultyMod"]) || 0;
+        const difficultyAttribute = values[prefix + "difficultyAttribute"] || "";
+        const attributeMods = {
             Agility      : parseInt(values["agi"]) || 0,
             Body         : parseInt(values["bod"]) || 0,
             Charisma     : parseInt(values["cha"]) || 0,
@@ -169,7 +169,7 @@ function DoUpdateNpcAttackSaveDifficulty(rowId) {
             difficulty += attributeMods[difficultyAttribute];
         }
 
-        let attributes = {};
+        const attributes = {};
         attributes[prefix + "difficulty"] = difficulty;
 
         setAttrs(attributes);
