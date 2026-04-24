@@ -79,7 +79,7 @@ export function UpdateBackContainerLoad() {
             containerBack_load: load
         });
 
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_backitem_" + ids[i] + "_";
 
             getAttrs([prefix + "backItem_slots"], function(values) {
@@ -123,7 +123,7 @@ export function UpdateLoad() {
         const essenceCount = fireEssence + waterEssence + earthEssence + airEssence;
         const essenceLoad = CalculateSlots("1/10", essenceCount);
 
-        var load = essenceLoad;
+        let load = essenceLoad;
 
         // Parts Load
         const bolts = parseInt(values.bolts) || 0;
@@ -161,7 +161,7 @@ export function UpdateLoad() {
         
         // Equipment Load
         getSectionIDs("equipment", function(ids) {
-            for(var i = 0; i < ids.length; i++) {
+            for(let i = 0; i < ids.length; i++) {
                 const prefix = "repeating_equipment_" + ids[i] + "_";
 
                 getAttrs([prefix + "equipment_slots", prefix + "equipment_equip"], function(values) {
@@ -169,7 +169,7 @@ export function UpdateLoad() {
 
                     // Only count if the equipment is equipped
                     if(!isEquipped)
-                        return;
+                        {return;}
                         
                     const slots = parseInt(values[prefix + "equipment_slots"]) || 0;
                     load += slots;

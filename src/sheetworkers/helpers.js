@@ -22,7 +22,8 @@ const DAMAGE_TYPES = {
  */
 export function GetCustomTemplateResultString(mod, isInitiative) {
     const initiativeString = isInitiative ? "&{tracker&#125;" : "";
-    return `?{Roll Type|` +
+    
+return `?{Roll Type|` +
         `Normal,[[1d20${mod}${initiativeString}]] {{result1=$[[0]]&#125;&#125;|` +
         `Advantage,[[{[[1d20${mod}]]&#44;[[1d20${mod}]]&#125;kh1${initiativeString}]] {{result1=$[[0]]&#125;&#125; {{result2=$[[1]]&#125;&#125; {{resadvflag=[[1]]&#125;&#125;|` +
         `Disadvantage,[[{[[1d20${mod}]]&#44;[[1d20${mod}]]&#125;kl1${initiativeString}]] {{result1=$[[0]]&#125;&#125; {{result2=$[[1]]&#125;&#125; {{resdisadvflag=[[1]]&#125;&#125;}`;
@@ -353,6 +354,7 @@ export function ParseAttributeMods(values) {
  * @returns {string}
  */
 export function CapitalizeFirstLetter(str) {
-  if (!str || str == "") return "";
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  if (!str || str == "") {return "";}
+  
+return str.charAt(0).toUpperCase() + str.slice(1);
 }

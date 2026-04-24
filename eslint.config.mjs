@@ -4,12 +4,12 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ["src/**/*.{js,mjs,cjs}"],
     plugins: { js },
     extends:
     ["js/recommended"],
     languageOptions: {
-      globals: globals.browser
+      globals: globals.browser,
     }
   },
   {
@@ -26,7 +26,10 @@ export default defineConfig([
       }
     },
     rules: {
-      "prefer-const": "error"
+      "prefer-const": "error",
+      "no-var": "error",
+      "curly": "error",
+      "newline-before-return": "error"
     }
   },
 ]);

@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Freegliders Steampunk TTRPG Character Sheet for Roll20",
   "scripts": {
+    "lint": "eslint src",
     "build": "node build.js",
-    "watch": "node build.js"
+    "build:fix": "eslint src --fix && node build.js"
   },
   "repository": {
     "type": "git",

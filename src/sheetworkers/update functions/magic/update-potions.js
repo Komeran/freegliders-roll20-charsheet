@@ -93,7 +93,7 @@ export function UpdatePotion(eventInfo) {
 
 export function UpdatePotions() {
     getSectionIDs("potion", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             DoUpdatePotion(ids[i]);
         }
     });

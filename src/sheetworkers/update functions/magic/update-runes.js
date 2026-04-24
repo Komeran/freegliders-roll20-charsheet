@@ -141,7 +141,7 @@ export function UpdateRune(eventInfo) {
 
 export function UpdateRunes() {
     getSectionIDs("rune", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             DoUpdateRune(ids[i]);
         }
     });

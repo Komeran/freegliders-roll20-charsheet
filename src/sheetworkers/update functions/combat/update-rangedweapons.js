@@ -222,7 +222,7 @@ export function UpdateRangedWeapon(eventInfo) {
 
 export function UpdateRangedWeapons() {
     getSectionIDs("rangedWeapon", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_rangedWeapon_" + ids[i] + "_";
 
             DoUpdateRangedWeapon(ids[i]);

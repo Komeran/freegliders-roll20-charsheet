@@ -413,7 +413,7 @@ export function UpdateSpell(eventInfo) {
 
 export function UpdateSpells() {
     getSectionIDs("spell", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             DoUpdateSpell(ids[i]);
         }
     });
@@ -444,7 +444,7 @@ export function UpdateMemorisedSpells() {
             memorisedSpells: memorised
         });
 
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_spell_" + ids[i] + "_spell_";
 
             getAttrs([prefix + "memorised"], function(values) {

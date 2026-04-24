@@ -101,7 +101,7 @@ export function UpdateRitual(eventInfo) {
 
 export function UpdateRituals() {
     getSectionIDs("ritual", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             DoUpdateRitual(ids[i]);
         }
     });

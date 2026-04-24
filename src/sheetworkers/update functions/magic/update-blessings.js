@@ -177,7 +177,7 @@ export function UpdateBlessing(eventInfo) {
 
 export function UpdateBlessings() {
     getSectionIDs("blessing", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             DoUpdateBlessing(ids[i]);
         }
     });
@@ -201,7 +201,7 @@ export function UpdateMemorisedBlessings() {
             memorisedBlessings: memorised
         });
 
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_blessing_" + ids[i] + "_blessing_";
 
             getAttrs([prefix + "memorised"], function(values) {

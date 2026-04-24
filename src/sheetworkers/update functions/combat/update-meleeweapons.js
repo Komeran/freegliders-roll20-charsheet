@@ -195,7 +195,7 @@ export function UpdateMeleeWeapon(eventInfo) {
 
 export function UpdateMeleeWeapons() {
     getSectionIDs("meleeWeapon", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_meleeWeapon_" + ids[i] + "_";
 
             DoUpdateMeleeWeapon(ids[i]);

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const esbuild = require("esbuild");
+const { ESLint } = require("eslint");
 
 function read(file) {
     return fs.readFileSync(file, "utf8");
@@ -24,7 +25,34 @@ function readDirFiles(dir, ext) {
     return results.join("\n");
 }
 
+async function runLint() {
+    console.log("Running ESLint...");
+
+    const eslint = new ESLint({
+        fix: false
+    });
+
+    const results = await eslint.lintFiles(["src/**/*.js"]);
+
+    const formatter = await eslint.loadFormatter("stylish");
+    const resultText = formatter.format(results);
+
+    if (resultText) {
+        console.log(resultText);
+    }
+
+    const hasErrors = results.some(result => result.errorCount > 0);
+
+    if (hasErrors) {
+        throw new Error("Build failed: ESLint detected errors.");
+    }
+    
+    console.log("ESLint passed.");
+}
+
 async function build() {
+    await runLint();
+
     let html = read("./src/index.html");
     let css = read("./src/styles.css");
 

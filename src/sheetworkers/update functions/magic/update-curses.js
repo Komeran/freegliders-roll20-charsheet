@@ -112,7 +112,7 @@ export function UpdateCurse(eventInfo) {
 
 export function UpdateCursePowers() {
     getSectionIDs("curse", function(ids) {
-        for(var i = 0; i < ids.length; i++) {
+        for(let i = 0; i < ids.length; i++) {
             const prefix = "repeating_curse_" + ids[i] + "_";
 
             getAttrs([prefix + "curse_name", "spellwork"], function(values) {
