@@ -206,6 +206,14 @@ const RANGED_WEAPONS = {
         range: "100m/500m",
         ammoMax: 1,
         ammoType: "Rail Dart"
+    },
+    "pulse glove": {
+        skill: "Pistol",
+        properties: {
+            powered: 2
+        },
+        damage: "[Q]d6 Blunt",
+        range: "20m/60m"
     }
 };
 
