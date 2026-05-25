@@ -617,6 +617,12 @@ export function CastSpell(eventInfo) {
                 rollString += `{{action=${action}}}`;
                 // Components
                 rollString += `{{components=${components}}}`;
+                
+                // Attack
+                if(attackType != "none") {
+                    rollString += GetCustomTemplateAtkString(spellworkMod);
+                }
+
                 // Power
                 let power = spellworkRanks;
 
@@ -644,10 +650,6 @@ export function CastSpell(eventInfo) {
                 if(duration != "") {
                     duration = duration.replaceAll("[P]", `[[${power}[Power]]]`);
                     rollString += `{{duration=${duration}}}`;
-                }
-                // Attack
-                if(attackType != "none") {
-                    rollString += GetCustomTemplateAtkString(spellworkMod);
                 }
                 // Save
                 if(saveType != "none") {
