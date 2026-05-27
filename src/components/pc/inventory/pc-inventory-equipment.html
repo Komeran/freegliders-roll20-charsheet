@@ -1,0 +1,61 @@
+<div class="sheet-inventory-equipment">
+    <h2>Equipment</h2>
+    <hr class="sheet-section-separator"/>
+    <table class="sheet-equipment-header">
+        <tr>
+            <th>Item</th>
+            <th>Size</th>
+            <th>Count</th>
+            <th>Slots</th>
+        </tr>
+    </table>
+    <fieldset class="repeating_equipment">
+        <label class="sheet-checkbox-label">Equip</label><input type="checkbox" name="attr_equipment_equip" class="sheet-equip-checkbox" checked />
+        <input type="text" name="attr_equipment_name" placeholder="Item" />
+        <input type="text" name="attr_equipment_size" placeholder="Size" />
+        <input type="number" name="attr_equipment_count" placeholder="Count" min="0" />
+        <span name="attr_equipment_slots">0</span>
+    </fieldset>
+</div>
+
+<datalist id="containers">
+    <option>Backpack</option>
+    <option>Travel Pack</option>
+    <option>Shoulder Bag</option>
+</datalist>
+
+<!-- Equipped Container -->
+<div class="sheet-inventory-back">
+    <h2>Equipped Container</h2>
+    <hr class="sheet-section-separator"/>
+    <table class="sheet-back-header">
+        <tr>
+            <th>Container</th>
+            <th>Size</th>
+            <th>Cap</th>
+            <th>Load</th>
+        </tr>
+    </table>
+    <div class="sheet-back-container">
+        <label class="sheet-checkbox-label">Equip</label><input type="checkbox" name="attr_containerBack_equip" class="sheet-equip-checkbox" checked />
+        <input type="text" name="attr_containerBack_name" list="containers" />
+        <input type="text" name="attr_containerBack_size" />
+        <input type="number" name="attr_containerBack_capacity" />
+        <span name="attr_containerBack_load">0</span>
+    </div>
+
+    <table class="sheet-back-header">
+        <tr>
+            <th>Item</th>
+            <th>Size</th>
+            <th>Count</th>
+            <th>Slots</th>
+        </tr>
+    </table>
+    <fieldset class="repeating_backItem">
+        <input type="text" name="attr_backItem_name" placeholder="Item" />
+        <input type="text" name="attr_backItem_size" placeholder="Size" />
+        <input type="number" name="attr_backItem_count" placeholder="Count" min="0" />
+        <span name="attr_backItem_slots">0</span>
+    </fieldset>
+</div>

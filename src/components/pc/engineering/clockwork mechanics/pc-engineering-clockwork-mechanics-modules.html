@@ -1,0 +1,32 @@
+<h3>Clockwork Modules</h3>
+<hr class="sheet-section-separator"/>
+
+<fieldset class="repeating_blueprint_cwModule">
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_blueprint_cwModule_name">New Clockwork Module</span>
+            <button type="action" name="act_assemble" disabled>Assemble</button>
+            <span class="error" name="attr_cwModule_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_blueprint_cwModule_name" placeholder="Blueprint" list="cwModules" />
+        </div>
+
+        <!-- Parts -->
+        <div>
+            <label class="sheet-spell-label">Parts:</label>
+            <input type="text" name="attr_blueprint_cwModule_parts" placeholder="Parts" />
+        </div>
+
+        <!-- Min. Power Rating -->
+        <div>
+            <label class="sheet-spell-label">Min. Power Rating (PR):</label>
+            <input type="number" name="attr_blueprint_cwModule_minCR" placeholder="PR" min="0" />
+        </div>
+        
+        <textarea name="attr_blueprint_cwModule_description" placeholder="Description" />
+    </details>
+</fieldset>

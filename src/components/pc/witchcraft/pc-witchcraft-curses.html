@@ -1,0 +1,60 @@
+<h2>Curses</h2>
+<hr class="sheet-section-separator"/>
+
+<datalist id="curses">
+    <option>Lycanthropy</option>
+    <option>Bad Luck</option>
+    <option>Eternal Nightmares</option>
+    <option>Rusting Decay</option>
+    <option>Forked Tongue</option>
+    <option>Shattered Fate</option>
+    <option>Gluttony</option>
+    <option>Stolen Voice</option>
+    <option>Grasping Roots</option>
+    <option>Sanguine Seal</option>
+</datalist>
+
+<fieldset class="repeating_curse">
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_curse_name">New Curse</span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input type="text" name="attr_curse_name" placeholder="Curse" list="curses" />
+        </div>
+        <!-- Natura -->
+        <div>
+            <label class="sheet-spell-label">Natura:</label>
+            <input type="text" name="attr_curse_natura" placeholder="Natura" />
+        </div>
+        <!-- Target -->
+        <div>
+            <label class="sheet-spell-label">Target:</label>
+            <input type="text" name="attr_curse_target" placeholder="Target" />
+        </div>
+
+        <details>
+            <summary class="sheet-spoiler1">
+                <span>Sacrifice</span>
+            </summary>
+            <textarea name="attr_curse_sacrifice" placeholder="Sacrifice" />
+        </details>
+
+        <details>
+            <summary class="sheet-spoiler1">
+                <span>Description</span>
+            </summary>
+            <textarea name="attr_curse_description" placeholder="Description" />
+        </details>
+
+        <details>
+            <summary class="sheet-spoiler1">
+                <span>Breaking Condition</span>
+            </summary>
+            <textarea name="attr_curse_breakingCondition" placeholder="Breaking Condition" />
+        </details>
+    </details>
+</fieldset>

@@ -1,0 +1,408 @@
+<h1>Augmentations</h1>
+<hr class="sheet-separator"/>
+
+<div class="sheet-engineering-topline">
+    <!-- Quality -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_augmentation">0</span>
+        </div>
+        <label class="sheet-resource-label">Quality</label>
+    </div>
+
+    <!-- Bolts -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_bolts" min="0" />
+        </div>
+        <label class="sheet-resource-label">Bolts</label>
+    </div>
+
+    <!-- Plates -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_plates" min="0" />
+        </div>
+        <label class="sheet-resource-label">Plates</label>
+    </div>
+
+    <!-- Wires -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_wires" min="0" />
+        </div>
+        <label class="sheet-resource-label">Wires</label>
+    </div>
+
+    <!-- Cogs -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_cogs" min="0" />
+        </div>
+        <label class="sheet-resource-label">Cogs</label>
+    </div>
+
+    <!-- Rods -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_rods" min="0" />
+        </div>
+        <label class="sheet-resource-label">Rods</label>
+    </div>
+
+    <!-- Lenses -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_lenses" min="0" />
+        </div>
+        <label class="sheet-resource-label">Lenses</label>
+    </div>
+</div>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-engineering-bottom sheet-augmentations-bottom">
+    <!-- Head -->
+    <details>
+        <summary class="sheet-spoiler0">Head</summary>
+
+        <select name="attr_augmentations_head">
+            <option selected>None</option>
+            <option value="prosthetic">Prosthetic</option>
+            <option value="autolimb">Autolimb</option>
+        </select>
+        <input type="number" name="attr_augmentations_head_quality" min="1" placeholder="Q" class=".sheet-augmentation-augmentationOnly" />
+        <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_head_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+        <label class="sheet-checkbox-label">AV: </label><span name="attr_headAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+        <details>
+            <summary class="sheet-spoiler-list">Modules</summary>
+
+            <fieldset class="repeating_headModule">
+                <input type="text" name="attr_headModule_name" placeholder="Module" />
+                <input type="number" name="attr_headModule_quality" min="1" placeholder="Q" />
+                <input type="number" name="attr_headModule_capacityCost" placeholder="CC" />
+                <textarea name="attr_headModule_description" placeholder="Description..." />
+            </fieldset>
+        </details>
+    </details>
+    
+    <!-- Eyes -->
+    <details>
+        <summary class="sheet-spoiler0">Eyes</summary>
+
+        <!-- Left Eye -->
+        <details>
+            <summary class="sheet-spoiler1">Left Eye</summary>
+
+            <select name="attr_augmentations_leftEye">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_leftEye_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftEye_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_leftEyeAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_leftEyeModule">
+                    <input type="text" name="attr_leftEyeModule_name" placeholder="Module" />
+                    <input type="number" name="attr_leftEyeModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_leftEyeModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_leftEyeModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+
+        <!-- Right Eye -->
+        <details>
+            <summary class="sheet-spoiler1">Right Eye</summary>
+
+            <select name="attr_augmentations_rightEye">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_rightEye_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightEye_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_rightEyeAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_rightEyeModule">
+                    <input type="text" name="attr_rightEyeModule_name" placeholder="Module" />
+                    <input type="number" name="attr_rightEyeModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_rightEyeModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_rightEyeModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+    </details>
+
+    <!-- Jaw -->
+    <details>
+        <summary class="sheet-spoiler0">Jaw</summary>
+
+        <select name="attr_augmentations_jaw">
+            <option selected>None</option>
+            <option value="prosthetic">Prosthetic</option>
+            <option value="autolimb">Autolimb</option>
+        </select>
+        <input type="number" name="attr_augmentations_jaw_quality" min="1" placeholder="Q" />
+        <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_jaw_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+        <details>
+            <summary class="sheet-spoiler-list">Modules</summary>
+
+            <fieldset class="repeating_jawModule">
+                <input type="text" name="attr_jawModule_name" placeholder="Module" />
+                <input type="number" name="attr_jawModule_quality" min="1" placeholder="Q" />
+                <input type="number" name="attr_jawModule_capacityCost" placeholder="CC" />
+                <textarea name="attr_jawModule_description" placeholder="Description..." />
+            </fieldset>
+        </details>
+    </details>
+
+    <!-- Torso -->
+    <details>
+        <summary class="sheet-spoiler0">Torso</summary>
+
+        <select name="attr_augmentations_torso">
+            <option selected>None</option>
+            <option value="prosthetic">Prosthetic</option>
+            <option value="autolimb">Autolimb</option>
+        </select>
+        <input type="number" name="attr_augmentations_torso_quality" min="1" placeholder="Q" />
+        <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_torso_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+        <label class="sheet-checkbox-label">AV: </label><span name="attr_torsoAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+        <details>
+            <summary class="sheet-spoiler-list">Modules</summary>
+
+            <fieldset class="repeating_torsoModule">
+                <!-- TODO: FIX THIS IN CSS-->
+                <details>
+                    <summary>
+                        <span name="attr_torsoModule_name">New Module</span>
+                    </summary>
+                    
+                    <input type="text" name="attr_torsoModule_name" placeholder="Module" />
+                    <input type="number" name="attr_torsoModule_evasionBonus" placeholder="EVA" />
+                    <input type="number" name="attr_torsoModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_torsoModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_torsoModule_description" placeholder="Description..." />
+                </details>
+            </fieldset>
+        </details>
+    </details>
+    
+    <!-- Arms -->
+    <details>
+        <summary class="sheet-spoiler0">Arms</summary>
+
+        <!-- Left Arm -->
+        <details>
+            <summary class="sheet-spoiler1">Left Arm</summary>
+
+            <select name="attr_augmentations_leftArm">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_leftArm_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftArm_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_leftArmAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_leftArmModule">
+                    <input type="text" name="attr_leftArmModule_name" placeholder="Module" />
+                    <input type="number" name="attr_leftArmModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_leftArmModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_leftArmModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+
+        <!-- Right Arm -->
+        <details>
+            <summary class="sheet-spoiler1">Right Arm</summary>
+
+            <select name="attr_augmentations_rightArm">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_rightArm_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightArm_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_rightArmAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_rightArmModule">
+                    <input type="text" name="attr_rightArmModule_name" placeholder="Module" />
+                    <input type="number" name="attr_rightArmModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_rightArmModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_rightArmModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+    </details>
+    
+    <!-- Hands -->
+    <details>
+        <summary class="sheet-spoiler0">Hands</summary>
+
+        <!-- Left Hand -->
+        <details>
+            <summary class="sheet-spoiler1">Left Hand</summary>
+
+            <select name="attr_augmentations_leftHand">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_leftHand_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftHand_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_leftHandAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_leftHandModule">
+                    <input type="text" name="attr_leftHandModule_name" placeholder="Module" />
+                    <input type="number" name="attr_leftHandModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_leftHandModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_leftHandModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+
+        <!-- Right Hand -->
+        <details>
+            <summary class="sheet-spoiler1">Right Hand</summary>
+
+            <select name="attr_augmentations_rightHand">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_rightHand_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightHand_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_rightHandAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_rightHandModule">
+                    <input type="text" name="attr_rightHandModule_name" placeholder="Module" />
+                    <input type="number" name="attr_rightHandModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_rightHandModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_rightHandModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+    </details>
+    
+    <!-- Legs -->
+    <details>
+        <summary class="sheet-spoiler0">Legs</summary>
+
+        <!-- Left Leg -->
+        <details>
+            <summary class="sheet-spoiler1">Left Leg</summary>
+
+            <select name="attr_augmentations_leftLeg">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_leftLeg_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftLeg_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_leftLegAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_leftLegModule">
+                    <input type="text" name="attr_leftLegModule_name" placeholder="Module" />
+                    <input type="number" name="attr_leftLegModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_leftLegModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_leftLegModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+
+        <!-- Right Leg -->
+        <details>
+            <summary class="sheet-spoiler1">Right Leg</summary>
+
+            <select name="attr_augmentations_rightLeg">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_rightLeg_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightLeg_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_rightLegAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_rightArmModule">
+                    <input type="text" name="attr_rightLegModule_name" placeholder="Module" />
+                    <input type="number" name="attr_rightLegModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_rightLegModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_rightLegModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+    </details>
+    
+    <!-- Feet -->
+    <details>
+        <summary class="sheet-spoiler0">Feet</summary>
+
+        <!-- Left Foot -->
+        <details>
+            <summary class="sheet-spoiler1">Left Foot</summary>
+
+            <select name="attr_augmentations_leftFoot">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_leftFoot_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_leftFoot_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_leftFootAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_leftFootModule">
+                    <input type="text" name="attr_leftFootModule_name" placeholder="Module" />
+                    <input type="number" name="attr_leftFootModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_leftFootModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_leftFootModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+
+        <!-- Right Foot -->
+        <details>
+            <summary class="sheet-spoiler1">Right Foot</summary>
+
+            <select name="attr_augmentations_rightFoot">
+                <option selected>None</option>
+                <option value="prosthetic">Prosthetic</option>
+                <option value="autolimb">Autolimb</option>
+            </select>
+            <input type="number" name="attr_augmentations_rightFoot_quality" min="1" placeholder="Q" />
+            <label class="sheet-checkbox-label">Module Capacity: </label><span name="attr_augmentations_rightFoot_moduleCapacity" class=".sheet-augmentation-augmentationOnly">0</span>
+            <label class="sheet-checkbox-label">AV: </label><span name="attr_rightFootAugmentAV" class=".sheet-augmentation-augmentationOnly">+0</span>
+            <details>
+                <summary class="sheet-spoiler-list">Modules</summary>
+
+                <fieldset class="repeating_rightFootModule">
+                    <input type="text" name="attr_rightFootModule_name" placeholder="Module" />
+                    <input type="number" name="attr_rightFootModule_quality" min="1" placeholder="Q" />
+                    <input type="number" name="attr_rightFootModule_capacityCost" placeholder="CC" />
+                    <textarea name="attr_rightFootModule_description" placeholder="Description..." />
+                </fieldset>
+            </details>
+        </details>
+    </details>
+</div>

@@ -1,0 +1,58 @@
+<h2>Potions</h2>
+<div class="sheet-spells-memorised">
+    <span>Maximum Potions per Batch:</span>
+    <span name="attr_alchemy">0</span>
+</div>
+<hr class="sheet-section-separator"/>
+
+<datalist id="potions">
+    <option>Healing</option>
+    <option>Cleansing</option>
+    <option>Haste</option>
+    <option>Restoration</option>
+    <option>Water Breathing</option>
+    <option>Flight</option>
+    <option>Charm</option>
+    <option>Muscle</option>
+    <option>Fire Immunity</option>
+    <option>Lightning Immunity</option>
+    <option>Acid Immunity</option>
+    <option>Poison Immunity</option>
+    <option>Hardening</option>
+    <option>Night Vision</option>
+    <option>Explosion</option>
+    <option>Last Stand</option>
+    <option>Wound Closure</option>
+</datalist>
+
+<fieldset class="repeating_potion">
+    <input class="sheet-listitem-validation" type="checkbox" name="attr_potion_isListItem" />
+    <input class="sheet-potion-canbrew" type="checkbox" name="attr_potion_canBrew" />
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_potion_name">New Potion</span>
+            <button class="sheet-potion-brewable" type="action" name="act_brewpotion">Brew</button>
+            <div class="sheet-potion-brewable">
+                <input class="sheet-listitem-keep" type="number" name="attr_potion_batch" min="0" placeholder="0" value="0" />
+                /
+                <span name="attr_potion_batch_max">0</span>
+            </div>
+            <span class="error" name="attr_potion_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_potion_name" placeholder="Potion" list="potions" />
+        </div>
+        <!-- Essence -->
+        <div>
+            <label class="sheet-spell-label">Essence:</label>
+            <input type="text" name="attr_potion_essence" placeholder="Essence" />
+            <input class="sheet-listitem-only" type="text" name="attr_potion_essence" placeholder="Essence" readonly />
+        </div>
+
+        <textarea name="attr_potion_effect" placeholder="Effect" />
+        <textarea class="sheet-listitem-only" name="attr_potion_effect" placeholder="Effect" readonly />
+    </details>
+</fieldset>

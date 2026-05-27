@@ -1,0 +1,38 @@
+<h3>Clockwork Gadgets</h3>
+<hr class="sheet-section-separator"/>
+
+<fieldset class="repeating_blueprint_gadget">
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_blueprint_gadget_name">New Gadget</span>
+            <button type="action" name="act_assemble" disabled>Assemble</button>
+            <span class="error" name="attr_gadget_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_blueprint_gadget_name" placeholder="Blueprint" list="gadgets" />
+        </div>
+
+        <!-- Parts -->
+        <div>
+            <label class="sheet-spell-label">Parts:</label>
+            <input type="text" name="attr_blueprint_gadget_parts" placeholder="Parts" />
+        </div>
+
+        <!-- Remote Controlled -->
+        <div>
+            <label class="sheet-spell-label">Remote Controlled:</label>
+            <input type="checkbox" name="attr_blueprint_gadget_remoteControlled" />
+        </div>
+
+        <!-- Min. Power Rating -->
+        <div>
+            <label class="sheet-spell-label">Min. Power Rating (PR):</label>
+            <input type="number" name="attr_blueprint_gadget_minCR" placeholder="PR" min="0" />
+        </div>
+        
+        <textarea name="attr_blueprint_gadget_description" placeholder="Description" />
+    </details>
+</fieldset>

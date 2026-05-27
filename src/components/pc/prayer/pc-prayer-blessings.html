@@ -1,0 +1,79 @@
+<h2>Blessings</h2>
+<div class="sheet-spells-memorised">
+    <span>Memorised:</span>
+    <span name="attr_memorisedBlessings">0</span>
+    <span>/</span>
+    <span name="attr_memorisedBlessings_max">0</span>
+</div>
+<hr class="sheet-section-separator"/>
+
+<datalist id="blessings">
+    <option>Blessing of Regeneration</option>
+    <option>Blessing of Protection</option>
+    <option>Blessing of Haste</option>
+    <option>Blessing of Attention</option>
+    <option>Blessing of Burden</option>
+    <option>Blessing of Warding off Evil</option>
+    <option>Blessing of Sanctity</option>
+    <option>Blessing of Purification</option>
+    <option>Blessing of Health</option>
+    <option>Blessing of Wound Closure</option>
+    <option>Blessing of Guidance</option>
+    <option>Blessing of Smiting</option>
+    <option>Blessing of Comprehension</option>
+    <option>Blessing of Comfort</option>
+</datalist>
+
+<fieldset class="repeating_blessing">
+    <input class="sheet-listitem-validation" type="checkbox" name="attr_blessing_isListItem" />
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_blessing_name">New Blessing</span>
+            <button type="action" name="act_blessinginvoke">Invoke</button>
+            <div>
+                <label class="sheet-spell-label">Memorised</label>
+                <input class="sheet-listitem-keep" type="checkbox" name="attr_blessing_memorised" />
+            </div>
+            <span class="error" name="attr_blessing_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_blessing_name" placeholder="Blessing" list="blessings" />
+        </div>
+        <!-- Components -->
+        <div>
+            <label class="sheet-spell-label">Components:</label>
+            <input type="text" name="attr_blessing_components" placeholder="Components" />
+            <input class="sheet-listitem-only" type="text" name="attr_blessing_components" placeholder="Components" readonly />
+        </div>
+        <!-- Faith -->
+        <div>
+            <label class="sheet-spell-label">Faith:</label>
+            <input type="number" name="attr_blessing_faith" placeholder="Faith" min="0" />
+            <input class="sheet-listitem-only" type="number" name="attr_blessing_faith" placeholder="Faith" readonly />
+        </div>
+        <!-- Range -->
+        <div>
+            <label class="sheet-spell-label">Range:</label>
+            <input type="text" name="attr_blessing_range" placeholder="Range" />
+            <input class="sheet-listitem-only" type="text" name="attr_blessing_range" placeholder="Range" readonly />
+        </div>
+        <!-- Area -->
+        <div>
+            <label class="sheet-spell-label">Area:</label>
+            <input type="text" name="attr_blessing_area" placeholder="Area" />
+            <input class="sheet-listitem-only" type="text" name="attr_blessing_area" placeholder="Area" readonly />
+        </div>
+        <!-- Duration -->
+        <div>
+            <label class="sheet-spell-label">Duration:</label>
+            <input type="text" name="attr_blessing_duration" placeholder="Duration" />
+            <input class="sheet-listitem-only" type="text" name="attr_blessing_duration" placeholder="Duration" readonly />
+        </div>
+        
+        <textarea name="attr_blessing_description" placeholder="Description" />
+        <textarea class="sheet-listitem-only" name="attr_blessing_description" placeholder="Description" readonly />
+    </details>
+</fieldset>

@@ -25,6 +25,60 @@ function readDirFiles(dir, ext) {
     return results.join("\n");
 }
 
+const COMPONENT_REGEX =
+    /<comp-([a-z0-9-]+)><\/comp-\1>/g;
+
+function walk(dir) {
+    let results = [];
+
+    const items = fs.readdirSync(dir, {
+        withFileTypes: true
+    });
+
+    for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+
+        if (item.isDirectory()) {
+            results = results.concat(walk(fullPath));
+        } else {
+            results.push(fullPath);
+        }
+    }
+
+    return results;
+}
+
+function findComponentFile(name) {
+    const componentFiles = walk("./src/components");
+
+    const match = componentFiles.find(file =>
+        path.basename(file, ".html") === name
+    );
+
+    if (!match) {
+        throw new Error(
+            `Component not found: comp-${name}`
+        );
+    }
+
+    return match;
+}
+
+function resolveComponents(content) {
+    return content.replace(
+        COMPONENT_REGEX,
+        (_, componentName) => {
+            const componentPath =
+                findComponentFile(componentName);
+
+            const componentContent =
+                read(componentPath);
+
+            return resolveComponents(componentContent);
+        }
+    );
+}
+
 async function runLint() {
     console.log("Running ESLint...");
 
@@ -76,16 +130,7 @@ async function build() {
     html = html.replace("{{workers}}", workers);
     html = html.replace("{{rolltemplates}}", rolltemplates);
 
-    // inject components
-    const components = fs.readdirSync("./src/components");
-
-    for (const file of components) {
-        const name = file.replace(".html", "");
-        html = html.replace(
-            `{{${name}}}`,
-            read(`./src/components/${file}`)
-        );
-    }
+    html = resolveComponents(html);
 
     fs.mkdirSync("./dist", { recursive: true });
 

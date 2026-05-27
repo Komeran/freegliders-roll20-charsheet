@@ -1,0 +1,107 @@
+<h3>Automatons</h3>
+<hr class="sheet-section-separator"/>
+<fieldset class="repeating_automaton">
+    <!-- Name & Quality-->
+    <div>
+        <div class="sheet-rep-item">
+            <input type="text" name="attr_automaton_name" placeholder="Name" class="sheet-rep-data" />
+            <label class="sheet-rep-label">Name</label>
+        </div>
+        <div class="sheet-rep-item">
+            <input type="number" name="attr_automaton_quality" min="0" value="0" class="sheet-rep-data" />
+            <label class="sheet-rep-label">Quality</label>
+        </div>
+    </div>
+    <!-- Size & Movement Parts -->
+    <div>
+        <div class="sheet-rep-item">
+            <select name="attr_automaton_chassis" class="sheet-rep-data sheet-blueprint-automaton-chassis">
+                <option value="small" selected>Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <label class="sheet-rep-label">Size</label>
+        </div>
+        <div class="sheet-rep-item">
+            <select name="attr_automaton_movementPart1" class="sheet-rep-data">
+                <option>None</option>
+                <option>Legs</option>
+                <option>Wheels</option>
+                <option>Wings</option>
+                <option>Propellers (Swimming)</option>
+                <option>Propellers (Flying)</option>
+                <option>Fins</option>
+            </select>
+            <label class="sheet-rep-label">Movement Part</label>
+        </div>
+        <div class="sheet-rep-item sheet-blueprint-automaton-medium sheet-blueprint-automaton-large">
+            <select name="attr_automaton_movementPart2" class="sheet-rep-data">
+                <option>None</option>
+                <option>Legs</option>
+                <option>Wheels</option>
+                <option>Wings</option>
+                <option>Propellers (Swimming)</option>
+                <option>Propellers (Flying)</option>
+                <option>Fins</option>
+            </select>
+            <label class="sheet-rep-label">Movement Part</label>
+        </div>
+        <div class="sheet-rep-item sheet-blueprint-automaton-large">
+            <select name="attr_automaton_movementPart3" class="sheet-rep-data">
+                <option>None</option>
+                <option>Legs</option>
+                <option>Wheels</option>
+                <option>Wings</option>
+                <option>Propellers (Swimming)</option>
+                <option>Propellers (Flying)</option>
+                <option>Fins</option>
+            </select>
+            <label class="sheet-rep-label">Movement Part</label>
+        </div>
+    </div>
+    <!-- Plating -->
+    <div>
+        <div class="sheet-rep-item">
+            <select name="attr_automaton_plating" class="sheet-rep-data">
+                <option value="none" selected>None</option>
+                <option value="aluminium">Aluminium</option>
+                <option value="copper">Copper</option>
+                <option value="steel">Steel</option>
+                <option value="ceramic">Ceramic</option>
+                <option value="titanium">Titanium</option>
+            </select>
+            <label class="sheet-rep-label">Plating</label>
+        </div>
+        <!-- DAV -->
+        <div class="sheet-rep-item">
+            <span name="attr_automaton_dav">0</span>
+            <label class="sheet-rep-label">DAV</label>
+        </div>
+    </div>
+    <!-- Stats -->
+    <div>
+        <!-- HP -->
+        <div class="sheet-rep-item">
+            <div class="sheet-rep-currentMax">
+                <input type="number" min="0" value="0" name="attr_automaton_hp" class="sheet-rep-data" />
+                <span>/</span>
+                <span name="attr_automaton_hp_max">0</span>
+            </div>
+            <label class="sheet-rep-label">HP</label>
+        </div>
+        <!-- CR -->
+        <div class="sheet-rep-item">
+            <span name="attr_automaton_coreRating">0</span>
+            <label class="sheet-rep-label">CR</label>
+        </div>
+        <!-- Modules -->
+        <div class="sheet-rep-item">
+            <div class="sheet-rep-currentMax">
+                <span name="attr_automaton_modules">0</span>
+                <span>/</span>
+                <span name="attr_automaton_modules_max">0</span>
+            </div>
+            <label class="sheet-rep-label">Modules</label>
+        </div>
+    </div>
+</fieldset>

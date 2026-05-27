@@ -1,0 +1,105 @@
+<h1>Engineering</h1>
+<hr class="sheet-separator"/>
+
+<div class="sheet-engineering-topline">
+
+    <!-- Bolts -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_bolts" min="0" />
+        </div>
+        <label class="sheet-resource-label">Bolts</label>
+    </div>
+
+    <!-- Plates -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_plates" min="0" />
+        </div>
+        <label class="sheet-resource-label">Plates</label>
+    </div>
+
+    <!-- Wires -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_wires" min="0" />
+        </div>
+        <label class="sheet-resource-label">Wires</label>
+    </div>
+
+    <!-- Cogs -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_cogs" min="0" />
+        </div>
+        <label class="sheet-resource-label">Cogs</label>
+    </div>
+
+    <!-- Rods -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_rods" min="0" />
+        </div>
+        <label class="sheet-resource-label">Rods</label>
+    </div>
+
+    <!-- Lenses -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_lenses" min="0" />
+        </div>
+        <label class="sheet-resource-label">Lenses</label>
+    </div>
+
+    <!-- Gunpowder -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_gunpowder" min="0" />
+        </div>
+        <label class="sheet-resource-label">Gunpowder</label>
+    </div>
+</div>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-engineering-bottom">
+    <input type="hidden" class="sheet-tabstoggle" name="attr_engineeringTab" value="blueprints" />
+    <div>
+        <button type="action" name="act_cwmTab" class="sheet-button0">Clockwork Mechanics</button>
+        <button type="action" name="act_automachineryTab" class="sheet-button1">Automachinery</button>
+        <button type="action" name="act_augmentationTab" class="sheet-button2">Augmentation</button>
+        <button type="action" name="act_gunsmithingTab" class="sheet-button3">Gunsmithing</button>
+        <button type="action" name="act_tinkeringTab" class="sheet-button4">Tinkering</button>
+        <button type="action" name="act_vehiclemechanicsTab" class="sheet-button5">Vehicle Mechanics</button>
+    </div>
+
+    <!-- Clockwork Mechanics -->
+    <div class="sheet-tab0 sheet-cwm">
+        <comp-pc-engineering-clockwork-mechanics></comp-pc-engineering-clockwork-mechanics>
+    </div>
+
+    <!-- Automachinery -->
+    <div class="sheet-tab1 sheet-automachinery">
+        <comp-pc-engineering-automachinery></comp-pc-engineering-automachinery>
+    </div>
+
+    <!-- Augmentation -->
+    <div class="sheet-tab2 sheet-augmentation">
+        <comp-pc-engineering-augmentation></comp-pc-engineering-augmentation>
+    </div>
+
+    <!-- Gunsmithing -->
+    <div class="sheet-tab3 sheet-gunsmithing">
+        <comp-pc-engineering-gunsmithing></comp-pc-engineering-gunsmithing>
+    </div>
+
+    <!-- Tinkering -->
+    <div class="sheet-tab4 sheet-tinkering">
+        <comp-pc-engineering-tinkering></comp-pc-engineering-tinkering>
+    </div>
+
+    <!-- Vehicle Mechanics -->
+    <div class="sheet-tab5 sheet-vehiclemechanics">
+        <comp-pc-engineering-vehicle-mechanics></comp-pc-engineering-vehicle-mechanics>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<h1>Alchemy</h1>
+<hr class="sheet-separator"/>
+
+<div class="sheet-alchemy-topline">
+    <!-- Alchemy Ranks -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_alchemy">0</span>
+        </div>
+        <label class="sheet-resource-label">Alchemy Ranks</label>
+    </div>
+
+    <!-- Fire Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_fire" min="0" />
+        </div>
+        <label class="sheet-resource-label">Fire</label>
+    </div>
+
+    <!-- Water Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_water" min="0" />
+        </div>
+        <label class="sheet-resource-label">Water</label>
+    </div>
+
+    <!-- Earth Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_earth" min="0" />
+        </div>
+        <label class="sheet-resource-label">Earth</label>
+    </div>
+
+    <!-- Air Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_air" min="0" />
+        </div>
+        <label class="sheet-resource-label">Air</label>
+    </div>
+</div>
+
+<hr class="sheet-separator"/>
+<h2>Actions</h2>
+
+<comp-pc-alchemy-actions></comp-pc-alchemy-actions>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-alchemy-bottom">
+    <input type="hidden" class="sheet-tabstoggle" name="attr_alchemyTab" value="0" />
+    <div>
+        <button type="action" name="act_elixirs" class="sheet-button0">Elixirs</button>
+        <button type="action" name="act_potions" class="sheet-button1">Potions</button>
+        <button type="action" name="act_infusions" class="sheet-button2">Infusions</button>
+    </div>
+
+    <!-- Elixirs -->
+    <div class="sheet-tab0 sheet-alchemy-elixirs">
+        <comp-pc-alchemy-elixirs></comp-pc-alchemy-elixirs>
+    </div>
+
+    <!-- Potions -->
+    <div class="sheet-tab1 sheet-alchemy-potions">
+        <comp-pc-alchemy-potions></comp-pc-alchemy-potions>
+    </div>
+
+    <!-- Infusions -->
+    <div class="sheet-tab2 sheet-alchemy-infusions">
+        <comp-pc-alchemy-infusions></comp-pc-alchemy-infusions>
+    </div>
+</div>

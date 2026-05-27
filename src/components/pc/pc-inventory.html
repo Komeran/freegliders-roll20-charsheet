@@ -1,0 +1,37 @@
+<h1>Inventory</h1>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-inventory-topline">
+    <comp-pc-inventory-engineering-parts></comp-pc-inventory-engineering-parts>
+
+    <div class="sheet-inventory-topline-item">
+        <span name="attr_inventory_load">0 Slots</span>
+        <hr class="sheet-section-separator"/>
+        <label>Load</label>
+    </div>
+    <div class="sheet-inventory-topline-item">
+        <span name="attr_carryCapacity">0 Slots</span>
+        <hr class="sheet-section-separator"/>
+        <label>Carry<br>Capacity</label>
+    </div>
+
+    <!-- Essence -->
+    <comp-pc-inventory-essence></comp-pc-inventory-essence>
+</div>
+
+<input type="hidden" class="sheet-inventory-tabstoggle" name="attr_inventoryTab" value="equipment" />
+<div>
+    <button type="action" name="act_equipment" class="sheet-inventory-button0">Equipment</button>
+    <button type="action" name="act_money" class="sheet-inventory-button1">Money</button>
+</div>
+
+<!-- Equipment -->
+<div class="sheet-inventory-items">
+    <comp-pc-inventory-equipment></comp-pc-inventory-equipment>
+</div>
+
+<!-- Money -->
+<div class="sheet-inventory-money">
+    <comp-pc-inventory-money></comp-pc-inventory-money>
+</div>

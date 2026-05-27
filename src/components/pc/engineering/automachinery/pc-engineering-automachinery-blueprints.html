@@ -1,0 +1,83 @@
+<h3>Blueprints</h3>
+<hr class="sheet-section-separator"/>
+
+<fieldset class="repeating_blueprint_automachinery">
+    <input type="text" name="attr_blueprint_automachinery_name" placeholder="Blueprint" />
+    <select name="attr_blueprint_automachinery_type" class="sheet-blueprint-type">
+        <option value="clockwork" selected>Clockwork</option>
+        <option value="prosthetic">Prosthetic</option>
+        <option value="autolimb">Autolimb</option>
+        <option value="automaton">Automaton</option>
+        <option value="automaton module">Automaton Module</option>
+        <option value="clockwork module">Clockwork Module</option>
+        <option value="automech">Automech</option>
+    </select>
+    <input type="text" name="attr_blueprint_automachinery_parts" placeholder="Parts" />
+    <div class="sheet-blueprint-clockwork">
+        <label>Remote Controlled</label>
+        <input type="checkbox" name="attr_blueprint_automachinery_remoteControlled" />
+    </div>
+    <div class="sheet-blueprint-automaton">
+        <table class="sheet-blueprint-automaton-headers">
+            <tr>
+                <th>Chassis</th>
+                <th>Movement Parts</th>
+            </tr>
+        </table>
+    </div>
+    <div class="sheet-blueprint-automaton">
+        <select name="attr_blueprint_automachinery_automatonChassis" class="sheet-blueprint-automaton-chassis">
+            <option value="small" selected>Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+        <select name="attr_blueprint_automachinery_movementPart1">
+            <option>None</option>
+            <option>Legs</option>
+            <option>Wheels</option>
+            <option>Wings</option>
+            <option>Propellers (Swimming)</option>
+            <option>Propellers (Flying)</option>
+            <option>Fins</option>
+        </select>
+        <select name="attr_blueprint_automachinery_movementPart2" class="sheet-blueprint-automaton-medium sheet-blueprint-automaton-large">
+            <option>None</option>
+            <option>Legs</option>
+            <option>Wheels</option>
+            <option>Wings</option>
+            <option>Propellers (Swimming)</option>
+            <option>Propellers (Flying)</option>
+            <option>Fins</option>
+        </select>
+        <select name="attr_blueprint_automachinery_movementPart3" class="sheet-blueprint-automaton-large">
+            <option>None</option>
+            <option>Legs</option>
+            <option>Wheels</option>
+            <option>Wings</option>
+            <option>Propellers (Swimming)</option>
+            <option>Propellers (Flying)</option>
+            <option>Fins</option>
+        </select>
+    </div>
+    <div class="sheet-blueprint-autolimb sheet-blueprint-prosthetic">
+        <select name="attr_blueprint_automachinery_limb">
+            <option value="arm" selected>Arm</option>
+            <option value="leg">Leg</option>
+            <option value="hand">Hand</option>
+            <option value="foot">Foot</option>
+            <option value="ear">Ear</option>
+            <option value="eye">Eye</option>
+            <option value="nose">Nose</option>
+            <option value="jaw">Jaw</option>
+        </select>
+    </div>
+    <div class="sheet-blueprint-automaton sheet-blueprint-prosthetic sheet-blueprint-autolimb">
+        <label>Min. CR:</label>
+        <span name="attr_blueprint_automachinery_minCR">0</span>
+    </div>
+    <div class="sheet-blueprint-clockwork sheet-blueprint-automech">
+        <label>Min. CR:</label>
+        <input type="number" name="attr_blueprint_automachinery_minCR" placeholder="min. CR" min="0" />
+    </div>
+    <textarea name="attr_blueprint_automachinery_description" placeholder="Description" />
+</fieldset>

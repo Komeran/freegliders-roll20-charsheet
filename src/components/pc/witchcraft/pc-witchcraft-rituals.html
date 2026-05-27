@@ -1,0 +1,50 @@
+<h2>Rituals</h2>
+<hr class="sheet-section-separator"/>
+
+<datalist id="rituals">
+    <option>Scrying</option>
+    <option>Nightvision</option>
+    <option>Water Breathing</option>
+    <option>Warming</option>
+    <option>Cooling</option>
+    <option>Beauty</option>
+    <option>Disguise</option>
+    <option>Locate</option>
+    <option>Astral Projection</option>
+    <option>Dreamwalk</option>
+    <option>Identify</option>
+    <option>Divination Warding</option>
+    <option>Spirit Warding</option>
+    <option>Monster Warding</option>
+    <option>Death Warding</option>
+    <option>[Damage Type] Warding</option>
+    <option>Open Portal</option>
+    <option>Blade Bond</option>
+    <option>Bought Time</option>
+</datalist>
+
+<fieldset class="repeating_ritual">
+    <input class="sheet-listitem-validation" type="checkbox" name="attr_ritual_isListItem" />
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_ritual_name">New Ritual</span>
+            <button type="action" name="attr_performritual">Perform</button>
+            <span class="error" name="attr_ritual_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_ritual_name" placeholder="Ritual" list="rituals" />
+        </div>
+        <!-- Natura -->
+        <div>
+            <label class="sheet-spell-label">Natura:</label>
+            <input type="text" name="attr_ritual_essence" placeholder="Natura" />
+            <input class="sheet-listitem-only" type="text" name="attr_ritual_essence" placeholder="Natura" readonly />
+        </div>
+
+        <textarea name="attr_ritual_description" placeholder="Description" />
+        <textarea class="sheet-listitem-only" name="attr_ritual_description" placeholder="Description" readonly />
+    </details>
+</fieldset>

@@ -1,0 +1,60 @@
+<h2>Runes</h2>
+<hr class="sheet-section-separator"/>
+
+<datalist id="runes">
+    <option>Calidum</option>
+    <option>Frigus</option>
+    <option>Reparo</option>
+    <option>Sano</option>
+    <option>Conservo</option>
+    <option>Respiratio</option>
+    <option>Purgo</option>
+    <option>Levis</option>
+    <option>Gravis</option>
+    <option>Sera</option>
+    <option>Mundo</option>
+    <option>Protego</option>
+    <option>Silentium</option>
+    <option>Damnum (Air)</option>
+    <option>Damnum (Earth)</option>
+    <option>Damnum (Fire)</option>
+    <option>Damnum (Water)</option>
+    <option>Clypeus Cordis</option>
+    <option>Radians</option>
+    <option>Supprimo</option>
+    <option>Visio Obscura</option>
+    <option>Vita Surripuit</option>
+    <option>Auge Salus</option>
+</datalist>
+
+<fieldset class="repeating_rune">
+    <input class="sheet-listitem-validation" type="checkbox" name="attr_rune_isListItem" />
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_rune_name">New Rune</span>
+            <button type="action" name="attr_carverune">Carve</button>
+            <span class="error" name="attr_rune_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_rune_name" placeholder="Rune" list="runes" />
+        </div>
+        <!-- Target -->
+        <div>
+            <label class="sheet-spell-label">Target:</label>
+            <input type="text" name="attr_rune_target" placeholder="Target" />
+            <input class="sheet-listitem-only" type="text" name="attr_rune_target" placeholder="Target" readonly />
+        </div>
+        <!-- Natura -->
+        <div>
+            <label class="sheet-spell-label">Natura:</label>
+            <input type="text" name="attr_rune_natura" placeholder="Natura" />
+            <input class="sheet-listitem-only" type="text" name="attr_rune_natura" placeholder="Natura" readonly />
+        </div>
+
+        <textarea name="attr_rune_description" placeholder="Description" />
+        <textarea class="sheet-listitem-only" name="attr_rune_description" placeholder="Description" readonly />
+    </details>
+</fieldset>

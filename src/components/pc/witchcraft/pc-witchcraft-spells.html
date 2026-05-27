@@ -1,0 +1,223 @@
+<h2>Spells</h2>
+<div class="sheet-spells-memorised">
+    <span>Memorised:</span>
+    <span name="attr_memorisedSpells">0</span>
+    <span>/</span>
+    <span name="attr_memorisedSpells_max">0</span>
+</div>
+<input type="hidden" name="attr_prayer" />
+<div class="sheet-spells-memorised sheet-spells-miracleworking">
+    <span>Miracle Working:</span>
+    <input type="number" name="attr_miracleworkingFaith" min="0" placeholder="0" value="0" />
+    <span>/</span>
+    <span name="attr_miracleworkingFaith_max">0</span>
+</div>
+<div class="sheet-spells-memorised sheet-spells-miracleworking">
+    <span>Faith:</span>
+    <input type="number" name="attr_faith" min="0" placeholder="0" value="0" />
+    <span>/</span>
+    <span name="attr_faith_max">0</span>
+</div>
+<hr class="sheet-section-separator"/>
+
+<datalist id="spells">
+    <option>Fire Bolt</option>
+    <option>Fireball</option>
+    <option>Water Bolt</option>
+    <option>Waterball</option>
+    <option>Tremor</option>
+    <option>Earthquake</option>
+    <option>Air Bolt</option>
+    <option>Air Bomb</option>
+    <option>Icicle</option>
+    <option>Lava Mote</option>
+    <option>Spark</option>
+    <option>Steam Cloud</option>
+    <option>Acid Splash</option>
+    <option>Acid Rain</option>
+    <option>Dust Cloud</option>
+    <option>Break Warding</option>
+    <option>Levitate</option>
+    <option>Unlock</option>
+    <option>Deflect</option>
+    <option>Reflect</option>
+    <option>Control Fire</option>
+    <option>Control Water</option>
+    <option>Blink</option>
+    <option>Group Blink</option>
+    <option>Teleport</option>
+    <option>Group Teleport</option>
+    <option>Glow</option>
+    <option>Hex</option>
+    <option>Stupor</option>
+    <option>Mindlink</option>
+    <option>Silence</option>
+    <option>Restrain</option>
+    <option>Chain Pull</option>
+    <option>Air Bubble</option>
+    <option>Command</option>
+    <option>Enthrall</option>
+    <option>Clean</option>
+    <option>Ignite</option>
+</datalist>
+
+<fieldset class="repeating_spell">
+    <input class="sheet-listitem-validation" type="checkbox" name="attr_spell_isListItem" />
+    <details>
+        <summary class="sheet-spoiler0">
+            <span name="attr_spell_name">New Spell</span>
+            <button type="action" name="act_spellcast">Cast</button>
+            <div>
+                <label class="sheet-spell-label">Memorised</label>
+                <input class="sheet-listitem-keep" type="checkbox" name="attr_spell_memorised" />
+            </div>
+            <span class="error" name="attr_spell_error"></span>
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input class="sheet-listitem-keep" type="text" name="attr_spell_name" placeholder="Spell" list="spells" />
+        </div>
+        <!-- Action -->
+        <div>
+            <label class="sheet-spell-label">Action:</label>
+            <select name="attr_spell_action">
+                <option selected>Major Action</option>
+                <option>Minor Action</option>
+                <option>Major Reaction</option>
+                <option>Minor Reaction</option>
+            </select>
+            <input class="sheet-listitem-only" type="text" name="attr_spell_action" placeholder="Action" readonly />
+        </div>
+        <!-- Components -->
+        <div>
+            <label class="sheet-spell-label">Components:</label>
+            <input type="text" name="attr_spell_components" placeholder="Components" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_components" placeholder="Components" readonly />
+        </div>
+        <!-- Natura -->
+        <div>
+            <label class="sheet-spell-label">Natura:</label>
+            <input type="text" name="attr_spell_natura" placeholder="Natura" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_natura" placeholder="Natura" readonly />
+        </div>
+        <!-- Range -->
+        <div>
+            <label class="sheet-spell-label">Range:</label>
+            <input type="text" name="attr_spell_range" placeholder="Range" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_range" placeholder="Range" readonly />
+        </div>
+        <!-- Area -->
+        <div>
+            <label class="sheet-spell-label">Area:</label>
+            <input type="text" name="attr_spell_area" placeholder="Area" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_area" placeholder="Area" readonly />
+        </div>
+        <!-- Duration -->
+        <div>
+            <label class="sheet-spell-label">Duration:</label>
+            <input type="text" name="attr_spell_duration" placeholder="Duration" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_duration" placeholder="Duration" readonly />
+        </div>
+        <!-- Attack -->
+        <div>
+            <label class="sheet-spell-label">Attack:</label>
+            <select class="feature-attack-type" name="attr_spell_attackType">
+                <option value="none" selected>-</option>
+                <option>Melee</option>
+                <option>Ranged</option>
+            </select>
+            <input class="sheet-listitem-only" type="text" name="attr_spell_attackType" placeholder="Attack" readonly />
+        </div>
+        <!-- Save -->
+        <div>
+            <label class="sheet-spell-label">Save:</label>
+            <select class="feature-save-type" name="attr_spell_saveType">
+                <option value="none" selected>-</option>
+                <option>Evasion</option>
+                <option>Body</option>
+                <option>Willpower</option>
+            </select>
+            <input class="sheet-listitem-only" type="text" name="attr_spell_saveType" placeholder="Save" readonly />
+        </div>
+        <!-- Save DT Type -->
+        <div class="feature-save-details">
+            <label class="sheet-spell-label"></label>
+            <select class="feature-save-dttype" name="attr_spell_saveDTType">
+                <option value="srd" selected>SRD</option>
+                <option value="dt">DT</option>
+                <option value="contest">Contest</option>
+            </select>
+            <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTType" placeholder="Save Roll" readonly />
+        </div>
+        <!-- Save DT -->
+        <div class="feature-save-details feature-save-dt">
+            <label class="sheet-spell-label"></label>
+            <div>
+                <select name="attr_spell_saveDTSkill">
+                    <option selected>-</option>
+                    <option>Athletics</option>
+                    <option>Perception</option>
+                    <option>Piloting</option>
+                    <option>Stealth</option>
+                    <option>Artisanship</option>
+                    <option>Deception</option>
+                    <option>Intimidation</option>
+                    <option>Performance</option>
+                    <option>Persuasion</option>
+                    <option>Astronomy</option>
+                    <option>Economy</option>
+                    <option>History</option>
+                    <option>Literature</option>
+                    <option>Medicine</option>
+                    <option>Mythology</option>
+                    <option>Nature</option>
+                    <option>Survival</option>
+                    <option>Clockwork Mechanics</option>
+                    <option>Automachinery</option>
+                    <option>Augmentation</option>
+                    <option>Gunsmithing</option>
+                    <option>Tinkering</option>
+                    <option>Vehicle Mechanics</option>
+                    <option>Alchemy</option>
+                    <option>Prayer</option>
+                    <option>Spellwork</option>
+                    <option>Runecraft</option>
+                    <option>Summoning</option>
+                    <option>Artillery</option>
+                    <option>Brawling</option>
+                    <option>Bow</option>
+                    <option>Pistol</option>
+                    <option>Rifle</option>
+                    <option>Shield</option>
+                    <option>One-Handed Melee</option>
+                    <option>Two-Handed Melee</option>
+                </select>
+                <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTSkill" placeholder="Skill" readonly />
+                <select name="attr_spell_saveDTAttribute">
+                    <option selected>-</option>
+                    <option>Agility</option>
+                    <option>Body</option>
+                    <option>Charisma</option>
+                    <option>Intuition</option>
+                    <option>Logic</option>
+                    <option>Willpower</option>
+                </select>
+                <input class="sheet-listitem-only" type="text" name="attr_spell_saveDTAttribute" placeholder="Attribute" readonly />
+                <input class="sheet-listitem-keep" type="number" name="attr_spell_saveDTBonus" placeholder="+0" />
+                &nbsp;=&nbsp;
+                <span name="attr_spell_saveDT">0</span>
+            </div>
+        </div>
+        <!-- Damage -->
+        <div>
+            <label class="sheet-spell-label">Damage:</label>
+            <input type="text" name="attr_spell_damage" placeholder="Damage" />
+            <input class="sheet-listitem-only" type="text" name="attr_spell_damage" placeholder="Damage" readonly />
+        </div>
+        
+        <textarea name="attr_spell_description" placeholder="Description" />
+        <textarea class="sheet-listitem-only" name="attr_spell_description" placeholder="Description" readonly />
+    </details>
+</fieldset>

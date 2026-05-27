@@ -1,0 +1,23 @@
+<h2>Shield</h2>
+<hr class="sheet-section-separator"/>
+<table class="sheet-shield-header">
+    <tr>
+        <th>Shield</th>
+        <th>Type</th>
+        <th>AV</th>
+    </tr>
+</table>
+<datalist id="shields">
+    <option>Buckler</option>
+    <option>Round Shield</option>
+    <option>Kite Shield</option>
+    <option>Tower Shield</option>
+</datalist>
+<div class="sheet-shield">
+    <input type="text" name="attr_shieldName" list="shields" placeholder="Shield" />
+    <select name="attr_shieldType">
+        <option selected>Light</option>
+        <option>Heavy</option>
+    </select>
+    <input type="text" name="attr_shieldAV" placeholder="AV" />
+</div>

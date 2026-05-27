@@ -1,0 +1,44 @@
+<h1>Prayer</h1>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-prayer-topline">
+    <!-- Faith -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" min="0" name="attr_faith" value="0"/>
+            <span name="attr_faith_max">0</span>
+        </div>
+        <label class="sheet-resource-label">Faith</label>
+        <span class="sheet-resource-calculation">Willpower × Prayer</span>
+    </div>
+
+    <!-- Healing -->
+    <input type="hidden" name="attr_prayer" class="sheet-prayer-input-hidden"/>
+    <div class="sheet-item sheet-prayer-healing">
+        <button type="action" name="act_healing" class="sheet-rollable-mod">
+            <span name="attr_healing"></span>
+        </button>
+        <label class="sheet-resource-label">Healing</label>
+        <span class="sheet-resource-calculation">Xd6 + Prayer</span>
+    </div>
+
+    <!-- Power -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_prayer">0</span>
+        </div>
+        <label class="sheet-resource-label">Power</label>
+    </div>
+</div>
+
+<hr class="sheet-separator"/>
+<h2>Actions</h2>
+
+<comp-pc-prayer-actions></comp-pc-prayer-actions>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-prayer-bottom">
+    <comp-pc-prayer-blessings></comp-pc-prayer-blessings>
+</div>

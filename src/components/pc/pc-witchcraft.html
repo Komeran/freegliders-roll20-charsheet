@@ -1,0 +1,93 @@
+<h1>Witchcraft</h1>
+<hr class="sheet-separator"/>
+
+<div class="sheet-witchcraft-topline">
+    <!-- SRD -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_srd">0</span>
+        </div>
+        <label class="sheet-resource-label">SRD</label>
+    </div>
+
+    <!-- Runecraft -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_runecraft">0</span>
+        </div>
+        <label class="sheet-resource-label">Runecraft</label>
+    </div>
+
+    <!-- Fire Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_fire" min="0" />
+        </div>
+        <label class="sheet-resource-label">Fire</label>
+    </div>
+
+    <!-- Water Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_water" min="0" />
+        </div>
+        <label class="sheet-resource-label">Water</label>
+    </div>
+
+    <!-- Earth Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_earth" min="0" />
+        </div>
+        <label class="sheet-resource-label">Earth</label>
+    </div>
+
+    <!-- Air Essence -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" name="attr_essence_air" min="0" />
+        </div>
+        <label class="sheet-resource-label">Air</label>
+    </div>
+</div>
+
+<hr class="sheet-separator"/>
+<h2>Actions</h2>
+
+<comp-pc-witchcraft-spellwork-actions></comp-pc-witchcraft-spellwork-actions>
+
+<comp-pc-witchcraft-runecraft-actions></comp-pc-witchcraft-runecraft-actions>
+
+<comp-pc-witchcraft-summoning-actions></comp-pc-witchcraft-summoning-actions>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-witchcraft-bottom">
+    <input type="hidden" class="sheet-tabstoggle" name="attr_witchcraftTab" value="0" />
+    <div>
+        <button type="action" name="act_runes" class="sheet-button0">Runes</button>
+        <button type="action" name="act_rituals" class="sheet-button1">Rituals</button>
+        <button type="action" name="act_spells" class="sheet-button2">Spells</button>
+        <button type="action" name="act_curses" class="sheet-button3">Curses</button>
+    </div>
+
+    <!-- Runes -->
+    <div class="sheet-tab0 sheet-witchcraft-runes">
+        <comp-pc-witchcraft-runes></comp-pc-witchcraft-runes>
+    </div>
+
+    <!-- Rituals -->
+    <div class="sheet-tab1 sheet-witchcraft-rituals">
+        <comp-pc-witchcraft-rituals></comp-pc-witchcraft-rituals>
+    </div>
+
+    <!-- Spells -->
+    <div class="sheet-tab2 sheet-witchcraft-spells">
+        <comp-pc-witchcraft-spells></comp-pc-witchcraft-spells>
+    </div>
+
+    <!-- Curses -->
+    <div class="sheet-tab3 sheet-witchcraft-curses">
+        <comp-pc-witchcraft-curses></comp-pc-witchcraft-curses>
+    </div>
+</div>

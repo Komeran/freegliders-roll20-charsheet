@@ -1,0 +1,71 @@
+<h1>Qualities</h1>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-quality-columns">
+    <div class="sheet-qualities-positive">
+        <h2>Positive</h2>
+        <hr class="sheet-section-separator"/>
+        
+        <datalist id="positiveQualities">
+            <option>Agile</option>
+            <option>Ambidextrous</option>
+            <option>Analytical Mind</option>
+            <option>Educated</option>
+            <option>Eidetic Memory</option>
+            <option>Elemental Attunement (Air)</option>
+            <option>Elemental Attunement (Earth)</option>
+            <option>Elemental Attunement (Fire)</option>
+            <option>Elemental Attunement (Water)</option>
+            <option>Empathetic</option>
+            <option>Essence Sensitivity</option>
+            <option>Fast</option>
+            <option>Pious</option>
+            <option>Quick Reflexes</option>
+            <option>Sniper</option>
+            <option>Sharpshooter</option>
+            <option>Tough</option>
+            <option>Weapon Expert</option>
+            <option>Sneaky</option>
+            <option>Inspiring Presence</option>
+            <option>Strong</option>
+            <option>Silver Tongue</option>
+        </datalist>
+
+        <input type="hidden" name="attr_elementalAttunement" />
+
+        <fieldset class="repeating_positiveQuality">
+            <input type="text" name="attr_positiveQuality_name" placeholder="Quality" list="positiveQualities" />
+            <input type="number" name="attr_positiveQuality_level" placeholder="Level" min="0" />
+            <textarea name="attr_positiveQuality_description" placeholder="Description" />
+        </fieldset>
+    </div>
+
+    <div class="sheet-qualities-negative">
+        <h2>Negative</h2>
+        <hr class="sheet-section-separator"/>
+        
+        <datalist id="negativeQualities">
+            <option>Addict</option>
+            <option>Callous</option>
+            <option>Clumsy</option>
+            <option>Disgraced</option>
+            <option>Dull</option>
+            <option>Essence Vulnerability</option>
+            <option>Farsighted</option>
+            <option>Fragile</option>
+            <option>Hard of Hearing</option>
+            <option>Nearsighted</option>
+            <option>Slow</option>
+            <option>Weak</option>
+            <option>Phobia</option>
+            <option>Socially Inept</option>
+        </datalist>
+
+        <fieldset class="repeating_negativeQuality">
+            <input type="text" name="attr_negativeQuality_name" placeholder="Quality" list="negativeQualities" />
+            <input type="number" name="attr_negativeQuality_level" placeholder="Level" min="0" />
+            <textarea name="attr_negativeQuality_description" placeholder="Description" />
+        </fieldset>
+    </div>
+</div>

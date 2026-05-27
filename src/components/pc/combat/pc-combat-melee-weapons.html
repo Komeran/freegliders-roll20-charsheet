@@ -1,0 +1,84 @@
+<h2>Melee Weapons</h2>
+<hr class="sheet-section-separator"/>
+<div class="sheet-unarmedStrike">
+    <span name="unarmedStrike_name">Unarmed Strike</span>
+    <span name="attr_unarmedStrike_atk">+0</span>
+    <span name="attr_unarmedStrike_damage">0 Blunt</span>
+</div>
+
+<datalist id="meleeWeapons">
+    <option>Brass Knuckle</option>
+    <option>Cestus</option>
+    <option>Knife</option>
+    <option>Dagger</option>
+    <option>Throwing Knife</option>
+    <option>Broadsword</option>
+    <option>Longsword</option>
+    <option>Cutlass</option>
+    <option>Rapier</option>
+    <option>Smallsword</option>
+    <option>Cane Sword</option>
+    <option>Hardened Cane</option>
+    <option>Baton</option>
+    <option>Spiked Club</option>
+    <option>Mace</option>
+    <option>Warhammer</option>
+    <option>War Pick</option>
+    <option>Battle Axe</option>
+    <option>Throwing Axe</option>
+    <option>Hatchet</option>
+    <option>Staff</option>
+    <option>Greatsword</option>
+    <option>Maul</option>
+    <option>Pike</option>
+    <option>Halberd</option>
+    <option>Glaive</option>
+    <option>Whip</option>
+</datalist>
+
+<fieldset class="repeating_meleeWeapon">
+    <details class="sheet-attack">
+        <summary class="sheet-spoiler0">
+            <span name="attr_meleeWeapon_name">New Weapon</span>
+            <button type="roll" name="roll_meleeWeapon_rollButton" value="@{meleeWeapon_roll}" />
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input type="text" name="attr_meleeWeapon_name" placeholder="Melee Weapon" list="meleeWeapons" />
+        </div>
+
+        <!-- Skill -->
+        <div>
+            <label class="sheet-spell-label">Skill:</label>
+            <select name="attr_meleeWeapon_skill">
+                <option selected>Brawling</option>
+                <option>Shield</option>
+                <option>One-Handed Melee</option>
+                <option>Two-Handed Melee</option>
+            </select>
+        </div>
+
+        <!-- To Hit -->
+        <div>
+            <label class="sheet-spell-label">To Hit:</label>
+            <input type="text" name="attr_meleeWeapon_atk" placeholder="To Hit" />
+        </div>
+
+        <!-- Damage -->
+        <div>
+            <label class="sheet-spell-label">Damage:</label>
+            <input type="text" name="attr_meleeWeapon_damage" placeholder="Damage" />
+        </div>
+
+        <!-- Weapon Expert -->
+        <div>
+            <label class="sheet-spell-label">Weapon Expert:</label>
+            <input type="checkbox" name="attr_meleeWeapon_weaponExpert" />
+        </div>
+
+    </details>
+
+    <input type="hidden" name="attr_meleeWeapon_roll" />
+</fieldset>

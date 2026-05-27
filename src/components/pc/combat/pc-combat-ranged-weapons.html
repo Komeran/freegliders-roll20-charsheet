@@ -1,0 +1,98 @@
+<h2>Ranged Weapons</h2>
+<hr class="sheet-section-separator"/>
+
+<datalist id="rangedWeapons">
+    <option>Derringer</option>
+    <option>Flintlock Pistol</option>
+    <option>Revolver</option>
+    <option>Pepperbox</option>
+    <option>Flintlock Rifle</option>
+    <option>Blunderbuss</option>
+    <option>Lever-Action Rifle</option>
+    <option>Bolt-Action Rifle</option>
+    <option>Shotgun</option>
+    <option>Hand-Crossbow</option>
+    <option>Crossbow</option>
+    <option>Shortbow</option>
+    <option>Longbow</option>
+    <option>Rocket Launcher</option>
+    <option>Machine Gun (Normal)</option>
+    <option>Machine Gun (Spray)</option>
+    <option>Flamethrower</option>
+    <option>Railgun</option>
+    <option>Pulse Glove</option>
+</datalist>
+
+<table class="sheet-ranged-header">
+    <tr>
+        <th>Ranged Weapon</th>
+        <th>Range</th>
+        <th>ATK</th>
+        <th>Damage</th>
+        <th>Ammo</th>
+    </tr>
+</table>
+<fieldset class="repeating_rangedWeapon">
+    <details class="sheet-attack">
+        <summary class="sheet-spoiler0">
+            <span name="attr_rangedWeapon_name">New Weapon</span>
+            <button type="roll" name="roll_rangedWeapon_rollButton" value="@{rangedWeapon_roll}" />
+        </summary>
+
+        <!-- Name -->
+        <div>
+            <label class="sheet-spell-label">Name:</label>
+            <input type="text" name="attr_rangedWeapon_name" placeholder="Ranged Weapon" list="rangedWeapons" />
+        </div>
+
+        <!-- Skill -->
+        <div>
+            <label class="sheet-spell-label">Skill:</label>
+            <select name="attr_rangedWeapon_skill">
+                <option selected>Artillery</option>
+                <option>Bow</option>
+                <option>Pistol</option>
+                <option>Rifle</option>
+            </select>
+        </div>
+
+        <!-- To Hit -->
+        <div>
+            <label class="sheet-spell-label">To Hit:</label>
+            <input type="text" name="attr_rangedWeapon_atk" placeholder="To Hit" />
+        </div>
+
+        <!-- Damage -->
+        <div>
+            <label class="sheet-spell-label">Damage:</label>
+            <input type="text" name="attr_rangedWeapon_damage" placeholder="Damage" />
+        </div>
+
+        <!-- Weapon Expert -->
+        <div>
+            <label class="sheet-spell-label">Weapon Expert:</label>
+            <input type="checkbox" name="attr_rangedWeapon_weaponExpert" />
+        </div>
+
+        <!-- Range -->
+        <div>
+            <label class="sheet-spell-label">Range:</label>
+            <input type="text" name="attr_rangedWeapon_range" placeholder="Range" />
+        </div>
+
+        <!-- Ammo -->
+        <div>
+            <label class="sheet-spell-label">Ammo:</label>
+            <input type="text" name="attr_rangedWeapon_ammo" placeholder="Ammo" />
+        </div>
+
+        <!-- Quality -->
+        <div>
+            <label class="sheet-spell-label">Quality:</label>
+            <input type="number" name="attr_rangedWeapon_quality" placeholder="Quality" />
+        </div>
+
+    </details>
+    
+    <input type="hidden" name="attr_rangedWeapon_roll" />
+</fieldset>

@@ -1,0 +1,92 @@
+<h1>Combat</h1>
+
+<hr class="sheet-separator"/>
+
+<div class="sheet-combat-topline">
+    <!-- HP -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <input type="number" max="attr_hp_max" min="0" name="attr_hp" value="0"/>
+            <span name="attr_hp_max">0</span>
+        </div>
+        <label class="sheet-resource-label">HP</label>
+        <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Level</span>
+    </div>
+
+    <!-- Hit Die -->
+    <div class="sheet-item" name="hitdie">
+        <button type="action" name="act_hitdie" class="sheet-resource-hitdie">
+            <span name="attr_hitdie"></span>
+        </button>
+        <label class="sheet-resource-label">Hit Die</label>
+    </div>
+
+    <!-- Initiative -->
+    <div class="sheet-item">
+        <button type="action" name="act_initiative" class="sheet-rollable-mod">
+            <span name="attr_initiative"></span>
+        </button>
+        <label class="sheet-resource-label">Initiative</label>
+        <span class="sheet-resource-calculation">AGI + INT</span>
+    </div>
+
+    <!-- Evasion -->
+    <div class="sheet-item">
+        <button type="action" name="act_evasion" class="sheet-rollable-mod">
+            <span name="attr_evasion"></span>
+        </button>
+        <label class="sheet-resource-label">Evasion</label>
+        <span class="sheet-resource-calculation">AGI + INT</span>
+    </div>
+
+    <!-- DAV -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+            <span name="attr_dav">0</span>
+        </div>
+        <label class="sheet-resource-label">DAV</label>
+        <span class="sheet-resource-calculation">Torso AV</span>
+    </div>
+</div>
+
+<div class="sheet-combat-bottom">
+    <div class="sheet-combat-bottom-left">
+        <!-- Death Tests -->
+        <comp-pc-combat-death-tests></comp-pc-combat-death-tests>
+
+        <!-- Armor -->
+        <comp-pc-combat-armor></comp-pc-combat-armor>
+
+        <!-- Ammunition -->
+        <comp-pc-combat-ammunition></comp-pc-combat-ammunition>
+    </div>
+
+    <div class="sheet-combat-bottom-right">
+        <!-- Movement Speed -->
+        <div class="sheet-movementspeed">
+            <input type="text" name="attr_movementspeed" />
+            <label>Movement Speed</label>
+        </div>
+
+        <!-- Vulnerabilities, Resistances, Immunities -->
+        <div>
+            <h2>Vulnerabilities, Resistances, Immunities</h2>
+            <textarea name="attr_vulnerabilitesResistancesImmunities" />
+        </div>
+
+        <!-- Conditions -->
+        <div>
+            <h2>Conditions</h2>
+            <textarea name="attr_conditions" />
+        </div>
+
+        <!-- Shield -->
+        <comp-pc-combat-shield></comp-pc-combat-shield>
+
+        <!-- Melee Weapons -->
+        <comp-pc-combat-melee-weapons></comp-pc-combat-melee-weapons>
+
+        <!-- Ranged Weapons -->
+        <comp-pc-combat-ranged-weapons></comp-pc-combat-ranged-weapons>
+    </div>
+</div>
