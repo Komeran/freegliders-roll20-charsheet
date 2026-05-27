@@ -83,6 +83,147 @@ function injectProps(content, props) {
     return content;
 }
 
+function processConditionals(content, props) {
+    let index = 0;
+
+    function startsWith(str) {
+        return content.startsWith(str, index);
+    }
+
+    function consume(str) {
+        if (!startsWith(str)) {
+            throw new Error(
+                `Expected '${str}' at index ${index}`
+            );
+        }
+
+        index += str.length;
+    }
+
+    function parseBlock(stopTokens = []) {
+        let result = "";
+
+        while (index < content.length) {
+
+            // ELSE
+            if (startsWith("$else$")) {
+                if (stopTokens.includes("else")) {
+                    consume("$else$");
+
+                    return {
+                        token: "else",
+                        content: result
+                    };
+                }
+            }
+
+            // END
+            if (startsWith("$end$")) {
+                if (stopTokens.includes("end")) {
+                    consume("$end$");
+
+                    return {
+                        token: "end",
+                        content: result
+                    };
+                }
+            }
+
+            // IF
+            if (startsWith("$if:")) {
+                result += parseIf();
+                continue;
+            }
+
+            // Normal character
+            result += content[index];
+            index++;
+        }
+
+        return {
+            token: null,
+            content: result
+        };
+    }
+
+    function parseIf() {
+        consume("$if:");
+
+        let negated = false;
+
+        if (content[index] === "!") {
+            negated = true;
+            index++;
+        }
+
+        // Read variable name
+        let varName = "";
+
+        while (
+            index < content.length &&
+            content[index] !== "$"
+        ) {
+            varName += content[index];
+            index++;
+        }
+
+        consume("$");
+
+        if (!varName) {
+            throw new Error(
+                "Empty conditional variable name."
+            );
+        }
+
+        // Parse IF block
+        const ifResult =
+            parseBlock(["else", "end"]);
+
+        if (ifResult.token === null) {
+            throw new Error(
+                `Missing $end$ for $if:${varName}$`
+            );
+        }
+
+        let elseContent = "";
+
+        if (ifResult.token === "else") {
+            const elseResult =
+                parseBlock(["end"]);
+
+            elseContent = elseResult.content;
+        }
+
+        const rawValue = props[varName];
+
+        const value =
+            rawValue === true ||
+            rawValue === "true";
+
+        const finalValue =
+            negated
+                ? !value
+                : value;
+
+        return finalValue
+            ? ifResult.content
+            : elseContent;
+    }
+
+    const result = parseBlock().content;
+
+    if (
+        result.includes("$else$") ||
+        result.includes("$end$")
+    ) {
+        throw new Error(
+            "Unexpected $else$ or $end$ found."
+        );
+    }
+
+    return result;
+}
+
 function resolveComponents(content) {
     return content.replace(
         COMPONENT_REGEX,
@@ -93,16 +234,22 @@ function resolveComponents(content) {
 
             const props = parseProps(propString);
 
+            componentContent = processConditionals(componentContent, props);
             componentContent = injectProps(componentContent, props);
-
             componentContent = resolveComponents(componentContent);
 
-            const unresolved = componentContent.match(/\$[a-zA-Z0-9-_]+\$/g);
+            const unresolved = componentContent.match(/\$[a-zA-Z0-9-_]+\$/g)?.filter(
+                token =>
+                    !token.startsWith("$if:") &&
+                    token !== "$else$" &&
+                    token !== "$end$"
+                );
 
             if (unresolved) {
                 throw new Error(
-                    `Unresolved props in component '${componentName}':\n` +
-                    unresolved.join("\n")
+                    `Unresolved props in component '${componentName}'\n\n` +
+                    `Passed props:\n${JSON.stringify(props, null, 2)}\n\n` +
+                    `Unresolved:\n${unresolved.join("\n")}`
                 );
             }
 

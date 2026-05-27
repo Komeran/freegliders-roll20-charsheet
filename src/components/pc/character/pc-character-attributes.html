@@ -1,67 +1,43 @@
 <div class="sheet-character-attributes">
     <!-- Agility -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_agi" class="sheet-attribute-mod">
-            <span name="attr_agi"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_agility" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Agility</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Agility"
+        prefix="agility"
+        mod="agi"
+    ></comp-pc-character-attribute>
 
     <!-- Body -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_bod" class="sheet-attribute-mod">
-            <span name="attr_bod"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_body" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Body</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Body"
+        prefix="body"
+        mod="bod"
+    ></comp-pc-character-attribute>
 
     <!-- Charisma -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_cha" class="sheet-attribute-mod">
-            <span name="attr_cha"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_charisma" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Charisma</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Charisma"
+        prefix="charisma"
+        mod="cha"
+    ></comp-pc-character-attribute>
 
     <!-- Intuition -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_int" class="sheet-attribute-mod">
-            <span name="attr_int"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_intuition" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Intuition</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Intuition"
+        prefix="intuition"
+        mod="int"
+    ></comp-pc-character-attribute>
 
     <!-- Logic -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_log" class="sheet-attribute-mod">
-            <span name="attr_log"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_logic" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Logic</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Logic"
+        prefix="logic"
+        mod="log"
+    ></comp-pc-character-attribute>
 
     <!-- Willpower -->
-    <div class="sheet-attribute">
-        <button type="action" name="act_wil" class="sheet-attribute-mod">
-            <span name="attr_wil"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_willpower" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Willpower</label>
-    </div>
+    <comp-pc-character-attribute
+        name="Willpower"
+        prefix="willpower"
+        mod="wil"
+    ></comp-pc-character-attribute>
 </div>
