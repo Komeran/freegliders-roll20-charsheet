@@ -9,60 +9,30 @@
                 <th>Mod</th>
             </tr>
             <!-- Athletics -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Athletics [BOD]</td>
-                <td><span name="attr_athleticsPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_athletics" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_athletics" type="action">
-                        <span name="attr_athleticsMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Athletics [BOD]"
+                prefix="athletics"
+            ></comp-pc-character-skill-row>
             <!-- Perception -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Perception [INT]</td>
-                <td><span name="attr_perceptionPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_perception" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_perception" type="action">
-                        <span name="attr_perceptionMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Perception [INT]"
+                prefix="perception"
+            ></comp-pc-character-skill-row>
             <!-- Piloting -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Piloting [AGI]</td>
-                <td><span name="attr_pilotingPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_piloting" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_piloting" type="action">
-                        <span name="attr_pilotingMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Piloting [AGI]"
+                prefix="piloting"
+            ></comp-pc-character-skill-row>
             <!-- Stealth -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Stealth [AGI]</td>
-                <td><span name="attr_stealthPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_stealth" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_stealth" type="action">
-                        <span name="attr_stealthMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Stealth [AGI]"
+                prefix="stealth"
+            ></comp-pc-character-skill-row>
             <!-- Artisanship -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Artisanship [AGI]</td>
-                <td><span name="attr_artisanshipPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_artisanship" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_artisanship" type="action">
-                        <span name="attr_artisanshipMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Artisanship [AGI]"
+                prefix="artisanship"
+            ></comp-pc-character-skill-row>
         </table>
         <!-- Social Skills -->
         <table class="sheet-skill-group">
@@ -73,49 +43,25 @@
                 <th>Mod</th>
             </tr>
             <!-- Deception -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Deception [CHA]</td>
-                <td><span name="attr_deceptionPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_deception" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_deception" type="action">
-                        <span name="attr_deceptionMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Deception [CHA]"
+                prefix="deception"
+            ></comp-pc-character-skill-row>
             <!-- Intimidation -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Intimidation [CHA]</td>
-                <td><span name="attr_intimidationPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_intimidation" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_intimidation" type="action">
-                        <span name="attr_intimidationMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Intimidation [CHA]"
+                prefix="intimidation"
+            ></comp-pc-character-skill-row>
             <!-- Performance -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Performance [CHA]</td>
-                <td><span name="attr_performancePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_performance" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_performance" type="action">
-                        <span name="attr_performanceMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Performance [CHA]"
+                prefix="performance"
+            ></comp-pc-character-skill-row>
             <!-- Persuasion -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Persuasion [CHA]</td>
-                <td><span name="attr_persuasionPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_persuasion" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_persuasion" type="action">
-                        <span name="attr_persuasionMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Persuasion [CHA]"
+                prefix="persuasion"
+            ></comp-pc-character-skill-row>
         </table>
         <!-- Knowledge Skills -->
         <table class="sheet-skill-group">
@@ -126,93 +72,45 @@
                 <th>Mod</th>
             </tr>
             <!-- Astronomy -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Astronomy [LOG]</td>
-                <td><span name="attr_astronomyPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_astronomy" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_astronomy" type="action">
-                        <span name="attr_astronomyMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Astronomy [LOG]"
+                prefix="astronomy"
+            ></comp-pc-character-skill-row>
             <!-- Economy -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Economy [LOG]</td>
-                <td><span name="attr_economyPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_economy" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_economy" type="action">
-                        <span name="attr_economyMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Economy [LOG]"
+                prefix="economy"
+            ></comp-pc-character-skill-row>
             <!-- History -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">History [LOG]</td>
-                <td><span name="attr_historyPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_history" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_history" type="action">
-                        <span name="attr_historyMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="History [LOG]"
+                prefix="history"
+            ></comp-pc-character-skill-row>
             <!-- Literature -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Literature [LOG]</td>
-                <td><span name="attr_literaturePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_literature" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_literature" type="action">
-                        <span name="attr_literatureMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Literature [LOG]"
+                prefix="literature"
+            ></comp-pc-character-skill-row>
             <!-- Medicine -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Medicine [LOG]</td>
-                <td><span name="attr_medicinePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_medicine" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_medicine" type="action">
-                        <span name="attr_medicineMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Medicine [LOG]"
+                prefix="medicine"
+            ></comp-pc-character-skill-row>
             <!-- Mythology -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Mythology [LOG]</td>
-                <td><span name="attr_mythologyPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_mythology" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_mythology" type="action">
-                        <span name="attr_mythologyMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Mythology [LOG]"
+                prefix="mythology"
+            ></comp-pc-character-skill-row>
             <!-- Nature -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Nature [LOG]</td>
-                <td><span name="attr_naturePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_nature" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_nature" type="action">
-                        <span name="attr_natureMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Nature [LOG]"
+                prefix="nature"
+            ></comp-pc-character-skill-row>
             <!-- Survival -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Survival [INT]</td>
-                <td><span name="attr_survivalPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_survival" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_survival" type="action">
-                        <span name="attr_survivalMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Survival [INT]"
+                prefix="survival"
+            ></comp-pc-character-skill-row>
         </table>
     </div>
 
@@ -226,71 +124,35 @@
                 <th>Mod</th>
             </tr>
             <!-- Clockwork Mechanics -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Clockwork Mechanics [LOG]</td>
-                <td><span name="attr_clockworkmechanicsPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_clockworkmechanics" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_clockworkmechanics" type="action">
-                        <span name="attr_clockworkmechanicsMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Clockwork Mechanics [LOG]"
+                prefix="clockworkmechanics"
+            ></comp-pc-character-skill-row>
             <!-- Automachinery -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Automachinery [LOG]</td>
-                <td><span name="attr_automachineryPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_automachinery" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_automachinery" type="action">
-                        <span name="attr_automachineryMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Automachinery [LOG]"
+                prefix="automachinery"
+            ></comp-pc-character-skill-row>
             <!-- Augmentation -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Augmentation [LOG]</td>
-                <td><span name="attr_augmentationPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_augmentation" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_augmentation" type="action">
-                        <span name="attr_augmentationMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Augmentation [LOG]"
+                prefix="augmentation"
+            ></comp-pc-character-skill-row>
             <!-- Gunsmithing -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Gunsmithing [AGI]</td>
-                <td><span name="attr_gunsmithingPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_gunsmithing" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_gunsmithing" type="action">
-                        <span name="attr_gunsmithingMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Gunsmithing [AGI]"
+                prefix="gunsmithing"
+            ></comp-pc-character-skill-row>
             <!-- Tinkering -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Tinkering [AGI]</td>
-                <td><span name="attr_tinkeringPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_tinkering" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_tinkering" type="action">
-                        <span name="attr_tinkeringMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Tinkering [AGI]"
+                prefix="tinkering"
+            ></comp-pc-character-skill-row>
             <!-- Vehicle Mechanics -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Vehicle Mechanics [BOD]</td>
-                <td><span name="attr_vehiclemechanicsPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_vehiclemechanics" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_vehiclemechanics" type="action">
-                        <span name="attr_vehiclemechanicsMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Vehicle Mechanics [BOD]"
+                prefix="vehiclemechanics"
+            ></comp-pc-character-skill-row>
         </table>
 
         <!-- Magic Skills -->
@@ -302,60 +164,30 @@
                 <th>Mod</th>
             </tr>
             <!-- Alchemy -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Alchemy [LOG]</td>
-                <td><span name="attr_alchemyPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_alchemy" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_alchemy" type="action">
-                        <span name="attr_alchemyMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Alchemy [LOG]"
+                prefix="alchemy"
+            ></comp-pc-character-skill-row>
             <!-- Prayer -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Prayer [WIL]</td>
-                <td><span name="attr_prayerPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_prayer" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_prayer" type="action">
-                        <span name="attr_prayerMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Prayer [WIL]"
+                prefix="prayer"
+            ></comp-pc-character-skill-row>
             <!-- Spellwork -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Spellwork [WIL]</td>
-                <td><span name="attr_spellworkPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_spellwork" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_spellwork" type="action">
-                        <span name="attr_spellworkMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Spellwork [WIL]"
+                prefix="spellwork"
+            ></comp-pc-character-skill-row>
             <!-- Runecraft -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Runecraft [LOG]</td>
-                <td><span name="attr_runecraftPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_runecraft" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_runecraft" type="action">
-                        <span name="attr_runecraftMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Runecraft [LOG]"
+                prefix="runecraft"
+            ></comp-pc-character-skill-row>
             <!-- Summoning -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Summoning [WIL]</td>
-                <td><span name="attr_summoningPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_summoning" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_summoning" type="action">
-                        <span name="attr_summoningMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Summoning [WIL]"
+                prefix="summoning"
+            ></comp-pc-character-skill-row>
         </table>
 
         <!-- Combat Skills -->
@@ -367,93 +199,45 @@
                 <th>Mod</th>
             </tr>
             <!-- Artillery -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Artillery [AGI]</td>
-                <td><span name="attr_artilleryPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_artillery" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_artillery" type="action">
-                        <span name="attr_artilleryMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Artillery [AGI]"
+                prefix="artillery"
+            ></comp-pc-character-skill-row>
             <!-- Brawling -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Brawling [AGI]</td>
-                <td><span name="attr_brawlingPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_brawling" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_brawling" type="action">
-                        <span name="attr_brawlingMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Brawling [AGI]"
+                prefix="brawling"
+            ></comp-pc-character-skill-row>
             <!-- Bow -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Bow [AGI]</td>
-                <td><span name="attr_bowPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_bow" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_bow" type="action">
-                        <span name="attr_bowMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Bow [AGI]"
+                prefix="bow"
+            ></comp-pc-character-skill-row>
             <!-- Pistol -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Pistol [AGI]</td>
-                <td><span name="attr_pistolPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_pistol" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_pistol" type="action">
-                        <span name="attr_pistolMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Pistol [AGI]"
+                prefix="pistol"
+            ></comp-pc-character-skill-row>
             <!-- Rifle -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Rifle [AGI]</td>
-                <td><span name="attr_riflePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_rifle" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_rifle" type="action">
-                        <span name="attr_rifleMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Rifle [AGI]"
+                prefix="rifle"
+            ></comp-pc-character-skill-row>
             <!-- Shield -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Shield [BOD]</td>
-                <td><span name="attr_shieldPassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_shield" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_shield" type="action">
-                        <span name="attr_shieldMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Shield [BOD]"
+                prefix="shield"
+            ></comp-pc-character-skill-row>
             <!-- One-Handed Melee -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">One-Handed Melee [AGI]</td>
-                <td><span name="attr_onehandedmeleePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_onehandedmelee" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_onehandedmelee" type="action">
-                        <span name="attr_onehandedmeleeMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="One-Handed Melee [AGI]"
+                prefix="onehandedmelee"
+            ></comp-pc-character-skill-row>
             <!-- Two-Handed Melee -->
-            <tr class="sheet-skill-line">
-                <td class="sheet-skill-name">Two-Handed Melee [BOD]</td>
-                <td><span name="attr_twohandedmeleePassive"></span></td>
-                <td><input class="sheet-skill-ranks" min="0" name="attr_twohandedmelee" type="number" /></td>
-                <td>
-                    <button class="sheet-skill-mod" name="act_twohandedmelee" type="action">
-                        <span name="attr_twohandedmeleeMod"></span>
-                    </button>
-                </td>
-            </tr>
+            <comp-pc-character-skill-row
+                name="Two-Handed Melee [BOD]"
+                prefix="twohandedmelee"
+            ></comp-pc-character-skill-row>
         </table>
     </div>
 </div>

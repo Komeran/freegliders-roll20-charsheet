@@ -1,0 +1,111 @@
+<div class="sheet-npc-attacks">
+    <fieldset class="repeating_npcAttack">
+        <input type="text" name="attr_npc_attack_name" placeholder="Name" />
+        <select name="attr_npc_attack_type">
+            <option selected>Melee</option>
+            <option>Ranged</option>
+            <option>Special</option>
+        </select>
+        <select name="attr_npc_attack_type2">
+            <option selected>Weapon</option>
+            <option>Unarmed</option>
+            <option>Spell</option>
+            <option>Innate</option>
+        </select>
+        <br/>
+        <label class="sheet-checkbox-label">Attack Test</label><input type="checkbox" name="attr_npc_attack_isAttackTest"/>
+        <label class="sheet-checkbox-label">Requires Save</label><input type="checkbox" name="attr_npc_attack_requiresSave"/>
+        <div class="sheet-npc-attack-atk">
+            <label>Attack:</label>
+            <input type="text" name="attr_npc_attack_atkMod" placeholder="ATK" />
+            +
+            <select name="attr_npc_attack_atkAttribute">
+                <option value="none" selected>- Attribute -</option>
+                <option>Agility</option>
+                <option>Body</option>
+                <option>Charisma</option>
+                <option>Intuition</option>
+                <option>Logic</option>
+                <option>Willpower</option>
+            </select>
+            =
+            <span name="attr_npc_attack_atk">0</span>
+        </div>
+        <div class="sheet-npc-attack-save">
+            <label>Save DT:</label>
+            <input type="text" name="attr_npc_attack_difficultyMod" placeholder="DT"/>
+            +
+            <select name="attr_npc_attack_difficultyAttribute">
+                <option value="none" selected>- DT Attribute -</option>
+                <option>Agility</option>
+                <option>Body</option>
+                <option>Charisma</option>
+                <option>Intuition</option>
+                <option>Logic</option>
+                <option>Willpower</option>
+            </select>
+            =
+            <span name="attr_npc_attack_difficulty">0</span>
+            <br>
+            <label>Save Test:</label>
+            <select name="attr_npc_attack_saveAttribute">
+                <option value="none" selected>- Save Attribute -</option>
+                <option>Agility</option>
+                <option>Body</option>
+                <option>Charisma</option>
+                <option>Intuition</option>
+                <option>Logic</option>
+                <option>Willpower</option>
+            </select>
+            <select name="attr_npc_attack_saveSkill">
+                <option value="none" selected>- Save Skill -</option>
+                <option>Evasion</option>
+                <option>Athletics</option>
+                <option>Perception</option>
+                <option>Piloting</option>
+                <option>Stealth</option>
+                <option>Artisanship</option>
+                <option>Deception</option>
+                <option>Intimidation</option>
+                <option>Performance</option>
+                <option>Persuasion</option>
+                <option>Astronomy</option>
+                <option>Economy</option>
+                <option>History</option>
+                <option>Literature</option>
+                <option>Medicine</option>
+                <option>Mythology</option>
+                <option>Nature</option>
+                <option>Survival</option>
+                <option>Clockwork Mechanics</option>
+                <option>Automachinery</option>
+                <option>Augmentation</option>
+                <option>Gunsmithing</option>
+                <option>Tinkering</option>
+                <option>Vehicle Mechanics</option>
+                <option>Alchemy</option>
+                <option>Prayer</option>
+                <option>Spellwork</option>
+                <option>Runecraft</option>
+                <option>Summoning</option>
+                <option>Artillery</option>
+                <option>Brawling</option>
+                <option>Bow</option>
+                <option>Pistol</option>
+                <option>Rifle</option>
+                <option>Shield</option>
+                <option>One-Handed Melee</option>
+                <option>Two-Handed Melee</option>
+            </select>
+        </div>
+        <div class="sheet-npc-attack-damage">
+            <input type="text" name="attr_npc_attack_damage" placeholder="Damage" />
+        </div>
+        <div class="sheet-npc-attack-description">
+            <textarea name="attr_npc_attack_description" placeholder="Description..."/>
+        </div>
+        <button type="action" name="act_npcattackrollbutton">
+            Roll
+        </button>
+    </fieldset>
+</div>

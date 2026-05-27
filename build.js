@@ -25,8 +25,7 @@ function readDirFiles(dir, ext) {
     return results.join("\n");
 }
 
-const COMPONENT_REGEX =
-    /<comp-([a-z0-9-]+)><\/comp-\1>/g;
+const COMPONENT_REGEX = /<comp-([a-z0-9-]+)([^>]*)><\/comp-\1>/g;
 
 function walk(dir) {
     let results = [];
@@ -56,25 +55,58 @@ function findComponentFile(name) {
     );
 
     if (!match) {
-        throw new Error(
-            `Component not found: comp-${name}`
-        );
+        throw new Error(`Component not found: comp-${name}`);
     }
 
     return match;
 }
 
+function parseProps(propString) {
+    const props = {};
+
+    const ATTR_REGEX = /([a-zA-Z0-9-_]+)="([^"]*)"/g;
+
+    let match;
+
+    while ((match = ATTR_REGEX.exec(propString)) !== null) {
+        props[match[1]] = match[2];
+    }
+
+    return props;
+}
+
+function injectProps(content, props) {
+    for (const [key, value] of Object.entries(props)) {
+        content = content.replaceAll(`$${key}$`, value);
+    }
+
+    return content;
+}
+
 function resolveComponents(content) {
     return content.replace(
         COMPONENT_REGEX,
-        (_, componentName) => {
-            const componentPath =
-                findComponentFile(componentName);
+        (_, componentName, propString) => {
+            const componentPath = findComponentFile(componentName);
 
-            const componentContent =
-                read(componentPath);
+            let componentContent = read(componentPath);
 
-            return resolveComponents(componentContent);
+            const props = parseProps(propString);
+
+            componentContent = injectProps(componentContent, props);
+
+            componentContent = resolveComponents(componentContent);
+
+            const unresolved = componentContent.match(/\$[a-zA-Z0-9-_]+\$/g);
+
+            if (unresolved) {
+                throw new Error(
+                    `Unresolved props in component '${componentName}':\n` +
+                    unresolved.join("\n")
+                );
+            }
+
+            return componentContent;
         }
     );
 }
