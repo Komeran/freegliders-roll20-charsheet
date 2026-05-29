@@ -67,59 +67,7 @@
 
     <hr class="sheet-separator" />
     
-    <div class="sheet-npc-topline">
-        <!-- HP -->
-        <div class="sheet-item">
-            <div class="sheet-resource">
-                <input type="number" min="0" name="attr_npc_hp" value="0"/>
-                <input type="number" min="0" name="attr_npc_hp_max" value="0"/>
-            </div>
-            <label class="sheet-resource-label">HP</label>
-            <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Power Level</span>
-        </div>
-
-        <!-- Hit Die -->
-        <div class="sheet-item" name="hitdie">
-            <div class="sheet-resource-hitdie">
-                <select name="attr_hitdie">
-                    <option>d4</option>
-                    <option selected>d6</option>
-                    <option>d8</option>
-                    <option>d10</option>
-                    <option>d12</option>
-                    <option>d20</option>
-                </select>
-            </div>
-            <label class="sheet-resource-label">Hit Die</label>
-        </div>
-
-        <!-- Initiative -->
-        <div class="sheet-item">
-            <button type="action" name="act_initiative" class="sheet-rollable-mod">
-                <span name="attr_initiative"></span>
-            </button>
-            <label class="sheet-resource-label">Initiative</label>
-            <span class="sheet-resource-calculation">AGI + INT</span>
-        </div>
-
-        <!-- Evasion -->
-        <div class="sheet-item">
-            <button type="action" name="act_evasion" class="sheet-rollable-mod">
-                <span name="attr_evasion"></span>
-            </button>
-            <label class="sheet-resource-label">Evasion</label>
-            <span class="sheet-resource-calculation">AGI + INT</span>
-        </div>
-
-        <!-- DAV -->
-        <div class="sheet-item">
-            <div class="sheet-resource">
-                <input type="number" name="attr_npc_dav" min="0">0</input>
-            </div>
-            <label class="sheet-resource-label">DAV</label>
-            <span class="sheet-resource-calculation">Torso AV</span>
-        </div>
-    </div>
+    <comp-npc-topline></comp-npc-topline>
 
     <hr class="sheet-separator" />
 

@@ -641,11 +641,34 @@
     <!-- HP -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" max="attr_hp_max" min="0" name="attr_hp" value="0"/>
+    
+        <input
+            type="number"
+            
+                max="attr_hp_max"
+            
+            
+                min="0"
+            
+            name="attr_hp"
+            value="0"
+        />
+    
+
+    
+        
             <span name="attr_hp_max">0</span>
-        </div>
-        <label class="sheet-resource-label">HP</label>
-        <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Level</span>
+        
+    
+</div>
+
+
+    <label class="sheet-resource-label">HP</label>
+
+
+
+    <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Level</span>
+
     </div>
 
     <!-- Hit Die -->
@@ -659,28 +682,46 @@
     <!-- Initiative -->
     <div class="sheet-item">
         <button type="action" name="act_initiative" class="sheet-rollable-mod">
-            <span name="attr_initiative"></span>
-        </button>
-        <label class="sheet-resource-label">Initiative</label>
-        <span class="sheet-resource-calculation">AGI + INT</span>
+    <span name="attr_initiative"></span>
+</button>
+
+<label class="sheet-resource-label">Initiative</label>
+
+
+<span class="sheet-resource-calculation">AGI + INT</span>
+
     </div>
 
     <!-- Evasion -->
     <div class="sheet-item">
         <button type="action" name="act_evasion" class="sheet-rollable-mod">
-            <span name="attr_evasion"></span>
-        </button>
-        <label class="sheet-resource-label">Evasion</label>
-        <span class="sheet-resource-calculation">AGI + INT</span>
+    <span name="attr_evasion"></span>
+</button>
+
+<label class="sheet-resource-label">Evasion</label>
+
+
+<span class="sheet-resource-calculation">AGI + INT</span>
+
     </div>
 
     <!-- DAV -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_dav">0</span>
-        </div>
-        <label class="sheet-resource-label">DAV</label>
-        <span class="sheet-resource-calculation">Torso AV</span>
+    
+        <span name="attr_dav">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">DAV</label>
+
+
+
+    <span class="sheet-resource-calculation">Torso AV</span>
+
     </div>
 </div>
 
@@ -725,196 +766,196 @@
     </tr>
     <!-- Head -->
     <tr>
-        <td>Head</td>
-        <td>
-            <input type="text" name="attr_headArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_headAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_headAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_headTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Head</td>
+    <td>
+        <input type="text" name="attr_headArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_headAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_headAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_headTotalAV">0</span>
+    </td>
+</tr>
     <!-- Left Eye -->
     <tr>
-        <td>Left Eye</td>
-        <td>
-            <input type="text" name="attr_leftEyeArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_leftEyeAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_leftEyeAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_leftEyeTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Left Eye</td>
+    <td>
+        <input type="text" name="attr_leftEyeArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_leftEyeAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_leftEyeAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_leftEyeTotalAV">0</span>
+    </td>
+</tr>
     <!-- Right Eye -->
     <tr>
-        <td>Right Eye</td>
-        <td>
-            <input type="text" name="attr_rightEyeArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_rightEyeAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_rightEyeAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_rightEyeTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Right Eye</td>
+    <td>
+        <input type="text" name="attr_rightEyeArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_rightEyeAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_rightEyeAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_rightEyeTotalAV">0</span>
+    </td>
+</tr>
     <!-- Torso -->
     <tr>
-        <td>Torso</td>
-        <td>
-            <input type="text" name="attr_torsoArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_torsoAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_torsoAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_torsoTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Torso</td>
+    <td>
+        <input type="text" name="attr_torsoArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_torsoAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_torsoAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_torsoTotalAV">0</span>
+    </td>
+</tr>
     <!-- Left Arm -->
     <tr>
-        <td>Left Arm</td>
-        <td>
-            <input type="text" name="attr_leftArmArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_leftArmAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_leftArmAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_leftArmTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Left Arm</td>
+    <td>
+        <input type="text" name="attr_leftArmArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_leftArmAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_leftArmAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_leftArmTotalAV">0</span>
+    </td>
+</tr>
     <!-- Right Arm -->
     <tr>
-        <td>Right Arm</td>
-        <td>
-            <input type="text" name="attr_rightArmArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_rightArmAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_rightArmAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_rightArmTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Right Arm</td>
+    <td>
+        <input type="text" name="attr_rightArmArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_rightArmAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_rightArmAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_rightArmTotalAV">0</span>
+    </td>
+</tr>
     <!-- Left Hand -->
     <tr>
-        <td>Left Hand</td>
-        <td>
-            <input type="text" name="attr_leftHandArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_leftHandAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_leftHandAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_leftHandTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Left Hand</td>
+    <td>
+        <input type="text" name="attr_leftHandArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_leftHandAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_leftHandAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_leftHandTotalAV">0</span>
+    </td>
+</tr>
     <!-- Right Hand -->
     <tr>
-        <td>Right Hand</td>
-        <td>
-            <input type="text" name="attr_rightHandArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_rightHandAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_rightHandAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_rightHandTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Right Hand</td>
+    <td>
+        <input type="text" name="attr_rightHandArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_rightHandAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_rightHandAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_rightHandTotalAV">0</span>
+    </td>
+</tr>
     <!-- Left Leg -->
     <tr>
-        <td>Left Leg</td>
-        <td>
-            <input type="text" name="attr_leftLegArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_leftLegAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_leftLegAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_leftLegTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Left Leg</td>
+    <td>
+        <input type="text" name="attr_leftLegArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_leftLegAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_leftLegAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_leftLegTotalAV">0</span>
+    </td>
+</tr>
     <!-- Right Leg -->
     <tr>
-        <td>Right Leg</td>
-        <td>
-            <input type="text" name="attr_rightLegArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_rightLegAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_rightLegAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_rightLegTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Right Leg</td>
+    <td>
+        <input type="text" name="attr_rightLegArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_rightLegAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_rightLegAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_rightLegTotalAV">0</span>
+    </td>
+</tr>
     <!-- Left Foot -->
     <tr>
-        <td>Left Foot</td>
-        <td>
-            <input type="text" name="attr_leftFootArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_leftFootAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_leftFootAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_leftFootTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Left Foot</td>
+    <td>
+        <input type="text" name="attr_leftFootArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_leftFootAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_leftFootAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_leftFootTotalAV">0</span>
+    </td>
+</tr>
     <!-- Right Foot -->
     <tr>
-        <td>Right Foot</td>
-        <td>
-            <input type="text" name="attr_rightFootArmor" />
-        </td>
-        <td>
-            <input type="number" name="attr_rightFootAV" min="0" value="0" />
-        </td>
-        <td>
-            <span name="attr_rightFootAugmentAV">+0</span>
-        </td>
-        <td>
-            <span name="attr_rightFootTotalAV">0</span>
-        </td>
-    </tr>
+    <td>Right Foot</td>
+    <td>
+        <input type="text" name="attr_rightFootArmor" />
+    </td>
+    <td>
+        <input type="number" name="attr_rightFootAV" min="0" value="0" />
+    </td>
+    <td>
+        <span name="attr_rightFootAugmentAV">+0</span>
+    </td>
+    <td>
+        <span name="attr_rightFootTotalAV">0</span>
+    </td>
+</tr>
 </table>
 
         <!-- Ammunition -->
@@ -1470,29 +1511,67 @@
     <!-- Faith -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" min="0" name="attr_faith" value="0"/>
+    
+        <input
+            type="number"
+            
+                max="attr_faith_max"
+            
+            
+                min="0"
+            
+            name="attr_faith"
+            value="0"
+        />
+    
+
+    
+        
             <span name="attr_faith_max">0</span>
-        </div>
-        <label class="sheet-resource-label">Faith</label>
-        <span class="sheet-resource-calculation">Willpower × Prayer</span>
+        
+    
+</div>
+
+
+    <label class="sheet-resource-label">Faith</label>
+
+
+
+    <span class="sheet-resource-calculation">Willpower × Prayer</span>
+
     </div>
 
     <!-- Healing -->
     <input type="hidden" name="attr_prayer" class="sheet-prayer-input-hidden"/>
     <div class="sheet-item sheet-prayer-healing">
         <button type="action" name="act_healing" class="sheet-rollable-mod">
-            <span name="attr_healing"></span>
-        </button>
-        <label class="sheet-resource-label">Healing</label>
-        <span class="sheet-resource-calculation">Xd6 + Prayer</span>
+    <span name="attr_healing"></span>
+</button>
+
+<label class="sheet-resource-label">Healing</label>
+
+
+<span class="sheet-resource-calculation">Xd6 + Prayer</span>
+
     </div>
 
     <!-- Power -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_prayer">0</span>
-        </div>
-        <label class="sheet-resource-label">Power</label>
+    
+        <span name="attr_prayer">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Power</label>
+
+
+
+    <span class="sheet-resource-calculation">Prayer Ranks</span>
+
     </div>
 </div>
 
@@ -1631,50 +1710,138 @@
     <!-- SRD -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_srd">0</span>
-        </div>
-        <label class="sheet-resource-label">SRD</label>
+    
+        <span name="attr_srd">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">SRD</label>
+
+
+
+    <span class="sheet-resource-calculation">10 + WIL + Spellwork</span>
+
     </div>
 
     <!-- Runecraft -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_runecraft">0</span>
-        </div>
-        <label class="sheet-resource-label">Runecraft</label>
+    
+        <span name="attr_runecraft">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Runecraft</label>
+
+
+
     </div>
 
     <!-- Fire Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_fire" min="0" />
-        </div>
-        <label class="sheet-resource-label">Fire</label>
-    </div>
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_fire"
+            value="0"
+        />
+    
 
-    <!-- Water Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_water" min="0" />
-        </div>
-        <label class="sheet-resource-label">Water</label>
-    </div>
+    
+</div>
 
-    <!-- Earth Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_earth" min="0" />
-        </div>
-        <label class="sheet-resource-label">Earth</label>
-    </div>
 
-    <!-- Air Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_air" min="0" />
-        </div>
-        <label class="sheet-resource-label">Air</label>
-    </div>
+    <label class="sheet-resource-label">Fire</label>
+
+
+
+</div>
+
+<!-- Water Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_water"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Water</label>
+
+
+
+</div>
+
+<!-- Earth Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_earth"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Earth</label>
+
+
+
+</div>
+
+<!-- Air Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_air"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Air</label>
+
+
+
+</div>
 </div>
 
 <hr class="sheet-separator"/>
@@ -2207,42 +2374,119 @@
     <!-- Alchemy Ranks -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_alchemy">0</span>
-        </div>
-        <label class="sheet-resource-label">Alchemy Ranks</label>
+    
+        <span name="attr_alchemy">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Alchemy</label>
+
+
+
     </div>
 
     <!-- Fire Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_fire" min="0" />
-        </div>
-        <label class="sheet-resource-label">Fire</label>
-    </div>
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_fire"
+            value="0"
+        />
+    
 
-    <!-- Water Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_water" min="0" />
-        </div>
-        <label class="sheet-resource-label">Water</label>
-    </div>
+    
+</div>
 
-    <!-- Earth Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_earth" min="0" />
-        </div>
-        <label class="sheet-resource-label">Earth</label>
-    </div>
 
-    <!-- Air Essence -->
-    <div class="sheet-item">
-        <div class="sheet-resource">
-            <input type="number" name="attr_essence_air" min="0" />
-        </div>
-        <label class="sheet-resource-label">Air</label>
-    </div>
+    <label class="sheet-resource-label">Fire</label>
+
+
+
+</div>
+
+<!-- Water Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_water"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Water</label>
+
+
+
+</div>
+
+<!-- Earth Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_earth"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Earth</label>
+
+
+
+</div>
+
+<!-- Air Essence -->
+<div class="sheet-item">
+    <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_essence_air"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Air</label>
+
+
+
+</div>
 </div>
 
 <hr class="sheet-separator"/>
@@ -2390,61 +2634,179 @@
 <hr class="sheet-separator"/>
 
 <div class="sheet-engineering-topline">
-
     <!-- Bolts -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_bolts" min="0" />
-        </div>
-        <label class="sheet-resource-label">Bolts</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_bolts"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Bolts</label>
+
+
+
     </div>
 
     <!-- Plates -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_plates" min="0" />
-        </div>
-        <label class="sheet-resource-label">Plates</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_plates"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Plates</label>
+
+
+
     </div>
 
     <!-- Wires -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_wires" min="0" />
-        </div>
-        <label class="sheet-resource-label">Wires</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_wires"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Wires</label>
+
+
+
     </div>
 
     <!-- Cogs -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_cogs" min="0" />
-        </div>
-        <label class="sheet-resource-label">Cogs</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_cogs"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Cogs</label>
+
+
+
     </div>
 
     <!-- Rods -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_rods" min="0" />
-        </div>
-        <label class="sheet-resource-label">Rods</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_rods"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Rods</label>
+
+
+
     </div>
 
     <!-- Lenses -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_lenses" min="0" />
-        </div>
-        <label class="sheet-resource-label">Lenses</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_lenses"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Lenses</label>
+
+
+
     </div>
 
     <!-- Gunpowder -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_gunpowder" min="0" />
-        </div>
-        <label class="sheet-resource-label">Gunpowder</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_gunpowder"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Gunpowder</label>
+
+
+
     </div>
 </div>
 
@@ -2789,57 +3151,168 @@
     <!-- Quality -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <span name="attr_augmentation">0</span>
-        </div>
-        <label class="sheet-resource-label">Quality</label>
+    
+        <span name="attr_augmentation">0</span>
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Quality</label>
+
+
+
     </div>
 
     <!-- Bolts -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_bolts" min="0" />
-        </div>
-        <label class="sheet-resource-label">Bolts</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_bolts"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Bolts</label>
+
+
+
     </div>
 
     <!-- Plates -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_plates" min="0" />
-        </div>
-        <label class="sheet-resource-label">Plates</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_plates"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Plates</label>
+
+
+
     </div>
 
     <!-- Wires -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_wires" min="0" />
-        </div>
-        <label class="sheet-resource-label">Wires</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_wires"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Wires</label>
+
+
+
     </div>
 
     <!-- Cogs -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_cogs" min="0" />
-        </div>
-        <label class="sheet-resource-label">Cogs</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_cogs"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Cogs</label>
+
+
+
     </div>
 
     <!-- Rods -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_rods" min="0" />
-        </div>
-        <label class="sheet-resource-label">Rods</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_rods"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Rods</label>
+
+
+
     </div>
 
     <!-- Lenses -->
     <div class="sheet-item">
         <div class="sheet-resource">
-            <input type="number" name="attr_lenses" min="0" />
-        </div>
-        <label class="sheet-resource-label">Lenses</label>
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_lenses"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">Lenses</label>
+
+
+
     </div>
 </div>
 
@@ -3272,120 +3745,174 @@
     <hr class="sheet-separator" />
     
     <div class="sheet-npc-topline">
-        <!-- HP -->
-        <div class="sheet-item">
-            <div class="sheet-resource">
-                <input type="number" min="0" name="attr_npc_hp" value="0"/>
-                <input type="number" min="0" name="attr_npc_hp_max" value="0"/>
-            </div>
-            <label class="sheet-resource-label">HP</label>
-            <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Power Level</span>
-        </div>
+    <!-- HP -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+                max="attr_npc_hp_max"
+            
+            
+                min="0"
+            
+            name="attr_npc_hp"
+            value="0"
+        />
+    
 
-        <!-- Hit Die -->
-        <div class="sheet-item" name="hitdie">
-            <div class="sheet-resource-hitdie">
-                <select name="attr_hitdie">
-                    <option>d4</option>
-                    <option selected>d6</option>
-                    <option>d8</option>
-                    <option>d10</option>
-                    <option>d12</option>
-                    <option>d20</option>
-                </select>
-            </div>
-            <label class="sheet-resource-label">Hit Die</label>
-        </div>
+    
+        
+            <input
+                type="number"
+                min="0"
+                name="attr_npc_hp_max"
+                value="0"
+            />
+        
+    
+</div>
 
-        <!-- Initiative -->
-        <div class="sheet-item">
-            <button type="action" name="act_initiative" class="sheet-rollable-mod">
-                <span name="attr_initiative"></span>
-            </button>
-            <label class="sheet-resource-label">Initiative</label>
-            <span class="sheet-resource-calculation">AGI + INT</span>
-        </div>
 
-        <!-- Evasion -->
-        <div class="sheet-item">
-            <button type="action" name="act_evasion" class="sheet-rollable-mod">
-                <span name="attr_evasion"></span>
-            </button>
-            <label class="sheet-resource-label">Evasion</label>
-            <span class="sheet-resource-calculation">AGI + INT</span>
-        </div>
+    <label class="sheet-resource-label">HP</label>
 
-        <!-- DAV -->
-        <div class="sheet-item">
-            <div class="sheet-resource">
-                <input type="number" name="attr_npc_dav" min="0">0</input>
-            </div>
-            <label class="sheet-resource-label">DAV</label>
-            <span class="sheet-resource-calculation">Torso AV</span>
-        </div>
+
+
+    <span class="sheet-resource-calculation">(Body + (Hit Die Max / 2)) × Power Level</span>
+
     </div>
+
+    <!-- Hit Die -->
+    <div class="sheet-item" name="hitdie">
+        <div class="sheet-resource-hitdie">
+            <select name="attr_hitdie">
+                <option>d4</option>
+                <option selected>d6</option>
+                <option>d8</option>
+                <option>d10</option>
+                <option>d12</option>
+                <option>d20</option>
+            </select>
+        </div>
+        <label class="sheet-resource-label">Hit Die</label>
+    </div>
+
+    <!-- Initiative -->
+    <div class="sheet-item">
+        <button type="action" name="act_initiative" class="sheet-rollable-mod">
+    <span name="attr_initiative"></span>
+</button>
+
+<label class="sheet-resource-label">Initiative</label>
+
+
+<span class="sheet-resource-calculation">AGI + INT</span>
+
+    </div>
+
+    <!-- Evasion -->
+    <div class="sheet-item">
+        <button type="action" name="act_evasion" class="sheet-rollable-mod">
+    <span name="attr_evasion"></span>
+</button>
+
+<label class="sheet-resource-label">Evasion</label>
+
+
+<span class="sheet-resource-calculation">AGI + INT</span>
+
+    </div>
+
+    <!-- DAV -->
+    <div class="sheet-item">
+        <div class="sheet-resource">
+    
+        <input
+            type="number"
+            
+            
+                min="0"
+            
+            name="attr_npc_dav"
+            value="0"
+        />
+    
+
+    
+</div>
+
+
+    <label class="sheet-resource-label">DAV</label>
+
+
+
+    <span class="sheet-resource-calculation">Torso AV</span>
+
+    </div>
+</div>
 
     <hr class="sheet-separator" />
 
     <div class="sheet-character-attributes">
     <div class="sheet-attribute">
         <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result1=[[1d20@{agi}]]}}">
-            <span name="attr_agi"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_agility" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Agility</label>
+    <span name="attr_agi"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_agility" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Agility</label>
     </div>
 
     <div class="sheet-attribute">
         <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result1=[[1d20@{bod}]]}}">
-            <span name="attr_bod"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_body" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Body</label>
+    <span name="attr_bod"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_body" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Body</label>
     </div>
 
     <div class="sheet-attribute">
         <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result1=[[1d20@{cha}]]}}">
-            <span name="attr_cha"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_charisma" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Charisma</label>
+    <span name="attr_cha"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_charisma" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Charisma</label>
     </div>
 
     <div class="sheet-attribute">
         <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result1=[[1d20@{int}]]}}">
-            <span name="attr_int"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_intuition" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Intuition</label>
+    <span name="attr_int"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_intuition" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Intuition</label>
     </div>
 
     <div class="sheet-attribute">
         <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result1=[[1d20@{log}]]}}">
-            <span name="attr_log"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_logic" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Logic</label>
+    <span name="attr_log"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_logic" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Logic</label>
     </div>
 
     <div class="sheet-attribute">
         <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result1=[[1d20@{wil}]]}}">
-            <span name="attr_wil"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_willpower" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Willpower</label>
+    <span name="attr_wil"></span>
+</button>
+<div class="sheet-attribute-score">
+    <input type="number" name="attr_willpower" value="1" min="0"/>
+</div>
+<label class="sheet-attribute-label">Willpower</label>
     </div>
 </div>
 

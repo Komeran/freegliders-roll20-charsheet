@@ -1,0 +1,32 @@
+<div class="sheet-prayer-topline">
+    <!-- Faith -->
+    <div class="sheet-item">
+        <comp-sheet-resource
+            label="Faith"
+            calculation="Willpower × Prayer"
+            prefix="faith"
+            hasMax="true"
+            min="0"
+        ></comp-sheet-resource>
+    </div>
+
+    <!-- Healing -->
+    <input type="hidden" name="attr_prayer" class="sheet-prayer-input-hidden"/>
+    <div class="sheet-item sheet-prayer-healing">
+        <comp-sheet-rollable-mod
+            label="Healing"
+            prefix="healing"
+            calculation="Xd6 + Prayer"
+        ></comp-sheet-rollable-mod>
+    </div>
+
+    <!-- Power -->
+    <div class="sheet-item">
+        <comp-sheet-resource
+            label="Power"
+            calculation="Prayer Ranks"
+            prefix="prayer"
+            readonly="true"
+        ></comp-sheet-resource>
+    </div>
+</div>

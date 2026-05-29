@@ -1,61 +1,49 @@
 <div class="sheet-character-attributes">
     <div class="sheet-attribute">
-        <button type="roll" name="roll_agi" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Agility Test [@{agi}]}} {{result1=[[1d20@{agi}]]}}">
-            <span name="attr_agi"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_agility" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Agility</label>
+        <comp-npc-attribute
+            label="Agility"
+            prefix="agility"
+            mod="agi"
+        ></comp-npc-attribute>
     </div>
 
     <div class="sheet-attribute">
-        <button type="roll" name="roll_bod" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Body Test [@{bod}]}} {{result1=[[1d20@{bod}]]}}">
-            <span name="attr_bod"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_body" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Body</label>
+        <comp-npc-attribute
+            label="Body"
+            prefix="body"
+            mod="bod"
+        ></comp-npc-attribute>
     </div>
 
     <div class="sheet-attribute">
-        <button type="roll" name="roll_cha" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Charisma Test [@{cha}]}} {{result1=[[1d20@{cha}]]}}">
-            <span name="attr_cha"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_charisma" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Charisma</label>
+        <comp-npc-attribute
+            label="Charisma"
+            prefix="charisma"
+            mod="cha"
+        ></comp-npc-attribute>
     </div>
 
     <div class="sheet-attribute">
-        <button type="roll" name="roll_int" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Intuition Test [@{int}]}} {{result1=[[1d20@{int}]]}}">
-            <span name="attr_int"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_intuition" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Intuition</label>
+        <comp-npc-attribute
+            label="Intuition"
+            prefix="intuition"
+            mod="int"
+        ></comp-npc-attribute>
     </div>
 
     <div class="sheet-attribute">
-        <button type="roll" name="roll_log" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Logic Test [@{log}]}} {{result1=[[1d20@{log}]]}}">
-            <span name="attr_log"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_logic" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Logic</label>
+        <comp-npc-attribute
+            label="Logic"
+            prefix="logic"
+            mod="log"
+        ></comp-npc-attribute>
     </div>
 
     <div class="sheet-attribute">
-        <button type="roll" name="roll_wil" class="sheet-attribute-mod" value="?{Secret|Open,|Secret,/w gm} &{template:custom} {{name=Willpower Test [@{wil}]}} {{result1=[[1d20@{wil}]]}}">
-            <span name="attr_wil"></span>
-        </button>
-        <div class="sheet-attribute-score">
-            <input type="number" name="attr_willpower" value="1" min="0"/>
-        </div>
-        <label class="sheet-attribute-label">Willpower</label>
+        <comp-npc-attribute
+            label="Willpower"
+            prefix="willpower"
+            mod="wil"
+        ></comp-npc-attribute>
     </div>
 </div>

@@ -1,20 +1,28 @@
-<div class="sheet-combat-topline">
+<div class="sheet-npc-topline">
     <!-- HP -->
     <div class="sheet-item">
         <comp-sheet-resource
             label="HP"
-            prefix="hp"
-            calculation="(Body + (Hit Die Max / 2)) × Level"
+            prefix="npc_hp"
+            calculation="(Body + (Hit Die Max / 2)) × Power Level"
             min="0"
             hasMax="true"
+            maxEditable="true"
         ></comp-sheet-resource>
     </div>
 
     <!-- Hit Die -->
     <div class="sheet-item" name="hitdie">
-        <button type="action" name="act_hitdie" class="sheet-resource-hitdie">
-            <span name="attr_hitdie"></span>
-        </button>
+        <div class="sheet-resource-hitdie">
+            <select name="attr_hitdie">
+                <option>d4</option>
+                <option selected>d6</option>
+                <option>d8</option>
+                <option>d10</option>
+                <option>d12</option>
+                <option>d20</option>
+            </select>
+        </div>
         <label class="sheet-resource-label">Hit Die</label>
     </div>
 
@@ -41,8 +49,8 @@
         <comp-sheet-resource
             label="DAV"
             calculation="Torso AV"
-            prefix="dav"
-            readonly="true"
+            prefix="npc_dav"
+            min="0"
         ></comp-sheet-resource>
     </div>
 </div>

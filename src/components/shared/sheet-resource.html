@@ -1,0 +1,38 @@
+<div class="sheet-resource">
+    $if:readonly$
+        <span name="attr_$prefix$">$if:default$$default$$else$0$end$</span>
+    $else$
+        <input
+            type="number"
+            $if:hasMax$
+                max="attr_$prefix$_max"
+            $end$
+            $if:min$
+                min="$min$"
+            $end$
+            name="attr_$prefix$"
+            value="$if:default$$default$$else$0$end$"
+        />
+    $end$
+
+    $if:hasMax$
+        $if:maxEditable$
+            <input
+                type="number"
+                $if:min$min="$min$"$end$
+                name="attr_$prefix$_max"
+                value="$if:max$$max$$else$$if:default$$default$$else$0$end$$end$"
+            />
+        $else$
+            <span name="attr_$prefix$_max">$if:max$$max$$else$0$end$</span>
+        $end$
+    $end$
+</div>
+
+$if:label$
+    <label class="sheet-resource-label">$label$</label>
+$end$
+
+$if:calculation$
+    <span class="sheet-resource-calculation">$calculation$</span>
+$end$
