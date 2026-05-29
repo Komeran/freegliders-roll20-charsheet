@@ -197,8 +197,8 @@ function processConditionals(content, props) {
         const rawValue = props[varName];
 
         const value =
-            rawValue === true ||
-            rawValue === "true";
+            rawValue !== undefined &&
+            rawValue !== "false";
 
         const finalValue =
             negated
