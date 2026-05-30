@@ -1,52 +1,66 @@
 <h3>Summoning R<span name="attr_summoning">0</span></h3>
 <div class="sheet-actions">
     <!-- Subjugate Spirit -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespirit" />
-    <button class="sheet-action" type="action" name="act_subjugatespirit">
-        <b>Major Action</b>
-        <br>
-        Subjugate Spirit
-    </button>
-    <!-- Subjugate Spirit Minor Action -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_subjugatespiritminor" />
-    <button class="sheet-action" type="action" name="act_subjugatespirit">
-        <b>Minor Action</b>
-        <br>
-        Subjugate Spirit
-    </button>
+    <comp-sheet-action-button
+        label="Subjugate Spirit"
+        duration="Major Action"
+        prefix="subjugatespirit"
+        tooltip="As a Major Action, you can attempt to subdue a spirit within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until a number of minutes equal to your Summoning skill ranks has passed. You can only subdue a number of spirits equal to or less than your Summoning skill ranks at once. You can end your subjugation on a spirit at any point, requiring no action."
+    ></comp-sheet-action-button>
+
+    <!-- Subjugate Spirit (Spirit Dominance) -->
+    <comp-sheet-action-button
+        label="Subjugate Spirit"
+        duration="Minor Action"
+        prefix="spiritdominance"
+        tooltip="As a Minor Action, you can attempt to subdue up to [WIL] spirits (minimum of 1) within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until a number of minutes equal to 10 × your Summoning skill ranks has passed. You can only subdue a number of spirits equal to or less than your Summoning skill ranks at once. You can end your subjugation on a spirit at any point, requiring no action."
+    ></comp-sheet-action-button>
+
+    <!-- Subjugate Spirit (Breaching the Veil) -->
+    <comp-sheet-action-button
+        label="Subjugate Spirit"
+        duration="Minor Action"
+        prefix="subjugatespiritbtv"
+        tooltip="As a Minor Action, you can attempt to subdue up to [WIL] spirits (minimum of 1) within 10m of you. Make a Summoning [WIL] test contested by the spirit’s Willpower test. On a success, the spirit is subdued and must now follow your commands until a number of hours equal to your Summoning skill ranks has passed. You can only subdue a number of spirits equal to or less than your Summoning skill ranks at once. You can end your subjugation on a spirit at any point, requiring no action."
+    ></comp-sheet-action-button>
+
     <!-- Tap into Familiar's Senses -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_tapintofamiliarsenses" />
-    <button class="sheet-action" type="action" name="act_tapintofamiliarsenses">
-        <b>Major Action</b>
-        <br>
-        Tap into Familiar's Senses
-    </button>
+    <comp-sheet-action-button
+        label="Tap into Familiar's Senses"
+        duration="Major Action"
+        prefix="tapintofamiliarsenses"
+        tooltip="You can use a Major Action to tap into your familiar’s senses while it is within 100m of you. When you do so, you become blind and deaf to your own surroundings and see and hear through the familiar’s eyes and ears, gaining any benefits to tests made related to those senses that the familiar has. You can end this state at any point, requiring no action. This state also ends if the familiar ends up somewhere further than 100m away from you."
+    ></comp-sheet-action-button>
+
     <!-- Summon Spirit -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_summonspirit" />
-    <button class="sheet-action" type="action" name="act_summonspirit">
-        <b>1 hour</b>
-        <br>
-        Summon Spirit
-    </button>
+    <comp-sheet-action-button
+        label="Summon Spirit"
+        duration="1 hour"
+        prefix="summonspirit"
+        tooltip="You can spend 1 hour performing a summoning ritual to summon a spirit with a Power Level up to your Summoning skill rank + your [WIL]. You have to expend essence of each element equal to the Power Level of the spirit (minimum of 1 each). If your ritual is interrupted, you don’t lose the essence, but you have to start over. At the end of the ritual, the essence is consumed and the spirit appears in an unoccupied space within 10m of you. A summoned spirit is not automatically compelled to follow your commands and returns to where it came from instantly after a number of hours equal to the spirit’s power level (minimum of 1 hour) has passed."
+    ></comp-sheet-action-button>
+
     <!-- Banish -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_banish" />
-    <button class="sheet-action" type="action" name="act_banish">
-        <b>Major Action</b>
-        <br>
-        Banish
-    </button>
+    <comp-sheet-action-button
+        label="Banish"
+        duration="Major Action"
+        prefix="banish"
+        tooltip="You can use a Major Action to make a Summoning [WIL] contest against the target's Willpower test. The target must be within 20m of you and you must be able to speak clearly. If you succeed, the target disappears and is sent back to its native plane. You can also use this feature on such a creature that is possessing another creature. If you do so and you're successful, the target creature is not banished, but instead forced to leave the host and appear in the nearest unoccupied space next to the host."
+    ></comp-sheet-action-button>
+
     <!-- Summon Demon -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
-    <button class="sheet-action" type="action" name="act_summondemon">
-        <b>1 hour</b>
-        <br>
-        Summon Demon
-    </button>
+    <comp-sheet-action-button
+        label="Summon Demon"
+        duration="1 hour"
+        prefix="summondemon"
+        tooltip="You can spend 1 hour performing a summoning ritual to summon a demon with a Power Level up to your Summoning skill rank + your [WIL]. You have to expend essence of each element equal to the Power Level of the demon (minimum of 1 each). If your ritual is interrupted, you don’t lose the essence, but you have to start over. At the end of the ritual, the essence is consumed and the demon appears in an unoccupied space within 10m of you. A summoned demon is not automatically compelled to follow your commands and returns to where it came from instantly after a number of hours equal to the demon’s power level (minimum of 1 hour) has passed."
+    ></comp-sheet-action-button>
+
     <!-- Summon Angel -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_breachtheveil" />
-    <button class="sheet-action" type="action" name="act_summonangel">
-        <b>1 hour</b>
-        <br>
-        Summon Angel
-    </button>
+    <comp-sheet-action-button
+        label="Summon Angel"
+        duration="1 hour"
+        prefix="summonangel"
+        tooltip="You can spend 1 hour performing a summoning ritual to summon an angel with a Power Level up to your Summoning skill rank + your [WIL]. You have to expend essence of each element equal to the Power Level of the angel (minimum of 1 each). If your ritual is interrupted, you don’t lose the essence, but you have to start over. At the end of the ritual, the essence is consumed and the angel appears in an unoccupied space within 10m of you. A summoned angel is not automatically compelled to follow your commands and returns to where it came from instantly after a number of hours equal to the angel’s power level (minimum of 1 hour) has passed."
+    ></comp-sheet-action-button>
 </div>

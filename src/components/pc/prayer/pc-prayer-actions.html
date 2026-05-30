@@ -1,37 +1,41 @@
 <div class="sheet-actions">
     <!-- Prayer of Faith -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_prayeroffaith" />
-    <button class="sheet-action" type="action" name="act_prayeroffaith">
-        <b>1 hour</b>
-        <br>
-        Prayer of Faith
-    </button>
+    <comp-sheet-action-button
+        label="Prayer of Faith"
+        duration="1 hour"
+        prefix="prayeroffaith"
+        tooltip="You can spend 1 hour praying to restore your Faith. During that time, you need to stand, kneel or sit still and if you’re interrupted, you have to start over. Once you’re done, you regain a number of Faith points equal to your Prayer skill Rank. If you’re on consecrated grounds, like in a church, chapel, monastery, or similar space, you gain double the amount of Faith through this process."
+    ></comp-sheet-action-button>
+
     <!-- Work Miracle -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_workmiracle" />
-    <button class="sheet-action" type="action" name="act_workmiracle">
-        <b>Minor Reaction</b>
-        <br>
-        Work Miracle
-    </button>
+    <comp-sheet-action-button
+        label="Work Miracle"
+        duration="Minor Reaction"
+        prefix="workmiracle"
+        tooltip="You can use a Minor Reaction when a creature you can see or hear within 20m of you casts a spell using Spellwork to expend Faith up to your Prayer skill ranks to increase the spell’s power by an amount equal to the Faith expended."
+    ></comp-sheet-action-button>
+
     <!-- Repel the Unholy -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_repelunholy" />
-    <button class="sheet-action" type="action" name="act_repelunholy">
-        <b>Major Action</b>
-        <br>
-        Repel the Unholy
-    </button>
+    <comp-sheet-action-button
+        label="Repel the Unholy"
+        duration="Major Action"
+        prefix="repelunholy"
+        tooltip="You can use a Major Action spending 1 Faith to repel unholy creatures within 10m of you for 1 minute. Every unholy creature in the area when you use this feature, or when they first enter the area or start their turn in it must make a Willpower test against 10 + your Prayer skill ranks. If they fail, they become frightened by you until the end of the duration. The effect ends prematurely if you become incapacitated or if you end it at any moment, no action required."
+    ></comp-sheet-action-button>
+
     <!-- Identify Curse -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_identifycurse" />
-    <button class="sheet-action" type="action" name="act_identifycurse">
-        <b>Major Action</b>
-        <br>
-        Identify Curse
-    </button>
+    <comp-sheet-action-button
+        label="Identify Curse"
+        duration="Major Action"
+        prefix="identifycurse"
+        tooltip="You can use a Major Action to make a Prayer [WIL] test to identify any curses that afflict a creature or object. Any curse with a power equal to or lower than your result is revealed to you and you learn what it does."
+    ></comp-sheet-action-button>
+
     <!-- Lift Curse -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_liftcurse" />
-    <button class="sheet-action" type="action" name="act_liftcurse">
-        <b>Major Action</b>
-        <br>
-        Lift Curse
-    </button>
+    <comp-sheet-action-button
+        label="Lift Curse"
+        duration="Major Action"
+        prefix="liftcurse"
+        tooltip="You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power. You can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not."
+    ></comp-sheet-action-button>
 </div>

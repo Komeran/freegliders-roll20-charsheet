@@ -75,13 +75,16 @@ export function UpdateSpellwork() {
 
         const mod = skill + stat;
 
+        const show7thSense = skill >= 8 ? "on" : "off";
+
         setAttrs({
             "spellwork": skill,
             "spellworkMod": Signed(mod),
             "spellworkPassive": 10 + mod,
             "show_sixthsense": skill >= 4 ? "on" : "off",
             "show_counterspell": skill >= 5 ? "on" : "off",
-            "show_seventhsense": skill >= 8 ? "on" : "off"
+            "show_seventhsenseaction": show7thSense,
+            "show_seventhsensereaction": show7thSense
         });
 
         UpdateMaxMemorisedSpells();
@@ -97,17 +100,20 @@ export function UpdateSummoning() {
         const stat = parseInt(values.wil)||0;
 
         const mod = skill + stat;
+        const breachTheVeil = skill >= 8 ? "on" : "off";
 
         setAttrs({
             "summoning": skill,
             "summoningMod": Signed(mod),
             "summoningPassive": 10 + mod,
             "show_subjugatespirit": skill >= 2 && skill < 6 ? "on" : "off",
-            "show_subjugatespiritminor": skill >= 6 ? "on" : "off",
+            "show_spiritdominance": skill >= 6 ? "on" : "off",
+            "show_subjugatespiritbtv": breachTheVeil,
             "show_tapintofamiliarsenses": skill >= 3 ? "on" : "off",
             "show_summonspirit": skill >= 4 ? "on" : "off",
             "show_banish": skill >= 7 ? "on" : "off",
-            "show_breachtheveil": skill >= 8 ? "on" : "off"
+            "show_summondemon": breachTheVeil,
+            "show_summonangel": breachTheVeil
         });
         
         UpdateSpellSaveDTs();

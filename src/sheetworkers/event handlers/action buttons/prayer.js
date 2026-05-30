@@ -85,21 +85,43 @@ function IdentifyCurse() {
 }
 
 function LiftCurse() {
-    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+    getAttrs(["prayer", "faith"], function(values) {
+        const prayerRanks = parseInt(values["prayer"]) || 0;
+        const faith = parseInt(values["faith"]) || 0;
+        let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
-    rollString += "{{name=Lift Curse}}";
+        rollString += "{{name=Lift Curse}}";
 
-    rollString += "{{action=Major Action}}";
+        rollString += "{{action=Major Action}}";
 
-    rollString += "{{target=1 creature or object}}";
+        rollString += "{{target=1 creature or object}}";
 
-    const mod = "+@{prayer}[Prayer]@{wil}[WIL]";
-    rollString += GetCustomTemplateResultString(mod);
+        const mod = "+@{prayer}[Prayer]@{wil}[WIL]";
+        let extraFaith = "";
 
-    rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power.\n\nYou can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not.}}`;
-    
-    startRoll(rollString, (r) => {
-        finishRoll(r.rollId);
+        if(faith > 0) {
+            extraFaith = "?{Spend Faith for Bonus?|No,";
+            for(let i = 1; i <= prayerRanks && i <= faith; i++) {
+                extraFaith += `|${i} Faith (+${i}),{{expendedfaith=[[+${i}]]&#125;&#125;`;
+            }
+            extraFaith += "}";
+        }
+
+        rollString += GetCustomTemplateResultString(mod);
+        
+        rollString += extraFaith;
+
+        rollString += `{{description=You can use a Major Action to make a Prayer [WIL] test to attempt to lift a curse that's afflicting a creature or object that you have identified first. The Difficulty for this test is equal to 10 + the curse's power.\n\nYou can expend an amount of Faith up to your Prayer skill Ranks to gain a +1 bonus on that test for each Faith point expended. You can do that after rolling your test but before knowing whether it is successful or not.}}`;
+        
+        startRoll(rollString, (r) => {
+            if(r.results["expendedfaith"]) {
+                setAttrs({
+                    "faith": faith - r.results["expendedfaith"].result
+                });
+            }
+
+            finishRoll(r.rollId);
+        });
     });
 }
 

@@ -1,31 +1,34 @@
 <h3>Spellwork R<span name="attr_spellwork">0</span></h3>
 <div class="sheet-actions">
     <!-- 6th Sense -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_sixthsense" />
-    <button class="sheet-action" type="action" name="act_sixthsense">
-        <b>Major Action</b>
-        <br>
-        6th Sense
-    </button>
+    <comp-sheet-action-button
+        label="6th Sense"
+        duration="Major Action"
+        prefix="sixthsense"
+        tooltip="You can use a Major Action to sense magic around you. When you do, you sense ongoing spells, blessings, curses, runes, infusions and other magical effects within 10m of you. You can tell how many different magical effects you sense and even where you sense them, but not what they are or do."
+    ></comp-sheet-action-button>
+
     <!-- Counterspell -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_counterspell" />
-    <button class="sheet-action" type="action" name="act_counterspell">
-        <b>Minor Reaction</b>
-        <br>
-        Counterspell
-    </button>
+    <comp-sheet-action-button
+        label="Counterspell"
+        duration="Minor Reaction"
+        prefix="counterspell"
+        tooltip="You can use a Minor Reaction to attempt to interrupt a spell or blessing that another creature is casting or bestowing. Make a Spellwork [WIL] contest against the target's Prayer [WIL] or Spellwork [WIL]. If you succeed, the creature's casting or bestowing is interrupted, and their spell or blessing fails."
+    ></comp-sheet-action-button>
+
     <!-- 7th Sense Action -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
-    <button class="sheet-action" type="action" name="act_seventhsenseaction">
-        <b>Minor Action</b>
-        <br>
-        7th Sense
-    </button>
+    <comp-sheet-action-button
+        label="7th Sense"
+        duration="Minor Action"
+        prefix="seventhsenseaction"
+        tooltip="As a Minor Action, you can make a Spellwork [LOG] test to identify specific spells or curses. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect."
+    ></comp-sheet-action-button>
+
     <!-- 7th Sense Reaction -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_seventhsense" />
-    <button class="sheet-action" type="action" name="act_seventhsensereaction">
-        <b>Minor Reaction</b>
-        <br>
-        7th Sense
-    </button>
+    <comp-sheet-action-button
+        label="7th Sense"
+        duration="Minor Reaction"
+        prefix="seventhsensereaction"
+        tooltip="As a Minor Reaction when a creature you can see or hear casts a spell or inflicts a curse, you can make a Spellwork [LOG] test to identify what spell or curse it is. The difficulty for this test equals 10 + the spell or curse’s power. If you succeed, you have advantage on all tests made to resist the spell or curse’s effect."
+    ></comp-sheet-action-button>
 </div>

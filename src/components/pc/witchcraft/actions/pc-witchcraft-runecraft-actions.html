@@ -1,10 +1,10 @@
 <h3>Runecraft R<span name="attr_runecraft">0</span></h3>
 <div class="sheet-actions">
     <!-- Rune Reading -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_runereading" />
-    <button class="sheet-action" type="action" name="act_runereading">
-        <b>10 minutes</b>
-        <br>
-        Rune Reading
-    </button>
+    <comp-sheet-action-button
+        label="Rune Reading"
+        duration="10 minutes"
+        prefix="runereading"
+        tooltip="You can attribute a rune’s handwriting to a creature whose handwriting you have seen before by inspecting it for 10 minutes."
+    ></comp-sheet-action-button>
 </div>

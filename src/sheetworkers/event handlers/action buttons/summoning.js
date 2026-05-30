@@ -2,6 +2,8 @@ import { GetCustomTemplateResultString } from "../../helpers";
 import { CUSTOM_TEMPLATE_BEGINNING } from "../../worker-constants";
 
 on("clicked:subjugatespirit", SubjugateSpirit);
+on("clicked:spiritdominance", SubjugateSpirit);
+on("clicked:subjugatespiritbtv", SubjugateSpirit);
 on("clicked:tapintofamiliarsenses", TapIntoFamiliarSenses);
 on("clicked:summonspirit", () => { SummonSpirit("Spirit"); });
 on("clicked:banish", Banish);
