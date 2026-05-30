@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const esbuild = require("esbuild");
 const { ESLint } = require("eslint");
+const prettier = require("prettier");
 
 function read(file) {
     return fs.readFileSync(file, "utf8");
@@ -313,7 +314,19 @@ async function build() {
 
     fs.mkdirSync("./dist", { recursive: true });
 
+    html = await prettier.format(html, {
+        parser: "html",
+        printWidth: 120,
+        tabWidth: 4,
+        useTabs: false
+    });
+
     fs.writeFileSync("./dist/Freegliders.html", html);
+
+    css = await prettier.format(css, {
+        parser: "css"
+    });
+    
     fs.writeFileSync("./dist/Freegliders.css", css);
 
     console.log("Compiled successfully.");
