@@ -17,16 +17,16 @@ for(let i = 0; i < sheetTabButtonlist.length; i++) {
     });
 }
 
-const witchcraftTabButtonlist = ["runes", "rituals", "spells", "curses"];
-for(let i = 0; i < witchcraftTabButtonlist.length; i++) {
-    on(`clicked:${witchcraftTabButtonlist[i]}`, function() {
+export const WITCHCRAFT_TABS = ["runes", "rituals", "spells", "curses"];
+for(let i = 0; i < WITCHCRAFT_TABS.length; i++) {
+    on(`clicked:${WITCHCRAFT_TABS[i]}`, function() {
         setAttrs({
             witchcraftTab: i
         });
     });
 }
 
-const alchemyTabButtonlist = ["elixirs", "potions", "infusions", "transmutation"];
+const alchemyTabButtonlist = ["elixirs", "potions", "transmutation", "infusions"];
 for(let i = 0; i < alchemyTabButtonlist.length; i++) {
     on(`clicked:${alchemyTabButtonlist[i]}`, function() {
         setAttrs({
@@ -35,9 +35,9 @@ for(let i = 0; i < alchemyTabButtonlist.length; i++) {
     });
 }
 
-const engineeringTabButtonlist = ["cwmTab", "automachineryTab", "augmentationTab", "gunsmithingTab", "tinkeringTab", "vehiclemechanicsTab"];
-for(let i = 0; i < engineeringTabButtonlist.length; i++) {
-    on(`clicked:${engineeringTabButtonlist[i]}`, function() {
+export const ENGINEERING_TABS = ["cwmTab", "automachineryTab", "augmentationTab", "gunsmithingTab", "tinkeringTab", "vehiclemechanicsTab"];
+for(let i = 0; i < ENGINEERING_TABS.length; i++) {
+    on(`clicked:${ENGINEERING_TABS[i]}`, function() {
         setAttrs({
             engineeringTab: i
         });

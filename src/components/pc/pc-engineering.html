@@ -5,15 +5,30 @@
 
 <hr class="sheet-separator"/>
 
+<comp-pc-engineering-augmentation-actions></comp-pc-engineering-augmentation-actions>
+<comp-pc-engineering-automachinery-actions></comp-pc-engineering-automachinery-actions>
+<comp-pc-engineering-cwm-actions></comp-pc-engineering-cwm-actions>
+<comp-pc-engineering-gunsmithing-actions></comp-pc-engineering-gunsmithing-actions>
+<comp-pc-engineering-tinkering-actions></comp-pc-engineering-tinkering-actions>
+<comp-pc-engineering-vehiclemechanics-actions></comp-pc-engineering-vehiclemechanics-actions>
+
+<hr class="sheet-separator"/>
+
 <div class="sheet-engineering-bottom">
     <input type="hidden" class="sheet-tabstoggle" name="attr_engineeringTab" value="blueprints" />
     <div>
-        <button type="action" name="act_cwmTab" class="sheet-button0">Clockwork Mechanics</button>
-        <button type="action" name="act_automachineryTab" class="sheet-button1">Automachinery</button>
-        <button type="action" name="act_augmentationTab" class="sheet-button2">Augmentation</button>
-        <button type="action" name="act_gunsmithingTab" class="sheet-button3">Gunsmithing</button>
-        <button type="action" name="act_tinkeringTab" class="sheet-button4">Tinkering</button>
-        <button type="action" name="act_vehiclemechanicsTab" class="sheet-button5">Vehicle Mechanics</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_clockworkmechanics" />
+        <button type="action" name="act_cwmTab" class="sheet-button0 sheet-tab">Clockwork Mechanics</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_automachinery" />
+        <button type="action" name="act_automachineryTab" class="sheet-button1 sheet-tab">Automachinery</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_augmentation" />
+        <button type="action" name="act_augmentationTab" class="sheet-button2 sheet-tab">Augmentation</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_gunsmithing" />
+        <button type="action" name="act_gunsmithingTab" class="sheet-button3 sheet-tab">Gunsmithing</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_tinkering" />
+        <button type="action" name="act_tinkeringTab" class="sheet-button4 sheet-tab">Tinkering</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_vehiclemechanics" />
+        <button type="action" name="act_vehiclemechanicsTab" class="sheet-button5 sheet-tab">Vehicle Mechanics</button>
     </div>
 
     <!-- Clockwork Mechanics -->

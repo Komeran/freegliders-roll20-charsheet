@@ -17,10 +17,14 @@
 <div class="sheet-witchcraft-bottom">
     <input type="hidden" class="sheet-tabstoggle" name="attr_witchcraftTab" value="0" />
     <div>
-        <button type="action" name="act_runes" class="sheet-button0">Runes</button>
-        <button type="action" name="act_rituals" class="sheet-button1">Rituals</button>
-        <button type="action" name="act_spells" class="sheet-button2">Spells</button>
-        <button type="action" name="act_curses" class="sheet-button3">Curses</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_runes" />
+        <button type="action" name="act_runes" class="sheet-button0 sheet-tab">Runes</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_rituals" />
+        <button type="action" name="act_rituals" class="sheet-button1 sheet-tab">Rituals</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_spells" />
+        <button type="action" name="act_spells" class="sheet-button2 sheet-tab">Spells</button>
+        <input class="sheet-tab-condition" type="checkbox" name="attr_show_curses" />
+        <button type="action" name="act_curses" class="sheet-button3 sheet-tab">Curses</button>
     </div>
 
     <!-- Runes -->
