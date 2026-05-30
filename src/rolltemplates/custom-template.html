@@ -35,6 +35,22 @@
             Duration: {{duration}}
         </div>
         {{/duration}}
+        {{#inputs}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{inputs}}
+            <br/>
+            <span class="sheet-template-label">Input</span>
+        </div>
+        {{/inputs}}
+        {{#outputs}}
+        <hr class="sheet-template-divider"/>
+	    <div class="sheet-template-description">
+            {{outputs}}
+            <br/>
+            <span class="sheet-template-label">Output</span>
+        </div>
+        {{/outputs}}
         {{#result1}}
         <hr class="sheet-template-divider"/>
         <div class="sheet-template-test">

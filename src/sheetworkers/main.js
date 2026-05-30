@@ -13,6 +13,7 @@ import "./event handlers/qualities.js";
 import "./event handlers/skill-ranks.js";
 import "./event handlers/weapon-attacks.js";
 import "./event handlers/witchcraft.js";
+import "./event handlers/transmutation.js";
 
 import "./event handlers/engineering/augmentation.js";
 import "./event handlers/engineering/automachinery.js";

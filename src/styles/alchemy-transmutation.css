@@ -1,0 +1,61 @@
+.charsheet .sheet-transmute-right,
+.charsheet .sheet-transmute-middle {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.charsheet .sheet-transmute-left {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+}
+
+.charsheet .sheet-transmute-content {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.charsheet .sheet-transmute-output,
+.charsheet .sheet-transmute-titles {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.charsheet .sheet-transmute-input {
+    display: grid;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    gap: 5px;
+}
+
+.charsheet .sheet-transmute-titles {
+    gap: 150px;
+    margin-left: 20px;
+}
+
+.charsheet .sheet-transmute-output > *:first-child {
+    margin-right: 5px;
+}
+
+.charsheet .sheet-transmute-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.charsheet .sheet-transmute-right:has(> .sheet-transmute-output > .sheet-transmute-targetessence > option[value="fire"]:checked) ~ .sheet-transmute-left > .sheet-transmute-input-fire,
+.charsheet .sheet-transmute-right:has(> .sheet-transmute-output > .sheet-transmute-targetessence > option[value="water"]:checked) ~ .sheet-transmute-left > .sheet-transmute-input-water,
+.charsheet .sheet-transmute-right:has(> .sheet-transmute-output > .sheet-transmute-targetessence > option[value="earth"]:checked) ~ .sheet-transmute-left > .sheet-transmute-input-earth,
+.charsheet .sheet-transmute-right:has(> .sheet-transmute-output > .sheet-transmute-targetessence > option[value="air"]:checked) ~ .sheet-transmute-left > .sheet-transmute-input-air {
+    display: none;
+}

@@ -1,9 +1,17 @@
 <div class="sheet-actions">
     <!-- Extract Essence -->
-    <input class="sheet-action-condition" type="checkbox" name="attr_show_extractessence" />
-    <button class="sheet-action" type="action" name="act_extractessence" title="You can spend 1 hour to perform Extraction on up to a number of objects equal to your Alchemy skill Ranks. Make an Alchemy [LOG] test. The Difficulty for this test is 15 for unprocessed objects and 20 for processed objects. On a success, you manage to extract the Essence from the object. Whether you succeed or not, the object is destroyed. Make sure you have enough containers to store the Essence in before beginning the Extraction process, otherwise any Essence you can’t put into an appropriate container is lost.">
-        <b>1 hour</b>
-        <br>
-        Extract Essence
-    </button>
+    <comp-sheet-action-button
+        label="Extract Essence"
+        duration="1 hour"
+        prefix="extractessence"
+        tooltip="You can spend 1 hour to perform Extraction on up to a number of objects equal to your Alchemy skill Ranks. Make an Alchemy [LOG] test. The Difficulty for this test is 15 for unprocessed objects and 20 for processed objects. On a success, you manage to extract the Essence from the object. Whether you succeed or not, the object is destroyed. Make sure you have enough containers to store the Essence in before beginning the Extraction process, otherwise any Essence you can’t put into an appropriate container is lost."
+    ></comp-sheet-action-button>
+
+    <!-- Alchemist's Nose -->
+    <comp-sheet-action-button
+        label="Alchemist's Nose"
+        duration="Major Action"
+        prefix="alchemistsnose"
+        tooltip="When you take a Major Action to inspect a piece of food, drink, potion, or something similar, you can automatically tell just by its smell, whether it is harmful, spoiled, or inedible."
+    ></comp-sheet-action-button>
 </div>

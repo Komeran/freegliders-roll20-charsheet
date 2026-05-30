@@ -26,7 +26,7 @@ for(let i = 0; i < witchcraftTabButtonlist.length; i++) {
     });
 }
 
-const alchemyTabButtonlist = ["elixirs", "potions", "infusions"];
+const alchemyTabButtonlist = ["elixirs", "potions", "infusions", "transmutation"];
 for(let i = 0; i < alchemyTabButtonlist.length; i++) {
     on(`clicked:${alchemyTabButtonlist[i]}`, function() {
         setAttrs({

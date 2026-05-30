@@ -747,6 +747,7 @@
 .charsheet .sheet-alchemy-elixirs,
 .charsheet .sheet-alchemy-potions,
 .charsheet .sheet-alchemy-infusions,
+.charsheet .sheet-alchemy-transmutation,
 .charsheet .sheet-cwm,
 .charsheet .sheet-automachinery,
 .charsheet .sheet-augmentation,
@@ -1360,6 +1361,8 @@
 }
 
 .charsheet .sheet-action-condition,
+.charsheet .sheet-tab-condition,
+.charsheet .sheet-tab-condition:not(:checked) + .sheet-tab,
 .charsheet .sheet-action-condition:not(:checked) + .sheet-action {
     display: none;
 }

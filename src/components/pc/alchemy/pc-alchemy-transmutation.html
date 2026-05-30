@@ -1,0 +1,48 @@
+<h2>Essence Transmutation</h2>
+<hr class="sheet-section-separator"/>
+
+<div class="sheet-transmute-titles">
+    <h3>Input</h3>
+    <h3>Output</h3>
+</div>
+
+<div class="sheet-transmute-content">
+    <div class="sheet-transmute-right">
+        <div class="sheet-transmute-output">
+            <b><span name="attr_transmute_output">0</span></b>
+            <select class="sheet-transmute-targetessence" name="attr_transmute_targetessence">
+                <option value="fire" selected>Fire</option>
+                <option value="water">Water</option>
+                <option value="earth">Earth</option>
+                <option value="air">Air</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="sheet-transmute-middle">
+        <button class="sheet-transmute-button" type="action" name="act_transmuteessence">—Transmute⇾</button>
+        <span name="attr_transmute_duration">10 minutes</span>
+    </div>
+    
+    <div class="sheet-transmute-left">
+        <div class="sheet-transmute-input sheet-transmute-input-fire">
+            <label>Fire</label>
+            <input type="number" min="0" max="attr_essence_fire" step="3" name="attr_transmute_inputfire" value="0"/>
+        </div>
+
+        <div class="sheet-transmute-input sheet-transmute-input-water">
+            <label>Water</label>
+            <input type="number" min="0" max="attr_essence_water" step="3" name="attr_transmute_inputwater" value="0"/>
+        </div>
+
+        <div class="sheet-transmute-input sheet-transmute-input-earth">
+            <label>Earth</label>
+            <input type="number" min="0" max="attr_essence_earth" step="3" name="attr_transmute_inputearth" value="0"/>
+        </div>
+
+        <div class="sheet-transmute-input sheet-transmute-input-air">
+            <label>Air</label>
+            <input type="number" min="0" max="attr_essence_air" step="3" name="attr_transmute_inputair" value="0"/>
+        </div>
+    </div>
+</div>

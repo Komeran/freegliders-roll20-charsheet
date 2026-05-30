@@ -2,10 +2,11 @@ import { GetCustomTemplateResultString } from "../../helpers";
 import { CUSTOM_TEMPLATE_BEGINNING } from "../../worker-constants";
 
 on("clicked:extractessence", ExtractEssence);
+on("clicked:alchemistsnose", AlchemistsNose);
 
 function ExtractEssence() {
     getAttrs(["alchemy"], function(values) {
-        const alchemyRanks = parseInt(values['alchemy']) || 0;
+        const alchemyRanks = parseInt(values['alchemy']) ?? 0;
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
@@ -21,5 +22,19 @@ function ExtractEssence() {
         startRoll(rollString, (r) => {
             finishRoll(r.rollId);
         });
+    });
+}
+
+function AlchemistsNose() {
+    let rollString = CUSTOM_TEMPLATE_BEGINNING;
+
+    rollString += "{{name=Alchemist's Nose}}";
+
+    rollString += "{{duration=Major Action}}";
+    
+    rollString += `{{description=When you take a Major Action to inspect a piece of food, drink, potion, or something similar, you can automatically tell just by its smell, whether it is harmful, spoiled, or inedible.}}`;
+
+    startRoll(rollString, (r) => {
+        finishRoll(r.rollId);
     });
 }
