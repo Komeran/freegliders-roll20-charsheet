@@ -16,7 +16,7 @@ export function UpdateAlchemy() {
             "alchemy": skill,
             "alchemyMod": Signed(mod),
             "alchemyPassive": 10 + mod,
-            "show_extractessence": "off" // skill >= 1 ? "on" : "off"
+            "show_extractessence": skill >= 1 ? "on" : "off"
         });
         
         UpdateSpellSaveDTs();
