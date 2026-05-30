@@ -308,11 +308,17 @@ async function build() {
     css = css.replace("{{styles}}", styles);
 
     html = html.replace("{{workers}}", workers);
-    html = html.replace("{{rolltemplates}}", rolltemplates);
 
     html = resolveComponents(html);
 
     fs.mkdirSync("./dist", { recursive: true });
+
+    const rolltemplatesPlaceholder = "__ROLLTEMPLATES__";
+
+    html = html.replace(
+        "{{rolltemplates}}",
+        rolltemplatesPlaceholder
+    );
 
     html = await prettier.format(html, {
         parser: "html",
@@ -320,6 +326,8 @@ async function build() {
         tabWidth: 4,
         useTabs: false
     });
+    
+    html = html.replace(rolltemplatesPlaceholder, rolltemplates);
 
     fs.writeFileSync("./dist/Freegliders.html", html);
 
