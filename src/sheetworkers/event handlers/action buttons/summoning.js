@@ -62,6 +62,8 @@ function TapIntoFamiliarSenses() {
 
     rollString += "{{action=Major Action}}";
 
+    rollString += "{{range=100m}}";
+
     rollString += `{{description=You can use a Major Action to tap into your familiar’s senses while it is within 100m of you. When you do so, you become blind and deaf to your own surroundings and see and hear through the familiar’s eyes and ears, gaining any benefits to tests made related to those senses that the familiar has. You can end this state at any point, requiring no action. This state also ends if the familiar ends up somewhere further than 100m away from you.}}`;
     
     startRoll(rollString, (r) => {
