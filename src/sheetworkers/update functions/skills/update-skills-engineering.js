@@ -201,6 +201,8 @@ export function UpdateAutomachinery() {
             "show_automachinery": skill >= 1 ? "on" : "off",
             "show_disassembleautomachinery": skill >= 1 ? "on" : "off",
             "show_automachineryrepair": skill >= 2 ? "on" : "off",
+            "show_automachineryrepair_major": skill >= 2 && skill < 8 ? "on" : "off",
+            "show_automachineryrepair_minor": skill >= 8 ? "on" : "off",
             "show_automatons": skill >= 3 ? "on" : "off"
         });
         

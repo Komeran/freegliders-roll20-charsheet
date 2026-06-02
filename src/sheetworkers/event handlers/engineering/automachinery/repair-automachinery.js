@@ -69,6 +69,7 @@ function PartsChanged() {
 
 function RepairAutomachine() {
     getAttrs([
+        "automachinery",
         "bolts",
         "cogs",
         "wires",
@@ -97,13 +98,15 @@ function RepairAutomachine() {
         const inputRods = parseInt(values['repairautomachine_rods']) || 0;
         const inputLenses = parseInt(values['repairautomachine_lenses']) || 0;
 
+        const automachineryRanks = parseInt(values['automachinery']) || 0;
+
         const amount = values["repairautomachine_amount"] || "0";
 
         let rollString = CUSTOM_TEMPLATE_BEGINNING;
 
         rollString += "{{name=Repair Automachine}}";
 
-        rollString += "{{action=Major Action}}";
+        rollString += `{{action=${automachineryRanks >= 8 ? 'Minor' : 'Major'} Action}}`;
         rollString += "{{range=2m}}";
 
         const inputs = [];
