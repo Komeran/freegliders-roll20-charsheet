@@ -2,7 +2,10 @@
 <input type="hidden" class="sheet-tabstoggle" name="attr_automachineryTab" value="blueprints" />
 <div>
     <button type="action" name="act_blueprintsautomachinery" class="sheet-button0">Blueprints</button>
-    <button type="action" name="act_automatons" class="sheet-button1">Automatons</button>
+    <input class="sheet-tab-condition" type="checkbox" name="attr_show_automachineryrepair" />
+    <button type="action" name="act_repair" class="sheet-button1 sheet-tab">Repair</button>
+    <input class="sheet-tab-condition" type="checkbox" name="attr_show_automatons" />
+    <button type="action" name="act_automatons" class="sheet-button2 sheet-tab">Automatons</button>
 </div>
 
 <!-- Blueprints -->
@@ -10,7 +13,12 @@
     <comp-pc-engineering-automachinery-blueprints></comp-pc-engineering-automachinery-blueprints>
 </div>
 
+<!-- Automachinery Repair -->
+<div class="sheet-tab1 sheet-automachinery-repair">
+    <comp-pc-engineering-automachinery-repair></comp-pc-engineering-automachinery-repair>
+</div>
+
 <!-- Automatons -->
-<div class="sheet-tab1 sheet-automachinery-automatons">
+<div class="sheet-tab2 sheet-automachinery-automatons">
     <comp-pc-engineering-automachinery-automatons></comp-pc-engineering-automachinery-automatons>
 </div>

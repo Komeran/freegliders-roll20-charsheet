@@ -1,0 +1,56 @@
+<h3>Automachine Repair</h3>
+<hr class="sheet-section-separator"/>
+
+<div class="sheet-automachinery-repair-titles">
+    <h3>Parts</h3>
+    <h3>Healing</h3>
+</div>
+
+<div class="sheet-automachinery-repair-content">
+    <!-- Parts -->
+    <div class="sheet-automachinery-repair-left">
+        <div class="sheet-automachinery-repair-input">
+            <label>Bolts</label>
+            <input type="number" min="0" max="attr_bolts" name="attr_repairautomachine_bolts" value="0"/> <b>/</b> <span name="attr_bolts">0</span>
+        </div>
+
+        <div class="sheet-automachinery-repair-input">
+            <label>Cogs</label>
+            <input type="number" min="0" max="attr_cogs" name="attr_repairautomachine_cogs" value="0"/> <b>/</b> <span name="attr_cogs">0</span>
+        </div>
+
+        <div class="sheet-automachinery-repair-input">
+            <label>Wires</label>
+            <input type="number" min="0" max="attr_wires" name="attr_repairautomachine_wires" value="0"/> <b>/</b> <span name="attr_wires">0</span>
+        </div>
+
+        <div class="sheet-automachinery-repair-input">
+            <label>Plates</label>
+            <input type="number" min="0" max="attr_plates" name="attr_repairautomachine_plates" value="0"/> <b>/</b> <span name="attr_plates">0</span>
+        </div>
+
+        <div class="sheet-automachinery-repair-input">
+            <label>Rods</label>
+            <input type="number" min="0" max="attr_rods" name="attr_repairautomachine_rods" value="0"/> <b>/</b> <span name="attr_rods">0</span>
+        </div>
+
+        <div class="sheet-automachinery-repair-input">
+            <label>Lenses</label>
+            <input type="number" min="0" max="attr_lenses" name="attr_repairautomachine_lenses" value="0"/> <b>/</b> <span name="attr_lenses">0</span>
+        </div>
+    </div>
+
+    <!-- Button -->
+    <div class="sheet-automachinery-repair-middle">
+        <button class="sheet-automachinery-repair-button" type="action" name="act_repairautomachine">—Repair⇾</button>
+        Major Action
+    </div>
+
+    <!-- Repair Amount -->
+    <div class="sheet-automachinery-repair-right">
+        <comp-sheet-resource
+            prefix="repairautomachine_amount"
+            readonly="true"
+        ></comp-sheet-resource>
+    </div>
+</div>

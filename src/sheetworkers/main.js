@@ -19,6 +19,8 @@ import "./event handlers/engineering/augmentation.js";
 import "./event handlers/engineering/automachinery.js";
 import "./event handlers/engineering/blueprints.js";
 
+import "./event handlers/engineering/automachinery/repair-automachinery.js";
+
 // Action Buttons
 import "./event handlers/action buttons/alchemy.js";
 import "./event handlers/action buttons/prayer.js";

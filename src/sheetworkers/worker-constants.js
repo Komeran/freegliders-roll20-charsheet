@@ -1,11 +1,6 @@
 /**
  * @type {string}
  */
-export const TEST_TYPE_PROMPT = "?{Roll Type|Normal,[[1d20]]|Advantage,{[[1d20]]&#44;[[1d20]]&#125;kh1|Disadvantage,{[[1d20]]&#44;[[1d20]]&#125;kl1}";
-
-/**
- * @type {string}
- */
 export const CUSTOM_TEMPLATE_BEGINNING = `?{Secret|Open,|Secret,/w gm} &{template:custom}`;
 
 /**

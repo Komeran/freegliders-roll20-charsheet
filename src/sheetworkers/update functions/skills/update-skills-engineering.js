@@ -199,7 +199,9 @@ export function UpdateAutomachinery() {
             "automachineryMod": Signed(mod),
             "automachineryPassive": 10 + mod,
             "show_automachinery": skill >= 1 ? "on" : "off",
-            "show_disassembleautomachinery": skill >= 1 ? "on" : "off"
+            "show_disassembleautomachinery": skill >= 1 ? "on" : "off",
+            "show_automachineryrepair": skill >= 2 ? "on" : "off",
+            "show_automatons": skill >= 3 ? "on" : "off"
         });
         
         UpdateSpellSaveDTs();

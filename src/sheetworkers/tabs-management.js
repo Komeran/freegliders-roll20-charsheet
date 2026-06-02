@@ -53,9 +53,9 @@ for(let i = 0; i < cwmTabButtonlist.length; i++) {
     });
 }
 
-const automachineryTabButtonlist = ["blueprintsautomachinery", "automatons"];
-for(let i = 0; i < automachineryTabButtonlist.length; i++) {
-    on(`clicked:${automachineryTabButtonlist[i]}`, function() {
+const AUTOMACHINERY_TABS = ["blueprintsautomachinery", "repair", "automatons"];
+for(let i = 0; i < AUTOMACHINERY_TABS.length; i++) {
+    on(`clicked:${AUTOMACHINERY_TABS[i]}`, function() {
         setAttrs({
             automachineryTab: i
         });

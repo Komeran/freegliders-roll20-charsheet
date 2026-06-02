@@ -1,0 +1,43 @@
+.charsheet .sheet-automachinery-repair-content {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.charsheet .sheet-automachinery-repair-right,
+.charsheet .sheet-automachinery-repair-middle {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+}
+
+.charsheet .sheet-automachinery-repair-left {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+}
+
+.charsheet .sheet-automachinery-repair-input {
+    display: grid;
+    grid-template-columns: 60px auto 20px 20px;
+    align-items: center;
+    gap: 5px;
+}
+
+.charsheet .sheet-automachinery-repair-titles {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 150px;
+    margin-left: 20px;
+}
