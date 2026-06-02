@@ -25,6 +25,7 @@ import "./event handlers/action buttons/prayer.js";
 import "./event handlers/action buttons/runecraft.js";
 import "./event handlers/action buttons/spellwork.js";
 import "./event handlers/action buttons/summoning.js";
+import "./event handlers/action buttons/engineering.js";
 
 // Custom Roll Buttons
 import "./custom roll buttons/evasion.js";

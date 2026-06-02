@@ -51,6 +51,48 @@ export const SKILLS = [
 ];
 
 /**
+ * @type {Object.<string, string>}
+ */
+export const SKILL_LABELS = {
+    "athletics": "Athletics",
+    "perception": "Perception",
+    "piloting": "Piloting",
+    "stealth": "Stealth",
+    "artisanship": "Artisanship",
+    "deception": "Deception",
+    "intimidation": "Intimidation",
+    "performance": "Performance",
+    "persuasion": "Persuasion",
+    "astronomy": "Astronomy",
+    "economy": "Economy",
+    "history": "History",
+    "literature": "Literature",
+    "medicine": "Medicine",
+    "mythology": "Mythology",
+    "nature": "Nature",
+    "survival": "Survival",
+    "clockworkmechanics": "Clockwork Mechanics",
+    "automachinery": "Automachinery",
+    "augmentation": "Augmentation",
+    "gunsmithing": "Gunsmithing",
+    "tinkering": "Tinkering",
+    "vehiclemechanics": "Vehicle Mechanics",
+    "alchemy": "Alchemy",
+    "prayer": "Prayer",
+    "spellwork": "Spellwork",
+    "runecraft": "Runecraft",
+    "summoning": "Summoning",
+    "artillery": "Artillery",
+    "brawling": "Brawling",
+    "bow": "Bow",
+    "pistol": "Pistol",
+    "rifle": "Rifle",
+    "shield": "Shield",
+    "onehandedmelee": "One-Handed Melee",
+    "twohandedmelee": "Two-Handed Melee"
+};
+
+/**
  * @type {string[]}
  */
 export const ATTRIBUTES = [
