@@ -111,22 +111,22 @@ function RepairAutomachine() {
 
         const inputs = [];
         if(inputBolts > 0) {
-            inputs.push(`${inputBolts} Bolts`);
+            inputs.push(`${inputBolts} Bolt${inputBolts > 1 ? 's' : ''}`);
         }
         if(inputCogs > 0) {
-            inputs.push(`${inputCogs} Cogs`);
+            inputs.push(`${inputCogs} Cog${inputCogs > 1 ? 's' : ''}`);
         }
         if(inputWires > 0) {
-            inputs.push(`${inputWires} Wires`);
+            inputs.push(`${inputWires} Wire${inputWires > 1 ? 's' : ''}`);
         }
         if(inputPlates > 0) {
-            inputs.push(`${inputPlates} Plates`);
+            inputs.push(`${inputPlates} Plate${inputPlates > 1 ? 's' : ''}`);
         }
         if(inputRods > 0) {
-            inputs.push(`${inputRods} Rods`);
+            inputs.push(`${inputRods} Rod${inputRods > 1 ? 's' : ''}`);
         }
         if(inputLenses > 0) {
-            inputs.push(`${inputLenses} Lenses`);
+            inputs.push(`${inputLenses} Lense${inputLenses > 1 ? 's' : ''}`);
         }
 
         rollString += `{{inputs=${inputs.join(', ')}}}`;

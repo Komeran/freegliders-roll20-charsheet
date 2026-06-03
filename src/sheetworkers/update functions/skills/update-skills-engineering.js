@@ -174,12 +174,17 @@ export function UpdateAugmentation() {
 
         const mod = skill + stat;
 
+        const showScrapSurgeon = skill >= 6 ? "on" : "off";
+
         setAttrs({
             "augmentation": skill,
             "augmentationMod": Signed(mod),
             "augmentationPassive": 10 + mod,
             "show_augmentation": skill >= 1 ? "on" : "off",
-            "show_disassembleaugmentation": skill >= 1 ? "on" : "off"
+            "show_disassembleaugmentation": skill >= 1 ? "on" : "off",
+            "show_functionalprosthetic": skill >= 3 ? "on" : "off",
+            "show_installprosthetic": showScrapSurgeon,
+            "show_installautolimb": showScrapSurgeon
         });
         
         UpdateSpellSaveDTs();
@@ -239,13 +244,16 @@ export function UpdateGunsmithing() {
         const stat = parseInt(values.agi)||0;
 
         const mod = skill + stat;
+        const showAcuteDisrepair = skill >= 8 ? "on" : "off";
 
         setAttrs({
             "gunsmithing": skill,
             "gunsmithingMod": Signed(mod),
             "gunsmithingPassive": 10 + mod,
             "show_gunsmithing": skill >= 1 ? "on" : "off",
-            "show_disassemblegunsmithing": skill >= 1 ? "on" : "off"
+            "show_disassemblegunsmithing": skill >= 1 ? "on" : "off",
+            "show_acutedisrepairaction": showAcuteDisrepair,
+            "show_acutedisrepairreaction": showAcuteDisrepair
         });
 
         UpdateRangedWeapons(); // For Gun Training
@@ -255,18 +263,31 @@ export function UpdateGunsmithing() {
 }
 
 export function UpdateTinkering() {
-    getAttrs(["tinkering", "agi"], function(values) {
+    getAttrs(["tinkering", 'show_disassembleclockworkmechanics', 'show_disassembleautomachinery', 'show_disassembleaugmentation', 'show_disassemblegunsmithing', 'show_disassemblevehiclemechanics', "agi"], function(values) {
         const skill = parseInt(values.tinkering)||0;
         const stat = parseInt(values.agi)||0;
 
+        const showDisassembleClockworkMechanics = values.show_disassembleclockworkmechanics||'off';
+        const showDisassembleAutomachinery = values.show_disassembleautomachinery||'off';
+        const showDisassembleAugmentation = values.show_disassembleaugmentation||'off';
+        const showDisassembleGunsmithing = values.show_disassemblegunsmithing||'off';
+        const showDisassembleVehicleMechanics = values.show_disassemblevehiclemechanics||'off';
+
         const mod = skill + stat;
+        const showReverseEngineering = skill >= 8;
 
         setAttrs({
             "tinkering": skill,
             "tinkeringMod": Signed(mod),
             "tinkeringPassive": 10 + mod,
             "show_tinkering": skill >= 1 ? "on" : "off",
-            "show_scrap": skill >= 1 ? "on" : "off"
+            "show_scrap": skill >= 1 ? "on" : "off",
+            "show_reverseengineertinkering": showReverseEngineering ? 'on' : 'off',
+            "show_reverseengineerclockworkmechanics": showReverseEngineering ? showDisassembleClockworkMechanics : 'off',
+            "show_reverseengineerautomachinery": showReverseEngineering ? showDisassembleAutomachinery : 'off',
+            "show_reverseengineeraugmentation": showReverseEngineering ? showDisassembleAugmentation : 'off',
+            "show_reverseengineergunsmithing": showReverseEngineering ? showDisassembleGunsmithing : 'off',
+            "show_reverseengineervehiclemechanics": showReverseEngineering ? showDisassembleVehicleMechanics : 'off'
         });
         
         UpdateSpellSaveDTs();

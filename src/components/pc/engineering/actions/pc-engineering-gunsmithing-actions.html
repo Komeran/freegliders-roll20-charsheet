@@ -7,4 +7,28 @@
         prefix="disassemblegunsmithing"
         tooltip="You can spend an hour disassembling devices using Gunsmithing Tools. Make a Gunsmithing [LOG] test against 20. On a success, you gain a number of parts from the object’s blueprint up to your Gunsmithing skill Rank. If your Gunsmithing skill Rank is equal to or higher than the object’s complexity, you gain all of its parts and you can not gain more parts of any type than were used to assemble it. If you fail, you don’t gain any parts and destroy the object. Regardless of whether you succeed or not, you gain the object’s power core if it had one installed."
     ></comp-sheet-action-button>
+    
+    <!-- Reverse Engineer -->
+    <comp-sheet-action-button
+        label="Reverse Engineer"
+        duration="1 hour"
+        prefix="reverseengineergunsmithing"
+        tooltip="You can attempt to reverse engineer the blueprint for any device you scrap. If you do so, you still roll your Gunsmithing [LOG] test as normal. Successfully reverse engineering the device yields no parts, but it does yield a number of pieces of the blueprint up to your Gunsmithing skill ranks, as if you had received them through Designing."
+    ></comp-sheet-action-button>
+    
+    <!-- Acute Disrepair Action -->
+    <comp-sheet-action-button
+        label="Acute Disrepair"
+        duration="Minor Action"
+        prefix="acutedisrepairaction"
+        tooltip="As a Minor Action you can attempt to disable a bow, pistol, or rifle that a creature within 2m of you is holding. Make a Gunsmithing [AGI] test against the target creature’s Evasion test. On a success, the weapon becomes inoperable until it is repaired, which takes 10 minutes and a Gunsmithing [AGI] test against 10 + your Gunsmithing skill ranks. An inoperable weapon can’t be fired normally, but can still be thrown or used for improvised melee attacks."
+    ></comp-sheet-action-button>
+    
+    <!-- Acute Disrepair Reaction -->
+    <comp-sheet-action-button
+        label="Acute Disrepair"
+        duration="Minor Reaction"
+        prefix="acutedisrepairreaction"
+        tooltip="As a Minor Reaction when a creature within 2m of you draws a bow, crossbow, pistol, or rifle you can attempt to disable that weapon. Make a Gunsmithing [AGI] test against the target creature’s Evasion test. On a success, the weapon becomes inoperable until it is repaired, which takes 10 minutes and a Gunsmithing [AGI] test against 10 + your Gunsmithing skill ranks. An inoperable weapon can’t be fired normally, but can still be thrown or used for improvised melee attacks."
+    ></comp-sheet-action-button>
 </div>
